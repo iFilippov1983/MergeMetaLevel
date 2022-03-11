@@ -1,16 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
+using Profile;
+using Data;
 using UnityEngine;
+using UnityEngine.Analytics;
 
-public class Root : MonoBehaviour
+internal sealed class Root : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    //private const GameState InitialState = GameState.Game;
+    [SerializeField] private GameData _gameData;
 
-    void Update()
+    private MetaLevel _metaLevel;
+    //private MetaLevel _mainController;
+
+    public GameData GameData => _gameData;
+
+    private void Awake()
     {
-        
+        _metaLevel = new MetaLevel(_gameData);
+        //Fill
+    }
+    //GetMovesCount
+    //Отрисовываем число на кубике Debug //await Task.Delay(1000)
+    //Move<данные от клетки(Data)>
+    //Анимация чего-то Debug
+    //Apply
+    private void OnDestroy()
+    {
+        _metaLevel.Dispose();
     }
 }
+
