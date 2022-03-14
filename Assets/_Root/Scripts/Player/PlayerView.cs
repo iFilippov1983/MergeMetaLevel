@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private Transform _movePositionTransform;
     private NavMeshAgent _navMeshAgent;
 
+    public Action<Collider> OnTrigger;
+
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
 
     private void Awake()
@@ -15,8 +18,8 @@ public class PlayerView : MonoBehaviour
         _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        _navMeshAgent.destination = _movePositionTransform.position;
+        OnTrigger?.Invoke(other);
     }
 }
