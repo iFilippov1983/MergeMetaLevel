@@ -8,6 +8,7 @@ namespace Data
     [CreateAssetMenu(menuName = "GameData/Cells/CellProperties", fileName = "CellProperties")]
     public class CellProperties : ScriptableObject
     {
+        public int ID;
         [SerializeField] private CellStatus _status;
         [SerializeField] private List<ScriptableObject> _cellContent;
 

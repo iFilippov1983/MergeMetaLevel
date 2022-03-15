@@ -17,7 +17,7 @@ namespace Data
             get
             {
                 if (_playerPrefab == null) _playerPrefab =
-                         Resources.Load<GameObject>(string.Concat(ResourcePath.PlayerPrefabFolder, _playerPrefabName));
+                         Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _playerPrefabName));
                 return _playerPrefab;
             }
         }

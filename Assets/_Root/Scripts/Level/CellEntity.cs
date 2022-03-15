@@ -7,7 +7,7 @@ namespace Level
     {
         private int _number;
         private CellView _cellView;
-        CellProperties _propeties;
+        private CellProperties _propeties;
         public CellEntity(int number, CellView cellView, CellProperties properties)
         {
             _number = number;

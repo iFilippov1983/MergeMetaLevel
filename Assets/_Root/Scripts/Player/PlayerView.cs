@@ -6,16 +6,18 @@ using UnityEngine.AI;
 
 public class PlayerView : MonoBehaviour
 {
-    [SerializeField] private Transform _movePositionTransform;
+    private Transform _transform;
     private NavMeshAgent _navMeshAgent;
 
     public Action<Collider> OnTrigger;
 
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
+    public Transform Transform => _transform;
 
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _transform = GetComponent<Transform>();
     }
 
     private void OnTriggerEnter(Collider other)

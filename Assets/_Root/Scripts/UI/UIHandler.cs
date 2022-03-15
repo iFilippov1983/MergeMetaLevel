@@ -17,14 +17,13 @@ namespace GameUI
         private GameUIView _gameUIView;
         private int _numberForDice;
 
-        private Action OnDiceRollFinshed;
+        public Action OnDiceRollFinshed;
         public Func<int> NumberForDiceCall;
 
-        public UIHandler(UIData uiData, Action OnDiceRollAction, Transform uiContainer)
+        public UIHandler(UIData uiData, Transform uiContainer)
         {
             _uiContainer = uiContainer;
             _uiData = uiData;
-            OnDiceRollFinshed += OnDiceRollAction;
             InitializeUI();
         }
 
@@ -33,6 +32,8 @@ namespace GameUI
             var uiObject = Object.Instantiate(_uiData.GameUIPrefab, _uiContainer);
             _gameUIView = uiObject.GetComponent<GameUIView>();
             _gameUIView.Init(DiceRoll);
+
+            
         }
 
         private async void DiceRoll()
@@ -51,6 +52,11 @@ namespace GameUI
             await Task.Delay(1000);
             _gameUIView.NumberText.text = string.Empty;
             _gameUIView.NumberText.gameObject.SetActive(false);
+        }
+
+        private void InitializeCameras()
+        { 
+        
         }
     }
 }

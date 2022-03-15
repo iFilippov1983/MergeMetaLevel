@@ -12,16 +12,21 @@ internal sealed class Root : MonoBehaviour
     [SerializeField] private Transform _uiContainer;
     [SerializeField] private int _initialCellID;
 
-    private LevelAPI _levelAPI;
-    private PlayerAPI _playerAPI;
+
+    private MetaLevel _metaLevel;
+    private UIHandler _uiHandler;
 
     public GameData GameData => _gameData;
 
     private void Awake()
     {
         var playerProfile = new PlayerProfile(_initialCellID);
-        _levelAPI = new LevelAPI(_gameData, playerProfile, _uiContainer);
-        _playerAPI = new PlayerAPI(_gameData, playerProfile);
+        _metaLevel = new MetaLevel(_gameData, playerProfile);
+        _uiHandler = new UIHandler(_gameData.UIData, _uiContainer);
+
+        
+        _uiHandler.NumberForDiceCall += _metaLevel.GetNuberOfRouteCells;
+        _uiHandler.OnDiceRollFinshed += _metaLevel.MovePlayer;
     }
 
     //GetMovesCount
