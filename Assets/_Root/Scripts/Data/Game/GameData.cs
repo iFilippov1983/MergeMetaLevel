@@ -36,7 +36,7 @@ namespace Data
             }
         }
 
-        public UIData UiData
+        public UIData UIData
         {
             get 
             { 

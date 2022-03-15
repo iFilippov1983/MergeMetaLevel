@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Level
 {
-    internal class CellsEntity
+    internal class CellEntity
     {
         private int _number;
         private CellView _cellView;
         CellProperties _propeties;
-        public CellsEntity(int number, CellView cellView, CellProperties properties)
+        public CellEntity(int number, CellView cellView, CellProperties properties)
         {
             _number = number;
             _cellView = cellView;

@@ -12,7 +12,6 @@ namespace Player
     {
         private PlayerData _playerData;
         private GameObject _playerPrefab;
-        private Vector3 _playerInitPosition;
         private PlayerView _playerView;
 
         public PlayerHandler(PlayerData playerData)
@@ -23,15 +22,13 @@ namespace Player
 
         public void InitPlayer(Vector3 playerInitPosition)
         {
-            var plObject = GameObject.Instantiate(_playerPrefab, playerInitPosition, Quaternion.identity);
-            _playerView = plObject.GetComponent<PlayerView>();
+            var playerObject = GameObject.Instantiate(_playerPrefab, playerInitPosition, Quaternion.identity);
+            _playerView = playerObject.GetComponent<PlayerView>();
         }
 
-        public async Task SetDestination(Vector3 position)
+        public void SetDestination(Vector3 position)
         {
             _playerView.NavMeshAgent.SetDestination(position);
-            //
         }
-
     }
 }

@@ -1,18 +1,26 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using TMPro;
 
-public class GameUIView : MonoBehaviour
+namespace GameUI
 {
-    [SerializeField] private Button _rollButton;
-
-    public void Init(UnityAction rollButtonClicked)
+    public class GameUIView : MonoBehaviour
     {
-        _rollButton.onClick.AddListener(rollButtonClicked);
-    }
+        [SerializeField] private Button _rollButton;
+        [SerializeField] private Text _numberText;
 
-    private void OnDestroy()
-    {
-        _rollButton.onClick.RemoveAllListeners();
+        public Text NumberText => _numberText;
+
+        public void Init(UnityAction rollButtonClicked)
+        {
+            _numberText = GetComponentInChildren<Text>();
+            _rollButton.onClick.AddListener(rollButtonClicked);
+        }
+
+        private void OnDestroy()
+        {
+            _rollButton.onClick.RemoveAllListeners();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Tool;
 
 namespace Data
 {
@@ -7,7 +8,7 @@ namespace Data
     {
         private const string PrefabsFolderPath = "Prefabs/";
 
-        [SerializeField] private string _playerPrefabPath;
+        [SerializeField] private string _playerPrefabName;
 
         private GameObject _playerPrefab;
 
@@ -16,7 +17,7 @@ namespace Data
             get
             {
                 if (_playerPrefab == null) _playerPrefab =
-                         Resources.Load<GameObject>(string.Concat(PrefabsFolderPath, _playerPrefabPath));
+                         Resources.Load<GameObject>(string.Concat(ResourcePath.PlayerPrefabFolder, _playerPrefabName));
                 return _playerPrefab;
             }
         }
