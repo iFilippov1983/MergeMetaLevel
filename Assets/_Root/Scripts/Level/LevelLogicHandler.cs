@@ -36,7 +36,7 @@ namespace Level
         {
             for (int index = 0; index < _cellsProperties.Length; index++)
             {
-                _cellsProperties[index].ID = index;
+                _cellsProperties[index].Id = index;
             }
         }
     }

@@ -4,24 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerView : MonoBehaviour
+namespace Player
 {
-    private Transform _transform;
-    private NavMeshAgent _navMeshAgent;
-
-    public Action<Collider> OnTrigger;
-
-    public NavMeshAgent NavMeshAgent => _navMeshAgent;
-    public Transform Transform => _transform;
-
-    private void Awake()
+    public class PlayerView : MonoBehaviour
     {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _transform = GetComponent<Transform>();
-    }
+        private NavMeshAgent _navMeshAgent;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        OnTrigger?.Invoke(other);
+        public NavMeshAgent NavMeshAgent => _navMeshAgent;
+
+        private void Awake()
+        {
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+        }
     }
 }
+

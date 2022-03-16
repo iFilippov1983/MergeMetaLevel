@@ -24,9 +24,18 @@ internal sealed class Root : MonoBehaviour
         _metaLevel = new MetaLevel(_gameData, playerProfile);
         _uiHandler = new UIHandler(_gameData.UIData, _uiContainer);
 
-        
-        _uiHandler.NumberForDiceCall += _metaLevel.GetNuberOfRouteCells;
-        _uiHandler.OnDiceRollFinshed += _metaLevel.MovePlayer;
+        _uiHandler.OnDiceRollClick += OnDiceRollClick;
+    }
+
+    private async void OnDiceRollClick()
+    { 
+        _uiHandler.DesactivateUI();
+
+        int count = _metaLevel.GetRouteCellsCount();
+        await _uiHandler.PlayDiceRollAnimation(count);
+        await _metaLevel.MovePlayer();
+
+        _uiHandler.ActivateUI();
     }
 
     //GetMovesCount
@@ -37,7 +46,7 @@ internal sealed class Root : MonoBehaviour
 
     private void OnDestroy()
     {
-       
+        _uiHandler.OnDiceRollClick -= OnDiceRollClick;
     }
 }
 

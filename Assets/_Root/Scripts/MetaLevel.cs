@@ -2,6 +2,7 @@
 using Player;
 using Level;
 using GameUI;
+using GameCamera;
 using UnityEngine;
 using UnityEngine.Analytics;
 using System;
@@ -16,66 +17,56 @@ internal sealed class MetaLevel
     private PlayerHandler _playerHandler;
     private PlayerProfile _playerProfile;
     private LevelLogicHandler _logicHandler;
+    private VirtualCameraHandler _virtualCameraHandler;
+
     public MetaLevel(GameData gameData , PlayerProfile playerProfile)
     {
         _gameData = gameData;
         _playerProfile = playerProfile;
         _levelViewHandler = new LevelViewHandler(_gameData.LevelData);
-        _playerHandler = new PlayerHandler(_gameData, _playerProfile);
+        _playerHandler = new PlayerHandler(_gameData, _playerProfile.CurrentCellID);
         _logicHandler = new LevelLogicHandler(_gameData.LevelData.CellsPropeties);
-
-        _playerHandler.OnTargetPositionCall += _levelViewHandler.GetCellPositionWithID;
+        _virtualCameraHandler = new VirtualCameraHandler(_playerHandler.PlayerView.transform);
     }
 
-    public int GetNuberOfRouteCells()
+    public int GetRouteCellsCount()
     {
-        int id = _playerProfile.CurrentCellID.Value + 1;
+        int id = _playerProfile.CurrentCellID + 1;
         return _logicHandler.GetRouteCellsPropertiesFrom(id).Count;
     }
 
-    public async void MovePlayer()
+    public async Task MovePlayer()
     {
-        int id =_playerProfile.CurrentCellID.Value + 1;
+        int id =_playerProfile.CurrentCellID + 1;
         var route = _logicHandler.GetRouteCellsPropertiesFrom(id);
-        _playerProfile.CurrentRoute.Value = route;
 
-        await Task.Run(() => _playerHandler.hasArrived == true);
+        await MovePlayerBy(route);
     }
 
+    private async Task MovePlayerBy(List<CellProperties> route)
+    {
+        foreach (CellProperties property in route)
+        {
+            Vector3 position = _levelViewHandler.GetCellPositionWithID(property.Id);
+            await _playerHandler.SetDestinationAndMove(position);
+            ApplyCellAnimation(property.Id);
+            _playerProfile.CurrentCellID = property.Id;
+        }
+    }
 
+    private void ApplyCellAnimation(int sellId)
+    {
+        var cellView = _levelViewHandler.GetCellViewWithID(sellId);
+        var sRenderer = cellView.SpriteRenderer;
+        sRenderer.gameObject.SetActive(true);
+        
+        var tmp = cellView.TextMeshPro;
+        tmp.gameObject.SetActive(false);
 
-
-    //private List<CellEntity> MakeEntitiesList(Dictionary<int, CellView> cellViews, CellProperties[] cellProperties)
-    //{
-    //    if (cellViews.Count != cellProperties.Length) return null;
-
-    //    var entities = new List<CellEntity>();
-    //    for (int index = 0; index < cellProperties.Length; index++)
-    //    {
-    //        var entity = new CellEntity(index, cellViews[index], cellProperties[index]);
-    //        entities.Add(entity);
-    //    }
-    //    return entities;
-    //}
-
-
-
-    ///
-    //public async Task<(CellProperties, CellView)> Move(int cellID)
-    //{
-    //    var properties = _metaLevel.CellEntities[cellID].Propeties;
-    //    var view = _metaLevel.CellEntities[cellID].CellView;
-    //    Apply();
-    //    return (properties, view);
-    //}
-
-    //public async void Apply()
-    //{
-    //    await Task.Yield();
-    //}
-
-    //public Vector3 GetDestination(int cellID)
-    //{
-    //    return _metaLevel.CellEntities[cellID].Position;
-    //}
+        var pSystem = cellView.ParticleSystem;
+        pSystem.gameObject.SetActive(true);
+        pSystem.Play();
+        //while (cellView.ParticleSystem.isPlaying)
+        //    await Task.Yield();
+    }
 }

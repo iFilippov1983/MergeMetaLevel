@@ -10,6 +10,7 @@ namespace GameUI
         [SerializeField] private Button _rollButton;
         [SerializeField] private Text _numberText;
 
+        public Button RollButton => _rollButton;
         public Text NumberText => _numberText;
 
         public void Init(UnityAction rollButtonClicked)

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using Tool;
 using Data;
 using Object = UnityEngine.Object;
 
@@ -15,10 +11,8 @@ namespace GameUI
         private Transform _uiContainer;
         private UIData _uiData;
         private GameUIView _gameUIView;
-        private int _numberForDice;
 
-        public Action OnDiceRollFinshed;
-        public Func<int> NumberForDiceCall;
+        public Action OnDiceRollClick;
 
         public UIHandler(UIData uiData, Transform uiContainer)
         {
@@ -27,25 +21,7 @@ namespace GameUI
             InitializeUI();
         }
 
-        private void InitializeUI()
-        {
-            var uiObject = Object.Instantiate(_uiData.GameUIPrefab, _uiContainer);
-            _gameUIView = uiObject.GetComponent<GameUIView>();
-            _gameUIView.Init(DiceRoll);
-
-            
-        }
-
-        private async void DiceRoll()
-        {
-            if (NumberForDiceCall != null)
-                _numberForDice = NumberForDiceCall.Invoke();
-            await PlayDiceRollAnimation(_numberForDice);
-            OnDiceRollFinshed?.Invoke();
-        }
-
-
-        private async Task PlayDiceRollAnimation(int number) //animation ID
+        public async Task PlayDiceRollAnimation(int number) //animation ID
         {
             _gameUIView.NumberText.text = number.ToString();
             _gameUIView.NumberText.gameObject.SetActive(true);
@@ -54,9 +30,26 @@ namespace GameUI
             _gameUIView.NumberText.gameObject.SetActive(false);
         }
 
-        private void InitializeCameras()
+        public void ActivateUI()
+        {
+            _gameUIView.RollButton.interactable = true;
+        }
+
+        public void DesactivateUI()
+        {
+            _gameUIView.RollButton.interactable = false;
+        }
+
+        private void DiceRoll()
         { 
+            OnDiceRollClick?.Invoke();
+        }
         
+        private void InitializeUI()
+        {
+            var uiObject = Object.Instantiate(_uiData.GameUIPrefab, _uiContainer);
+            _gameUIView = uiObject.GetComponent<GameUIView>();
+            _gameUIView.Init(DiceRoll);
         }
     }
 }
