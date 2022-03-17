@@ -10,13 +10,12 @@ namespace Data
     {
         public int Id;
         [SerializeField] private CellStatus _status;
-        [SerializeField] private List<ScriptableObject> _cellContent;
-        [SerializeField] private Sprite _sprite;
+        [SerializeField] private ContentProperties _contentProperties;
+
+        //[SerializeField] private List<ContentProperties>
 
         public CellStatus Status => _status;
-        public List<ScriptableObject> Content => _cellContent;
-        public Sprite Sprite => _sprite;
+        internal ContentProperties ContentProperties => _contentProperties;
     }
-
 }
 

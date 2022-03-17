@@ -10,7 +10,7 @@ namespace GameCamera
     internal class VirtualCameraHandler
     {
         private CinemachineVirtualCamera _virtualCamFollow;
-        private CinemachineVirtualCamera _virtualCamEvent;
+        //private CinemachineVirtualCamera _virtualCamEvent;
 
         public VirtualCameraHandler(Transform targetTransform)
         {

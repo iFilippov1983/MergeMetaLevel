@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7276d71306f53c41b76f871c47bf8e9, type: 3}
   m_Name: Cell 50 Resource
   m_EditorClassIdentifier: 
+  Id: 50
   _status: 1
   _cellContent:
   - {fileID: 11400000, guid: 506d7d13101e8c64794565fbd3648ccd, type: 2}

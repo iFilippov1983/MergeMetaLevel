@@ -10,34 +10,90 @@ namespace Level
 {
     internal class LevelLogicHandler
     {
+        private CellProperties[] _fullLevelRoute;
+        private CellProperties[] _cellsToVisitProperties;
+
         private CellProperties[] _cellsProperties;
 
-        public CellProperties[] CellProperties => _cellsProperties;
+        //public CellProperties[] CellProperties => _cellsProperties;
 
-        public LevelLogicHandler(CellProperties[] cellsProperties)
+
+        public LevelLogicHandler(CellProperties[] cellsToVisitProperties)   //(CellProperties[] cellsProperties)
         {
-            _cellsProperties = cellsProperties;
-            SetIDs();
+            //_cellsProperties = cellsProperties;
+            //SetIDs();
+            _cellsToVisitProperties = cellsToVisitProperties;
+            MakeFullLevelRoute();
         }
 
-        public List<CellProperties> GetRouteCellsPropertiesFrom(int cellID)
+        public int GetRouteCountFrom(int cellId) => GetRouteIDsFrom(cellId).Count;
+
+        public CellProperties GetCellPropertyWhithId(int cellId)
         {
-            var routeCellsProperties = new List<CellProperties>();
-            for (int i = cellID; i < _cellsProperties.Length; i++)
+            foreach (CellProperties cellProperty in _cellsToVisitProperties)
+                if (cellProperty.Id.Equals(cellId)) return cellProperty;
+
+            return null;
+        }
+
+        public List<int> GetRouteIDsFrom(int cellId)
+        {
+            var routeCellsIDs = new List<int>();
+            for (int i = cellId; i < _fullLevelRoute.Length; i++)
             {
-                var cellProperties = _cellsProperties[i];
-                routeCellsProperties.Add(cellProperties);
-                if (cellProperties.Status.Equals(CellStatus.ToVisit)) break;
+                int id = _fullLevelRoute[i].Id;
+                routeCellsIDs.Add(id);
+                if (_fullLevelRoute[i].Status.Equals(CellStatus.ToVisit)) break;
             }
-            return routeCellsProperties;
+            return routeCellsIDs;
         }
 
-        private void SetIDs()
+        private void MakeFullLevelRoute()
         {
-            for (int index = 0; index < _cellsProperties.Length; index++)
+            var fullLevelRouteList = new List<CellProperties>();
+            var lastCellId = _cellsToVisitProperties[_cellsToVisitProperties.Length - 1].Id;
+            bool dontSkipEmpty = true;
+
+            for (int index = 0; index < lastCellId + 1; index++)
             {
-                _cellsProperties[index].Id = index;
+                foreach (CellProperties cellProperties in _cellsToVisitProperties)
+                {
+                    if (cellProperties.Id.Equals(index))
+                    {
+                        fullLevelRouteList.Add(cellProperties);
+                        dontSkipEmpty = false;
+                        break;
+                    }
+                    else dontSkipEmpty = true; 
+                }
+                if (dontSkipEmpty)
+                {
+                    var emptyProperties = (CellProperties)ScriptableObject.CreateInstance(nameof(CellProperties));
+                    emptyProperties.Id = index;
+                    fullLevelRouteList.Add(emptyProperties);
+                }
             }
+            _fullLevelRoute = fullLevelRouteList.ToArray();
         }
+
+        //public List<CellProperties> GetRouteCellsPropertiesFrom(int cellId)
+        //{
+        //    var routeCellsProperties = new List<CellProperties>();
+        //    for (int i = cellId; i < _cellsProperties.Length; i++)
+        //    {
+        //        var cellProperties = _cellsProperties[i];
+        //        routeCellsProperties.Add(cellProperties);
+        //        if (cellProperties.Status.Equals(CellStatus.ToVisit)) break;
+        //    }
+        //    return routeCellsProperties;
+        //}
+
+        //private void SetIDs()
+        //{
+        //    for (int index = 0; index < _cellsProperties.Length; index++)
+        //    {
+        //        _cellsProperties[index].Id = index;
+        //    }
+        //}
     }
 }

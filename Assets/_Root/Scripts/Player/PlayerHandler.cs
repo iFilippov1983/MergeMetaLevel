@@ -27,7 +27,7 @@ namespace Player
         {
             _playerView.NavMeshAgent.SetDestination(position);
             var transform = _playerView.transform;
-            while(Vector3.SqrMagnitude(transform.position - position) > 0.1f * 0.1f)
+            while(Vector3.SqrMagnitude(transform.position - position) > 0.2f * 0.2f)
                 await Task.Yield();
         }
 

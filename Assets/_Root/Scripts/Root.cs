@@ -22,9 +22,10 @@ internal sealed class Root : MonoBehaviour
     {
         var playerProfile = new PlayerProfile(_initialCellID);
         _metaLevel = new MetaLevel(_gameData, playerProfile);
-        _uiHandler = new UIHandler(_gameData.UIData, _uiContainer);
+        _uiHandler = new UIHandler(_gameData.UIData, _uiContainer, playerProfile);
 
         _uiHandler.OnDiceRollClick += OnDiceRollClick;
+        _metaLevel.OnResourcePickup += OnResourcePickupEvent;
     }
 
     private async void OnDiceRollClick()
@@ -34,8 +35,16 @@ internal sealed class Root : MonoBehaviour
         int count = _metaLevel.GetRouteCellsCount();
         await _uiHandler.PlayDiceRollAnimation(count);
         await _metaLevel.MovePlayer();
+        await _metaLevel.ApplyCellEvent();
 
         _uiHandler.ActivateUI();
+    }
+
+    private async void OnResourcePickupEvent(ResourceProperties resourceProperties)
+    {
+        ResouceType resouceType = resourceProperties.ResouceType;
+        int amount = resourceProperties.Amount;
+        await _uiHandler.DefineResourceAndChangeUI(resouceType, amount);
     }
 
     //GetMovesCount

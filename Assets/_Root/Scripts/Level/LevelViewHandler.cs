@@ -16,8 +16,8 @@ namespace Level
 
         public Dictionary<int, CellView> CellsViewDictionary => _cellsViewDictionary;
 
-        public CellView GetCellViewWithID(int id) => _cellsViewDictionary[id];
-        public Vector3 GetCellPositionWithID(int id) => _cellsViewDictionary[id].transform.position;
+        public CellView GetCellViewWithId(int id) => _cellsViewDictionary[id];
+        public Vector3 GetCellPositionWithId(int id) => _cellsViewDictionary[id].transform.position;
         public LevelViewHandler(LevelData levelData)
         {
             _levelData = levelData;

@@ -9,13 +9,16 @@ namespace GameUI
     {
         [SerializeField] private Button _rollButton;
         [SerializeField] private Text _numberText;
+        [SerializeField] private Text _coinsText;
+        [SerializeField] private Text _gemsText;
 
         public Button RollButton => _rollButton;
         public Text NumberText => _numberText;
+        public Text CoinsText => _coinsText;
+        public Text GemsText => _gemsText;
 
         public void Init(UnityAction rollButtonClicked)
         {
-            _numberText = GetComponentInChildren<Text>();
             _rollButton.onClick.AddListener(rollButtonClicked);
         }
 

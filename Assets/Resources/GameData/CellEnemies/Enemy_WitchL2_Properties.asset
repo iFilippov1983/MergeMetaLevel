@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82224ae5464bb4408cf0f47dbcc4e75, type: 3}
   m_Name: Enemy_WitchL2_Properties
   m_EditorClassIdentifier: 
-  _enemyType: 0
+  _enemyType: 2
   _enemyStats:
-    Health: 60
-    Armor: 2
     Power: 65

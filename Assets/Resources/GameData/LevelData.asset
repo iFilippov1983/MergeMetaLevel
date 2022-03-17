@@ -60,3 +60,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6c81867697e78c046bfc24341525e284, type: 2}
   - {fileID: 11400000, guid: 2e9ec26bb008a0649b84485168047a3b, type: 2}
   - {fileID: 11400000, guid: f18d3f76fd656f94d87d8a682540f2fc, type: 2}
+  _cellsToVisitProperties:
+  - {fileID: 11400000, guid: 7ea29e0075fd40842951a0a1f825b47a, type: 2}
+  - {fileID: 11400000, guid: 8cfc6970adce91b48b68584a0f7e358d, type: 2}
+  - {fileID: 11400000, guid: 5aa0dc7e63f3fd245b04fc15560f5418, type: 2}
+  - {fileID: 11400000, guid: a1279145653a4a34d8ff82deef4ed601, type: 2}
+  - {fileID: 11400000, guid: 5d89613740e55c945841a6963975cd2c, type: 2}
+  - {fileID: 11400000, guid: aa5b416b332e64747bbbce2d0bfe7d7c, type: 2}
+  - {fileID: 11400000, guid: f18d3f76fd656f94d87d8a682540f2fc, type: 2}

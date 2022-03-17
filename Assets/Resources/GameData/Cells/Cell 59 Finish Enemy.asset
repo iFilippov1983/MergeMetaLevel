@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7276d71306f53c41b76f871c47bf8e9, type: 3}
   m_Name: Cell 59 Finish Enemy
   m_EditorClassIdentifier: 
+  Id: 18
   _status: 1
-  _cellContent:
-  - {fileID: 11400000, guid: 03c728d1cc8228344a33a625d5f62fc3, type: 2}
+  _contentProperties: {fileID: 11400000, guid: 03c728d1cc8228344a33a625d5f62fc3, type: 2}

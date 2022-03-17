@@ -9,10 +9,12 @@ namespace Data
     public class LevelData : ScriptableObject
     {
         [SerializeField] private GameObject _level;
-        [SerializeField] private CellProperties[] _cellsPropeties;
+        //[SerializeField] private CellProperties[] _cellsPropeties;
+        [SerializeField] private CellProperties[] _cellsToVisitProperties;
 
         public CellView[] CellsViews =>  GetCellsViews();
-        public CellProperties[] CellsPropeties => _cellsPropeties;
+        //public CellProperties[] CellsPropeties => _cellsPropeties;
+        public CellProperties[] CellsToVisit => _cellsToVisitProperties;
 
         private CellView[] GetCellsViews()
         {
