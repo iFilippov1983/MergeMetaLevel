@@ -11,15 +11,13 @@ namespace GameUI
         private Transform _uiContainer;
         private UIData _uiData;
         private GameUIView _gameUIView;
-        private PlayerProfile _playerProfile;
 
         public Action OnDiceRollClick;
 
-        public UIHandler(UIData uiData, Transform uiContainer, PlayerProfile playerProfile)
+        public UIHandler(UIData uiData, Transform uiContainer)
         {
             _uiContainer = uiContainer;
             _uiData = uiData;
-            _playerProfile = playerProfile;
             InitializeUI();
         }
 
@@ -32,33 +30,35 @@ namespace GameUI
             _gameUIView.NumberText.gameObject.SetActive(false);
         }
 
-        public void ActivateUI()
+        public async Task DisplayText(string text)
+        {
+            _gameUIView.NumberText.text = text;
+            _gameUIView.NumberText.gameObject.SetActive(true);
+            await Task.Delay(1000);
+            _gameUIView.NumberText.text = string.Empty;
+            _gameUIView.NumberText.gameObject.SetActive(false);
+        }
+
+        public void ActivateUiInteraction()
         {
             _gameUIView.RollButton.interactable = true;
         }
 
-        public void DesactivateUI()
+        public void DesactivateUiInteraction()
         {
             _gameUIView.RollButton.interactable = false;
         }
 
-        public async Task DefineResourceAndChangeUI(ResouceType resouceType, int amount)
+        public async Task ChangeCoinsUI(int amount)
+        { 
+            await Task.Delay(100);//coins fly animation
+            _gameUIView.CoinsText.text = amount.ToString();
+        }
+
+        public async Task ChangeGemsUI(int amount)
         {
-            switch (resouceType)
-            {
-                case ResouceType.Gold:
-                    _playerProfile.CoinsAmount += amount;
-                    _gameUIView.CoinsText.text = _playerProfile.CoinsAmount.ToString();
-                    await Task.Delay(100);//temp
-                    break;
-                case ResouceType.Gem:
-                    _playerProfile.GemsAmount += amount;
-                    _gameUIView.GemsText.text = _playerProfile.GemsAmount.ToString();
-                    await Task.Delay(100);//temp
-                    break;
-                default:
-                    break;
-            }
+            await Task.Delay(100);//gems fly animation
+            _gameUIView.GemsText.text = amount.ToString();
         }
 
         private void DiceRoll()

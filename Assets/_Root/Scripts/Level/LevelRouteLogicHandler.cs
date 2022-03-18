@@ -8,22 +8,15 @@ using UnityEngine;
 
 namespace Level
 {
-    internal class LevelLogicHandler
+    internal class LevelRouteLogicHandler
     {
         private CellProperties[] _fullLevelRoute;
         private CellProperties[] _cellsToVisitProperties;
 
-        private CellProperties[] _cellsProperties;
-
-        //public CellProperties[] CellProperties => _cellsProperties;
-
-
-        public LevelLogicHandler(CellProperties[] cellsToVisitProperties)   //(CellProperties[] cellsProperties)
+        public LevelRouteLogicHandler(CellProperties[] cellsToVisitProperties)
         {
-            //_cellsProperties = cellsProperties;
-            //SetIDs();
             _cellsToVisitProperties = cellsToVisitProperties;
-            MakeFullLevelRoute();
+            _fullLevelRoute = MakeFullLevelRoute(_cellsToVisitProperties);
         }
 
         public int GetRouteCountFrom(int cellId) => GetRouteIDsFrom(cellId).Count;
@@ -48,15 +41,15 @@ namespace Level
             return routeCellsIDs;
         }
 
-        private void MakeFullLevelRoute()
+        private CellProperties[] MakeFullLevelRoute(CellProperties[] cellsToVisitProperties)
         {
             var fullLevelRouteList = new List<CellProperties>();
-            var lastCellId = _cellsToVisitProperties[_cellsToVisitProperties.Length - 1].Id;
+            var lastCellId = cellsToVisitProperties[cellsToVisitProperties.Length - 1].Id;
             bool dontSkipEmpty = true;
 
             for (int index = 0; index < lastCellId + 1; index++)
             {
-                foreach (CellProperties cellProperties in _cellsToVisitProperties)
+                foreach (CellProperties cellProperties in cellsToVisitProperties)
                 {
                     if (cellProperties.Id.Equals(index))
                     {
@@ -73,27 +66,7 @@ namespace Level
                     fullLevelRouteList.Add(emptyProperties);
                 }
             }
-            _fullLevelRoute = fullLevelRouteList.ToArray();
+            return fullLevelRouteList.ToArray();
         }
-
-        //public List<CellProperties> GetRouteCellsPropertiesFrom(int cellId)
-        //{
-        //    var routeCellsProperties = new List<CellProperties>();
-        //    for (int i = cellId; i < _cellsProperties.Length; i++)
-        //    {
-        //        var cellProperties = _cellsProperties[i];
-        //        routeCellsProperties.Add(cellProperties);
-        //        if (cellProperties.Status.Equals(CellStatus.ToVisit)) break;
-        //    }
-        //    return routeCellsProperties;
-        //}
-
-        //private void SetIDs()
-        //{
-        //    for (int index = 0; index < _cellsProperties.Length; index++)
-        //    {
-        //        _cellsProperties[index].Id = index;
-        //    }
-        //}
     }
 }

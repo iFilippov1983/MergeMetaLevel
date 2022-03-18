@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc22559b97d4f0f47abd97f4e6fc6502, type: 3}
-  m_Name: GameData
+  m_Script: {fileID: 11500000, guid: 8fca1f84fff86644b91ecd9d3c784aee, type: 3}
+  m_Name: EnemiesData
   m_EditorClassIdentifier: 
-  _levelDataPath: LevelData
-  _playerDataPath: PlayerData
-  _enemiesDataPath: EnemiesData
-  _uiDataPath: UIData
+  _enemyBarbarianPrefabPath: EnemyBarbarian
+  _enemyRoguePrefabPath: 
+  _enemyWitchPrefabPath: 

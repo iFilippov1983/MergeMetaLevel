@@ -14,10 +14,4 @@ namespace Data
 
         public override ContentType GetContentType() => ContentType.Enemy;
     }
-
-    [Serializable]
-    public struct EnemyStats
-    {
-        public int Power;
-    }
 }

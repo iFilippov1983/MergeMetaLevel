@@ -1,5 +1,6 @@
 ﻿using Data;
 using Player;
+using Enemy;
 using Level;
 using GameCamera;
 using UnityEngine;
@@ -8,60 +9,77 @@ using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
+
 internal sealed class MetaLevel
 {
     private GameData _gameData;
-
     private LevelViewHandler _levelViewHandler;
     private PlayerHandler _playerHandler;
+    private EnemiesHandler _enemiesHandler;
     private PlayerProfile _playerProfile;
-    private LevelLogicHandler _logicHandler;
-    private VirtualCameraHandler _virtualCameraHandler;
+    private LevelRouteLogicHandler _routeHandler;
+    private VirtualCameraHandler _cameraHandler;
 
     public Action<EnemyProperties> OnFightEvent;
     public Action<ResourceProperties> OnResourcePickup;
+    public Action<bool> OnFightComplete;
 
     public MetaLevel(GameData gameData , PlayerProfile playerProfile)
     {
         _gameData = gameData;
         _playerProfile = playerProfile;
         _levelViewHandler = new LevelViewHandler(_gameData.LevelData);
-        _playerHandler = new PlayerHandler(_gameData, _playerProfile.CurrentCellID);
-        _logicHandler = new LevelLogicHandler(_gameData.LevelData.CellsToVisit);
-        _virtualCameraHandler = new VirtualCameraHandler(_playerHandler.PlayerView.transform);
+        _playerHandler = new PlayerHandler(_gameData, _playerProfile.Stats.CurrentCellID);
+        _enemiesHandler = new EnemiesHandler(_gameData.EnemiesData, _playerProfile);
+        _routeHandler = new LevelRouteLogicHandler(_gameData.LevelData.CellsToVisit);
+        _cameraHandler = new VirtualCameraHandler(_playerHandler.PlayerView.transform);
     }
 
     public int GetRouteCellsCount()
     {
-        int id = _playerProfile.CurrentCellID + 1;
-        return _logicHandler.GetRouteCountFrom(id);
-        //return _logicHandler.GetRouteCellsPropertiesFrom(id).Count;
+        int id = _playerProfile.Stats.CurrentCellID + 1;
+        return _routeHandler.GetRouteCountFrom(id);
     }
 
     public async Task MovePlayer()
     {
-        int id =_playerProfile.CurrentCellID + 1;
-        //var route = _logicHandler.GetRouteCellsPropertiesFrom(id);
-        var route = _logicHandler.GetRouteIDsFrom(id);
+        int id =_playerProfile.Stats.CurrentCellID + 1;
+        var route = _routeHandler.GetRouteIDsFrom(id);
         await MovePlayerBy(route);
 
     }
+
     public async Task ApplyCellEvent()
     {
-        CellProperties propertiesToApply = _logicHandler.GetCellPropertyWhithId(_playerProfile.CurrentCellID);
+        CellProperties propertiesToApply = _routeHandler.GetCellPropertyWhithId(_playerProfile.Stats.CurrentCellID);
         ContentType type = propertiesToApply.ContentProperties.GetContentType();
-        ContentProperties content;
+        ContentProperties content = propertiesToApply.ContentProperties;
 
         if (type.Equals(ContentType.Enemy))
         {
-            content = propertiesToApply.ContentProperties;
             await ApplyFight((EnemyProperties)content);
         }
         if (type.Equals(ContentType.Resource))
         {
-            content = propertiesToApply.ContentProperties;
             await ApplyResourcePickup((ResourceProperties)content);
         }
+    }
+
+    private async Task ApplyFight(EnemyProperties enemyProperties)
+    {
+        var cell = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID, true);
+        var enemySpawnPoint = cell.EnemySpawnPoint;
+        var enemyFightPoint = cell.EnemyFightPoint;
+
+        await _enemiesHandler.FightEvent(enemyProperties, enemySpawnPoint, enemyFightPoint, OnFightEvent);
+        bool playerWins = _playerProfile.Stats.LastFightWinner;
+        OnFightComplete?.Invoke(playerWins);
+    }
+
+    private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
+    {
+        await Task.Delay(1000);//resource pickup animation
+        OnResourcePickup?.Invoke(resourceProperties);
     }
 
     private async Task MovePlayerBy(List<int> route)
@@ -70,35 +88,12 @@ internal sealed class MetaLevel
         {
             Vector3 position = _levelViewHandler.GetCellPositionWithId(id);
             await _playerHandler.SetDestinationAndMove(position);
-            ApplyCellAnimation(id);
-            _playerProfile.CurrentCellID = id;
+            ApplyCellPass(id);
+            _playerProfile.Stats.CurrentCellID = id;
         }
     }
 
-    private async Task ApplyFight(EnemyProperties enemyProperties)
-    {
-        OnFightEvent?.Invoke(enemyProperties);
-        await Task.Delay(1000);
-    }
-
-    private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
-    {
-        OnResourcePickup?.Invoke(resourceProperties);
-        await Task.Delay(1000);
-    }
-
-    //private async Task MovePlayerBy(List<CellProperties> route)
-    //{
-    //    foreach (CellProperties property in route)
-    //    {
-    //        Vector3 position = _levelViewHandler.GetCellPositionWithId(property.Id);
-    //        await _playerHandler.SetDestinationAndMove(position);
-    //        ApplyCellAnimation(property.Id);
-    //        _playerProfile.CurrentCellID = property.Id;
-    //    }
-    //}
-
-    private void ApplyCellAnimation(int sellId)
+    private void ApplyCellPass(int sellId)
     {
         var cellView = _levelViewHandler.GetCellViewWithId(sellId);
         var sRenderer = cellView.SpriteRenderer;

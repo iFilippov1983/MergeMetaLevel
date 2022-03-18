@@ -7,16 +7,16 @@ namespace Data
 {
     internal class PlayerProfile
     {
-        public int CoinsAmount;
-        public int GemsAmount;
-        public int CurrentCellID;
+        public PlayerStats Stats;
+
         //public List<CellProperties> CurrentRoute;
         //public readonly SubscriptionProperty<int> CurrentCellID;
         //public readonly SubscriptionProperty<List<CellProperties>> CurrentRoute;
 
-        public PlayerProfile(int initialCellID)
+        public PlayerProfile(PlayerStats initialStats)
         {
-            CurrentCellID = initialCellID;
+            Stats = initialStats;
+
             //CurrentRoute = new List<CellProperties>();
             //CurrentRoute = new SubscriptionProperty<List<CellProperties>>();
             //CurrentCellID = new SubscriptionProperty<int>();

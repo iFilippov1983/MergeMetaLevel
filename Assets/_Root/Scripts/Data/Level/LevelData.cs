@@ -9,11 +9,9 @@ namespace Data
     public class LevelData : ScriptableObject
     {
         [SerializeField] private GameObject _level;
-        //[SerializeField] private CellProperties[] _cellsPropeties;
         [SerializeField] private CellProperties[] _cellsToVisitProperties;
 
         public CellView[] CellsViews =>  GetCellsViews();
-        //public CellProperties[] CellsPropeties => _cellsPropeties;
         public CellProperties[] CellsToVisit => _cellsToVisitProperties;
 
         private CellView[] GetCellsViews()
@@ -29,6 +27,5 @@ namespace Data
 
     public enum CellStatus { ToSkip, ToVisit }
     public enum ContentType { None, Resource, Enemy }
-    public enum ResouceType { Gold, ExtraRoll, Gem }
-    public enum EnemyType { Barbarian, Rogue, Witch }
+    public enum ResouceType { Coins, ExtraRoll, Gems }
 }

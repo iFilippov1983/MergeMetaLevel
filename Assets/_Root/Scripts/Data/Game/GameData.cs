@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Tool;
 using UnityEngine;
 
 namespace Data
@@ -6,14 +7,14 @@ namespace Data
     [CreateAssetMenu(menuName = "GameData/GameData", fileName = "GameData")]
     public class GameData : ScriptableObject
     {
-        private const string GameDataFolderPath = "GameData/";
-
         [SerializeField] private string _levelDataPath;
         [SerializeField] private string _playerDataPath;
+        [SerializeField] private string _enemiesDataPath;
         [SerializeField] private string _uiDataPath;
 
         private LevelData _levelData;
         private PlayerData _playerData;
+        private EnemiesData _enemiesData; 
         private UIData _uiData;
 
         public LevelData LevelData
@@ -21,7 +22,7 @@ namespace Data
             get 
             {
                 if (_levelData == null) _levelData =
-                             LoadPath<LevelData>(string.Concat(GameDataFolderPath, _levelDataPath));
+                             LoadPath<LevelData>(string.Concat(ResourcePath.GameDataFolder, _levelDataPath));
                 return _levelData;
             }
         }
@@ -31,8 +32,18 @@ namespace Data
             get
             {
                 if (_playerData == null) _playerData =
-                             LoadPath<PlayerData>(string.Concat(GameDataFolderPath, _playerDataPath));
+                             LoadPath<PlayerData>(string.Concat(ResourcePath.GameDataFolder, _playerDataPath));
                 return _playerData;
+            }
+        }
+
+        public EnemiesData EnemiesData
+        {
+            get
+            {
+                if (_enemiesData == null) _enemiesData =
+                             LoadPath<EnemiesData>(string.Concat(ResourcePath.GameDataFolder, _enemiesDataPath));
+                return _enemiesData;
             }
         }
 
@@ -41,7 +52,7 @@ namespace Data
             get 
             { 
                 if(_uiData == null) _uiData =
-                        LoadPath<UIData>(string.Concat(GameDataFolderPath, _uiDataPath));
+                        LoadPath<UIData>(string.Concat(ResourcePath.GameDataFolder, _uiDataPath));
                 return _uiData;
             }
         }
