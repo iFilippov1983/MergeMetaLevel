@@ -23,15 +23,45 @@ internal sealed class Root : MonoBehaviour
         _playerProfile = new PlayerProfile(_initialPlayerStats);
         _metaLevel = new MetaLevel(_gameData, _playerProfile);
         _uiHandler = new UIHandler(_gameData.UIData, _uiContainer);
+        _uiHandler.InitializeUI
+            (
+            _initialPlayerStats.Coins, 
+            _initialPlayerStats.Gems, 
+            _initialPlayerStats.DiceRolls,
+            _initialPlayerStats.Power
+            );
 
-        _uiHandler.OnDiceRollClick += OnDiceRollClick;
-        _metaLevel.OnResourcePickup += OnResourcePickupEvent;
-        _metaLevel.OnFightEvent += OnFightEvent;
-        _metaLevel.OnFightComplete += OnFightComplete;
+        SubscribeOnEvents();
     }
 
     private async void OnDiceRollClick()
-    { 
+    {
+        bool haveRolls = _playerProfile.Stats.DiceRolls > 0;
+        bool wasNotDefated = _playerProfile.Stats.LastFightWinner;
+        if (haveRolls && wasNotDefated)
+        {
+            await MakeMove();
+        }
+        else if (haveRolls && !wasNotDefated)
+        {
+            await RetryFight();
+        }
+        else if (!haveRolls)
+        {
+            await _uiHandler.DisplayText(UiString.NoMoreDiceRolls);
+        }
+    }
+
+    private async Task RetryFight()
+    {
+        _uiHandler.DesactivateUiInteraction();
+        await _uiHandler.PlayDiceUseAnimation();
+        await _metaLevel.ApplyCellEvent();
+        _uiHandler.ActivateUiInteraction();
+    }
+
+    private async Task MakeMove()
+    {
         _uiHandler.DesactivateUiInteraction();
 
         int count = _metaLevel.GetRouteCellsCount();
@@ -42,7 +72,12 @@ internal sealed class Root : MonoBehaviour
         _uiHandler.ActivateUiInteraction();
     }
 
-    private async void OnResourcePickupEvent(ResourceProperties resourceProperties)
+    private async void OnDiceRollsAmountChange(int amount)
+    {
+        await _uiHandler.ChangeRollsUI(amount);
+    }
+
+    private async void OnResourcePickup(ResourceProperties resourceProperties)
     {
         ResouceType resouceType = resourceProperties.ResouceType;
 
@@ -61,27 +96,37 @@ internal sealed class Root : MonoBehaviour
         }
     }
 
-    private async void OnFightEvent(EnemyProperties enemyProperties)
+    private async void OnFight(EnemyProperties enemyProperties)
     {
-        await _uiHandler.DisplayText("Fight!");
+        await _uiHandler.DisplayText(UiString.Fight);
         //ui onFight functions
     }
 
     private async void OnFightComplete(bool playerWins)
     {
         string text;
-        if (_playerProfile.Stats.LastFightWinner) text = "Victory!";
-        else text = "Defeated!";
+        if (_playerProfile.Stats.LastFightWinner) text = UiString.Victory;
+        else text = UiString.Defeated;
         await _uiHandler.DisplayText(text);
         //ui onFightComplete functions
     }
 
+    private void SubscribeOnEvents()
+    {
+        _uiHandler.OnDiceRollClickEvent += OnDiceRollClick;
+        _metaLevel.OnResourcePickupEvent += OnResourcePickup;
+        _metaLevel.OnFightEvent += OnFight;
+        _metaLevel.OnFightCompleteEvent += OnFightComplete;
+        _metaLevel.OnDiceRollsAmontChadgeEvent += OnDiceRollsAmountChange;
+    }
+
     private void OnDestroy()
     {
-        _uiHandler.OnDiceRollClick -= OnDiceRollClick;
-        _metaLevel.OnResourcePickup -= OnResourcePickupEvent;
-        _metaLevel.OnFightEvent -= OnFightEvent;
-        _metaLevel.OnFightComplete -= OnFightComplete;
+        _uiHandler.OnDiceRollClickEvent -= OnDiceRollClick;
+        _metaLevel.OnResourcePickupEvent -= OnResourcePickup;
+        _metaLevel.OnFightEvent -= OnFight;
+        _metaLevel.OnFightCompleteEvent -= OnFightComplete;
+        _metaLevel.Dispose();
     }
 }
 

@@ -23,12 +23,20 @@ namespace Player
             InitPlayer(_playerInitialPosition);//TODO: insert position from cash
         }
 
+
+
         public async Task SetDestinationAndMove(Vector3 position)
         {
             _playerView.NavMeshAgent.SetDestination(position);
             var transform = _playerView.transform;
             while(Vector3.SqrMagnitude(transform.position - position) > 0.2f * 0.2f)
                 await Task.Yield();
+        }
+
+        public async Task RespawnPlayer(Vector3 position)
+        {
+            await Task.Delay(100); //respawn animation
+            _playerView.transform.position = position;
         }
 
         private void InitPlayer(Vector3 playerInitPosition)

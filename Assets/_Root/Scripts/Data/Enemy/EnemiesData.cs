@@ -64,7 +64,7 @@ namespace Data
 
         private void OnDisable()
         {
-            _enemiesPrefabs = null;
+            _enemiesPrefabs.Clear();
         }
     }
 }

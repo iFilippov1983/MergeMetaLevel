@@ -10,19 +10,21 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 
 
-internal sealed class MetaLevel
+internal sealed class MetaLevel : IDisposable
 {
     private GameData _gameData;
     private LevelViewHandler _levelViewHandler;
     private PlayerHandler _playerHandler;
-    private EnemiesHandler _enemiesHandler;
+    private FightEventHandler _fightHandler;
     private PlayerProfile _playerProfile;
     private LevelRouteLogicHandler _routeHandler;
     private VirtualCameraHandler _cameraHandler;
+    private EnemyProperties _lastEnemyProperties;
 
     public Action<EnemyProperties> OnFightEvent;
-    public Action<ResourceProperties> OnResourcePickup;
-    public Action<bool> OnFightComplete;
+    public Action<ResourceProperties> OnResourcePickupEvent;
+    public Action<bool> OnFightCompleteEvent;
+    public Action<int> OnDiceRollsAmontChadgeEvent;
 
     public MetaLevel(GameData gameData , PlayerProfile playerProfile)
     {
@@ -30,9 +32,11 @@ internal sealed class MetaLevel
         _playerProfile = playerProfile;
         _levelViewHandler = new LevelViewHandler(_gameData.LevelData);
         _playerHandler = new PlayerHandler(_gameData, _playerProfile.Stats.CurrentCellID);
-        _enemiesHandler = new EnemiesHandler(_gameData.EnemiesData, _playerProfile);
+        _fightHandler = new FightEventHandler(_gameData.EnemiesData, _playerProfile);
         _routeHandler = new LevelRouteLogicHandler(_gameData.LevelData.CellsToVisit);
         _cameraHandler = new VirtualCameraHandler(_playerHandler.PlayerView.transform);
+
+        OnFightCompleteEvent += HandleFightResult;
     }
 
     public int GetRouteCellsCount()
@@ -46,23 +50,39 @@ internal sealed class MetaLevel
         int id =_playerProfile.Stats.CurrentCellID + 1;
         var route = _routeHandler.GetRouteIDsFrom(id);
         await MovePlayerBy(route);
-
     }
 
     public async Task ApplyCellEvent()
     {
+        OnDiceRollsAmontChadgeEvent?.Invoke(--_playerProfile.Stats.DiceRolls);
+
         CellProperties propertiesToApply = _routeHandler.GetCellPropertyWhithId(_playerProfile.Stats.CurrentCellID);
         ContentType type = propertiesToApply.ContentProperties.GetContentType();
         ContentProperties content = propertiesToApply.ContentProperties;
-
+        
         if (type.Equals(ContentType.Enemy))
         {
-            await ApplyFight((EnemyProperties)content);
+            if (_playerProfile.Stats.LastFightWinner)
+            {
+                _lastEnemyProperties = (EnemyProperties)content;
+                await ApplyFight(_lastEnemyProperties);
+            }
+            else
+            {
+                await ApplyNextAttemptFight(_lastEnemyProperties);
+            }
         }
         if (type.Equals(ContentType.Resource))
         {
             await ApplyResourcePickup((ResourceProperties)content);
         }
+    }
+
+    private async Task ApplyNextAttemptFight(EnemyProperties enemyProperties)
+    {
+        await _fightHandler.ApplyNextAttemptFight(enemyProperties, OnFightEvent);
+        bool playerWins = _playerProfile.Stats.LastFightWinner;
+        OnFightCompleteEvent?.Invoke(playerWins);
     }
 
     private async Task ApplyFight(EnemyProperties enemyProperties)
@@ -71,15 +91,15 @@ internal sealed class MetaLevel
         var enemySpawnPoint = cell.EnemySpawnPoint;
         var enemyFightPoint = cell.EnemyFightPoint;
 
-        await _enemiesHandler.FightEvent(enemyProperties, enemySpawnPoint, enemyFightPoint, OnFightEvent);
+        await _fightHandler.ApplyFight(enemyProperties, enemySpawnPoint, enemyFightPoint, OnFightEvent);
         bool playerWins = _playerProfile.Stats.LastFightWinner;
-        OnFightComplete?.Invoke(playerWins);
+        OnFightCompleteEvent?.Invoke(playerWins);
     }
 
     private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
     {
         await Task.Delay(1000);//resource pickup animation
-        OnResourcePickup?.Invoke(resourceProperties);
+        OnResourcePickupEvent?.Invoke(resourceProperties);
     }
 
     private async Task MovePlayerBy(List<int> route)
@@ -107,5 +127,24 @@ internal sealed class MetaLevel
         pSystem.Play();
         //while (cellView.ParticleSystem.isPlaying)
         //    await Task.Yield();
+    }
+
+    private async void HandleFightResult(bool playerWins)
+    {
+        if (playerWins)
+        {
+            await _fightHandler.DisposeEnemy();
+        }
+        else
+        {
+            _playerProfile.Stats.LastFightWinner = false;
+            //ui events
+        }
+        
+    }
+
+    public void Dispose()
+    {
+        OnFightCompleteEvent -= HandleFightResult;
     }
 }

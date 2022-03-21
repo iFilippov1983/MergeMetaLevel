@@ -11,11 +11,15 @@ namespace GameUI
         [SerializeField] private Text _numberText;
         [SerializeField] private Text _coinsText;
         [SerializeField] private Text _gemsText;
+        [SerializeField] private Text _diceRollsText;
+        [SerializeField] private Text _powerText;
 
         public Button RollButton => _rollButton;
         public Text NumberText => _numberText;
         public Text CoinsText => _coinsText;
         public Text GemsText => _gemsText;
+        public Text DiceRollsText => _diceRollsText;
+        public Text PowerText => _powerText;
 
         public void Init(UnityAction rollButtonClicked)
         {

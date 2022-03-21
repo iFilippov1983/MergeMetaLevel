@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fca1f84fff86644b91ecd9d3c784aee, type: 3}
   m_Name: EnemiesData
   m_EditorClassIdentifier: 
-  _enemyBarbarianPrefabPath: EnemyBarbarian
+  _enemyBarbarianPrefabPath: Pigoblin
   _enemyRoguePrefabPath: 
   _enemyWitchPrefabPath: 

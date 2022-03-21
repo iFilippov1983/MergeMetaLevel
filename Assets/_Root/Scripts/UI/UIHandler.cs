@@ -12,18 +12,36 @@ namespace GameUI
         private UIData _uiData;
         private GameUIView _gameUIView;
 
-        public Action OnDiceRollClick;
+        public Action OnDiceRollClickEvent;
 
         public UIHandler(UIData uiData, Transform uiContainer)
         {
             _uiContainer = uiContainer;
             _uiData = uiData;
-            InitializeUI();
+        }
+        public void InitializeUI(int coinsAmount, int gemsAmount, int diceRollsAmount, int power)
+        {
+            var uiObject = Object.Instantiate(_uiData.GameUIPrefab, _uiContainer);
+            _gameUIView = uiObject.GetComponent<GameUIView>();
+            _gameUIView.Init(DiceRoll);
+            _gameUIView.CoinsText.text = coinsAmount.ToString();
+            _gameUIView.GemsText.text = gemsAmount.ToString();
+            _gameUIView.DiceRollsText.text = diceRollsAmount.ToString();
+            _gameUIView.PowerText.text = power.ToString();
         }
 
         public async Task PlayDiceRollAnimation(int number) //animation ID
         {
             _gameUIView.NumberText.text = number.ToString();
+            _gameUIView.NumberText.gameObject.SetActive(true);
+            await Task.Delay(1000);
+            _gameUIView.NumberText.text = string.Empty;
+            _gameUIView.NumberText.gameObject.SetActive(false);
+        }
+
+        public async Task PlayDiceUseAnimation()
+        {
+            _gameUIView.NumberText.text = UiString.NextAttempt;
             _gameUIView.NumberText.gameObject.SetActive(true);
             await Task.Delay(1000);
             _gameUIView.NumberText.text = string.Empty;
@@ -61,16 +79,15 @@ namespace GameUI
             _gameUIView.GemsText.text = amount.ToString();
         }
 
+        internal async Task ChangeRollsUI(int amount)
+        {
+            await Task.Delay(100);//dice change animation
+            _gameUIView.DiceRollsText.text = amount.ToString();
+        }
+
         private void DiceRoll()
         { 
-            OnDiceRollClick?.Invoke();
-        }
-        
-        private void InitializeUI()
-        {
-            var uiObject = Object.Instantiate(_uiData.GameUIPrefab, _uiContainer);
-            _gameUIView = uiObject.GetComponent<GameUIView>();
-            _gameUIView.Init(DiceRoll);
+            OnDiceRollClickEvent?.Invoke();
         }
     }
 }
