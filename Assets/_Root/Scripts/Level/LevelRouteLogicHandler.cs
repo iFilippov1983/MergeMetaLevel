@@ -21,9 +21,17 @@ namespace Level
 
         public int GetRouteCountFrom(int cellId) => GetRouteIDsFrom(cellId).Count;
 
-        public CellProperties GetCellPropertyWhithId(int cellId)
+        public CellProperties GetCellToVisitPropertyWhithId(int cellId)
         {
             foreach (CellProperties cellProperty in _cellsToVisitProperties)
+                if (cellProperty.Id.Equals(cellId)) return cellProperty;
+
+            return null;
+        }
+
+        public CellProperties GetCellPropertyWhithId(int cellId)
+        {
+            foreach (CellProperties cellProperty in _fullLevelRoute)
                 if (cellProperty.Id.Equals(cellId)) return cellProperty;
 
             return null;

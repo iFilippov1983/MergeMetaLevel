@@ -1,4 +1,5 @@
 ﻿using Data;
+using GameUI;
 using Level;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,6 @@ namespace Player
             _playerInitialPosition = gameData.LevelData.CellsViews[initialCellId].transform.position;
             InitPlayer(_playerInitialPosition);//TODO: insert position from cash
         }
-
-
 
         public async Task SetDestinationAndMove(Vector3 position)
         {

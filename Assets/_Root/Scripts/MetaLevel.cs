@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 
 
-internal sealed class MetaLevel : IDisposable
+internal sealed class MetaLevel 
 {
     private GameData _gameData;
     private LevelViewHandler _levelViewHandler;
@@ -23,8 +23,6 @@ internal sealed class MetaLevel : IDisposable
 
     public Action<EnemyProperties> OnFightEvent;
     public Action<ResourceProperties> OnResourcePickupEvent;
-    public Action<bool> OnFightCompleteEvent;
-    public Action<int> OnDiceRollsAmontChadgeEvent;
 
     public MetaLevel(GameData gameData , PlayerProfile playerProfile)
     {
@@ -35,8 +33,6 @@ internal sealed class MetaLevel : IDisposable
         _fightHandler = new FightEventHandler(_gameData.EnemiesData, _playerProfile);
         _routeHandler = new LevelRouteLogicHandler(_gameData.LevelData.CellsToVisit);
         _cameraHandler = new VirtualCameraHandler(_playerHandler.PlayerView.transform);
-
-        OnFightCompleteEvent += HandleFightResult;
     }
 
     public int GetRouteCellsCount()
@@ -52,11 +48,9 @@ internal sealed class MetaLevel : IDisposable
         await MovePlayerBy(route);
     }
 
-    public async Task ApplyCellEvent()
+    public async Task ApplyCellEvent(Action<bool> OnFightCompleteEvent)
     {
-        OnDiceRollsAmontChadgeEvent?.Invoke(--_playerProfile.Stats.DiceRolls);
-
-        CellProperties propertiesToApply = _routeHandler.GetCellPropertyWhithId(_playerProfile.Stats.CurrentCellID);
+        CellProperties propertiesToApply = _routeHandler.GetCellToVisitPropertyWhithId(_playerProfile.Stats.CurrentCellID);
         ContentType type = propertiesToApply.ContentProperties.GetContentType();
         ContentProperties content = propertiesToApply.ContentProperties;
         
@@ -66,10 +60,12 @@ internal sealed class MetaLevel : IDisposable
             {
                 _lastEnemyProperties = (EnemyProperties)content;
                 await ApplyFight(_lastEnemyProperties);
+                OnFightCompleteEvent?.Invoke(_playerProfile.Stats.LastFightWinner);
             }
             else
             {
-                await ApplyNextAttemptFight(_lastEnemyProperties);
+                await ApplyFight(_lastEnemyProperties, false);
+                OnFightCompleteEvent?.Invoke(_playerProfile.Stats.LastFightWinner);
             }
         }
         if (type.Equals(ContentType.Resource))
@@ -78,22 +74,21 @@ internal sealed class MetaLevel : IDisposable
         }
     }
 
-    private async Task ApplyNextAttemptFight(EnemyProperties enemyProperties)
+    private async Task ApplyFight(EnemyProperties enemyProperties, bool fisrtFightOnThisCell = true)
     {
-        await _fightHandler.ApplyNextAttemptFight(enemyProperties, OnFightEvent);
-        bool playerWins = _playerProfile.Stats.LastFightWinner;
-        OnFightCompleteEvent?.Invoke(playerWins);
-    }
+        Transform enemySpawnPoint = null;
+        Transform enemyFightPoint = null;
 
-    private async Task ApplyFight(EnemyProperties enemyProperties)
-    {
-        var cell = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID, true);
-        var enemySpawnPoint = cell.EnemySpawnPoint;
-        var enemyFightPoint = cell.EnemyFightPoint;
+        if (fisrtFightOnThisCell)
+        {
+            var cell = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID, true);
+            enemySpawnPoint = cell.EnemySpawnPoint;
+            enemyFightPoint = cell.EnemyFightPoint;
+        }
 
-        await _fightHandler.ApplyFight(enemyProperties, enemySpawnPoint, enemyFightPoint, OnFightEvent);
+        await _fightHandler.ApplyFight(enemyProperties, OnFightEvent, enemySpawnPoint, enemyFightPoint, fisrtFightOnThisCell);
         bool playerWins = _playerProfile.Stats.LastFightWinner;
-        OnFightCompleteEvent?.Invoke(playerWins);
+        await HandleFightResult(playerWins);
     }
 
     private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
@@ -106,8 +101,13 @@ internal sealed class MetaLevel : IDisposable
     {
         foreach (int id in route)
         {
+            var cellProps = _routeHandler.GetCellPropertyWhithId(id);
+            bool brake = cellProps.Status.Equals(CellStatus.ToVisit) ? true : false;
+            _playerHandler.PlayerView.NavMeshAgent.autoBraking = brake;
+
             Vector3 position = _levelViewHandler.GetCellPositionWithId(id);
             await _playerHandler.SetDestinationAndMove(position);
+
             ApplyCellPass(id);
             _playerProfile.Stats.CurrentCellID = id;
         }
@@ -125,15 +125,13 @@ internal sealed class MetaLevel : IDisposable
         var pSystem = cellView.ParticleSystem;
         pSystem.gameObject.SetActive(true);
         pSystem.Play();
-        //while (cellView.ParticleSystem.isPlaying)
-        //    await Task.Yield();
     }
 
-    private async void HandleFightResult(bool playerWins)
+    private async Task HandleFightResult(bool playerWins)
     {
         if (playerWins)
         {
-            await _fightHandler.DisposeEnemy();
+            await _fightHandler.DestroyEnemy();
         }
         else
         {
@@ -141,10 +139,5 @@ internal sealed class MetaLevel : IDisposable
             //ui events
         }
         
-    }
-
-    public void Dispose()
-    {
-        OnFightCompleteEvent -= HandleFightResult;
     }
 }

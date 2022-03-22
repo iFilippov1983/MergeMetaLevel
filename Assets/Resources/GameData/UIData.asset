@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c8d28367a3bfe43b3352a850e6e6ee, type: 3}
   m_Name: UIData
   m_EditorClassIdentifier: 
-  _gameUIPrefabName: GameUI
+  _gameUIPrefabName: GameUICanvas
   _camerasPrefabName: Cameras

@@ -22,7 +22,7 @@ namespace Data
 
         private List<GameObject> GetEnemiesPrefabs()
         {
-            if (_enemiesPrefabs.Count == 0)
+            if (_enemiesPrefabs == null || _enemiesPrefabs.Count == 0)
             {
                 _enemiesPrefabs = new List<GameObject>();
                 _enemiesPrefabs.Add(EnemyBarbarianPrefab);
@@ -64,7 +64,7 @@ namespace Data
 
         private void OnDisable()
         {
-            _enemiesPrefabs.Clear();
+            if(_enemiesPrefabs != null) _enemiesPrefabs.Clear();
         }
     }
 }

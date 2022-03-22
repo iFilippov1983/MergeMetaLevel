@@ -6,6 +6,7 @@ namespace Data
     public struct EnemyStats
     {
         public int Power;
+        public int Health;
     }
 
     public enum EnemyType { Barbarian, Rogue, Witch }

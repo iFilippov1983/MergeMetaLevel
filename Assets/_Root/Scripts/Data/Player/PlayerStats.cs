@@ -7,6 +7,7 @@ namespace Data
     {
         public int CurrentCellID;
         public int Power;
+        public int Health;
         public int Coins;
         public int Gems;
         public int DiceRolls;
