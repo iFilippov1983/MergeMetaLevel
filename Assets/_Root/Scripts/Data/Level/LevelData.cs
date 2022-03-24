@@ -27,5 +27,5 @@ namespace Data
 
     public enum CellStatus { ToSkip, ToVisit }
     public enum ContentType { None, Resource, Enemy }
-    public enum ResouceType { Coins, ExtraRoll, Gems }
+    public enum ResouceType { Coins, Gems, ExtraRolls, Power }
 }

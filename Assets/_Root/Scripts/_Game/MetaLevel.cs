@@ -94,9 +94,10 @@ namespace Game
                 await _enemyHandler.InitializeEnemy(enemyProperties, enemySpawnPoint, enemyFightPoint);
             }
 
+            _playerHandler.PrepareToFight(_playerProfile.Stats.Power, _playerProfile.Stats.Health);
             await _fightHandler.ApplyFight(enemyProperties, OnFightEvent);//, enemySpawnPoint, enemyFightPoint, fisrtFightOnThisCell);
             bool playerWins = _playerProfile.Stats.LastFightWinner;
-            await HandleFightResult(playerWins);
+            await HandleFightResult(playerWins, enemyProperties);
         }
 
         private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
@@ -137,19 +138,25 @@ namespace Game
             pSystem.Play();
         }
 
-        private async Task HandleFightResult(bool playerWins)
+        private async Task HandleFightResult(bool playerWins, EnemyProperties enemyProperties)
         {
             if (playerWins)
             {
-                await _enemyHandler.DestroyEnemy();
-                //ui events
+                var reward = enemyProperties.Reward;
+                var tasks = new List<Task>();
+                foreach (var r in reward)
+                    tasks.Add(ApplyResourcePickup(r));
+                await Task.WhenAll(tasks);
+
+                await Task.Delay(100);//ui events
             }
             else
             {
                 _playerProfile.Stats.LastFightWinner = false;
-                //ui events
+                await Task.Delay(100);//ui events
             }
 
+            _playerHandler.FinishFight();
         }
 
         private void SubscribeEntyties()

@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Player
+namespace Game
 {
-    public class PlayerInfoView : MonoBehaviour
+    internal class InfoView : MonoBehaviour
     {
         [SerializeField] private TextMeshPro _healthText;
         [SerializeField] private TextMeshPro _powerText;

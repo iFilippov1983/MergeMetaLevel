@@ -1,4 +1,5 @@
 ﻿using Data;
+using Game;
 using GameUI;
 using Level;
 using System;
@@ -14,7 +15,10 @@ namespace Player
         private Vector3 _playerInitialPosition;
         private GameObject _playerPrefab;
         private PlayerView _playerView;
+        private InfoHandler _infoHandler;
         private PlayerAnimationController _playerAnimController;
+        private GameObject _infoPrefab;
+
 
         public PlayerView PlayerView => _playerView;
         public PlayerAnimationController PlayerAnimController => _playerAnimController;
@@ -24,6 +28,8 @@ namespace Player
             _playerPrefab = gameData.PlayerData.PlayerPrefab;
             _playerInitialPosition = gameData.LevelData.CellsViews[initialCellId].transform.position;
             InitPlayer(_playerInitialPosition);//TODO: insert position from cash
+            _infoHandler = new InfoHandler(Camera.main);
+            _infoPrefab = gameData.PlayerData.InfoPrefab;
         }
 
         public async Task SetDestinationAndMove(Vector3 position)
@@ -60,6 +66,17 @@ namespace Player
             var playerObject = GameObject.Instantiate(_playerPrefab, playerInitPosition, Quaternion.identity);
             _playerView = playerObject.GetComponent<PlayerView>();
             _playerAnimController = playerObject.GetComponent<PlayerAnimationController>();
+        }
+
+        internal void PrepareToFight(int power, int health)
+        {
+            _infoHandler.InitInformation
+                (_infoPrefab, _playerView.transform.position, power, health);
+        }
+
+        internal void FinishFight()
+        {
+            _infoHandler.DestroyInformation();
         }
     }
 }

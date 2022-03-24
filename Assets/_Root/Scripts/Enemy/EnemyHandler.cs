@@ -1,4 +1,5 @@
 ﻿using Data;
+using Game;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,13 @@ namespace Enemy
     {
         private EnemyView _enemyView;
         private AnimationHandler _animationHandler;
+        private InfoHandler _infoHandler;
         private Dictionary<EnemyType, GameObject> _enemyPrefabs;
 
         public EnemyHandler(EnemiesData enemiesData, AnimationHandler animationHandler)
         {
             _animationHandler = animationHandler;
+            _infoHandler = new InfoHandler(Camera.main);
             _enemyPrefabs = MakeEnemyPrefabsDictionary(enemiesData.EnemiesPrefabs);
         }
 
@@ -32,6 +35,8 @@ namespace Enemy
 
             await _animationHandler.EnemyAppearAnimation();
             _enemyView.NavMeshAgent.enabled = false;
+            _infoHandler.InitInformation
+                (enemyProperties.InfoPrefab, enemyObject.transform.position, enemyProperties.Stats.Power, enemyProperties.Stats.Health);
         }
 
         public void InitHit(int playerRemainingHealth)
@@ -45,6 +50,9 @@ namespace Enemy
             {
                 await Task.Delay(600);//temp
                 _enemyView.Animator.SetBool(EnemyState.IsKilled, true);
+                await _animationHandler.EnemyDeathAnimation();
+                Object.Destroy(_enemyView.gameObject);
+                _infoHandler.DestroyInformation();
             }
                 
             //else
@@ -65,12 +73,6 @@ namespace Enemy
                 }
             }
             return dictionary;
-        }
-
-        public async Task DestroyEnemy()
-        {
-            await _animationHandler.EnemyDeathAnimation();
-            Object.Destroy(_enemyView.gameObject);
         }
     }
 }

@@ -8,8 +8,10 @@ namespace Data
     public class PlayerData : ScriptableObject
     {
         [SerializeField] private string _playerPrefabName;
+        [SerializeField] private string _infoPrefabName;
 
         private GameObject _playerPrefab;
+        private GameObject _infoPrefab;
 
         public GameObject PlayerPrefab => 
             Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _playerPrefabName));
@@ -21,5 +23,15 @@ namespace Data
         //        return _playerPrefab;
         //    }
         //}
+
+        public GameObject InfoPrefab
+        {
+            get
+            {
+                if (_infoPrefab == null) _infoPrefab =
+                             Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _infoPrefabName));
+                return _infoPrefab;
+            }
+        }
     }
 }

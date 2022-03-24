@@ -83,6 +83,12 @@ namespace GameUI
             _gameUIView.GemsText.text = amount.ToString();
         }
 
+        internal async Task ChangePowerUi(int amount)
+        {
+            await Task.Delay(100);//power change animation
+            _gameUIView.PowerText.text = amount.ToString();
+        }
+
         internal async Task ChangeRollsUI(int amount)
         {
             await Task.Delay(100);//dice change animation

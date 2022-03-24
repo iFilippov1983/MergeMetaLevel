@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Analytics;
 using System;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 internal sealed class Root : MonoBehaviour
 {
@@ -83,11 +84,11 @@ internal sealed class Root : MonoBehaviour
             await _uiHandler.ChangeCoinsUI(amount);
         }
 
-        if (resouceType.Equals(ResouceType.Gems))
+        if (resouceType.Equals(ResouceType.Power))
         {
-            _playerProfile.Stats.Gems += resourceProperties.Amount;
-            int amount = _playerProfile.Stats.Gems;
-            await _uiHandler.ChangeGemsUI(amount);
+            _playerProfile.Stats.Power += resourceProperties.Amount;
+            int amount = _playerProfile.Stats.Power;
+            await _uiHandler.ChangePowerUi(amount);
         }
     }
 

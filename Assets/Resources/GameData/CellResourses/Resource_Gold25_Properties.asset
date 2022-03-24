@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Resource_Gold25_Properties
   m_EditorClassIdentifier: 
   _resouceType: 0
-  _resourceAmount: 0
+  _resourceAmount: 25

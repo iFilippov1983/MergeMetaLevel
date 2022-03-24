@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 1
   _enemyStats:
-    Power: 100
-    Health: 100
+    Power: 10
+    Health: 250
+  _rewardList:
+  - {fileID: 11400000, guid: e65c65097c429df42af4a8e2a5ecf8f6, type: 2}
+  - {fileID: 11400000, guid: dbf57787e6248024f9d67ee0dbda1410, type: 2}
+  _infoPrefabName: EnemyInfo
