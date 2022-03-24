@@ -32,35 +32,38 @@ namespace Data
             return _enemiesPrefabs;
         }
 
-        private GameObject EnemyBarbarianPrefab
-        {
-            get
-            {
-                if (_enemyBarbarianPrefab == null) _enemyBarbarianPrefab =
-                             Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _enemyBarbarianPrefabPath));
-                return _enemyBarbarianPrefab;
-            }
-        }
+        private GameObject EnemyBarbarianPrefab =>
+            Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _enemyBarbarianPrefabPath));
+        //{
+        //    get
+        //    {
+        //        if (_enemyBarbarianPrefab == null) _enemyBarbarianPrefab =
+        //                     Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _enemyBarbarianPrefabPath));
+        //        return _enemyBarbarianPrefab;
+        //    }
+        //}
 
-        private GameObject EnemyRoguePrefab
-        {
-            get
-            {
-                if (_enemyRoguePrefab == null) _enemyRoguePrefab =
-                            Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _enemyRoguePrefabPath));
-                return _enemyRoguePrefab;
-            }
-        }
+        private GameObject EnemyRoguePrefab =>
+            Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _enemyRoguePrefabPath));
+        //{
+        //    get
+        //    {
+        //        if (_enemyRoguePrefab == null) _enemyRoguePrefab =
+        //                    Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _enemyRoguePrefabPath));
+        //        return _enemyRoguePrefab;
+        //    }
+        //}
 
-        private GameObject EnemyWitchPrefab
-        {
-            get
-            {
-                if (_enemyWitchPrefab == null) _enemyWitchPrefab =
-                             Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _enemyWitchPrefabPath));
-                return _enemyWitchPrefab;
-            }
-        }
+        private GameObject EnemyWitchPrefab =>
+            Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _enemyWitchPrefabPath));
+        //{
+        //    get
+        //    {
+        //        if (_enemyWitchPrefab == null) _enemyWitchPrefab =
+        //                     Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _enemyWitchPrefabPath));
+        //        return _enemyWitchPrefab;
+        //    }
+        //}
 
         private void OnDisable()
         {

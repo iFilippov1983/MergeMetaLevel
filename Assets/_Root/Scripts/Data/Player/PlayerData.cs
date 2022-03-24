@@ -11,14 +11,15 @@ namespace Data
 
         private GameObject _playerPrefab;
 
-        public GameObject PlayerPrefab
-        {
-            get
-            {
-                if (_playerPrefab == null) _playerPrefab =
-                         Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _playerPrefabName));
-                return _playerPrefab;
-            }
-        }
+        public GameObject PlayerPrefab => 
+            Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _playerPrefabName));
+        //{
+        //    get
+        //    {
+        //        if (_playerPrefab == null) _playerPrefab =
+        //                 Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _playerPrefabName));
+        //        return _playerPrefab;
+        //    }
+        //}
     }
 }

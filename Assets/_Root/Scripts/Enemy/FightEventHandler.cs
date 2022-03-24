@@ -1,97 +1,56 @@
 ﻿using Data;
+using Enemy;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Enemy
+namespace Game
 {
     internal class FightEventHandler
     {
+        private AnimationHandler _animationHandler;
         private EnemyView _enemyView;
-        private EnemyAnimationControler _animationController;
-        private EnemiesData _enemyData;
         private PlayerProfile _playerProfile;
-        private Dictionary<EnemyType, GameObject> _enemyPrefabs;
 
-        public FightEventHandler(EnemiesData enemiesData, PlayerProfile playerProfile)
+        public Action<int> OnPlayerHitsEnemy;
+        public Action<int> OnEnemyHitsPlayer;
+
+        public FightEventHandler(EnemiesData enemiesData, AnimationHandler animationHandler, PlayerProfile playerProfile)
         {
-            _enemyData = enemiesData;
+            _animationHandler = animationHandler;
             _playerProfile = playerProfile;
-            _enemyPrefabs = MakeEnemyPrefabsDictionary(_enemyData.EnemiesPrefabs);
         }
 
-        public async Task ApplyFight
-            (
-            EnemyProperties enemyProperties,
-            Action<EnemyProperties> OnFightEvent,
-            Transform placeToSpawn = null, 
-            Transform placeToFight = null, 
-            bool initEnemy = false
-            )
+        public async Task ApplyFight(EnemyProperties enemyProperties, Action<EnemyProperties> OnFightEvent)
         {
-            if (initEnemy)
-                await InitializeEnemy(enemyProperties, placeToSpawn, placeToFight);
-
             OnFightEvent?.Invoke(enemyProperties);
-            bool result = await Fight(_playerProfile.Stats, enemyProperties.EnemyStats);
+            bool result = await Fight(enemyProperties);
 
-            _enemyView.Animator.SetBool(EnemyState.IsKilled, result);
             _playerProfile.Stats.LastFightWinner = result;
         }
 
-        public async Task DestroyEnemy()
+        private async Task<bool> Fight(EnemyProperties enemyProperties)
         {
-            bool animationCompleted = _animationController.deathAnimationFinished;
-            while (!animationCompleted)
+            int playerHealth = _playerProfile.Stats.Health;
+            int playerPower = _playerProfile.Stats.Power;
+            int enemyHealth = enemyProperties.Stats.Health;
+            int enemyPower = enemyProperties.Stats.Power;
+
+            while (playerHealth > 0 && enemyHealth > 0)
             {
-                await Task.Yield();
-                animationCompleted = _animationController.deathAnimationFinished;
+                enemyHealth -= playerPower;
+                OnPlayerHitsEnemy?.Invoke(enemyHealth);
+                await _animationHandler.PlayerHitsEnemyAnimation(enemyHealth <= 0);
+
+                if (enemyHealth <= 0) break;
+
+                playerHealth -= enemyPower;
+                OnEnemyHitsPlayer?.Invoke(playerHealth);
+                await _animationHandler.EnemyHitsPlayerAnimation(playerHealth <= 0);
             }
-            Object.Destroy(_enemyView.gameObject);
-        }
-
-        private async Task<bool> Fight(PlayerStats player, EnemyStats enemy)
-        {
-            await Task.Delay(2000);//fight animation
-            return player.Power > enemy.Power 
-                ? true 
-                : false;
-        }
-
-        private async Task InitializeEnemy(EnemyProperties enemyProperties, Transform placeToSpawn, Transform placeToFight)
-        {
-            GameObject enemy = _enemyPrefabs[enemyProperties.EnemyType];
-            var enemyObject = Object.Instantiate(enemy, placeToSpawn.position, placeToSpawn.rotation);
-
-            _enemyView = enemyObject.GetComponent<EnemyView>();
-            _enemyView.NavMeshAgent.SetDestination(placeToFight.position);
-
-            _animationController = enemyObject.GetComponent<EnemyAnimationControler>();
-            bool animationCompleted = _animationController.appearAnimationFinished;
-            while (!animationCompleted)
-            {
-                await Task.Yield();
-                animationCompleted = _animationController.appearAnimationFinished;
-            }
-        }
-
-        private Dictionary<EnemyType, GameObject> MakeEnemyPrefabsDictionary(List<GameObject> enemyiesPrefabs)
-        {
-            var dictionary = new Dictionary<EnemyType, GameObject>();
-            foreach (var enemy in enemyiesPrefabs)
-            {
-                if (enemy != null)
-                {
-                    var view = enemy.GetComponent<EnemyView>();
-                    var type = view.EnemyType;
-                    dictionary.Add(type, enemy);
-                }
-            }
-            return dictionary;
+            return playerHealth > 0;
         }
     }
 }

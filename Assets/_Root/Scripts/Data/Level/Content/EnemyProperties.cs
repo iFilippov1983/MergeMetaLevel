@@ -10,7 +10,7 @@ namespace Data
         [SerializeField] private EnemyStats _enemyStats;
 
         public EnemyType EnemyType => _enemyType;
-        public EnemyStats EnemyStats => _enemyStats;
+        public EnemyStats Stats => _enemyStats;
 
         public override ContentType GetContentType() => ContentType.Enemy;
     }
