@@ -9,5 +9,5 @@ namespace Data
         public int Health;
     }
 
-    public enum EnemyType { Barbarian, Rogue, Witch }
+    public enum EnemyType { Pigoblin, Bandit}
 }

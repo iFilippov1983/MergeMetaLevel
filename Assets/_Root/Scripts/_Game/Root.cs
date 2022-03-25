@@ -60,7 +60,7 @@ internal sealed class Root : MonoBehaviour
         _uiHandler.DesactivateUiInteraction();
 
         int count = _metaLevel.GetRouteCellsCount();
-        await _uiHandler.PlayDiceRollAnimation(count, OnDiceRollsAmountChangedEvent);
+        await _uiHandler.PlayDiceRollAnimation(count, OnDiceRollsAmountChange); // OnDiceRollsAmountChangedEvent);
         await _metaLevel.MovePlayer();
         await _metaLevel.ApplyCellEvent(OnFightComplete);//callback
 
@@ -92,7 +92,7 @@ internal sealed class Root : MonoBehaviour
         }
     }
 
-    private async void OnFight(EnemyProperties enemyProperties)
+    private async void OnFight()//(EnemyProperties enemyProperties)
     {
         await _uiHandler.DisplayText(UiString.Fight);
         //ui onFight functions
@@ -112,20 +112,19 @@ internal sealed class Root : MonoBehaviour
         OnDiceRollsAmountChangedEvent += OnDiceRollsAmountChange;
 
         _uiHandler.OnDiceRollClickEvent += OnDiceRollClick;
+
         _metaLevel.OnResourcePickupEvent += OnResourcePickup;
         _metaLevel.OnFightEvent += OnFight;
-        //_metaLevel.OnFightCompleteEvent += OnFightComplete;
-        //_metaLevel.OnDiceRollsAmontChadgeEvent += OnDiceRollsAmountChange;
     }
 
     private void OnDestroy()
     {
         OnDiceRollsAmountChangedEvent -= OnDiceRollsAmountChange;
+
         _uiHandler.OnDiceRollClickEvent -= OnDiceRollClick;
+
         _metaLevel.OnResourcePickupEvent -= OnResourcePickup;
         _metaLevel.OnFightEvent -= OnFight;
-        //_metaLevel.OnFightCompleteEvent -= OnFightComplete;
-        //_metaLevel.OnDiceRollsAmontChadgeEvent -= OnDiceRollsAmountChange;
 
         _metaLevel.Dispose();
     }

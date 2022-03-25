@@ -16,6 +16,7 @@ namespace Enemy
         private AnimationHandler _animationHandler;
         private InfoHandler _infoHandler;
         private Dictionary<EnemyType, GameObject> _enemyPrefabs;
+        private int _enemyFullHealthAmount;
 
         public EnemyHandler(EnemiesData enemiesData, AnimationHandler animationHandler)
         {
@@ -33,31 +34,37 @@ namespace Enemy
             _enemyView = enemyObject.GetComponent<EnemyView>();
             _enemyView.NavMeshAgent.SetDestination(placeToFight.position);
 
+            _enemyFullHealthAmount = enemyProperties.Stats.Health;
+
             await _animationHandler.EnemyAppearAnimation();
             _enemyView.NavMeshAgent.enabled = false;
             _infoHandler.InitInformation
                 (enemyProperties.InfoPrefab, enemyObject.transform.position, enemyProperties.Stats.Power, enemyProperties.Stats.Health);
         }
 
-        public void InitHit(int playerRemainingHealth)
+        public void DoHit(int playerRemainingHealth)
         {
             _enemyView.Animator.SetBool(EnemyState.IsAttacking, true);
         }
 
-        public async void InitGotHit(int enemyRemainingHealth)
+        public async void GetHit(int enemyRemainingHealth)
         {
             if (enemyRemainingHealth <= 0)
             {
-                await Task.Delay(600);//temp
                 _enemyView.Animator.SetBool(EnemyState.IsKilled, true);
+                _infoHandler.SetHealth(0, 0f);
+
                 await _animationHandler.EnemyDeathAnimation();
+
                 Object.Destroy(_enemyView.gameObject);
                 _infoHandler.DestroyInformation();
             }
-                
-            //else
-            //    _enemyView.Animator.SetBool(EnemyState.GotHit, true);
-            //TODO: use remainingHealth to display on bar
+            else
+            {
+                _enemyView.Animator.SetBool(EnemyState.GotHit, true);
+                float fillAmount = (float)enemyRemainingHealth / (float)_enemyFullHealthAmount;
+                _infoHandler.SetHealth(enemyRemainingHealth, fillAmount);
+            }
         }
 
         private Dictionary<EnemyType, GameObject> MakeEnemyPrefabsDictionary(List<GameObject> enemyiesPrefabs)

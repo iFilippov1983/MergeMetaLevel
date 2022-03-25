@@ -24,7 +24,8 @@ namespace Game
         private EnemyHandler _enemyHandler;
         private EnemyProperties _lastEnemyProperties;
 
-        public Action<EnemyProperties> OnFightEvent;
+        //public Action<EnemyProperties> OnFightEvent;
+        public Action OnFightEvent;
         public Action<ResourceProperties> OnResourcePickupEvent;
 
         public MetaLevel(GameData gameData, PlayerProfile playerProfile)
@@ -32,7 +33,7 @@ namespace Game
             _gameData = gameData;
             _playerProfile = playerProfile;
             _levelViewHandler = new LevelViewHandler(_gameData.LevelData);
-            _playerHandler = new PlayerHandler(_gameData, _playerProfile.Stats.CurrentCellID);
+            _playerHandler = new PlayerHandler(_gameData, _playerProfile);
             _routeHandler = new LevelRouteLogicHandler(_gameData.LevelData.CellsToVisit);
             _cameraHandler = new VirtualCameraHandler(_playerHandler.PlayerView.transform);
             _animationHandler = new AnimationHandler(_playerHandler.PlayerView, _playerHandler.PlayerAnimController);
@@ -95,7 +96,7 @@ namespace Game
             }
 
             _playerHandler.PrepareToFight(_playerProfile.Stats.Power, _playerProfile.Stats.Health);
-            await _fightHandler.ApplyFight(enemyProperties, OnFightEvent);//, enemySpawnPoint, enemyFightPoint, fisrtFightOnThisCell);
+            await _fightHandler.ApplyFight(enemyProperties, OnFightEvent);
             bool playerWins = _playerProfile.Stats.LastFightWinner;
             await HandleFightResult(playerWins, enemyProperties);
         }
@@ -161,18 +162,18 @@ namespace Game
 
         private void SubscribeEntyties()
         {
-            _fightHandler.OnPlayerHitsEnemy += _playerHandler.InitHit;
-            _fightHandler.OnPlayerHitsEnemy += _enemyHandler.InitGotHit;
-            _fightHandler.OnEnemyHitsPlayer += _playerHandler.InitGotHit;
-            _fightHandler.OnEnemyHitsPlayer += _enemyHandler.InitHit;
+            _fightHandler.OnPlayerHitsEnemy += _playerHandler.DoHit;
+            _fightHandler.OnPlayerHitsEnemy += _enemyHandler.GetHit;
+            _fightHandler.OnEnemyHitsPlayer += _playerHandler.GetHit;
+            _fightHandler.OnEnemyHitsPlayer += _enemyHandler.DoHit;
         }
 
         public void Dispose()
         {
-            _fightHandler.OnPlayerHitsEnemy -= _playerHandler.InitHit;
-            _fightHandler.OnPlayerHitsEnemy -= _enemyHandler.InitGotHit;
-            _fightHandler.OnEnemyHitsPlayer -= _playerHandler.InitGotHit;
-            _fightHandler.OnEnemyHitsPlayer -= _enemyHandler.InitHit;
+            _fightHandler.OnPlayerHitsEnemy -= _playerHandler.DoHit;
+            _fightHandler.OnPlayerHitsEnemy -= _enemyHandler.GetHit;
+            _fightHandler.OnEnemyHitsPlayer -= _playerHandler.GetHit;
+            _fightHandler.OnEnemyHitsPlayer -= _enemyHandler.DoHit;
         }
     }
 }

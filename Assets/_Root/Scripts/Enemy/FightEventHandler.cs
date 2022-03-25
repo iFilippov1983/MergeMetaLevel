@@ -23,16 +23,15 @@ namespace Game
             _playerProfile = playerProfile;
         }
 
-        public async Task ApplyFight(EnemyProperties enemyProperties, Action<EnemyProperties> OnFightEvent)
+        public async Task ApplyFight
+            (
+            EnemyProperties enemyProperties,
+            Action OnFightEvent
+            //Action<EnemyProperties> OnFightEvent
+            )
         {
-            OnFightEvent?.Invoke(enemyProperties);
-            bool result = await Fight(enemyProperties);
+            OnFightEvent?.Invoke();
 
-            _playerProfile.Stats.LastFightWinner = result;
-        }
-
-        private async Task<bool> Fight(EnemyProperties enemyProperties)
-        {
             int playerHealth = _playerProfile.Stats.Health;
             int playerPower = _playerProfile.Stats.Power;
             int enemyHealth = enemyProperties.Stats.Health;
@@ -50,7 +49,9 @@ namespace Game
                 OnEnemyHitsPlayer?.Invoke(playerHealth);
                 await _animationHandler.EnemyHitsPlayerAnimation(playerHealth <= 0);
             }
-            return playerHealth > 0;
+
+            bool result = playerHealth > 0;
+            _playerProfile.Stats.LastFightWinner = result;
         }
     }
 }

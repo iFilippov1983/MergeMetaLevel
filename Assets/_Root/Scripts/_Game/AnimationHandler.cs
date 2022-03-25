@@ -29,22 +29,34 @@ internal class AnimationHandler
     public async Task PlayerHitsEnemyAnimation(bool enemyKilled)
     {
         bool playerAttacks = _playerAnimController.attackAnimationFinished;
-        bool enemyGotHit = _enemyAnimController.deathAnimationFinished;
-        //bool enemyGotHit = _enemyAnimController.gotHitAnimationFinished;
+        bool enemyGotHit = enemyKilled
+            ? _enemyAnimController.deathAnimationFinished
+            : _enemyAnimController.gotHitAnimationFinished;
 
-        while (!playerAttacks)// || !enemyGotHit)
+        while (!playerAttacks || !enemyGotHit)
         {
             await Task.Yield();
             playerAttacks = _playerAnimController.attackAnimationFinished;
-            if (enemyKilled) 
-                enemyGotHit = _enemyAnimController.deathAnimationFinished;
-            //enemyGotHit = _enemyAnimController.gotHitAnimationFinished;
+            enemyGotHit = enemyKilled
+            ? _enemyAnimController.deathAnimationFinished
+            : _enemyAnimController.gotHitAnimationFinished;
+
+            if (playerAttacks)
+            {
+                _playerView.Animator.SetBool(PlayerState.IsAttacking, false);
+            }
+            if (enemyGotHit)
+            {
+                _enemyView.Animator.SetBool(EnemyState.IsKilled, false);
+                _enemyView.Animator.SetBool(EnemyState.GotHit, false);
+            }
         }
 
         _enemyAnimController.ResetFlags();
         _playerAnimController.ResetFlags();
-        _playerView.Animator.SetBool(PlayerState.IsAttacking, false);
+        //_enemyView.Animator.SetBool(EnemyState.IsKilled, false);
         //_enemyView.Animator.SetBool(EnemyState.GotHit, false);
+        //_playerView.Animator.SetBool(PlayerState.IsAttacking, false);
     }
 
     public async Task EnemyHitsPlayerAnimation(bool playerDefeated)
@@ -61,13 +73,23 @@ internal class AnimationHandler
             playerGotHit = playerDefeated
             ? _playerAnimController.deathAnimationFinished
             : _playerAnimController.gotHitAnimationFinished;
+
+            if (enemyAttacks)
+            {
+                _enemyView.Animator.SetBool(EnemyState.IsAttacking, false);
+            }
+            if (playerGotHit)
+            {
+                _playerView.Animator.SetBool(PlayerState.IsDefeated, false);
+                _playerView.Animator.SetBool(PlayerState.GotHit, false);
+            }
         }
 
         _enemyAnimController.ResetFlags();
         _playerAnimController.ResetFlags();
-        _playerView.Animator.SetBool(PlayerState.IsDefeated, false);
-        _playerView.Animator.SetBool(PlayerState.GotHit, false);
-        _enemyView.Animator.SetBool(EnemyState.IsAttacking, false);
+        //_playerView.Animator.SetBool(PlayerState.IsDefeated, false);
+        //_playerView.Animator.SetBool(PlayerState.GotHit, false);
+        //_enemyView.Animator.SetBool(EnemyState.IsAttacking, false);
     }
 
     public async Task EnemyAppearAnimation()

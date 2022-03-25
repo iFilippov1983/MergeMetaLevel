@@ -15,6 +15,7 @@ namespace Player
         private Vector3 _playerInitialPosition;
         private GameObject _playerPrefab;
         private PlayerView _playerView;
+        private PlayerProfile _playerProfile;
         private InfoHandler _infoHandler;
         private PlayerAnimationController _playerAnimController;
         private GameObject _infoPrefab;
@@ -23,10 +24,12 @@ namespace Player
         public PlayerView PlayerView => _playerView;
         public PlayerAnimationController PlayerAnimController => _playerAnimController;
 
-        public PlayerHandler(GameData gameData, int initialCellId)
+        public PlayerHandler(GameData gameData, PlayerProfile playerProfile)
         {
+            _playerProfile = playerProfile;
             _playerPrefab = gameData.PlayerData.PlayerPrefab;
-            _playerInitialPosition = gameData.LevelData.CellsViews[initialCellId].transform.position;
+            var cellViews = gameData.LevelData.CellsViews;
+            _playerInitialPosition = cellViews[_playerProfile.Stats.CurrentCellID].transform.position;
             InitPlayer(_playerInitialPosition);//TODO: insert position from cash
             _infoHandler = new InfoHandler(Camera.main);
             _infoPrefab = gameData.PlayerData.InfoPrefab;
@@ -41,31 +44,24 @@ namespace Player
                 await Task.Yield();
         }
 
-        public void InitHit(int enemyRemainingHealth)
+        public void DoHit(int enemyRemainingHealth)
         {
             _playerView.Animator.SetBool(PlayerState.IsAttacking, true);
         }
 
-        public void InitGotHit(int playerRemainingHealth)
+        public void GetHit(int playerRemainingHealth)
         {
             if (playerRemainingHealth <= 0)
+            {
                 _playerView.Animator.SetBool(PlayerState.IsDefeated, true);
+                _infoHandler.SetHealth(0, 0f);
+            }  
             else
+            {
                 _playerView.Animator.SetBool(PlayerState.GotHit, true);
-
-            //TODO: use remainingHealth to display on bar
-        }
-
-        public void InitDeath()
-        { 
-            
-        }
-
-        private void InitPlayer(Vector3 playerInitPosition)
-        {
-            var playerObject = GameObject.Instantiate(_playerPrefab, playerInitPosition, Quaternion.identity);
-            _playerView = playerObject.GetComponent<PlayerView>();
-            _playerAnimController = playerObject.GetComponent<PlayerAnimationController>();
+                float fillAmount = (float)playerRemainingHealth / (float)_playerProfile.Stats.Health;
+                _infoHandler.SetHealth(playerRemainingHealth, fillAmount);
+            }
         }
 
         internal void PrepareToFight(int power, int health)
@@ -77,6 +73,13 @@ namespace Player
         internal void FinishFight()
         {
             _infoHandler.DestroyInformation();
+        }
+
+        private void InitPlayer(Vector3 playerInitPosition)
+        {
+            var playerObject = GameObject.Instantiate(_playerPrefab, playerInitPosition, Quaternion.identity);
+            _playerView = playerObject.GetComponent<PlayerView>();
+            _playerAnimController = playerObject.GetComponent<PlayerAnimationController>();
         }
     }
 }
