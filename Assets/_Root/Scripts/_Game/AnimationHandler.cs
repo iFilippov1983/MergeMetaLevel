@@ -1,5 +1,6 @@
 ﻿using Data;
 using Enemy;
+using Game;
 using Player;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -7,12 +8,15 @@ using UnityEngine;
 internal class AnimationHandler
 {
     private PlayerView _playerView;
-    private PlayerAnimationController _playerAnimController;
+    private CharacterAnimationControler _playerAnimController;
+    private InfoHandler _playerInfoHandler;
     private EnemyView _enemyView;
-    private EnemyAnimationControler _enemyAnimController;
-    private PlayerProfile _playerProfile;
+    private CharacterAnimationControler _enemyAnimController;
+    private InfoHandler _enemyInfoHandler;
+    private bool _attackerMoves;
+    private bool _defenderMoves;
 
-    public AnimationHandler(PlayerView playerView, PlayerAnimationController playerAnimController)
+    public AnimationHandler(PlayerView playerView, CharacterAnimationControler playerAnimController)
     {
         _playerView = playerView;
         _playerAnimController = playerAnimController;
@@ -21,95 +25,86 @@ internal class AnimationHandler
     public void SetEnemyToControl(GameObject enemyObject)
     { 
         _enemyView = enemyObject.GetComponent<EnemyView>();
-        _enemyAnimController = enemyObject.GetComponent<EnemyAnimationControler>();
+        _enemyAnimController = enemyObject.GetComponent<CharacterAnimationControler>();
     }
 
-    public void StopPlayer() => _playerView.Animator.SetBool(PlayerState.IsRunning, false);
-
-    public async Task PlayerHitsEnemyAnimation(bool enemyKilled)
+    public async Task HandleEnemyAppearAnimation()
     {
-        bool playerAttacks = _playerAnimController.attackAnimationFinished;
-        bool enemyGotHit = enemyKilled
-            ? _enemyAnimController.deathAnimationFinished
-            : _enemyAnimController.gotHitAnimationFinished;
-
-        while (!playerAttacks || !enemyGotHit)
-        {
-            await Task.Yield();
-            playerAttacks = _playerAnimController.attackAnimationFinished;
-            enemyGotHit = enemyKilled
-            ? _enemyAnimController.deathAnimationFinished
-            : _enemyAnimController.gotHitAnimationFinished;
-
-            if (playerAttacks)
-            {
-                _playerView.Animator.SetBool(PlayerState.IsAttacking, false);
-            }
-            if (enemyGotHit)
-            {
-                _enemyView.Animator.SetBool(EnemyState.IsKilled, false);
-                _enemyView.Animator.SetBool(EnemyState.GotHit, false);
-            }
-        }
-
-        _enemyAnimController.ResetFlags();
-        _playerAnimController.ResetFlags();
-        //_enemyView.Animator.SetBool(EnemyState.IsKilled, false);
-        //_enemyView.Animator.SetBool(EnemyState.GotHit, false);
-        //_playerView.Animator.SetBool(PlayerState.IsAttacking, false);
-    }
-
-    public async Task EnemyHitsPlayerAnimation(bool playerDefeated)
-    {
-        bool enemyAttacks = _enemyAnimController.attackAnimationFinished;
-        bool playerGotHit = playerDefeated
-            ? _playerAnimController.deathAnimationFinished
-            : _playerAnimController.gotHitAnimationFinished;
-
-        while (!enemyAttacks || !playerGotHit)
-        {
-            await Task.Yield();
-            enemyAttacks = _enemyAnimController.attackAnimationFinished;
-            playerGotHit = playerDefeated
-            ? _playerAnimController.deathAnimationFinished
-            : _playerAnimController.gotHitAnimationFinished;
-
-            if (enemyAttacks)
-            {
-                _enemyView.Animator.SetBool(EnemyState.IsAttacking, false);
-            }
-            if (playerGotHit)
-            {
-                _playerView.Animator.SetBool(PlayerState.IsDefeated, false);
-                _playerView.Animator.SetBool(PlayerState.GotHit, false);
-            }
-        }
-
-        _enemyAnimController.ResetFlags();
-        _playerAnimController.ResetFlags();
-        //_playerView.Animator.SetBool(PlayerState.IsDefeated, false);
-        //_playerView.Animator.SetBool(PlayerState.GotHit, false);
-        //_enemyView.Animator.SetBool(EnemyState.IsAttacking, false);
-    }
-
-    public async Task EnemyAppearAnimation()
-    {
-        bool animationCompleted = _enemyAnimController.appearAnimationFinished;
+        bool animationCompleted = _enemyAnimController.GetAppearAnimationFinished();
         while (!animationCompleted)
         {
             await Task.Yield();
-            animationCompleted = _enemyAnimController.appearAnimationFinished;
+            animationCompleted = _enemyAnimController.GetAppearAnimationFinished();
         }
-        _enemyView.Animator.SetBool(EnemyState.IsReady, true);
+        _enemyView.GetAnimator().SetBool(CharState.IsReady, true);
     }
 
-    public async Task EnemyDeathAnimation()
+    public void StopPlayer() => _playerView.GetAnimator().SetBool(CharState.IsRunning, false);
+
+    public async Task AnimateHit(bool playerAttacking, bool defendingCharKilled)
     {
-        bool animationCompleted = _enemyAnimController.deathAnimationFinished;
-        while (!animationCompleted)
+        await SetStartFlags(playerAttacking, defendingCharKilled);
+        SetFinishFlags(playerAttacking, defendingCharKilled);
+
+        while (!_attackerMoves || !_defenderMoves)
         {
             await Task.Yield();
-            animationCompleted = _enemyAnimController.deathAnimationFinished;
+            SetFinishFlags(playerAttacking, defendingCharKilled);
+        }
+
+        _playerAnimController.ResetFlags();
+        _enemyAnimController.ResetFlags();
+    }
+
+    private async Task SetStartFlags(bool playerAttacking, bool defendingCharKilled)
+    {
+        if (playerAttacking)
+            await SetAnimationStartFlags(_playerView, _enemyView, defendingCharKilled);
+        else
+            await SetAnimationStartFlags(_enemyView, _playerView, defendingCharKilled);
+    }
+
+    private async Task SetAnimationStartFlags(IAnimatorHolder attacker, IAnimatorHolder defender, bool defendingCharKilled)
+    { 
+        attacker.GetAnimator().SetBool(CharState.IsAttacking, true);
+
+        await Task.Delay(500);//timing animation delay
+
+        if (defendingCharKilled)
+        {
+            defender.GetAnimator().SetBool(CharState.GotHit, true);
+            defender.GetAnimator().SetBool(CharState.IsKilled, true);
+        }
+        else
+            defender.GetAnimator().SetBool(CharState.GotHit, true);
+    }
+
+    private void SetFinishFlags(bool playerAttacking, bool defendingCharKilled)
+    {
+        if (playerAttacking)
+            SetAnimationFinishFlags(_playerAnimController, _enemyAnimController, defendingCharKilled);
+        else
+            SetAnimationFinishFlags(_enemyAnimController, _playerAnimController, defendingCharKilled);
+    }
+
+    private void SetAnimationFinishFlags(IAnimationControler attacker, IAnimationControler defender, bool defendingCharKilled)
+    {
+        _attackerMoves = attacker.GetAttackAnimationFinished();
+        _defenderMoves = defendingCharKilled
+            ? defender.GetDeathAnimationFinished()
+            : defender.GetGotHitAnimationFinished();
+
+        if (_attackerMoves)
+        {
+            _playerView.GetAnimator().SetBool(CharState.IsAttacking, false);
+            _enemyView.GetAnimator().SetBool(CharState.IsAttacking, false);
+        }
+        if (_defenderMoves)
+        {
+            _enemyView.GetAnimator().SetBool(CharState.IsKilled, false);
+            _enemyView.GetAnimator().SetBool(CharState.GotHit, false);
+            _playerView.GetAnimator().SetBool(CharState.IsKilled, false);
+            _playerView.GetAnimator().SetBool(CharState.GotHit, false);
         }
     }
 }

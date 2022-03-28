@@ -11,11 +11,7 @@ namespace Game
     internal class FightEventHandler
     {
         private AnimationHandler _animationHandler;
-        private EnemyView _enemyView;
         private PlayerProfile _playerProfile;
-
-        public Action<int> OnPlayerHitsEnemy;
-        public Action<int> OnEnemyHitsPlayer;
 
         public FightEventHandler(EnemiesData enemiesData, AnimationHandler animationHandler, PlayerProfile playerProfile)
         {
@@ -25,13 +21,11 @@ namespace Game
 
         public async Task ApplyFight
             (
-            EnemyProperties enemyProperties,
-            Action OnFightEvent
-            //Action<EnemyProperties> OnFightEvent
+            Action<int> PlayerGetHit, 
+            Action<int> EnemyGetHit, 
+            EnemyProperties enemyProperties
             )
         {
-            OnFightEvent?.Invoke();
-
             int playerHealth = _playerProfile.Stats.Health;
             int playerPower = _playerProfile.Stats.Power;
             int enemyHealth = enemyProperties.Stats.Health;
@@ -40,14 +34,17 @@ namespace Game
             while (playerHealth > 0 && enemyHealth > 0)
             {
                 enemyHealth -= playerPower;
-                OnPlayerHitsEnemy?.Invoke(enemyHealth);
-                await _animationHandler.PlayerHitsEnemyAnimation(enemyHealth <= 0);
+                await _animationHandler.AnimateHit(true, enemyHealth <= 0);
+                EnemyGetHit?.Invoke(enemyHealth);
 
                 if (enemyHealth <= 0) break;
+                await Task.Delay(500);//timing animation delay
 
                 playerHealth -= enemyPower;
-                OnEnemyHitsPlayer?.Invoke(playerHealth);
-                await _animationHandler.EnemyHitsPlayerAnimation(playerHealth <= 0);
+                await _animationHandler.AnimateHit(false, playerHealth <= 0);
+                PlayerGetHit?.Invoke(playerHealth);
+
+                await Task.Delay(500);//timing animation delay
             }
 
             bool result = playerHealth > 0;

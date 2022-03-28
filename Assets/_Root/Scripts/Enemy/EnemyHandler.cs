@@ -1,9 +1,6 @@
 ﻿using Data;
 using Game;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -36,32 +33,31 @@ namespace Enemy
 
             _enemyFullHealthAmount = enemyProperties.Stats.Health;
 
-            await _animationHandler.EnemyAppearAnimation();
+            await _animationHandler.HandleEnemyAppearAnimation();
             _enemyView.NavMeshAgent.enabled = false;
-            _infoHandler.InitInformation
+            _infoHandler.SetInformation
                 (enemyProperties.InfoPrefab, enemyObject.transform.position, enemyProperties.Stats.Power, enemyProperties.Stats.Health);
         }
 
-        public void DoHit(int playerRemainingHealth)
+        public void InitInfo()
         {
-            _enemyView.Animator.SetBool(EnemyState.IsAttacking, true);
+            _infoHandler.InitInformation();  
+        }
+        public void DestroyInfo()
+        { 
+            _infoHandler.DestroyInformation();
         }
 
-        public async void GetHit(int enemyRemainingHealth)
+        public void OnGetHitEvent(int enemyRemainingHealth)
         {
             if (enemyRemainingHealth <= 0)
             {
-                _enemyView.Animator.SetBool(EnemyState.IsKilled, true);
                 _infoHandler.SetHealth(0, 0f);
-
-                await _animationHandler.EnemyDeathAnimation();
-
                 Object.Destroy(_enemyView.gameObject);
                 _infoHandler.DestroyInformation();
             }
             else
             {
-                _enemyView.Animator.SetBool(EnemyState.GotHit, true);
                 float fillAmount = (float)enemyRemainingHealth / (float)_enemyFullHealthAmount;
                 _infoHandler.SetHealth(enemyRemainingHealth, fillAmount);
             }

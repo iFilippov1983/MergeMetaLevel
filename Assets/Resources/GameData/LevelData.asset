@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LevelData
   m_EditorClassIdentifier: 
   _level: {fileID: 0}
+  _cameraContainer: {fileID: 0}
   _cellsToVisitProperties:
   - {fileID: 11400000, guid: 7ea29e0075fd40842951a0a1f825b47a, type: 2}
   - {fileID: 11400000, guid: 9bfc2397a19a8364da3754c66d4700fc, type: 2}

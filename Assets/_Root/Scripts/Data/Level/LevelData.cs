@@ -1,7 +1,8 @@
 ﻿using Level;
-using System.Collections.Generic;
-using UnityEditor;
+using GameCamera;
 using UnityEngine;
+using UnityEditor;
+using System;
 
 namespace Data
 {
@@ -9,10 +10,13 @@ namespace Data
     public class LevelData : ScriptableObject
     {
         [SerializeField] private GameObject _level;
+        [SerializeField] private CameraContainerView  _cameraContainer;
         [SerializeField] private CellProperties[] _cellsToVisitProperties;
 
-        public CellView[] CellsViews =>  GetCellsViews();
+
         public CellProperties[] CellsToVisit => _cellsToVisitProperties;
+        public CellView[] CellsViews => GetCellsViews();
+        public CameraContainerView CameraContainer => GetCameraContainer();
 
         private CellView[] GetCellsViews()
         {
@@ -23,9 +27,16 @@ namespace Data
             }
             return _level.GetComponentsInChildren<CellView>();
         }
+
+        private CameraContainerView GetCameraContainer()
+        {
+            if (_cameraContainer == null)
+                _cameraContainer = FindObjectOfType<CameraContainerView>();
+            return _cameraContainer;
+        }
     }
 
     public enum CellStatus { ToSkip, ToVisit }
-    public enum ContentType { None, Resource, Enemy }
+    public enum ContentType { Resource, Enemy }
     public enum ResouceType { Coins, Gems, ExtraRolls, Power }
 }

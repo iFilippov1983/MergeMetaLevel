@@ -1,12 +1,7 @@
 ﻿using Data;
 using Game;
-using GameUI;
-using Level;
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Player
 {
@@ -17,12 +12,12 @@ namespace Player
         private PlayerView _playerView;
         private PlayerProfile _playerProfile;
         private InfoHandler _infoHandler;
-        private PlayerAnimationController _playerAnimController;
+        private CharacterAnimationControler _playerAnimController;
         private GameObject _infoPrefab;
 
 
         public PlayerView PlayerView => _playerView;
-        public PlayerAnimationController PlayerAnimController => _playerAnimController;
+        public CharacterAnimationControler PlayerAnimController => _playerAnimController;
 
         public PlayerHandler(GameData gameData, PlayerProfile playerProfile)
         {
@@ -38,36 +33,30 @@ namespace Player
         public async Task SetDestinationAndMove(Vector3 position)
         {
             _playerView.NavMeshAgent.SetDestination(position);
-            _playerView.Animator.SetBool(PlayerState.IsRunning, true);
+            _playerView.GetAnimator().SetBool(CharState.IsRunning, true);
             var transform = _playerView.transform;
             while(Vector3.SqrMagnitude(transform.position - position) > 0.2f * 0.2f)
                 await Task.Yield();
         }
 
-        public void DoHit(int enemyRemainingHealth)
-        {
-            _playerView.Animator.SetBool(PlayerState.IsAttacking, true);
-        }
-
-        public void GetHit(int playerRemainingHealth)
+        public void OnGetHitEvent(int playerRemainingHealth)
         {
             if (playerRemainingHealth <= 0)
             {
-                _playerView.Animator.SetBool(PlayerState.IsDefeated, true);
                 _infoHandler.SetHealth(0, 0f);
             }  
             else
             {
-                _playerView.Animator.SetBool(PlayerState.GotHit, true);
                 float fillAmount = (float)playerRemainingHealth / (float)_playerProfile.Stats.Health;
                 _infoHandler.SetHealth(playerRemainingHealth, fillAmount);
             }
         }
 
-        internal void PrepareToFight(int power, int health)
+        public void PrepareToFight(int power, int health)
         {
-            _infoHandler.InitInformation
+            _infoHandler.SetInformation
                 (_infoPrefab, _playerView.transform.position, power, health);
+            _infoHandler.InitInformation();
         }
 
         internal void FinishFight()
@@ -79,7 +68,7 @@ namespace Player
         {
             var playerObject = GameObject.Instantiate(_playerPrefab, playerInitPosition, Quaternion.identity);
             _playerView = playerObject.GetComponent<PlayerView>();
-            _playerAnimController = playerObject.GetComponent<PlayerAnimationController>();
+            _playerAnimController = playerObject.GetComponent<CharacterAnimationControler>();
         }
     }
 }

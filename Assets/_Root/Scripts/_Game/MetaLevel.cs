@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace Game
 {
-    internal sealed class MetaLevel : IDisposable
+    internal sealed class MetaLevel
     {
         private GameData _gameData;
         private LevelViewHandler _levelViewHandler;
@@ -20,7 +20,7 @@ namespace Game
         private FightEventHandler _fightHandler;
         private PlayerProfile _playerProfile;
         private LevelRouteLogicHandler _routeHandler;
-        private VirtualCameraHandler _cameraHandler;
+        private CameraHandler _cameraHandler;
         private EnemyHandler _enemyHandler;
         private EnemyProperties _lastEnemyProperties;
 
@@ -35,12 +35,10 @@ namespace Game
             _levelViewHandler = new LevelViewHandler(_gameData.LevelData);
             _playerHandler = new PlayerHandler(_gameData, _playerProfile);
             _routeHandler = new LevelRouteLogicHandler(_gameData.LevelData.CellsToVisit);
-            _cameraHandler = new VirtualCameraHandler(_playerHandler.PlayerView.transform);
+            _cameraHandler = new CameraHandler(_gameData.LevelData.CameraContainer, _playerHandler.PlayerView.transform);
             _animationHandler = new AnimationHandler(_playerHandler.PlayerView, _playerHandler.PlayerAnimController);
             _fightHandler = new FightEventHandler(_gameData.EnemiesData, _animationHandler, _playerProfile);
             _enemyHandler = new EnemyHandler(_gameData.EnemiesData, _animationHandler);
-
-            SubscribeEntyties();
         }
 
         public int GetRouteCellsCount()
@@ -82,6 +80,11 @@ namespace Game
             }
         }
 
+        public int MakePlayerPowerUpgrade()
+        {
+            return 0;
+        }
+
         private async Task ApplyFight(EnemyProperties enemyProperties, bool fisrtFightOnThisCell = true)
         {
             Transform enemySpawnPoint = null;
@@ -95,10 +98,15 @@ namespace Game
                 await _enemyHandler.InitializeEnemy(enemyProperties, enemySpawnPoint, enemyFightPoint);
             }
 
+            _cameraHandler.StopLookAndFollow();
             _playerHandler.PrepareToFight(_playerProfile.Stats.Power, _playerProfile.Stats.Health);
-            await _fightHandler.ApplyFight(enemyProperties, OnFightEvent);
+            _enemyHandler.InitInfo();
+            OnFightEvent?.Invoke();
+            await _fightHandler.ApplyFight(_playerHandler.OnGetHitEvent, _enemyHandler.OnGetHitEvent, enemyProperties);
             bool playerWins = _playerProfile.Stats.LastFightWinner;
             await HandleFightResult(playerWins, enemyProperties);
+
+            _cameraHandler.LookAndFollow(_playerHandler.PlayerView.transform);
         }
 
         private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
@@ -153,27 +161,12 @@ namespace Game
             }
             else
             {
+                _enemyHandler.DestroyInfo();
                 _playerProfile.Stats.LastFightWinner = false;
                 await Task.Delay(100);//ui events
             }
 
             _playerHandler.FinishFight();
-        }
-
-        private void SubscribeEntyties()
-        {
-            _fightHandler.OnPlayerHitsEnemy += _playerHandler.DoHit;
-            _fightHandler.OnPlayerHitsEnemy += _enemyHandler.GetHit;
-            _fightHandler.OnEnemyHitsPlayer += _playerHandler.GetHit;
-            _fightHandler.OnEnemyHitsPlayer += _enemyHandler.DoHit;
-        }
-
-        public void Dispose()
-        {
-            _fightHandler.OnPlayerHitsEnemy -= _playerHandler.DoHit;
-            _fightHandler.OnPlayerHitsEnemy -= _enemyHandler.GetHit;
-            _fightHandler.OnEnemyHitsPlayer -= _playerHandler.GetHit;
-            _fightHandler.OnEnemyHitsPlayer -= _enemyHandler.DoHit;
         }
     }
 }

@@ -14,23 +14,40 @@ namespace Game
         private InfoView _info;
         private Camera _camera;
 
+        private GameObject _infoBarPrefab;
+        private Vector3 _positionToSpawn;
+        private int _health;
+        private int _power;
+
         public InfoHandler(Camera cameraToWorkWith)
         {
             _camera = cameraToWorkWith;
         }
 
-        public void InitInformation
+        public void InitInformation()
+        {
+            _infoBarObject = Object.Instantiate(_infoBarPrefab, _positionToSpawn, _camera.transform.rotation);
+            _info = _infoBarObject.GetComponent<InfoView>();
+            SetHealth(_health, 1);
+            SetPower(_power);
+        }
+
+        public void SetInformation
             (
-            GameObject infoRabPrefab, 
+            GameObject infoBarPrefab, 
             Vector3 positionToSpawn,
             int power,
             int health
             )
-        { 
-            _infoBarObject = Object.Instantiate(infoRabPrefab, positionToSpawn, _camera.transform.rotation);
-            _info = _infoBarObject.GetComponent<InfoView>();
-            SetHealth(health, 1);
-            SetPower(power);
+        {
+            _infoBarPrefab = infoBarPrefab;
+            _positionToSpawn = positionToSpawn;
+            _power = power;
+            _health = health;
+            //_infoBarObject = Object.Instantiate(infoBarPrefab, positionToSpawn, _camera.transform.rotation);
+            //_info = _infoBarObject.GetComponent<InfoView>();
+            //SetHealth(health, 1);
+            //SetPower(power);
         }
 
         public void DestroyInformation()

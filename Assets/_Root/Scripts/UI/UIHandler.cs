@@ -13,6 +13,7 @@ namespace GameUI
         private GameUIView _gameUIView;
 
         public Action OnDiceRollClickEvent;
+        public Action OnUpgrdePowerClickEvent;
 
         public UIHandler(UIData uiData, Transform uiContainer)
         {
@@ -23,7 +24,7 @@ namespace GameUI
         {
             var uiObject = Object.Instantiate(_uiData.GameUIPrefab, _uiContainer);
             _gameUIView = uiObject.GetComponent<GameUIView>();
-            _gameUIView.Init(DiceRoll);
+            _gameUIView.Init(DiceRoll, UpgradePower);
             _gameUIView.CoinsText.text = stats.Coins.ToString();
             _gameUIView.GemsText.text = stats.Gems.ToString();
             _gameUIView.DiceRollsText.text = stats.DiceRolls.ToString();
@@ -32,46 +33,60 @@ namespace GameUI
 
         public async Task PlayDiceRollAnimation(int number, Action<int> rollsAmountChagedEvent) //animation ID/state
         {
-            _gameUIView.NumberText.text = number.ToString();
-            _gameUIView.NumberText.gameObject.SetActive(true);
+            _gameUIView.MainText.text = number.ToString();
+            _gameUIView.MainText.gameObject.SetActive(true);
             await Task.Delay(1000);
-            _gameUIView.NumberText.text = string.Empty;
-            _gameUIView.NumberText.gameObject.SetActive(false);
+            _gameUIView.MainText.text = string.Empty;
+            _gameUIView.MainText.gameObject.SetActive(false);
 
             rollsAmountChagedEvent?.Invoke(-1);
         }
 
         public async Task PlayDiceUseAnimation(Action<int> rollsAmountChagedEvent)
         {
-            _gameUIView.NumberText.text = UiString.NextAttempt;
-            _gameUIView.NumberText.gameObject.SetActive(true);
+            _gameUIView.MainText.text = UiString.NextAttempt;
+            _gameUIView.MainText.gameObject.SetActive(true);
             await Task.Delay(1000);
-            _gameUIView.NumberText.text = string.Empty;
-            _gameUIView.NumberText.gameObject.SetActive(false);
+            _gameUIView.MainText.text = string.Empty;
+            _gameUIView.MainText.gameObject.SetActive(false);
 
             rollsAmountChagedEvent.Invoke(-1);
         }
 
+        public async Task PlayUpgradePowerAnimation(int powerAmountToShow)
+        {
+            string text = string.Concat("+", powerAmountToShow);
+            _gameUIView.MainText.text = text;
+            _gameUIView.MainText.gameObject.SetActive(true);
+            await Task.Delay(1000);
+            _gameUIView.MainText.text = string.Empty;
+            _gameUIView.MainText.gameObject.SetActive(false);
+        }
+
         public async Task DisplayText(string text)
         {
-            _gameUIView.NumberText.text = text;
-            _gameUIView.NumberText.gameObject.SetActive(true);
+            _gameUIView.MainText.text = text;
+            _gameUIView.MainText.gameObject.SetActive(true);
             await Task.Delay(1000);
-            _gameUIView.NumberText.text = string.Empty;
-            _gameUIView.NumberText.gameObject.SetActive(false);
+            _gameUIView.MainText.text = string.Empty;
+            _gameUIView.MainText.gameObject.SetActive(false);
         }
 
         public void ActivateUiInteraction()
         {
             _gameUIView.RollButton.interactable = true;
+            _gameUIView.UpgradePowerButton.interactable = true;
+            _gameUIView.PlayMergeButton.interactable = true;
         }
 
         public void DesactivateUiInteraction()
         {
             _gameUIView.RollButton.interactable = false;
+            _gameUIView.UpgradePowerButton.interactable = false;
+            _gameUIView.PlayMergeButton.interactable= false;
         }
 
-        public async Task ChangeCoinsUI(int amount)
+        public async Task ChangeCoinsUi(int amount)
         { 
             await Task.Delay(100);//coins fly animation
             _gameUIView.CoinsText.text = amount.ToString();
@@ -89,7 +104,7 @@ namespace GameUI
             _gameUIView.PowerText.text = amount.ToString();
         }
 
-        internal async Task ChangeRollsUI(int amount)
+        internal async Task ChangeRollsUi(int amount)
         {
             await Task.Delay(100);//dice change animation
             _gameUIView.DiceRollsText.text = amount.ToString();
@@ -98,6 +113,11 @@ namespace GameUI
         private void DiceRoll()
         { 
             OnDiceRollClickEvent?.Invoke();
+        }
+
+        private void UpgradePower()
+        {
+            OnUpgrdePowerClickEvent?.Invoke();
         }
     }
 }

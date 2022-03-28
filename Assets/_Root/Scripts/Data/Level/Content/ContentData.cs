@@ -1,10 +1,10 @@
 ﻿using System;
-using UnityEditor;
 using UnityEngine;
 
 namespace Data
-{      
-    internal abstract class ContentProperties : ScriptableObject
+{
+    [Serializable]
+    internal abstract class ContentData
     {
         public abstract ContentType GetContentType();
     }

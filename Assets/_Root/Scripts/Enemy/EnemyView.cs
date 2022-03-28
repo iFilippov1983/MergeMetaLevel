@@ -1,13 +1,12 @@
 using Data;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+using Game;
+
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Enemy
 {
-    public class EnemyView : MonoBehaviour
+    public class EnemyView : MonoBehaviour, IAnimatorHolder
     {
         [SerializeField] private EnemyType _type;
         [SerializeField] private Animator _animator;
@@ -15,7 +14,7 @@ namespace Enemy
 
         public EnemyType EnemyType => _type;
         public NavMeshAgent NavMeshAgent => _navMeshAgent;
-        public Animator Animator => _animator;
+        public Animator GetAnimator() => _animator;
 
         private void Awake()
         {

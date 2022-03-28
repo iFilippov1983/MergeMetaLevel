@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d82224ae5464bb4408cf0f47dbcc4e75, type: 3}
-  m_Name: Enemy_Bandit100_Properties
+  m_Name: Enemy_Bandit300_Properties
   m_EditorClassIdentifier: 
   _enemyType: 1
   _enemyStats:
-    _power: 100
+    _power: 300
   _rewardList:
-  - {fileID: 11400000, guid: 985daece048ff2c49a4ff43bd18db94b, type: 2}
   - {fileID: 11400000, guid: e65c65097c429df42af4a8e2a5ecf8f6, type: 2}
+  - {fileID: 11400000, guid: 2920ef39c7a59bb4bb74a4287b174754, type: 2}
   _infoPrefabName: EnemyInfo

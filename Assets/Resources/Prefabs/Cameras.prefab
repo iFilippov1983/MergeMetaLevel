@@ -84,15 +84,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
+  m_BindingMode: 3
   m_FollowOffset: {x: -5, y: 20, z: -16}
-  m_XDamping: 5
-  m_YDamping: 5
-  m_ZDamping: 5
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
-  m_PitchDamping: 0
-  m_YawDamping: 2
-  m_RollDamping: 0
+  m_PitchDamping: 10
+  m_YawDamping: 20
+  m_RollDamping: 10
   m_AngularDamping: 0
 --- !u!1 &5792998086959782705
 GameObject:
@@ -120,7 +120,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5792998086959782705}
-  m_LocalRotation: {x: 0.40664026, y: 0.1375094, z: -0.062057726, w: 0.9010459}
+  m_LocalRotation: {x: 0.40208137, y: 0.13782112, z: -0.061361916, w: 0.9030895}
   m_LocalPosition: {x: -4, y: 20, z: -15.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -144,7 +144,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 68.05538
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -156,7 +156,7 @@ Camera:
   field of view: 20
   orthographic: 0
   orthographic size: 10
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -222,6 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5792998086989151609}
+  - component: {fileID: 5009440988645292960}
   m_Layer: 0
   m_Name: Cameras
   m_TagString: Untagged
@@ -245,6 +246,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5009440988645292960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5792998086989151608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0174abf63c6b4945a08c1e95a99ad2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 5792998086959782707}
+  _virtualCamFollow: {fileID: 5792998087915525054}
 --- !u!1 &5792998087898739032
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,14 +327,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5792998087915525053}
-  m_LocalRotation: {x: 0.40664026, y: 0.1375094, z: -0.062057726, w: 0.9010459}
+  m_LocalRotation: {x: 0.40208137, y: 0.13782112, z: -0.061361916, w: 0.9030895}
   m_LocalPosition: {x: -4, y: 20, z: -15.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5792998085798030971}
   m_Father: {fileID: 5792998086989151609}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 38.363, y: 83, z: 0}
+  m_LocalEulerAnglesHint: {x: 48, y: 17.354, z: 0}
 --- !u!114 &5792998087915525054
 MonoBehaviour:
   m_ObjectHideFlags: 0

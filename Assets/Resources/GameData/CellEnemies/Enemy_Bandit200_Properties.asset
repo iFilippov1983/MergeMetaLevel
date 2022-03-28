@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 1
   _enemyStats:
-    Power: 200
-    Health: 400
+    _power: 200
   _rewardList:
   - {fileID: 11400000, guid: 2920ef39c7a59bb4bb74a4287b174754, type: 2}
   - {fileID: 11400000, guid: d7e1861c822001c4082c7efacbdfd876, type: 2}

@@ -17,8 +17,6 @@ internal sealed class Root : MonoBehaviour
     private MetaLevel _metaLevel;
     private UIHandler _uiHandler;
 
-    private Action<int> OnDiceRollsAmountChangedEvent;
-
     private void Awake()
     {
         _playerProfile = new PlayerProfile(_initialPlayerStats);
@@ -47,11 +45,19 @@ internal sealed class Root : MonoBehaviour
         }
     }
 
+    private async void OnUpgradePowerClicked()
+    {
+        _uiHandler.DesactivateUiInteraction();
+        await _uiHandler.PlayUpgradePowerAnimation(10);
+        OnPowerUpgrade(10);
+        _uiHandler.ActivateUiInteraction();
+    }
+
     private async Task RetryFight()
     {
         _uiHandler.DesactivateUiInteraction();
-        await _uiHandler.PlayDiceUseAnimation(OnDiceRollsAmountChangedEvent);
-        await _metaLevel.ApplyCellEvent(OnFightComplete);//callback
+        await _uiHandler.PlayDiceUseAnimation(OnDiceRollsAmountChange);
+        await _metaLevel.ApplyCellEvent(OnFightComplete);
         _uiHandler.ActivateUiInteraction();
     }
 
@@ -60,9 +66,9 @@ internal sealed class Root : MonoBehaviour
         _uiHandler.DesactivateUiInteraction();
 
         int count = _metaLevel.GetRouteCellsCount();
-        await _uiHandler.PlayDiceRollAnimation(count, OnDiceRollsAmountChange); // OnDiceRollsAmountChangedEvent);
+        await _uiHandler.PlayDiceRollAnimation(count, OnDiceRollsAmountChange);
         await _metaLevel.MovePlayer();
-        await _metaLevel.ApplyCellEvent(OnFightComplete);//callback
+        await _metaLevel.ApplyCellEvent(OnFightComplete);
 
         _uiHandler.ActivateUiInteraction();
     }
@@ -70,7 +76,14 @@ internal sealed class Root : MonoBehaviour
     private async void OnDiceRollsAmountChange(int amount)
     {
         _playerProfile.Stats.DiceRolls += amount;
-        await _uiHandler.ChangeRollsUI(_playerProfile.Stats.DiceRolls);
+        await _uiHandler.ChangeRollsUi(_playerProfile.Stats.DiceRolls);
+    }
+
+    private async void OnPowerUpgrade(int powerValue)
+    {
+        _playerProfile.Stats.Power += powerValue;
+        int amount = _playerProfile.Stats.Power;
+        await _uiHandler.ChangePowerUi(amount);
     }
 
     private async void OnResourcePickup(ResourceProperties resourceProperties)
@@ -81,7 +94,7 @@ internal sealed class Root : MonoBehaviour
         {
             _playerProfile.Stats.Coins += resourceProperties.Amount;
             int amount = _playerProfile.Stats.Coins;
-            await _uiHandler.ChangeCoinsUI(amount);
+            await _uiHandler.ChangeCoinsUi(amount);
         }
 
         if (resouceType.Equals(ResouceType.Power))
@@ -92,10 +105,10 @@ internal sealed class Root : MonoBehaviour
         }
     }
 
-    private async void OnFight()//(EnemyProperties enemyProperties)
+    private async void OnFight()
     {
         await _uiHandler.DisplayText(UiString.Fight);
-        //ui onFight functions
+        //TODO: ui onFight functions
     }
 
     private async void OnFightComplete(bool playerWins)
@@ -104,14 +117,13 @@ internal sealed class Root : MonoBehaviour
             ? UiString.Victory 
             : UiString.Defeated;
         await _uiHandler.DisplayText(text);
-        //ui onFightComplete functions
+        //TODO: ui onFightComplete functions
     }
 
     private void SubscribeOnEvents()
     {
-        OnDiceRollsAmountChangedEvent += OnDiceRollsAmountChange;
-
         _uiHandler.OnDiceRollClickEvent += OnDiceRollClick;
+        _uiHandler.OnUpgrdePowerClickEvent += OnUpgradePowerClicked;
 
         _metaLevel.OnResourcePickupEvent += OnResourcePickup;
         _metaLevel.OnFightEvent += OnFight;
@@ -119,14 +131,11 @@ internal sealed class Root : MonoBehaviour
 
     private void OnDestroy()
     {
-        OnDiceRollsAmountChangedEvent -= OnDiceRollsAmountChange;
-
         _uiHandler.OnDiceRollClickEvent -= OnDiceRollClick;
+        _uiHandler.OnUpgrdePowerClickEvent -= OnUpgradePowerClicked;
 
         _metaLevel.OnResourcePickupEvent -= OnResourcePickup;
         _metaLevel.OnFightEvent -= OnFight;
-
-        _metaLevel.Dispose();
     }
 }
 

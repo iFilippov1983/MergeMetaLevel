@@ -1,10 +1,11 @@
-﻿namespace Player
+﻿namespace Game
 {
-    internal static class PlayerState
+    internal static class CharState
     {
+        public const string IsReady = "isReady";
         public const string IsRunning = "isRunning";
         public const string IsAttacking = "isAttacking";
         public const string GotHit = "gotHit";
-        public const string IsDefeated = "isDefeated";
+        public const string IsKilled = "isKilled";
     }
 }
