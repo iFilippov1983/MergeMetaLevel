@@ -9,23 +9,23 @@ namespace Data
     [CreateAssetMenu(menuName = "GameData/LevelData", fileName = "LevelData")]
     public class LevelData : ScriptableObject
     {
-        [SerializeField] private GameObject _level;
+        [SerializeField] private GameObject _levelCells;
         [SerializeField] private CameraContainerView  _cameraContainer;
         [SerializeField] private CellProperties[] _cellsToVisitProperties;
 
 
         public CellProperties[] CellsToVisit => _cellsToVisitProperties;
         public CellView[] CellsViews => GetCellsViews();
-        public CameraContainerView CameraContainer => GetCameraContainer();
+        public CameraContainerView CameraContainerView => GetCameraContainer();
 
         private CellView[] GetCellsViews()
         {
-            if (_level == null)
+            if (_levelCells == null)
             {
-                var viewObject = FindObjectOfType<LevelView>();
-                _level = viewObject.gameObject;
+                var viewObject = FindObjectOfType<CellsView>();
+                _levelCells = viewObject.gameObject;
             }
-            return _level.GetComponentsInChildren<CellView>();
+            return _levelCells.GetComponentsInChildren<CellView>();
         }
 
         private CameraContainerView GetCameraContainer()
@@ -38,5 +38,5 @@ namespace Data
 
     public enum CellStatus { ToSkip, ToVisit }
     public enum ContentType { Resource, Enemy }
-    public enum ResouceType { Coins, Gems, ExtraRolls, Power }
+    public enum ResouceType { Gold, Gems, ExtraRolls, Power }
 }

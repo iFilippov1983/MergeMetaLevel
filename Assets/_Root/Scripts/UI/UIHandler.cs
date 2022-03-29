@@ -25,7 +25,7 @@ namespace GameUI
             var uiObject = Object.Instantiate(_uiData.GameUIPrefab, _uiContainer);
             _gameUIView = uiObject.GetComponent<GameUIView>();
             _gameUIView.Init(DiceRoll, UpgradePower);
-            _gameUIView.CoinsText.text = stats.Coins.ToString();
+            _gameUIView.CoinsText.text = stats.Gold.ToString();
             _gameUIView.GemsText.text = stats.Gems.ToString();
             _gameUIView.DiceRollsText.text = stats.DiceRolls.ToString();
             _gameUIView.PowerText.text = stats.Power.ToString();

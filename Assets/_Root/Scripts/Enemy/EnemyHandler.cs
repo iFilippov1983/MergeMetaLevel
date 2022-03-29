@@ -11,14 +11,14 @@ namespace Enemy
     {
         private EnemyView _enemyView;
         private AnimationHandler _animationHandler;
-        private InfoHandler _infoHandler;
+        private UiInfoHandler _infoHandler;
         private Dictionary<EnemyType, GameObject> _enemyPrefabs;
         private int _enemyFullHealthAmount;
 
         public EnemyHandler(EnemiesData enemiesData, AnimationHandler animationHandler)
         {
             _animationHandler = animationHandler;
-            _infoHandler = new InfoHandler(Camera.main);
+            _infoHandler = new UiInfoHandler(Camera.main);
             _enemyPrefabs = MakeEnemyPrefabsDictionary(enemiesData.EnemiesPrefabs);
         }
 
@@ -39,7 +39,7 @@ namespace Enemy
                 (enemyProperties.InfoPrefab, enemyObject.transform.position, enemyProperties.Stats.Power, enemyProperties.Stats.Health);
         }
 
-        public void InitInfo()
+        public void InitHealthBar()
         {
             _infoHandler.InitInformation();  
         }

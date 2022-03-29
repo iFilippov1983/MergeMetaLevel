@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Data
 {
-    [CreateAssetMenu(menuName = "GameData/Cells/EnemyProperties", fileName = "Enemy_name_Properties")]
+    [CreateAssetMenu(menuName = "GameData/Cells/EnemyProperties", fileName = "Enemy_name")]
     internal sealed class EnemyProperties : ContentProperties
     {
         [SerializeField] private EnemyType _enemyType;

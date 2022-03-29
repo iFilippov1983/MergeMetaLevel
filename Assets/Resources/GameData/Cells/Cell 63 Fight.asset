@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 63
   _status: 1
-  _contentProperties: {fileID: 11400000, guid: dce0e159bc473244496d2f196f5f0d86, type: 2}
+  _contentProperties: {fileID: 11400000, guid: e5ec1d13c8bd7224c997eacc8876cc63, type: 2}

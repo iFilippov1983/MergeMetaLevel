@@ -14,17 +14,19 @@ namespace Game
     internal sealed class MetaLevel
     {
         private GameData _gameData;
+        private PlayerProfile _playerProfile;
+
         private LevelViewHandler _levelViewHandler;
         private AnimationHandler _animationHandler;
         private PlayerHandler _playerHandler;
         private FightEventHandler _fightHandler;
-        private PlayerProfile _playerProfile;
         private LevelRouteLogicHandler _routeHandler;
         private CameraHandler _cameraHandler;
         private EnemyHandler _enemyHandler;
-        private EnemyProperties _lastEnemyProperties;
 
-        //public Action<EnemyProperties> OnFightEvent;
+        private EnemyProperties _lastEnemyProperties;
+        private CellView _cellView;
+
         public Action OnFightEvent;
         public Action<ResourceProperties> OnResourcePickupEvent;
 
@@ -35,7 +37,7 @@ namespace Game
             _levelViewHandler = new LevelViewHandler(_gameData.LevelData);
             _playerHandler = new PlayerHandler(_gameData, _playerProfile);
             _routeHandler = new LevelRouteLogicHandler(_gameData.LevelData.CellsToVisit);
-            _cameraHandler = new CameraHandler(_gameData.LevelData.CameraContainer, _playerHandler.PlayerView.transform);
+            _cameraHandler = new CameraHandler(_gameData.LevelData.CameraContainerView, _playerHandler.PlayerView.transform);
             _animationHandler = new AnimationHandler(_playerHandler.PlayerView, _playerHandler.PlayerAnimController);
             _fightHandler = new FightEventHandler(_gameData.EnemiesData, _animationHandler, _playerProfile);
             _enemyHandler = new EnemyHandler(_gameData.EnemiesData, _animationHandler);
@@ -65,7 +67,7 @@ namespace Game
                 if (_playerProfile.Stats.LastFightWinner)
                 {
                     _lastEnemyProperties = (EnemyProperties)content;
-                    await ApplyFight(_lastEnemyProperties);
+                    await ApplyFight(_lastEnemyProperties);//OnFightEvent callback
                     OnFightCompleteEvent?.Invoke(_playerProfile.Stats.LastFightWinner);
                 }
                 else
@@ -92,21 +94,23 @@ namespace Game
 
             if (fisrtFightOnThisCell)
             {
-                var cell = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID, true);
-                enemySpawnPoint = cell.EnemySpawnPoint;
-                enemyFightPoint = cell.EnemyFightPoint;
+                _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID, true);
+                enemySpawnPoint = _cellView.EnemySpawnPoint;
+                enemyFightPoint = _cellView.EnemyFightPoint;
                 await _enemyHandler.InitializeEnemy(enemyProperties, enemySpawnPoint, enemyFightPoint);
             }
 
-            _cameraHandler.StopLookAndFollow();
+            //_cameraHandler.StopLookAndFollow();
+            await _cameraHandler.SwitchCamera(_cellView.FightCameraPosition, _cellView.transform);
             _playerHandler.PrepareToFight(_playerProfile.Stats.Power, _playerProfile.Stats.Health);
-            _enemyHandler.InitInfo();
+            _enemyHandler.InitHealthBar();
             OnFightEvent?.Invoke();
             await _fightHandler.ApplyFight(_playerHandler.OnGetHitEvent, _enemyHandler.OnGetHitEvent, enemyProperties);
             bool playerWins = _playerProfile.Stats.LastFightWinner;
             await HandleFightResult(playerWins, enemyProperties);
 
-            _cameraHandler.LookAndFollow(_playerHandler.PlayerView.transform);
+            //_cameraHandler.LookAndFollow(_playerHandler.PlayerView.transform);
+            await _cameraHandler.SwitchCamera();
         }
 
         private async Task ApplyResourcePickup(ResourceProperties resourceProperties)

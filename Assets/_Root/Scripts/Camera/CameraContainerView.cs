@@ -7,8 +7,10 @@ namespace GameCamera
     {
         [SerializeField] private Camera _mainCamera;
         [SerializeField] private CinemachineVirtualCamera _virtualCamFollow;
+        [SerializeField] private CinemachineVirtualCamera _virtualCamFight;
 
         public Camera MainCamera => _mainCamera;
         public CinemachineVirtualCamera VirtualCamFollow => _virtualCamFollow;
+        public CinemachineVirtualCamera VirtualCamFight => _virtualCamFight;
     }
 }

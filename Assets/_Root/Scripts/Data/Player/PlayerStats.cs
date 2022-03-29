@@ -7,25 +7,21 @@ namespace Data
     public struct PlayerStats
     {
         [SerializeField] private int _power;
-        [SerializeField] private int _health;
         [SerializeField] private int _powerToHealthMultiplyer;
 
         public int Power
         {
             get => _power;
-            set 
-            {
-                _power = value;
-                _health = _power * _powerToHealthMultiplyer;
-            }
+            set { _power = value; }
         }
 
-        public int Health => _health;
+        public int Health => _power * _powerToHealthMultiplyer;
 
-        public int CurrentCellID;
-        public int Coins;
+        public int Gold;
         public int Gems;
         public int DiceRolls;
         public bool LastFightWinner;
+        [Space]
+        public int CurrentCellID;
     }
 }

@@ -90,10 +90,10 @@ internal sealed class Root : MonoBehaviour
     {
         ResouceType resouceType = resourceProperties.ResouceType;
 
-        if (resouceType.Equals(ResouceType.Coins))
+        if (resouceType.Equals(ResouceType.Gold))
         {
-            _playerProfile.Stats.Coins += resourceProperties.Amount;
-            int amount = _playerProfile.Stats.Coins;
+            _playerProfile.Stats.Gold += resourceProperties.Amount;
+            int amount = _playerProfile.Stats.Gold;
             await _uiHandler.ChangeCoinsUi(amount);
         }
 

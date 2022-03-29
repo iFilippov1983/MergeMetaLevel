@@ -9,10 +9,10 @@ internal class AnimationHandler
 {
     private PlayerView _playerView;
     private CharacterAnimationControler _playerAnimController;
-    private InfoHandler _playerInfoHandler;
+    private UiInfoHandler _playerInfoHandler;
     private EnemyView _enemyView;
     private CharacterAnimationControler _enemyAnimController;
-    private InfoHandler _enemyInfoHandler;
+    private UiInfoHandler _enemyInfoHandler;
     private bool _attackerMoves;
     private bool _defenderMoves;
 

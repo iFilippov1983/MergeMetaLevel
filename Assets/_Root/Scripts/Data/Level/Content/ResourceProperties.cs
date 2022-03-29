@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Data
 {
-    [CreateAssetMenu(menuName = "GameData/Cells/ResourceProperties", fileName = "Resource_type_Properties")]
+    [CreateAssetMenu(menuName = "GameData/Cells/ResourceProperties", fileName = "Resource_type")]
     [Serializable]
     internal sealed class ResourceProperties : ContentProperties
     {

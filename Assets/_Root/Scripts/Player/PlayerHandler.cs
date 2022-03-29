@@ -8,10 +8,11 @@ namespace Player
     internal class PlayerHandler
     {
         private Vector3 _playerInitialPosition;
+        private Quaternion _playerInitialRotation;
         private GameObject _playerPrefab;
         private PlayerView _playerView;
         private PlayerProfile _playerProfile;
-        private InfoHandler _infoHandler;
+        private UiInfoHandler _infoHandler;
         private CharacterAnimationControler _playerAnimController;
         private GameObject _infoPrefab;
 
@@ -25,8 +26,9 @@ namespace Player
             _playerPrefab = gameData.PlayerData.PlayerPrefab;
             var cellViews = gameData.LevelData.CellsViews;
             _playerInitialPosition = cellViews[_playerProfile.Stats.CurrentCellID].transform.position;
-            InitPlayer(_playerInitialPosition);//TODO: insert position from cash
-            _infoHandler = new InfoHandler(Camera.main);
+            _playerInitialRotation = cellViews[playerProfile.Stats.CurrentCellID].transform.rotation;
+            InitPlayer(_playerInitialPosition, _playerInitialRotation);//TODO: insert position from cash
+            _infoHandler = new UiInfoHandler(Camera.main);
             _infoPrefab = gameData.PlayerData.InfoPrefab;
         }
 
@@ -64,9 +66,9 @@ namespace Player
             _infoHandler.DestroyInformation();
         }
 
-        private void InitPlayer(Vector3 playerInitPosition)
+        private void InitPlayer(Vector3 playerInitPosition, Quaternion playerInitialRotation)
         {
-            var playerObject = GameObject.Instantiate(_playerPrefab, playerInitPosition, Quaternion.identity);
+            var playerObject = GameObject.Instantiate(_playerPrefab, playerInitPosition, playerInitialRotation);
             _playerView = playerObject.GetComponent<PlayerView>();
             _playerAnimController = playerObject.GetComponent<CharacterAnimationControler>();
         }
