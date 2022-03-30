@@ -155,13 +155,13 @@ MonoBehaviour:
   _gameData: {fileID: 11400000, guid: 0f56c9e0639d2bd4ca5e39b80339d3e4, type: 2}
   _uiContainer: {fileID: 1246272299}
   _initialPlayerStats:
-    _power: 50
+    _power: 90
     _powerToHealthMultiplyer: 5
     Gold: 300
     Gems: 0
     DiceRolls: 23
     LastFightWinner: 1
-    CurrentCellID: 0
+    CurrentCellID: 4
 --- !u!4 &251882560
 Transform:
   m_ObjectHideFlags: 0

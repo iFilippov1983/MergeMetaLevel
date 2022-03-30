@@ -9,6 +9,7 @@ namespace Game
         private bool _gotHitAnimationFinished;
         private bool _deathAnimationFinished;
         private bool _finishOffAnimationFinished;
+        private bool _hit;
 
         private void Awake()
         {
@@ -20,6 +21,7 @@ namespace Game
         public bool GetGotHitAnimationFinished() => _gotHitAnimationFinished;
         public bool GetDeathAnimationFinished() => _deathAnimationFinished;
         public bool GetFinishOffAnimationFinished() => _finishOffAnimationFinished;
+        public bool IsHit() => _hit;
 
         public void ResetFlags()
         {
@@ -28,6 +30,7 @@ namespace Game
             _gotHitAnimationFinished = false;
             _attackAnimationFinished = false;
             _finishOffAnimationFinished = false;
+            _hit = false;
         }
 
         private void AppearAnimationFinish() => _appearAnimationFinished = true;
@@ -35,5 +38,6 @@ namespace Game
         private void GotHitAnimationFinish() => _gotHitAnimationFinished = true;
         private void AttackAnimationFinish() => _attackAnimationFinished = true;
         private void FinishOffAnimationFinish() => _finishOffAnimationFinished = true;
+        private void Hit() => _hit = true;
     }
 }

@@ -21,7 +21,7 @@ namespace Level
         public CellView GetCellViewWithId(int id, bool makeEnemyPointsActive = false)
         { 
             var cell = _cellsViewDictionary[id];
-            cell.EnemyFightPoint.gameObject.SetActive(makeEnemyPointsActive);
+            //cell.EnemyFightPoint.gameObject.SetActive(makeEnemyPointsActive);
             cell.EnemySpawnPoint.gameObject.SetActive(makeEnemyPointsActive);
             return cell;
         }

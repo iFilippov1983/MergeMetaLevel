@@ -13,6 +13,12 @@ namespace Game
         private AnimationHandler _animationHandler;
         private PlayerProfile _playerProfile;
 
+        private int _playerHealth;
+        private int _enemyHealth;
+
+        private Action<int> _playerGetHitEvent;
+        private Action<int> _enemyGetHitEvent;
+
         public FightEventHandler(EnemiesData enemiesData, AnimationHandler animationHandler, PlayerProfile playerProfile)
         {
             _animationHandler = animationHandler;
@@ -26,29 +32,36 @@ namespace Game
             EnemyProperties enemyProperties
             )
         {
-            int playerHealth = _playerProfile.Stats.Health;
+            _playerHealth = _playerProfile.Stats.Health;
             int playerPower = _playerProfile.Stats.Power;
-            int enemyHealth = enemyProperties.Stats.Health;
+            _enemyHealth = enemyProperties.Stats.Health;
             int enemyPower = enemyProperties.Stats.Power;
+            _playerGetHitEvent = PlayerGetHit;
+            _enemyGetHitEvent = EnemyGetHit;
 
-            while (playerHealth > 0 && enemyHealth > 0)
+            while (_playerHealth > 0 && _enemyHealth > 0)
             {
-                enemyHealth -= playerPower;
-                await _animationHandler.AnimateHit(true, enemyHealth <= 0);
-                EnemyGetHit?.Invoke(enemyHealth);
+                _enemyHealth -= playerPower;
+                await _animationHandler.AnimateHit(true, _enemyHealth <= 0, GotHitEvent);
+                
+                if (_enemyHealth <= 0) break;
 
-                if (enemyHealth <= 0) break;
-                await Task.Delay(500);//timing animation delay
-
-                playerHealth -= enemyPower;
-                await _animationHandler.AnimateHit(false, playerHealth <= 0);
-                PlayerGetHit?.Invoke(playerHealth);
-
-                await Task.Delay(500);//timing animation delay
+                _playerHealth -= enemyPower;
+                await _animationHandler.AnimateHit(false, _playerHealth <= 0, GotHitEvent);
+                PlayerGetHit?.Invoke(_playerHealth);
             }
 
-            bool result = playerHealth > 0;
+            bool result = _playerHealth > 0;
             _playerProfile.Stats.LastFightWinner = result;
+        }
+
+        private void GotHitEvent(bool playerAttacking)
+        { 
+            if(playerAttacking)
+                _enemyGetHitEvent?.Invoke(_enemyHealth);
+            else
+                _playerGetHitEvent?.Invoke(_playerHealth);
+
         }
     }
 }

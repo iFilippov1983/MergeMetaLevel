@@ -7,5 +7,6 @@
         public bool GetGotHitAnimationFinished();
         public bool GetDeathAnimationFinished();
         public bool GetFinishOffAnimationFinished();
+        public bool IsHit();
     }
 }

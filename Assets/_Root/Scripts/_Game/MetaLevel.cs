@@ -90,18 +90,15 @@ namespace Game
         private async Task ApplyFight(EnemyProperties enemyProperties, bool fisrtFightOnThisCell = true)
         {
             Transform enemySpawnPoint = null;
-            Transform enemyFightPoint = null;
 
             if (fisrtFightOnThisCell)
             {
                 _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID, true);
                 enemySpawnPoint = _cellView.EnemySpawnPoint;
-                enemyFightPoint = _cellView.EnemyFightPoint;
-                await _enemyHandler.InitializeEnemy(enemyProperties, enemySpawnPoint, enemyFightPoint);
+                await _enemyHandler.InitializeEnemy(enemyProperties, enemySpawnPoint);
             }
 
-            //_cameraHandler.StopLookAndFollow();
-            await _cameraHandler.SwitchCamera(_cellView.FightCameraPosition, _cellView.transform);
+            await _cameraHandler.SwitchCamera(_cellView.FightCameraPosition);
             _playerHandler.PrepareToFight(_playerProfile.Stats.Power, _playerProfile.Stats.Health);
             _enemyHandler.InitHealthBar();
             OnFightEvent?.Invoke();
@@ -109,7 +106,6 @@ namespace Game
             bool playerWins = _playerProfile.Stats.LastFightWinner;
             await HandleFightResult(playerWins, enemyProperties);
 
-            //_cameraHandler.LookAndFollow(_playerHandler.PlayerView.transform);
             await _cameraHandler.SwitchCamera();
         }
 
@@ -155,6 +151,7 @@ namespace Game
         {
             if (playerWins)
             {
+                _enemyHandler.OnFightFinishEvent(playerWins);
                 var reward = enemyProperties.Reward;
                 var tasks = new List<Task>();
                 foreach (var r in reward)
@@ -165,7 +162,7 @@ namespace Game
             }
             else
             {
-                _enemyHandler.DestroyInfo();
+                _enemyHandler.OnFightFinishEvent(playerWins);
                 _playerProfile.Stats.LastFightWinner = false;
                 await Task.Delay(100);//ui events
             }

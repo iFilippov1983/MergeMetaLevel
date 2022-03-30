@@ -26,7 +26,7 @@ namespace GameCamera
             _fightMode = false;
         }
 
-        internal async Task SwitchCamera(Transform transformToPlace = null, Transform transformToLook = null)
+        internal async Task SwitchCamera(Transform transformToPlace = null)//, Transform transformToLook = null)
         {
             if (_fightMode)
             {

@@ -22,19 +22,17 @@ namespace Enemy
             _enemyPrefabs = MakeEnemyPrefabsDictionary(enemiesData.EnemiesPrefabs);
         }
 
-        public async Task InitializeEnemy(EnemyProperties enemyProperties, Transform placeToSpawn, Transform placeToFight)
+        public async Task InitializeEnemy(EnemyProperties enemyProperties, Transform placeToSpawn)
         {
             GameObject enemy = _enemyPrefabs[enemyProperties.EnemyType];
             var enemyObject = Object.Instantiate(enemy, placeToSpawn.position, placeToSpawn.rotation);
 
             _animationHandler.SetEnemyToControl(enemyObject);
             _enemyView = enemyObject.GetComponent<EnemyView>();
-            _enemyView.NavMeshAgent.SetDestination(placeToFight.position);
 
             _enemyFullHealthAmount = enemyProperties.Stats.Health;
 
             await _animationHandler.HandleEnemyAppearAnimation();
-            _enemyView.NavMeshAgent.enabled = false;
             _infoHandler.SetInformation
                 (enemyProperties.InfoPrefab, enemyObject.transform.position, enemyProperties.Stats.Power, enemyProperties.Stats.Health);
         }
@@ -43,19 +41,21 @@ namespace Enemy
         {
             _infoHandler.InitInformation();  
         }
-        public void DestroyInfo()
-        { 
+        internal void DestroyHealthBar()
+        {
+            _infoHandler.DestroyInformation();
+        }
+        public void OnFightFinishEvent(bool playerWins)
+        {
+            if(playerWins)
+                Object.Destroy(_enemyView.gameObject);
             _infoHandler.DestroyInformation();
         }
 
         public void OnGetHitEvent(int enemyRemainingHealth)
         {
             if (enemyRemainingHealth <= 0)
-            {
                 _infoHandler.SetHealth(0, 0f);
-                Object.Destroy(_enemyView.gameObject);
-                _infoHandler.DestroyInformation();
-            }
             else
             {
                 float fillAmount = (float)enemyRemainingHealth / (float)_enemyFullHealthAmount;

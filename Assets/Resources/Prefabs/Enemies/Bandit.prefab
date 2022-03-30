@@ -822,7 +822,6 @@ GameObject:
   - component: {fileID: 8195084325545556247}
   - component: {fileID: 2469847238750087768}
   - component: {fileID: 9080326621114466254}
-  - component: {fileID: 8962860975144893902}
   m_Layer: 0
   m_Name: Bandit
   m_TagString: Untagged
@@ -894,28 +893,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!195 &8962860975144893902
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2569356964593237774}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &3086765619216378495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,13 +2463,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32b8a168797e9bd41b571f5a5e543d08, type: 3}
---- !u!4 &6215466281507454170 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4493587567294683771, guid: 32b8a168797e9bd41b571f5a5e543d08, type: 3}
-  m_PrefabInstance: {fileID: 7502341341521471137}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &4274280963678099101 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6002419040182743100, guid: 32b8a168797e9bd41b571f5a5e543d08, type: 3}
+  m_PrefabInstance: {fileID: 7502341341521471137}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6215466281507454170 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4493587567294683771, guid: 32b8a168797e9bd41b571f5a5e543d08, type: 3}
   m_PrefabInstance: {fileID: 7502341341521471137}
   m_PrefabAsset: {fileID: 0}

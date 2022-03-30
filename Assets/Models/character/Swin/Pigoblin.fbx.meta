@@ -21,6 +21,9 @@ ModelImporter:
   - first:
       74: -8276294560265919589
     second: rig|pain
+  - first:
+      74: 7584398875231082571
+    second: rig|appear (1)
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -42,7 +45,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: 
+    motionNodeName: <Root Transform>
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -144,7 +147,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: AppearAnimationFinish
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 14946aa4ffd655c4e81d86b0411398e7, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -208,11 +218,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: rig|idle
-      takeName: rig|idle
+      name: rig|pain
+      takeName: rig|pain
       internalID: 0
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 43
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -231,17 +241,24 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: AppearAnimationFinish
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 14946aa4ffd655c4e81d86b0411398e7, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: rig|pain
-      takeName: rig|pain
+      name: rig|idle
+      takeName: rig|idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 43
+      lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
