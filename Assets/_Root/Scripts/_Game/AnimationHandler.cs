@@ -13,8 +13,8 @@ internal class AnimationHandler
     private EnemyView _enemyView;
     private CharacterAnimationControler _enemyAnimController;
     private UiInfoHandler _enemyInfoHandler;
-    private bool _attackerMoves;
-    private bool _defenderMoves;
+    private bool _attackerFinishedMove;
+    private bool _defenderFinishedMove;
 
     public AnimationHandler(PlayerView playerView, CharacterAnimationControler playerAnimController)
     {
@@ -46,7 +46,7 @@ internal class AnimationHandler
         await SetStartFlags(playerAttacking, defendingCharKilled);
         SetFinishFlags(playerAttacking, defendingCharKilled);
 
-        while (!_attackerMoves || !_defenderMoves)
+        while (!_attackerFinishedMove || !_defenderFinishedMove)
         {
             await Task.Yield();
             SetFinishFlags(playerAttacking, defendingCharKilled);
@@ -65,8 +65,17 @@ internal class AnimationHandler
     }
 
     private async Task SetAnimationStartFlags(IAnimatorHolder attacker, IAnimatorHolder defender, bool defendingCharKilled)
-    { 
-        attacker.GetAnimator().SetBool(CharState.IsAttacking, true);
+    {
+        if (defendingCharKilled)
+        {
+            attacker.GetAnimator().SetBool(CharState.IsFinishingOff, true);
+            attacker.GetFinishAttackEffect().gameObject.SetActive(true);
+        }
+        else
+        {
+            attacker.GetAnimator().SetBool(CharState.IsAttacking, true);
+            attacker.GetMainAttackEffect().gameObject.SetActive(true);
+        }
 
         await Task.Delay(500);//timing animation delay
 
@@ -89,17 +98,27 @@ internal class AnimationHandler
 
     private void SetAnimationFinishFlags(IAnimationControler attacker, IAnimationControler defender, bool defendingCharKilled)
     {
-        _attackerMoves = attacker.GetAttackAnimationFinished();
-        _defenderMoves = defendingCharKilled
+        _attackerFinishedMove = defendingCharKilled
+            ? attacker.GetFinishOffAnimationFinished()
+            : attacker.GetAttackAnimationFinished();
+
+        _defenderFinishedMove = defendingCharKilled
             ? defender.GetDeathAnimationFinished()
             : defender.GetGotHitAnimationFinished();
 
-        if (_attackerMoves)
+        if (_attackerFinishedMove)
         {
             _playerView.GetAnimator().SetBool(CharState.IsAttacking, false);
+            _playerView.GetAnimator().SetBool(CharState.IsFinishingOff, false);
+            _playerView.GetMainAttackEffect().gameObject.SetActive(false);
+            _playerView.GetFinishAttackEffect().gameObject.SetActive(false);
+
             _enemyView.GetAnimator().SetBool(CharState.IsAttacking, false);
+            _enemyView.GetAnimator().SetBool(CharState.IsFinishingOff, false);
+            _enemyView.GetMainAttackEffect().gameObject.SetActive(false);
+            _enemyView.GetFinishAttackEffect().gameObject.SetActive(false);
         }
-        if (_defenderMoves)
+        if (_defenderFinishedMove)
         {
             _enemyView.GetAnimator().SetBool(CharState.IsKilled, false);
             _enemyView.GetAnimator().SetBool(CharState.GotHit, false);

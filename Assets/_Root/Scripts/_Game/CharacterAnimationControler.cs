@@ -4,32 +4,36 @@ namespace Game
 {
     public class CharacterAnimationControler : MonoBehaviour, IAnimationControler
     {
-        private bool appearAnimationFinished;
-        private bool attackAnimationFinished;
-        private bool gotHitAnimationFinished;
-        private bool deathAnimationFinished;
+        private bool _appearAnimationFinished;
+        private bool _attackAnimationFinished;
+        private bool _gotHitAnimationFinished;
+        private bool _deathAnimationFinished;
+        private bool _finishOffAnimationFinished;
 
         private void Awake()
         {
             ResetFlags();
         }
 
-        public bool GetAppearAnimationFinished() => appearAnimationFinished;
-        public bool GetAttackAnimationFinished() => attackAnimationFinished;
-        public bool GetGotHitAnimationFinished() => gotHitAnimationFinished;
-        public bool GetDeathAnimationFinished() => deathAnimationFinished;
+        public bool GetAppearAnimationFinished() => _appearAnimationFinished;
+        public bool GetAttackAnimationFinished() => _attackAnimationFinished;
+        public bool GetGotHitAnimationFinished() => _gotHitAnimationFinished;
+        public bool GetDeathAnimationFinished() => _deathAnimationFinished;
+        public bool GetFinishOffAnimationFinished() => _finishOffAnimationFinished;
 
         public void ResetFlags()
         {
-            appearAnimationFinished = false;
-            deathAnimationFinished = false;
-            gotHitAnimationFinished = false;
-            attackAnimationFinished = false;
+            _appearAnimationFinished = false;
+            _deathAnimationFinished = false;
+            _gotHitAnimationFinished = false;
+            _attackAnimationFinished = false;
+            _finishOffAnimationFinished = false;
         }
 
-        private void AppearAnimationFinish() => appearAnimationFinished = true;
-        private void DeathAnimationFinish() => deathAnimationFinished = true;
-        private void GotHitAnimationFinish() => gotHitAnimationFinished = true;
-        private void AttackAnimationFinish() => attackAnimationFinished = true;
+        private void AppearAnimationFinish() => _appearAnimationFinished = true;
+        private void DeathAnimationFinish() => _deathAnimationFinished = true;
+        private void GotHitAnimationFinish() => _gotHitAnimationFinished = true;
+        private void AttackAnimationFinish() => _attackAnimationFinished = true;
+        private void FinishOffAnimationFinish() => _finishOffAnimationFinished = true;
     }
 }

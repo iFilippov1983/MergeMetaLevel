@@ -155,13 +155,13 @@ MonoBehaviour:
   _gameData: {fileID: 11400000, guid: 0f56c9e0639d2bd4ca5e39b80339d3e4, type: 2}
   _uiContainer: {fileID: 1246272299}
   _initialPlayerStats:
-    _power: 2000
+    _power: 50
     _powerToHealthMultiplyer: 5
     Gold: 300
     Gems: 0
     DiceRolls: 23
     LastFightWinner: 1
-    CurrentCellID: 73
+    CurrentCellID: 0
 --- !u!4 &251882560
 Transform:
   m_ObjectHideFlags: 0
@@ -537,9 +537,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4921498144539182886, guid: 58262888390be8d4684d8a1dbc64ba96, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921498144539182886, guid: 58262888390be8d4684d8a1dbc64ba96, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 7140724565812098235, guid: 58262888390be8d4684d8a1dbc64ba96, type: 3}
       propertyPath: m_Name
       value: Cells
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096907878021129122, guid: 58262888390be8d4684d8a1dbc64ba96, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096907878021129122, guid: 58262888390be8d4684d8a1dbc64ba96, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58262888390be8d4684d8a1dbc64ba96, type: 3}

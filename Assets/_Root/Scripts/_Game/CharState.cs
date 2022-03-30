@@ -7,5 +7,6 @@
         public const string IsAttacking = "isAttacking";
         public const string GotHit = "gotHit";
         public const string IsKilled = "isKilled";
+        public const string IsFinishingOff = "isFinishingOff";
     }
 }
