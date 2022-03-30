@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿using System;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Data
@@ -6,10 +8,14 @@ namespace Data
     [CreateAssetMenu(menuName = "GameData/Cells/CellPropertiesExtended", fileName = "Cell_n_event")]
     public class CellPropertiesExtended : ScriptableObject
     {
-        [MenuItem("Tools/MyTool/Do It in C#")]
-        static void DoIt()
-        {
-            EditorUtility.DisplayDialog("MyTool", "Do It in C# !", "OK", "");
+        [SerializeField] private List<Properties> _cellProperties;
+
+
+
+        [Serializable]
+        private class Properties
+        { 
+            public string Name;
         }
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7085965433513241704}
   m_Layer: 0
-  m_Name: FightCameraPosition
+  m_Name: FightCameraPositionRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2628685688975128253}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: 1.2, y: 51, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8489894530116270327}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!1 &3690027494268898181
 GameObject:
   m_ObjectHideFlags: 0
@@ -5174,6 +5174,36 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &8519580795375699211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1826824441427615577}
+  m_Layer: 0
+  m_Name: FightCameraPositionLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1826824441427615577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8519580795375699211}
+  m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
+  m_LocalPosition: {x: 1.2, y: 51, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8489894530116270327}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 20, y: 180, z: 0}
 --- !u!1 &8572596903259180569
 GameObject:
   m_ObjectHideFlags: 0
@@ -5213,10 +5243,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8489894530116270327}
+  - component: {fileID: -380837677024658420}
   - component: {fileID: 1372317062168574168}
   - component: {fileID: 406885354052474705}
-  - component: {fileID: 2491177961127657071}
-  - component: {fileID: -380837677024658420}
   m_Layer: 0
   m_Name: cell
   m_TagString: Untagged
@@ -5232,7 +5261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9060634574473798418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 0.05, z: 0.75}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.05, z: 1}
   m_Children:
   - {fileID: 1477053152382884370}
@@ -5241,9 +5270,30 @@ Transform:
   - {fileID: 8287610403622773357}
   - {fileID: 5121388190376527593}
   - {fileID: 7085965433513241704}
+  - {fileID: 1826824441427615577}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-380837677024658420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060634574473798418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a51ee67e7063e47a13f7ebe089dcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textMeshPro: {fileID: 5341433566670741851}
+  _spriteRenderer: {fileID: 1920820013559034323}
+  _particleSystem: {fileID: 3339118354513954597}
+  _enemySpawnPoint: {fileID: 8287610403622773357}
+  _enemyFightPoint: {fileID: 5121388190376527593}
+  _fightCameraPositionRight: {fileID: 7085965433513241704}
+  _fightCameraPositionLeft: {fileID: 1826824441427615577}
+  _rightFightCamPosition: 0
 --- !u!33 &1372317062168574168
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5293,35 +5343,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2491177961127657071
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9060634574473798418}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &-380837677024658420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9060634574473798418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33a51ee67e7063e47a13f7ebe089dcfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _textMeshPro: {fileID: 5341433566670741851}
-  _spriteRenderer: {fileID: 1920820013559034323}
-  _particleSystem: {fileID: 3339118354513954597}
-  _enemySpawnPoint: {fileID: 8287610403622773357}
-  _enemyFightPoint: {fileID: 5121388190376527593}
-  _fightCameraPosition: {fileID: 7085965433513241704}
