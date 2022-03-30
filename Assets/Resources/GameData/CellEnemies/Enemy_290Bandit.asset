@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7276d71306f53c41b76f871c47bf8e9, type: 3}
-  m_Name: Cell 32 Gold
+  m_Script: {fileID: 11500000, guid: d82224ae5464bb4408cf0f47dbcc4e75, type: 3}
+  m_Name: Enemy_290Bandit
   m_EditorClassIdentifier: 
-  Id: 32
-  _status: 1
-  _contentProperties: {fileID: 11400000, guid: 22b030ff099ce9145b060328705fc0bb, type: 2}
+  _enemyType: 1
+  _enemyStats:
+    _power: 290
+  _rewardList:
+  - {fileID: 11400000, guid: 913c9b8eb22fccb44a836e45712beede, type: 2}
+  _infoPrefabName: EnemyInfo

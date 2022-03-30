@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7276d71306f53c41b76f871c47bf8e9, type: 3}
-  m_Name: Cell 32 Gold
+  m_Script: {fileID: 11500000, guid: 907e9b75b35da2b458b8a587604ccd6d, type: 3}
+  m_Name: Resource_25Gold
   m_EditorClassIdentifier: 
-  Id: 32
-  _status: 1
-  _contentProperties: {fileID: 11400000, guid: 22b030ff099ce9145b060328705fc0bb, type: 2}
+  _resouceType: 0
+  _resourceAmount: 25

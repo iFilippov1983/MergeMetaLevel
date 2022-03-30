@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 907e9b75b35da2b458b8a587604ccd6d, type: 3}
-  m_Name: Resource_15Gold
+  m_Script: {fileID: 11500000, guid: d82224ae5464bb4408cf0f47dbcc4e75, type: 3}
+  m_Name: Enemy_1725
   m_EditorClassIdentifier: 
-  _resouceType: 0
-  _resourceAmount: 15
+  _enemyType: 1
+  _enemyStats:
+    _power: 1725
+  _rewardList:
+  - {fileID: 11400000, guid: e5d0798a0659e304e8e7b307efc58d5e, type: 2}
+  _infoPrefabName: EnemyInfo
