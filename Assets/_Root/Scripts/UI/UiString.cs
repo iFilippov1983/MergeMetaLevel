@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameUI
+﻿namespace GameUI
 {
     internal static class UiString
     {
@@ -13,5 +7,6 @@ namespace GameUI
         public const string Victory = "Victory!";
         public const string NextAttempt = "Next Attempt!";
         public const string NoMoreDiceRolls = "No more dice rolls!";
+        public const string PlayingMerge = "[Playing Merge]";
     }
 }

@@ -11,11 +11,13 @@ namespace Data
         [SerializeField] private string _playerDataPath;
         [SerializeField] private string _enemiesDataPath;
         [SerializeField] private string _uiDataPath;
+        [SerializeField] private string _progressDataPath;
 
         private LevelData _levelData;
         private PlayerData _playerData;
         private EnemiesData _enemiesData; 
         private UIData _uiData;
+        private ProgressData _progressData;
 
         public LevelData LevelData
         {
@@ -57,6 +59,15 @@ namespace Data
             }
         }
 
+        public ProgressData ProgressData
+        {
+            get
+            {
+                if (_progressData == null) _progressData =
+                             LoadPath<ProgressData>(string.Concat(ResourcePath.GameDataFolder, _progressDataPath));
+                return _progressData;
+            }
+        }
 
         private T LoadPath<T>(string path) where T : Object =>
             Resources.Load<T>(Path.ChangeExtension(path, null));

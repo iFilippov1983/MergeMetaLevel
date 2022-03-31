@@ -41,10 +41,7 @@ namespace Enemy
         {
             _infoHandler.InitInformation();  
         }
-        internal void DestroyHealthBar()
-        {
-            _infoHandler.DestroyInformation();
-        }
+
         public void OnFightFinishEvent(bool playerWins)
         {
             if(playerWins)

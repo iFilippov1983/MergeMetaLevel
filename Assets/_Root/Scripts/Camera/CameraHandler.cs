@@ -26,14 +26,14 @@ namespace GameCamera
             _fightMode = false;
         }
 
-        internal async Task SwitchCamera(Transform transformToPlace = null)//, Transform transformToLook = null)
+        internal async Task SwitchCamera(Transform transformToPlace = null)
         {
             if (_fightMode)
             {
                 _fightMode = false;
                 SetPriorities(_virtualCamFollow, _virtualCamFight, _transformToFollow);
-                //var directionVector = _mainCamera.transform.position - _virtualCamFollow.transform.position;
-                await Task.Delay(3000);
+
+                await Task.Delay(2500);//??
             }
             else
             { 
@@ -41,8 +41,8 @@ namespace GameCamera
                 SetPriorities(_virtualCamFight, _virtualCamFollow);
                 _virtualCamFight.transform.position = transformToPlace.position;
                 _virtualCamFight.transform.rotation = transformToPlace.rotation;
-                //var directionVector = _mainCamera.transform.position - transformToPlace.position;
-                await Task.Delay(3000);
+
+                await Task.Delay(2500);//??
             }
         }
 

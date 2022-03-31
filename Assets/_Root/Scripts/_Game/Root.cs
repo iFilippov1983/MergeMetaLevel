@@ -13,6 +13,7 @@ internal sealed class Root : MonoBehaviour
     [SerializeField] private Transform _uiContainer;
     [SerializeField] private PlayerStats _initialPlayerStats;
 
+    private ProgressHandler _progressHandler;
     private PlayerProfile _playerProfile;
     private MetaLevel _metaLevel;
     private UIHandler _uiHandler;
@@ -20,11 +21,32 @@ internal sealed class Root : MonoBehaviour
     private void Awake()
     {
         _playerProfile = new PlayerProfile(_initialPlayerStats);
+        _progressHandler = new ProgressHandler(_gameData.ProgressData, _playerProfile);
         _metaLevel = new MetaLevel(_gameData, _playerProfile);
-        _uiHandler = new UIHandler(_gameData.UIData, _uiContainer);
-        _uiHandler.InitializeUI(_initialPlayerStats);
+        _uiHandler = new UIHandler(_gameData.UIData, _uiContainer, _playerProfile);
 
         SubscribeOnEvents();
+    }
+
+    private async void OnPlayMergeClicked()
+    {
+        _uiHandler.DesactivateUiInteraction();
+        await _uiHandler.PlayGoToMergeAnimation();
+        _uiHandler.ActivateUiInteraction();
+    }
+
+    private async void OnUpgradePowerClicked()
+    {
+        bool canBuy = _progressHandler.CheckPlayerFunds();
+        if (canBuy)
+        {
+            _uiHandler.DesactivateUiInteraction();
+            await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.PowerGain);
+            _progressHandler.MakePowerUpgrade();
+            await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power);
+            _uiHandler.ActivateUiInteraction();
+        }
+        else return;
     }
 
     private async void OnDiceRollClick()
@@ -43,47 +65,6 @@ internal sealed class Root : MonoBehaviour
         {
             await _uiHandler.DisplayText(UiString.NoMoreDiceRolls);
         }
-    }
-
-    private async void OnUpgradePowerClicked()
-    {
-        _uiHandler.DesactivateUiInteraction();
-        await _uiHandler.PlayUpgradePowerAnimation(10);
-        OnPowerUpgrade(10);
-        _uiHandler.ActivateUiInteraction();
-    }
-
-    private async Task RetryFight()
-    {
-        _uiHandler.DesactivateUiInteraction();
-        await _uiHandler.PlayDiceUseAnimation(OnDiceRollsAmountChange);
-        await _metaLevel.ApplyCellEvent(OnFightComplete);
-        _uiHandler.ActivateUiInteraction();
-    }
-
-    private async Task MakeMove()
-    {
-        _uiHandler.DesactivateUiInteraction();
-
-        int count = _metaLevel.GetRouteCellsCount();
-        await _uiHandler.PlayDiceRollAnimation(count, OnDiceRollsAmountChange);
-        await _metaLevel.MovePlayer();
-        await _metaLevel.ApplyCellEvent(OnFightComplete);
-
-        _uiHandler.ActivateUiInteraction();
-    }
-
-    private async void OnDiceRollsAmountChange(int amount)
-    {
-        _playerProfile.Stats.DiceRolls += amount;
-        await _uiHandler.ChangeRollsUi(_playerProfile.Stats.DiceRolls);
-    }
-
-    private async void OnPowerUpgrade(int powerValue)
-    {
-        _playerProfile.Stats.Power += powerValue;
-        int amount = _playerProfile.Stats.Power;
-        await _uiHandler.ChangePowerUi(amount);
     }
 
     private async void OnResourcePickup(ResourceProperties resourceProperties)
@@ -120,10 +101,31 @@ internal sealed class Root : MonoBehaviour
         //TODO: ui onFightComplete functions
     }
 
+    private async Task RetryFight()
+    {
+        _uiHandler.DesactivateUiInteraction();
+        await _uiHandler.PlayDiceUseAnimation();
+        await _metaLevel.ApplyCellEvent(OnFightComplete);
+        _uiHandler.ActivateUiInteraction();
+    }
+
+    private async Task MakeMove()
+    {
+        _uiHandler.DesactivateUiInteraction();
+
+        int count = _metaLevel.GetRouteCellsCount();
+        await _uiHandler.PlayDiceRollAnimation(count);
+        await _metaLevel.MovePlayer();
+        await _metaLevel.ApplyCellEvent(OnFightComplete);
+
+        _uiHandler.ActivateUiInteraction();
+    }
+
     private void SubscribeOnEvents()
     {
         _uiHandler.OnDiceRollClickEvent += OnDiceRollClick;
         _uiHandler.OnUpgrdePowerClickEvent += OnUpgradePowerClicked;
+        _uiHandler.OnPlayMergeButtonClicked += OnPlayMergeClicked;
 
         _metaLevel.OnResourcePickupEvent += OnResourcePickup;
         _metaLevel.OnFightEvent += OnFight;
@@ -133,6 +135,7 @@ internal sealed class Root : MonoBehaviour
     {
         _uiHandler.OnDiceRollClickEvent -= OnDiceRollClick;
         _uiHandler.OnUpgrdePowerClickEvent -= OnUpgradePowerClicked;
+        _uiHandler.OnPlayMergeButtonClicked -= OnPlayMergeClicked;
 
         _metaLevel.OnResourcePickupEvent -= OnResourcePickup;
         _metaLevel.OnFightEvent -= OnFight;

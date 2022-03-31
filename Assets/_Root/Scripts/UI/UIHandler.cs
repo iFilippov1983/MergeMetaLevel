@@ -11,27 +11,22 @@ namespace GameUI
         private Transform _uiContainer;
         private UIData _uiData;
         private GameUIView _gameUIView;
+        private PlayerProfile _playerProfile;
 
         public Action OnDiceRollClickEvent;
         public Action OnUpgrdePowerClickEvent;
+        public Action OnPlayMergeButtonClicked;
 
-        public UIHandler(UIData uiData, Transform uiContainer)
+        public UIHandler(UIData uiData, Transform uiContainer, PlayerProfile playerProfile)
         {
             _uiContainer = uiContainer;
             _uiData = uiData;
-        }
-        public void InitializeUI(PlayerStats stats)
-        {
-            var uiObject = Object.Instantiate(_uiData.GameUIPrefab, _uiContainer);
-            _gameUIView = uiObject.GetComponent<GameUIView>();
-            _gameUIView.Init(DiceRoll, UpgradePower);
-            _gameUIView.CoinsText.text = stats.Gold.ToString();
-            _gameUIView.GemsText.text = stats.Gems.ToString();
-            _gameUIView.DiceRollsText.text = stats.DiceRolls.ToString();
-            _gameUIView.PowerText.text = stats.Power.ToString();
+            _playerProfile = playerProfile;
+
+            InitializeUI();
         }
 
-        public async Task PlayDiceRollAnimation(int number, Action<int> rollsAmountChagedEvent) //animation ID/state
+        public async Task PlayDiceRollAnimation(int number = 0) //when time to move
         {
             _gameUIView.MainText.text = number.ToString();
             _gameUIView.MainText.gameObject.SetActive(true);
@@ -39,10 +34,10 @@ namespace GameUI
             _gameUIView.MainText.text = string.Empty;
             _gameUIView.MainText.gameObject.SetActive(false);
 
-            rollsAmountChagedEvent?.Invoke(-1);
+            await ChangeRollsUi(--_playerProfile.Stats.DiceRolls);
         }
 
-        public async Task PlayDiceUseAnimation(Action<int> rollsAmountChagedEvent)
+        public async Task PlayDiceUseAnimation() //when next fight attempt
         {
             _gameUIView.MainText.text = UiString.NextAttempt;
             _gameUIView.MainText.gameObject.SetActive(true);
@@ -50,7 +45,7 @@ namespace GameUI
             _gameUIView.MainText.text = string.Empty;
             _gameUIView.MainText.gameObject.SetActive(false);
 
-            rollsAmountChagedEvent.Invoke(-1);
+            await ChangeRollsUi(--_playerProfile.Stats.DiceRolls);
         }
 
         public async Task PlayUpgradePowerAnimation(int powerAmountToShow)
@@ -61,6 +56,16 @@ namespace GameUI
             await Task.Delay(1000);
             _gameUIView.MainText.text = string.Empty;
             _gameUIView.MainText.gameObject.SetActive(false);
+        }
+
+        public async Task PlayGoToMergeAnimation()
+        {
+            _gameUIView.MainText.text = UiString.PlayingMerge;
+            _gameUIView.MainText.gameObject.SetActive(true);
+            await Task.Delay(1000);
+            _gameUIView.MainText.text = string.Empty;
+            _gameUIView.MainText.gameObject.SetActive(false);
+
         }
 
         public async Task DisplayText(string text)
@@ -110,6 +115,19 @@ namespace GameUI
             _gameUIView.DiceRollsText.text = amount.ToString();
         }
 
+        private void InitializeUI()
+        {
+            PlayerStats stats = _playerProfile.Stats;
+            var uiObject = Object.Instantiate(_uiData.GameUIPrefab, _uiContainer);
+            _gameUIView = uiObject.GetComponent<GameUIView>();
+            _gameUIView.Init(DiceRoll, UpgradePower, PlayMerge);
+            _gameUIView.CoinsText.text = stats.Gold.ToString();
+            _gameUIView.GemsText.text = stats.Gems.ToString();
+            _gameUIView.DiceRollsText.text = stats.DiceRolls.ToString();
+            _gameUIView.PowerText.text = stats.Power.ToString();
+            _gameUIView.UpgradePowerButton.gameObject.SetActive(stats.PowerUpgradeAvailable);
+        }
+
         private void DiceRoll()
         { 
             OnDiceRollClickEvent?.Invoke();
@@ -118,6 +136,11 @@ namespace GameUI
         private void UpgradePower()
         {
             OnUpgrdePowerClickEvent?.Invoke();
+        }
+
+        private void PlayMerge()
+        {
+            OnPlayMergeButtonClicked?.Invoke();
         }
     }
 }

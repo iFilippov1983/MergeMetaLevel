@@ -25,16 +25,18 @@ namespace GameUI
         public Text DiceRollsText => _diceRollsText;
         public Text PowerText => _powerText;
 
-        public void Init(UnityAction rollButtonClicked, UnityAction upgradePowerButtonClicked)
+        public void Init(UnityAction rollButtonClicked, UnityAction upgradePowerButtonClicked, UnityAction playMergeButtonClicked)
         {
             _rollButton.onClick.AddListener(rollButtonClicked);
             _upgradePowerButton.onClick.AddListener(upgradePowerButtonClicked);
+            _playMergeButton.onClick.AddListener(playMergeButtonClicked);
         }
 
         private void OnDestroy()
         {
-            _rollButton.onClick.RemoveAllListeners();
-            _upgradePowerButton.onClick.RemoveAllListeners();
+            _rollButton?.onClick.RemoveAllListeners();
+            _upgradePowerButton?.onClick.RemoveAllListeners();
+            _playMergeButton?.onClick.RemoveAllListeners();
         }
     }
 }
