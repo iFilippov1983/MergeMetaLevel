@@ -32,6 +32,13 @@ internal sealed class Root : MonoBehaviour
     {
         _uiHandler.DesactivateUiInteraction();
         await _uiHandler.PlayGoToMergeAnimation();
+        //await Merge round play
+
+        await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.PowerGain(true));
+        _progressHandler.AddPowerForMergeRound();
+        //_progressHandler.MakePowerUpgrade(true);
+        await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power);
+        await _uiHandler.ChangeDiceRollsUi(++_playerProfile.Stats.DiceRolls);//temp
         _uiHandler.ActivateUiInteraction();
     }
 
@@ -41,9 +48,10 @@ internal sealed class Root : MonoBehaviour
         if (canBuy)
         {
             _uiHandler.DesactivateUiInteraction();
-            await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.PowerGain);
+            await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.PowerGain());
             _progressHandler.MakePowerUpgrade();
             await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power);
+            await _uiHandler.ChangeCoinsUi(_playerProfile.Stats.Gold);
             _uiHandler.ActivateUiInteraction();
         }
         else return;

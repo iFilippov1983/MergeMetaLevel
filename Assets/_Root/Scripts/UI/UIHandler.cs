@@ -34,7 +34,7 @@ namespace GameUI
             _gameUIView.MainText.text = string.Empty;
             _gameUIView.MainText.gameObject.SetActive(false);
 
-            await ChangeRollsUi(--_playerProfile.Stats.DiceRolls);
+            await ChangeDiceRollsUi(--_playerProfile.Stats.DiceRolls);
         }
 
         public async Task PlayDiceUseAnimation() //when next fight attempt
@@ -45,7 +45,7 @@ namespace GameUI
             _gameUIView.MainText.text = string.Empty;
             _gameUIView.MainText.gameObject.SetActive(false);
 
-            await ChangeRollsUi(--_playerProfile.Stats.DiceRolls);
+            await ChangeDiceRollsUi(--_playerProfile.Stats.DiceRolls);
         }
 
         public async Task PlayUpgradePowerAnimation(int powerAmountToShow)
@@ -80,6 +80,7 @@ namespace GameUI
         public void ActivateUiInteraction()
         {
             _gameUIView.RollButton.interactable = true;
+            _gameUIView.UpgradePowerButton.gameObject.SetActive(_playerProfile.Stats.PowerUpgradeAvailable);
             _gameUIView.UpgradePowerButton.interactable = true;
             _gameUIView.PlayMergeButton.interactable = true;
         }
@@ -109,7 +110,7 @@ namespace GameUI
             _gameUIView.PowerText.text = amount.ToString();
         }
 
-        internal async Task ChangeRollsUi(int amount)
+        internal async Task ChangeDiceRollsUi(int amount)
         {
             await Task.Delay(100);//dice change animation
             _gameUIView.DiceRollsText.text = amount.ToString();

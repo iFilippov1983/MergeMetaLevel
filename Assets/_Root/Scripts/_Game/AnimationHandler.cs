@@ -81,12 +81,12 @@ internal class AnimationHandler
         if (defendingCharKilled)
         {
             _attackerAnimatorHolder.GetAnimator().SetBool(CharState.IsFinishingOff, true);
-            _attackerAnimatorHolder.GetFinishAttackEffect().gameObject.SetActive(true);
+            _attackerAnimatorHolder.GetFinishAttackEffect()?.gameObject.SetActive(true);
         }
         else
         {
             _attackerAnimatorHolder.GetAnimator().SetBool(CharState.IsAttacking, true);
-            _attackerAnimatorHolder.GetMainAttackEffect().gameObject.SetActive(true);
+            _attackerAnimatorHolder.GetMainAttackEffect()?.gameObject.SetActive(true);
         }
     }
 
@@ -129,13 +129,13 @@ internal class AnimationHandler
         {
             _playerView.GetAnimator().SetBool(CharState.IsAttacking, false);
             _playerView.GetAnimator().SetBool(CharState.IsFinishingOff, false);
-            _playerView.GetMainAttackEffect().gameObject.SetActive(false);
-            _playerView.GetFinishAttackEffect().gameObject.SetActive(false);
+            _playerView.GetMainAttackEffect()?.gameObject.SetActive(false);
+            _playerView.GetFinishAttackEffect()?.gameObject.SetActive(false);
 
             _enemyView.GetAnimator().SetBool(CharState.IsAttacking, false);
             _enemyView.GetAnimator().SetBool(CharState.IsFinishingOff, false);
-            _enemyView.GetMainAttackEffect().gameObject.SetActive(false);
-            _enemyView.GetFinishAttackEffect().gameObject.SetActive(false);
+            _enemyView.GetMainAttackEffect()?.gameObject.SetActive(false);
+            _enemyView.GetFinishAttackEffect()?.gameObject.SetActive(false);
         }
         if (_defenderFinishedMove)
         {

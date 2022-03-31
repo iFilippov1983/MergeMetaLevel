@@ -82,9 +82,10 @@ namespace Game
             }
         }
 
-        public int MakePlayerPowerUpgrade()
+        private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
         {
-            return 0;
+            await Task.Delay(1000);//resource pickup animation
+            OnResourcePickupEvent?.Invoke(resourceProperties);
         }
 
         private async Task ApplyFight(EnemyProperties enemyProperties, bool fisrtFightOnThisCell = true)
@@ -107,12 +108,6 @@ namespace Game
             await HandleFightResult(playerWins, enemyProperties);
 
             await _cameraHandler.SwitchCamera();
-        }
-
-        private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
-        {
-            await Task.Delay(1000);//resource pickup animation
-            OnResourcePickupEvent?.Invoke(resourceProperties);
         }
 
         private async Task MovePlayerBy(List<int> route)
@@ -164,6 +159,7 @@ namespace Game
             {
                 _enemyHandler.OnFightFinishEvent(playerWins);
                 _playerProfile.Stats.LastFightWinner = false;
+                _playerProfile.Stats.PowerUpgradeAvailable = true;
                 await Task.Delay(100);//ui events
             }
 

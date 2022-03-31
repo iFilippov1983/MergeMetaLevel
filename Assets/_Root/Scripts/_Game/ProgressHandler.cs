@@ -20,7 +20,9 @@ namespace Game
 
         public int UpgradeLevel => _progressData.CurrentPowerProgressLevel;
         public int UpgradePrice => _progressData.GetCurrentUpgradePrice();
-        public int PowerGain => _progressData.GetCurrentPowerGain();
+        public int PowerGain(bool mergeWin = false) => 
+            mergeWin == true ? _progressData.PowerConstantForMergeWin
+            : _progressData.GetCurrentPowerGain();
 
         public ProgressHandler(ProgressData progressData, PlayerProfile playerProfile)
         {
@@ -37,18 +39,26 @@ namespace Game
 
         public void MakePowerUpgrade(bool mergeWin = false)
         {
-            if (mergeWin)
-            {
-                _playerProfile.Stats.Power += _progressData.PowerConstantForMergeWin;
-                _progressData.SetNextUpgradeLevel();
-            }
-            else
-            {
-                _playerProfile.Stats.Power += PowerGain;
-                _playerProfile.Stats.Gold -= UpgradePrice;
-                _progressData.SetNextUpgradeLevel();
-            }
+            _playerProfile.Stats.Power += PowerGain();
+            _playerProfile.Stats.Gold -= UpgradePrice;
+            _progressData.SetNextUpgradeLevel();
+            //if (mergeWin)
+            //{
+            //    _playerProfile.Stats.Power += _progressData.PowerConstantForMergeWin;
+            //    _progressData.SetNextUpgradeLevel();
+            //}
+            //else
+            //{
+            //    _playerProfile.Stats.Power += PowerGain();
+            //    _playerProfile.Stats.Gold -= UpgradePrice;
+            //    _progressData.SetNextUpgradeLevel();
+            //}
                 
+        }
+
+        public void AddPowerForMergeRound()
+        {
+            _playerProfile.Stats.Power += _progressData.PowerConstantForMergeWin;
         }
     }
 }
