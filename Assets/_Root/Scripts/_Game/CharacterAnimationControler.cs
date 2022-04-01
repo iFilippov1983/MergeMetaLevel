@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game
@@ -32,7 +33,6 @@ namespace Game
             _finishOffAnimationFinished = false;
             _hit = false;
         }
-
         private void AppearAnimationFinish() => _appearAnimationFinished = true;
         private void DeathAnimationFinish() => _deathAnimationFinished = true;
         private void GotHitAnimationFinish() => _gotHitAnimationFinished = true;

@@ -30,7 +30,7 @@ Material:
     m_Floats:
     - _Brightness: 20
     - _Cutoff: 0.02
-    - _DisAmount: 1.304
+    - _DisAmount: 1.39
     - _DisplacementWidth: 0.227
     - _DissolveColorWidth: 0.0711
     - _Glossiness: 0

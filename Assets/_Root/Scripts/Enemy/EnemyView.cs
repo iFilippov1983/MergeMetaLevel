@@ -7,7 +7,8 @@ namespace Enemy
     public class EnemyView : MonoBehaviour, IAnimatorHolder
     {
         [SerializeField] private EnemyType _type;
-        [SerializeField] private Material _deathMaterial;
+        [SerializeField] private Material _defaultMaterial;
+        [SerializeField] private Material _burnMaterial;
         [SerializeField] private GameObject _model;
         [SerializeField] private Animator _animator;
         [SerializeField] private ParticleSystem _appearEffect;
@@ -19,7 +20,8 @@ namespace Enemy
 
         public EnemyType EnemyType => _type;
         public Animator GetAnimator() => _animator;
-        public Material DeathMaterial => _deathMaterial;
+        public Material DefaultMaterial => _defaultMaterial;
+        public Material BurnMaterial => _burnMaterial;
         public GameObject Model => _model;
         public ParticleSystem GetAppearEffect() => _appearEffect;
         public ParticleSystem GetMainAttackEffect() => _mainAttackEffect;

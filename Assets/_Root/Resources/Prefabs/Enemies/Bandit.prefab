@@ -859,7 +859,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
-  _deathMaterial: {fileID: 2100000, guid: 0e0ff2f6121944f4bb4864e14c230858, type: 2}
+  _defaultMaterial: {fileID: 2100000, guid: b0a8ef0ea0cad8b498acaa292fa72e3b, type: 2}
+  _burnMaterial: {fileID: 2100000, guid: 0e0ff2f6121944f4bb4864e14c230858, type: 2}
   _model: {fileID: 3764362934137957437}
   _animator: {fileID: 9080326621114466254}
   _appearEffect: {fileID: 0}

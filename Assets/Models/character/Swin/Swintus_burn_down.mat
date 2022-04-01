@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Swintus_death
+  m_Name: Swintus_burn_down
   m_Shader: {fileID: 4800000, guid: c43c41745bbf5654ab9243e064adcdac, type: 3}
   m_ShaderKeywords: INVERT LOCAL
   m_LightmapFlags: 4

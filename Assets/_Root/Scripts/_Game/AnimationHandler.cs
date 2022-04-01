@@ -34,6 +34,7 @@ internal class AnimationHandler
 
     public async Task HandleEnemyAppearAnimation()
     {
+        EnemySpawnEffect();
         bool animationCompleted = _enemyAnimController.GetAppearAnimationFinished();
         while (!animationCompleted)
         {
@@ -54,6 +55,49 @@ internal class AnimationHandler
         await AttackFinish(defendingCharKilled);
         _playerAnimController.ResetFlags();
         _enemyAnimController.ResetFlags();
+    }
+
+    public async Task BurnEnemy()
+    {
+        var newMaterial = _enemyView.BurnMaterial;
+        var material = _enemyView.Model.GetComponentInChildren<SkinnedMeshRenderer>().material;
+        material.shader = newMaterial.shader;
+        material.color = newMaterial.color;
+        material.SetTexture(LiteralString.MainTexture, newMaterial.GetTexture(LiteralString.MainTexture));
+        material.SetTexture(LiteralString.Noise, newMaterial.GetTexture(LiteralString.Noise));
+        float amount = -1f;
+        while (amount <= 1.3f)
+        {
+            material.SetFloat(LiteralString.Dissolve, amount);
+            amount += 0.01f;
+            await Task.Delay(5);
+        }
+    }
+
+    private async void EnemySpawnEffect()
+    {
+        _enemyView.Model.SetActive(true);
+
+        var newMaterial = _enemyView.BurnMaterial;
+        var material = _enemyView.Model.GetComponentInChildren<SkinnedMeshRenderer>().material;
+
+        material.shader = newMaterial.shader;
+        material.color = newMaterial.color;
+        material.SetTexture(LiteralString.MainTexture, newMaterial.GetTexture(LiteralString.MainTexture));
+        material.SetTexture(LiteralString.Noise, newMaterial.GetTexture(LiteralString.Noise));
+
+        float amount = 1.4f;
+        while (amount >= -0.8f)
+        {
+            material.SetFloat(LiteralString.Dissolve, amount);
+            amount -= 0.025f;
+            await Task.Delay(1);
+        }
+
+        newMaterial = _enemyView.DefaultMaterial;
+        material.shader = newMaterial.shader;
+        material.color = newMaterial.color;
+        material.SetTexture(LiteralString.BaseTexture, newMaterial.GetTexture(LiteralString.BaseTexture));
     }
 
     private void SetSides(bool playerAttacking)
