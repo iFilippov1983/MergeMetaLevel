@@ -1489,9 +1489,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _deathmaterial: {fileID: 2100000, guid: be9acb09c505ee246845690b9ed0e0f0, type: 2}
+  _model: {fileID: 4612864792089520111}
   _animator: {fileID: 314443920136874075}
+  _appearEffect: {fileID: 0}
   _mainAttackEffect: {fileID: 4666348818996425172}
+  _secondaryAttackEffect: {fileID: 0}
   _finishAttackEffect: {fileID: 4666348818996425172}
+  _gotHitEffect: {fileID: 0}
+  _deathEffect: {fileID: 0}
 --- !u!114 &4073374895291588828
 MonoBehaviour:
   m_ObjectHideFlags: 0

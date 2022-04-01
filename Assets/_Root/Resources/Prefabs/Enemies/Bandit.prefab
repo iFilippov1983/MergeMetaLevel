@@ -859,9 +859,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _deathMaterial: {fileID: 2100000, guid: 0e0ff2f6121944f4bb4864e14c230858, type: 2}
+  _model: {fileID: 3764362934137957437}
   _animator: {fileID: 9080326621114466254}
+  _appearEffect: {fileID: 0}
   _mainAttackEffect: {fileID: 6071891493396492010, guid: 580b004ae0753b040a579e28667094b3, type: 3}
+  _secondaryAttackEffect: {fileID: 0}
   _finishAttackEffect: {fileID: 6071891493396492010, guid: 580b004ae0753b040a579e28667094b3, type: 3}
+  _gotHitEffect: {fileID: 0}
+  _deathEffect: {fileID: 0}
 --- !u!114 &2469847238750087768
 MonoBehaviour:
   m_ObjectHideFlags: 0

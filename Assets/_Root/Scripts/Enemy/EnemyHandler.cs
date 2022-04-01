@@ -42,17 +42,24 @@ namespace Enemy
             _infoHandler.InitInformation();  
         }
 
-        public void OnFightFinishEvent(bool playerWins)
+        public async void OnFightFinishEvent(bool playerWins)
         {
-            if(playerWins)
-                Object.Destroy(_enemyView.gameObject);
             _infoHandler.DestroyInformation();
+            if (playerWins)
+            {
+                await BurnEnemy();
+                Object.Destroy(_enemyView.gameObject);
+            }
+               
+            
         }
 
         public void OnGetHitEvent(int enemyRemainingHealth)
         {
             if (enemyRemainingHealth <= 0)
+            {
                 _infoHandler.SetHealth(0, 0f);
+            }  
             else
             {
                 float fillAmount = (float)enemyRemainingHealth / (float)_enemyFullHealthAmount;
@@ -73,6 +80,23 @@ namespace Enemy
                 }
             }
             return dictionary;
+        }
+
+        private async Task BurnEnemy()
+        {
+            var newMaterial = _enemyView.DeathMaterial;
+            var material = _enemyView.Model.GetComponentInChildren<SkinnedMeshRenderer>().materials[0];
+            material.shader = newMaterial.shader;
+            material.color = newMaterial.color;
+            material.SetTexture("_MainTex", newMaterial.GetTexture("_MainTex"));
+            material.SetTexture("_Noise", newMaterial.GetTexture("_Noise"));
+            float amount = -1f;
+            while (amount <= 1.3f)
+            {
+                material.SetFloat("_DisAmount", amount);
+                amount += 0.01f; 
+                await Task.Delay(5);
+            }
         }
     }
 }
