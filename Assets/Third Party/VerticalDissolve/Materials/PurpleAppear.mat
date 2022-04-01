@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PurpleAppear
+  m_Shader: {fileID: 4800000, guid: 07fb0688dc93ba841a2a0013daa694a0, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 954f503b7f7f88b45a6443aa92ce9981, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: 7b99b9eccb5c6f84a9189d8e44803e8b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Brightness: 20
+    - _Cutoff: 0.057
+    - _DisAmount: 0.9741211
+    - _DisplacementWidth: 0.227
+    - _DissolveColorWidth: 0.0711
+    - _Glossiness: 0
+    - _HeightScale: 0.0627
+    - _INVERT: 0
+    - _LOCAL: 0
+    - _Metallic: 0
+    - _Offset: -0.272
+    - _OffsetT: 0.001
+    - _Scale: 1.23
+    - _ScaleV: 0.256
+    - _Smoothness: 1.337
+    - _VertScale: 0
+    - _WSPACE: 0
+    - _Width: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DisColor: {r: 0.052779526, g: 0, b: 0.69803923, a: 1}
