@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyOnePrefabPath: Bandit
   _enemyTwoPrefabPath: Pigoblin
+  _enemyThreePrefab: Bandit_girl

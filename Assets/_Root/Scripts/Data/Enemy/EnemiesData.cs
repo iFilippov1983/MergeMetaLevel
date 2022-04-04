@@ -1,8 +1,6 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using Tool;
 using System.Collections.Generic;
-using System;
 
 namespace Data
 {
@@ -11,6 +9,7 @@ namespace Data
     {
         [SerializeField] private string _enemyOnePrefabPath;
         [SerializeField] private string _enemyTwoPrefabPath;
+        [SerializeField] private string _enemyThreePrefab;
 
         private List<GameObject> _enemiesPrefabs;
 
@@ -23,6 +22,7 @@ namespace Data
                 _enemiesPrefabs = new List<GameObject>();
                 _enemiesPrefabs.Add(EnemyOnePrefab);
                 _enemiesPrefabs.Add(EnemyTwoPrefab);
+                _enemiesPrefabs.Add(EnemyThreePrefab);
             }
             return _enemiesPrefabs;
         }
@@ -49,6 +49,8 @@ namespace Data
         //    }
         //}
 
+        private GameObject EnemyThreePrefab =>
+            Resources.Load<GameObject>(string.Concat(ResourcePath.EnemyPrefabsFolder, _enemyThreePrefab));
 
         private void OnDisable()
         {

@@ -864,9 +864,9 @@ MonoBehaviour:
   _model: {fileID: 3764362934137957437}
   _animator: {fileID: 9080326621114466254}
   _appearEffect: {fileID: 0}
-  _mainAttackEffect: {fileID: 6071891493396492010, guid: 580b004ae0753b040a579e28667094b3, type: 3}
-  _secondaryAttackEffect: {fileID: 0}
-  _finishAttackEffect: {fileID: 6071891493396492010, guid: 580b004ae0753b040a579e28667094b3, type: 3}
+  _mainAttackEffect: {fileID: 7644464632545993715}
+  _secondaryAttackEffect: {fileID: 7644464632545993715}
+  _finishAttackEffect: {fileID: 7644464632545993715}
   _gotHitEffect: {fileID: 0}
   _deathEffect: {fileID: 0}
 --- !u!114 &2469847238750087768
@@ -2330,5 +2330,10 @@ PrefabInstance:
 --- !u!4 &6859117999934472562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7406523907503327813, guid: cb89198fc0c771c44a9564b83d129a0a, type: 3}
+  m_PrefabInstance: {fileID: 4177433051937737527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7644464632545993715 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6048230045758613700, guid: cb89198fc0c771c44a9564b83d129a0a, type: 3}
   m_PrefabInstance: {fileID: 4177433051937737527}
   m_PrefabAsset: {fileID: 0}
