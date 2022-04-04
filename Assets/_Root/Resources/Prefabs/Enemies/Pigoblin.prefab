@@ -1495,7 +1495,7 @@ MonoBehaviour:
   _animator: {fileID: 314443920136874075}
   _appearEffect: {fileID: 0}
   _mainAttackEffect: {fileID: 4666348818996425172}
-  _secondaryAttackEffect: {fileID: 0}
+  _secondaryAttackEffect: {fileID: 4666348818996425172}
   _finishAttackEffect: {fileID: 4666348818996425172}
   _gotHitEffect: {fileID: 0}
   _deathEffect: {fileID: 0}

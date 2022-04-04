@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 1513004389243259266}
   - component: {fileID: 4764643123757208568}
   m_Layer: 0
-  m_Name: elf_Idle
+  m_Name: Player_elf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

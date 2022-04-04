@@ -35,7 +35,7 @@ namespace Player
         public async Task SetDestinationAndMove(Vector3 position)
         {
             _playerView.NavMeshAgent.SetDestination(position);
-            _playerView.GetAnimator().SetBool(CharState.IsRunning, true);
+            _playerView.GetAnimator().SetBool(AnimParameter.IsRunning, true);
             var transform = _playerView.transform;
             while(Vector3.SqrMagnitude(transform.position - position) > 0.2f * 0.2f)
                 await Task.Yield();
@@ -56,14 +56,14 @@ namespace Player
 
         public void PrepareToFight(int power, int health)
         {
-            _infoHandler.SetInformation
+            _infoHandler.SetInformationBar
                 (_infoPrefab, _playerView.transform.position, power, health);
-            _infoHandler.InitInformation();
+            _infoHandler.InitInformationBar();
         }
 
         internal void FinishFight()
         {
-            _infoHandler.DestroyInformation();
+            _infoHandler.DestroyInformationBar();
         }
 
         private void InitPlayer(Vector3 playerInitPosition, Quaternion playerInitialRotation)

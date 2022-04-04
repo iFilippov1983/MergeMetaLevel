@@ -131,8 +131,9 @@ namespace Game
         private void ApplyCellPass(int sellId)
         {
             var cellView = _levelViewHandler.GetCellViewWithId(sellId);
-            var sRenderer = cellView.SpriteRenderer;
-            sRenderer.gameObject.SetActive(true);
+
+            var cellMesh = cellView.CellBodyMeshRenderer;
+            cellMesh.material = cellView.ActualMaterial;
 
             var tmp = cellView.TextMeshPro;
             tmp.gameObject.SetActive(false);
