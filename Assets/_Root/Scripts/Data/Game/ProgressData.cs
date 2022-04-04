@@ -27,6 +27,7 @@ namespace Data
 
         public int PowerConstantForMergeWin => _powerConstantForMergeWin;
         public int CurrentPowerProgressLevel => _currentPowerProgressLevel;
+
         public int GetCurrentPowerGain()
         { 
             CalculateValues();
@@ -51,16 +52,16 @@ namespace Data
             CalculateValues();
         }
 
-        private int CalculateCurrentUpgradePrice() => 
-            _currentPowerProgressLevel * _priceConstant;
-
-        private int CalculateCurrentPowerGain() => 
-            Mathf.RoundToInt(_currentUpgradePrice * _calculationFactor * Mathf.Sqrt(1f / _currentPowerProgressLevel));
-
         private void CalculateValues()
         {
             _currentUpgradePrice = CalculateCurrentUpgradePrice();
             _currentPowerGain = CalculateCurrentPowerGain();
         }
+
+        private int CalculateCurrentUpgradePrice() => 
+            _currentPowerProgressLevel * _priceConstant;
+
+        private int CalculateCurrentPowerGain() => 
+            Mathf.RoundToInt(_currentUpgradePrice * _calculationFactor * Mathf.Sqrt(1f / _currentPowerProgressLevel));
     }
 }

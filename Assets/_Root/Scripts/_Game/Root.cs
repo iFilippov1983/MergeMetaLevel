@@ -3,9 +3,7 @@ using Game;
 using GameUI;
 using UnityEngine;
 using UnityEngine.Analytics;
-using System;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 internal sealed class Root : MonoBehaviour
 {
@@ -32,11 +30,11 @@ internal sealed class Root : MonoBehaviour
     {
         _uiHandler.DesactivateUiInteraction();
         await _uiHandler.PlayGoToMergeAnimation();
-        //await Merge round play
+        //await Merge round play. Return win (true) or loose (false)
+        bool mergeWin = true;
 
-        await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.PowerGain(true));
+        await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.PowerGain(mergeWin));
         _progressHandler.AddPowerForMergeRound();
-        //_progressHandler.MakePowerUpgrade(true);
         await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power);
         await _uiHandler.ChangeDiceRollsUi(++_playerProfile.Stats.DiceRolls);//temp
         _uiHandler.ActivateUiInteraction();
@@ -48,10 +46,12 @@ internal sealed class Root : MonoBehaviour
         if (canBuy)
         {
             _uiHandler.DesactivateUiInteraction();
+
             await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.PowerGain());
             _progressHandler.MakePowerUpgrade();
             await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power);
             await _uiHandler.ChangeCoinsUi(_playerProfile.Stats.Gold);
+
             _uiHandler.ActivateUiInteraction();
         }
         else return;

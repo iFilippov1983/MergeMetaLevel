@@ -33,21 +33,21 @@ namespace Enemy
             _enemyFullHealthAmount = enemyProperties.Stats.Health;
 
             await _animationHandler.HandleEnemyAppearAnimation();
-            _infoHandler.SetInformation
+            _infoHandler.SetInformationBar
                 (enemyProperties.InfoPrefab, enemyObject.transform.position, enemyProperties.Stats.Power, enemyProperties.Stats.Health);
         }
 
         public void InitHealthBar()
         {
-            _infoHandler.InitInformation();  
+            _infoHandler.InitInformationBar();  
         }
 
         public async void OnFightFinishEvent(bool playerWins)
         {
-            _infoHandler.DestroyInformation();
+            _infoHandler.DestroyInformationBar();
             if (playerWins)
             {
-                await _animationHandler.BurnEnemy();
+                await _animationHandler.BurnEnemyEffect();
                 Object.Destroy(_enemyView.gameObject);
             }
         }

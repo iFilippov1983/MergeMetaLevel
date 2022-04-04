@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Game
@@ -24,7 +19,7 @@ namespace Game
             _camera = cameraToWorkWith;
         }
 
-        public void InitInformation()
+        public void InitInformationBar()
         {
             _infoBarObject = Object.Instantiate(_infoBarPrefab, _positionToSpawn, _camera.transform.rotation);
             _info = _infoBarObject.GetComponent<InfoView>();
@@ -32,7 +27,7 @@ namespace Game
             SetPower(_power);
         }
 
-        public void SetInformation
+        public void SetInformationBar
             (
             GameObject infoBarPrefab, 
             Vector3 positionToSpawn,
@@ -44,13 +39,9 @@ namespace Game
             _positionToSpawn = positionToSpawn;
             _power = power;
             _health = health;
-            //_infoBarObject = Object.Instantiate(infoBarPrefab, positionToSpawn, _camera.transform.rotation);
-            //_info = _infoBarObject.GetComponent<InfoView>();
-            //SetHealth(health, 1);
-            //SetPower(power);
         }
 
-        public void DestroyInformation()
+        public void DestroyInformationBar()
         {
             _info = null;
             Object.Destroy(_infoBarObject);

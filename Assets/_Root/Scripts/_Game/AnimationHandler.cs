@@ -34,17 +34,17 @@ internal class AnimationHandler
 
     public async Task HandleEnemyAppearAnimation()
     {
-        EnemySpawnEffect();
+        EnemySpawnEffect(_enemyView.EnemyType);
         bool animationCompleted = _enemyAnimController.GetAppearAnimationFinished();
         while (!animationCompleted)
         {
             await Task.Yield();
             animationCompleted = _enemyAnimController.GetAppearAnimationFinished();
         }
-        _enemyView.GetAnimator().SetBool(CharState.IsReady, true);
+        _enemyView.GetAnimator().SetBool(AnimParameter.IsReady, true);
     }
 
-    public void StopPlayer() => _playerView.GetAnimator().SetBool(CharState.IsRunning, false);
+    public void StopPlayer() => _playerView.GetAnimator().SetBool(AnimParameter.IsRunning, false);
 
     public async Task AnimateHit(bool playerAttacking, bool defendingCharKilled, Action<bool> onHitEvent)
     {
@@ -57,7 +57,7 @@ internal class AnimationHandler
         _enemyAnimController.ResetFlags();
     }
 
-    public async Task BurnEnemy()
+    public async Task BurnEnemyEffect()
     {
         var newMaterial = _enemyView.BurnMaterial;
         var material = _enemyView.Model.GetComponentInChildren<SkinnedMeshRenderer>().material;
@@ -74,9 +74,11 @@ internal class AnimationHandler
         }
     }
 
-    private async void EnemySpawnEffect()
+    private async void EnemySpawnEffect(EnemyType enemyType)
     {
         _enemyView.Model.SetActive(true);
+
+        if (enemyType.Equals(EnemyType.Pigoblin)) return;
 
         var newMaterial = _enemyView.BurnMaterial;
         var material = _enemyView.Model.GetComponentInChildren<SkinnedMeshRenderer>().material;
@@ -120,15 +122,20 @@ internal class AnimationHandler
 
     private void SetAttackType(bool defendingCharKilled)
     {
+        var attackType = UnityEngine.Random.Range(AnimParameter.AttackType_one, AnimParameter.AttackType_two + 1);
         if (defendingCharKilled)
         {
-            _attackerAnimatorHolder.GetAnimator().SetBool(CharState.IsFinishingOff, true);
-            _attackerAnimatorHolder.GetFinishAttackEffect()?.gameObject.SetActive(true);
+            _attackerAnimatorHolder.GetAnimator().SetBool(AnimParameter.IsFinishingOff, true);
+            _attackerAnimatorHolder.GetFinishAttackEffect().gameObject.SetActive(true);
         }
         else
         {
-            _attackerAnimatorHolder.GetAnimator().SetBool(CharState.IsAttacking, true);
-            _attackerAnimatorHolder.GetMainAttackEffect()?.gameObject.SetActive(true);
+            _attackerAnimatorHolder.GetAnimator().SetBool(AnimParameter.IsAttacking, true);
+            _attackerAnimatorHolder.GetAnimator().SetInteger(AnimParameter.AttackType, attackType);
+            if(attackType.Equals(AnimParameter.AttackType_one))
+                _attackerAnimatorHolder.GetMainAttackEffect().gameObject.SetActive(true);
+            else if(attackType.Equals(AnimParameter.AttackType_two))
+                _attackerAnimatorHolder.GetSecondaryAttackEffect().gameObject.SetActive(true);
         }
     }
 
@@ -144,9 +151,17 @@ internal class AnimationHandler
 
     private async Task AttackFinish(bool defendingCharKilled)
     {
-        _defenderAnimatorHolder.GetAnimator().SetBool(CharState.GotHit, true);
+        var gotHitType = UnityEngine.Random.Range(AnimParameter.GotHitType_one, AnimParameter.GotHitType_two + 1);
+        _defenderAnimatorHolder.GetAnimator().SetInteger(AnimParameter.GotHitType, gotHitType);
+        _defenderAnimatorHolder.GetAnimator().SetBool(AnimParameter.GotHit, true);
+
         if (defendingCharKilled)
-            _defenderAnimatorHolder.GetAnimator().SetBool(CharState.IsKilled, true);
+        {
+            var deathType = UnityEngine.Random.Range(AnimParameter.DeathType_one, AnimParameter.DeathType_two + 1);
+            _defenderAnimatorHolder.GetAnimator().SetInteger(AnimParameter.DeathType, deathType);
+            _defenderAnimatorHolder.GetAnimator().SetBool(AnimParameter.IsKilled, true);
+        }
+            
 
         SetAnimationFinishFlags(_attackerController, _defenderController, defendingCharKilled);
 
@@ -169,22 +184,31 @@ internal class AnimationHandler
 
         if (_attackerFinishedMove)
         {
-            _playerView.GetAnimator().SetBool(CharState.IsAttacking, false);
-            _playerView.GetAnimator().SetBool(CharState.IsFinishingOff, false);
-            _playerView.GetMainAttackEffect()?.gameObject.SetActive(false);
-            _playerView.GetFinishAttackEffect()?.gameObject.SetActive(false);
+            _playerView.GetAnimator().SetBool(AnimParameter.IsAttacking, false);
+            _playerView.GetAnimator().SetInteger(AnimParameter.AttackType, AnimParameter.DefaulAttackType);
+            _playerView.GetAnimator().SetBool(AnimParameter.IsFinishingOff, false);
 
-            _enemyView.GetAnimator().SetBool(CharState.IsAttacking, false);
-            _enemyView.GetAnimator().SetBool(CharState.IsFinishingOff, false);
-            _enemyView.GetMainAttackEffect()?.gameObject.SetActive(false);
-            _enemyView.GetFinishAttackEffect()?.gameObject.SetActive(false);
+            _playerView.GetMainAttackEffect().gameObject.SetActive(false);
+            _playerView.GetSecondaryAttackEffect().gameObject.SetActive(false);
+            _playerView.GetFinishAttackEffect().gameObject.SetActive(false);
+
+            _enemyView.GetAnimator().SetBool(AnimParameter.IsAttacking, false);
+            _enemyView.GetAnimator().SetInteger(AnimParameter.AttackType, AnimParameter.DefaulAttackType);
+            _enemyView.GetAnimator().SetBool(AnimParameter.IsFinishingOff, false);
+
+            _enemyView.GetMainAttackEffect().gameObject.SetActive(false);
+            _enemyView.GetFinishAttackEffect().gameObject.SetActive(false);
         }
         if (_defenderFinishedMove)
         {
-            _enemyView.GetAnimator().SetBool(CharState.IsKilled, false);
-            _enemyView.GetAnimator().SetBool(CharState.GotHit, false);
-            _playerView.GetAnimator().SetBool(CharState.IsKilled, false);
-            _playerView.GetAnimator().SetBool(CharState.GotHit, false);
+            _enemyView.GetAnimator().SetBool(AnimParameter.IsKilled, false);
+            _enemyView.GetAnimator().SetBool(AnimParameter.GotHit, false);
+            _enemyView.GetAnimator().SetInteger(AnimParameter.GotHitType, AnimParameter.DefaultGotHitType);
+
+            _playerView.GetAnimator().SetBool(AnimParameter.IsKilled, false);
+            _playerView.GetAnimator().SetInteger(AnimParameter.DeathType, AnimParameter.DefaultDeathType);
+            _playerView.GetAnimator().SetBool(AnimParameter.GotHit, false);
+            _playerView.GetAnimator().SetInteger(AnimParameter.GotHitType, AnimParameter.DefaultGotHitType);
         }
     }
 }
