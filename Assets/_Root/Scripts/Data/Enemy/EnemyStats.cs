@@ -14,5 +14,5 @@ namespace Data
         public int Health => _power * PowerToHealthMiltiplyer;
     }
 
-    public enum EnemyType { Pigoblin, Bandit}
+    public enum EnemyType { Pigoblin, Bandit, BanditGirl}
 }
