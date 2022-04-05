@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using Tool;
 using System;
+using Sirenix.OdinInspector;
 
 namespace Data
 {
     [CreateAssetMenu(menuName = "GameData/PlayerData", fileName = "PlayerData")]
     public class PlayerData : ScriptableObject
     {
-        [SerializeField] private string _playerPrefabName;
+        [SerializeField] 
+        [InlineButton("SwitchCharacter", "Switch char")]
+        private string _playerPrefabName;
         [SerializeField] private string _infoPrefabName;
 
-        private GameObject _playerPrefab;
-        private GameObject _infoPrefab;
+        //private GameObject _playerPrefab;
+        //private GameObject _infoPrefab;
 
         public GameObject PlayerPrefab => 
             Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _playerPrefabName));
@@ -34,5 +37,12 @@ namespace Data
         //        return _infoPrefab;
         //    }
         //}
+
+        private void SwitchCharacter()
+        {
+            _playerPrefabName = _playerPrefabName.Equals(ResourcePath.PlayerPrefabName)
+                ? ResourcePath.PlayerElfPrefabName
+                : ResourcePath.PlayerPrefabName;
+        }
     }
 }

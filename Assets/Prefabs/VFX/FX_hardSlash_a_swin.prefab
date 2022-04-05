@@ -5095,8 +5095,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.8584906, g: 0.09313814, b: 0.13905925, a: 1}
-      maxColor: {r: 1, g: 0.4117647, b: 0.44705883, a: 0.39215687}
+      minColor: {r: 0.26415092, g: 0.08694929, b: 0.013705945, a: 1}
+      maxColor: {r: 0.42352942, g: 0.12941177, b: 0.007843138, a: 0.39215687}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 0, b: 0, a: 1}
@@ -9760,7 +9760,7 @@ GameObject:
   - component: {fileID: 7572983763796663226}
   - component: {fileID: 5517395669864004488}
   m_Layer: 0
-  m_Name: FX_hardSlash_a
+  m_Name: FX_hardSlash_a_swin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9976,7 +9976,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.41176474, b: 0.44776174, a: 1}
+      maxColor: {r: 0.4245283, g: 0.13001364, b: 0.006007465, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -14904,7 +14904,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.4117647, b: 0.44705883, a: 1}
+      maxColor: {r: 0.42352942, g: 0.12941177, b: 0.007843138, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -19787,7 +19787,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.4117647, b: 0.44705883, a: 1}
+      maxColor: {r: 0.42352942, g: 0.12941177, b: 0.007843138, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -24661,7 +24661,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.4117647, b: 0.44705883, a: 1}
+      maxColor: {r: 0.42352942, g: 0.12941177, b: 0.007843138, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
