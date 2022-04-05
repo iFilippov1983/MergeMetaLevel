@@ -21,7 +21,8 @@ namespace Enemy
         public EnemyType EnemyType => _type;
         public Animator GetAnimator() => _animator;
         public Material DefaultMaterial => _defaultMaterial;
-        public Material BurnMaterial => _burnMaterial;        public GameObject Model => _model;
+        public Material BurnMaterial => _burnMaterial;        
+        public GameObject Model => _model;
         public ParticleSystem GetAppearEffect() => _appearEffect;
         public ParticleSystem GetMainAttackEffect() => _mainAttackEffect;
         public ParticleSystem GetSecondaryAttackEffect() => _secondaryAttackEffect;

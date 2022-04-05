@@ -73824,7 +73824,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 1
   m_Events:
-  - time: 2.1666667
+  - time: 1.8333334
     functionName: DeathAnimationFinish
     data: 
     objectReferenceParameter: {fileID: 0}

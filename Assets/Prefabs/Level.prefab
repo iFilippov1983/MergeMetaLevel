@@ -9168,7 +9168,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6628858546362043149
 Transform:
@@ -11627,7 +11627,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6628858546830043104
 Transform:
@@ -11748,7 +11748,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6628858546922187693
 Transform:
@@ -11758,7 +11758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6628858546922187694}
   m_LocalRotation: {x: -0.03097723, y: 0.6485953, z: -0.016027335, w: 0.7603339}
-  m_LocalPosition: {x: -6.208, y: 21.51, z: 145.313}
+  m_LocalPosition: {x: -6.21, y: 21.37, z: 145.32}
   m_LocalScale: {x: 1.1323999, y: 1.1324, z: 1.6810477}
   m_Children: []
   m_Father: {fileID: 6628858546830043104}
@@ -16227,7 +16227,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6628858548100062606
 Transform:
@@ -16236,13 +16236,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6628858548100062607}
-  m_LocalRotation: {x: -0.009667483, y: 0.6834695, z: -0.011440416, w: 0.72982544}
-  m_LocalPosition: {x: -6.0107107, y: 21.382, z: -7.9121017}
+  m_LocalRotation: {x: -0.086711325, y: 0.6780127, z: -0.0937096, w: 0.72387743}
+  m_LocalPosition: {x: -6.02, y: 21.18, z: -7.76}
   m_LocalScale: {x: 0.8734699, y: 0.7830253, z: 1.2124543}
   m_Children: []
   m_Father: {fileID: 6628858546830043104}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0.088, y: 86.241, z: -1.714}
+  m_LocalEulerAnglesHint: {x: 0.088, y: 86.241, z: -14.67}
 --- !u!33 &6628858548100062604
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -24552,6 +24552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stairs3 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6951330675749405942, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7724736347744869964, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -25687,6 +25691,10 @@ PrefabInstance:
     - target: {fileID: 6951330675749405942, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
       propertyPath: m_Name
       value: stairs3 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951330675749405942, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7724736347744869964, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
       propertyPath: m_RootOrder
@@ -29148,6 +29156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stairs3 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6951330675749405942, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7724736347744869964, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -30912,6 +30924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stairs3 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6951330675749405942, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7724736347744869964, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -31467,6 +31483,10 @@ PrefabInstance:
     - target: {fileID: 6951330675749405942, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
       propertyPath: m_Name
       value: stairs3 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951330675749405942, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7724736347744869964, guid: ec53f0d3e3baf7b47a6b42166b05694a, type: 3}
       propertyPath: m_RootOrder

@@ -97060,15 +97060,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 3.1
-    functionName: FinishOffAnimationFinish
+  - time: 2.5
+    functionName: AttackAnimationFinish
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 3.1333334
-    functionName: AttackAnimationFinish
+  - time: 2.5333333
+    functionName: FinishOffAnimationFinish
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
