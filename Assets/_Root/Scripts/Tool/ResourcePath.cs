@@ -5,5 +5,8 @@ namespace Tool
         public const string PrefabsFolder = "Prefabs/";
         public const string EnemyPrefabsFolder = "Prefabs/Enemies/";
         public const string GameDataFolder = "GameData/";
+
+        public const string PlayerPrefabName = "Player";
+        public const string PlayerElfPrefabName = "Player_elf";
     }
 }

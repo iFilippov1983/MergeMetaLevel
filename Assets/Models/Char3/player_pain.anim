@@ -44124,7 +44124,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 1
   m_Events:
-  - time: 1.6
+  - time: 1.1666666
     functionName: GotHitAnimationFinish
     data: 
     objectReferenceParameter: {fileID: 0}

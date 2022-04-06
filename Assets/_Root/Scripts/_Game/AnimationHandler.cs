@@ -30,6 +30,7 @@ internal class AnimationHandler
     { 
         _enemyView = enemyObject.GetComponent<EnemyView>();
         _enemyAnimController = enemyObject.GetComponent<CharacterAnimationControler>();
+        _enemyAnimController.SetAppearEffect(_enemyView.AppearEffect);
     }
 
     public async Task HandleEnemyAppearAnimation()
@@ -126,16 +127,16 @@ internal class AnimationHandler
         if (defendingCharKilled)
         {
             _attackerAnimatorHolder.GetAnimator().SetBool(AnimParameter.IsFinishingOff, true);
-            _attackerAnimatorHolder.GetFinishAttackEffect().gameObject.SetActive(true);
+            //_attackerAnimatorHolder.GetFinishAttackEffect().gameObject.SetActive(true);
         }
         else
         {
             _attackerAnimatorHolder.GetAnimator().SetBool(AnimParameter.IsAttacking, true);
             _attackerAnimatorHolder.GetAnimator().SetInteger(AnimParameter.AttackType, attackType);
-            if(attackType.Equals(AnimParameter.AttackType_one))
-                _attackerAnimatorHolder.GetMainAttackEffect().gameObject.SetActive(true);
-            else if(attackType.Equals(AnimParameter.AttackType_two))
-                _attackerAnimatorHolder.GetSecondaryAttackEffect().gameObject.SetActive(true);
+            //if(attackType.Equals(AnimParameter.AttackType_one))
+            //    _attackerAnimatorHolder.GetMainAttackEffect().gameObject.SetActive(true);
+            //else if(attackType.Equals(AnimParameter.AttackType_two))
+            //    _attackerAnimatorHolder.GetSecondaryAttackEffect().gameObject.SetActive(true);
         }
     }
 
@@ -188,16 +189,9 @@ internal class AnimationHandler
             _playerView.GetAnimator().SetInteger(AnimParameter.AttackType, AnimParameter.DefaulAttackType);
             _playerView.GetAnimator().SetBool(AnimParameter.IsFinishingOff, false);
 
-            _playerView.GetMainAttackEffect().gameObject.SetActive(false);
-            _playerView.GetSecondaryAttackEffect().gameObject.SetActive(false);
-            _playerView.GetFinishAttackEffect().gameObject.SetActive(false);
-
             _enemyView.GetAnimator().SetBool(AnimParameter.IsAttacking, false);
             _enemyView.GetAnimator().SetInteger(AnimParameter.AttackType, AnimParameter.DefaulAttackType);
             _enemyView.GetAnimator().SetBool(AnimParameter.IsFinishingOff, false);
-
-            _enemyView.GetMainAttackEffect().gameObject.SetActive(false);
-            _enemyView.GetFinishAttackEffect().gameObject.SetActive(false);
         }
         if (_defenderFinishedMove)
         {
