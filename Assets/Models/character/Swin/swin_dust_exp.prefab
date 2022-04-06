@@ -5284,7 +5284,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -9996,7 +9996,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -14194,7 +14194,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -19420,7 +19420,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -23618,7 +23618,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -28330,7 +28330,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -33602,7 +33602,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -38314,7 +38314,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -42558,7 +42558,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -47270,7 +47270,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -51982,7 +51982,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -57208,7 +57208,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -61920,7 +61920,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -66632,7 +66632,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -70830,7 +70830,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -75542,7 +75542,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -80768,7 +80768,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -85480,7 +85480,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -89678,7 +89678,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -94904,7 +94904,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -99616,7 +99616,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -103814,7 +103814,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -108526,7 +108526,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -113238,7 +113238,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -117950,7 +117950,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -122662,7 +122662,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -127374,7 +127374,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -132600,7 +132600,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -137312,7 +137312,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -142024,7 +142024,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -146736,7 +146736,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 0
-    type: 5
+    type: 4
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -150934,7 +150934,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1.4
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -155600,7 +155600,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4191641336652199122, guid: 55983b6d1de5c364aa61f47ee9cd83b9, type: 3}
       propertyPath: startDelay.scalar
-      value: 1.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4191641336652199122, guid: 55983b6d1de5c364aa61f47ee9cd83b9, type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -155656,7 +155656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7134962400084465457, guid: 55983b6d1de5c364aa61f47ee9cd83b9, type: 3}
       propertyPath: startDelay.scalar
-      value: 1.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7134962400084465457, guid: 55983b6d1de5c364aa61f47ee9cd83b9, type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -155664,7 +155664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7168044668900355659, guid: 55983b6d1de5c364aa61f47ee9cd83b9, type: 3}
       propertyPath: startDelay.scalar
-      value: 1.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7168044668900355659, guid: 55983b6d1de5c364aa61f47ee9cd83b9, type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -155672,7 +155672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7168224722328833665, guid: 55983b6d1de5c364aa61f47ee9cd83b9, type: 3}
       propertyPath: startDelay.scalar
-      value: 1.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7168224722328833665, guid: 55983b6d1de5c364aa61f47ee9cd83b9, type: 3}
       propertyPath: InitialModule.startSize.scalar

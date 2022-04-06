@@ -189,7 +189,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: rig_vampire_death
-  m_Speed: 2
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -476,9 +476,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 1.3769267
+  m_TransitionDuration: 0.5031096
   m_TransitionOffset: 0
-  m_ExitTime: 0.18872398
+  m_ExitTime: 0.02129551
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

@@ -155,14 +155,14 @@ MonoBehaviour:
   _gameData: {fileID: 11400000, guid: 0f56c9e0639d2bd4ca5e39b80339d3e4, type: 2}
   _uiContainer: {fileID: 1246272299}
   _initialPlayerStats:
-    Power: 0
+    Power: 250
     Gold: 300
     Gems: 0
-    DiceRolls: 0
+    DiceRolls: 1
     LastFightWinner: 1
     PowerUpgradeAvailable: 0
     UpgradeTutorialCompleted: 1
-    CurrentCellID: 0
+    CurrentCellID: 15
     CurrentPowerUpgradeLevel: 1
     _powerToHealthMultiplier: 5
 --- !u!4 &251882560
@@ -2574,6 +2574,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 877293372, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
+      propertyPath: m_Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877293372, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: m_Lens.FieldOfView
       value: 75
       objectReference: {fileID: 0}
@@ -2606,6 +2610,18 @@ PrefabInstance:
       value: CMVCameraMid
       objectReference: {fileID: 0}
     - target: {fileID: 5792998085798030972, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
+      propertyPath: m_XDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792998085798030972, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
+      propertyPath: m_YDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792998085798030972, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
+      propertyPath: m_ZDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792998085798030972, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: m_YawDamping
       value: 10
       objectReference: {fileID: 0}
@@ -2624,6 +2640,14 @@ PrefabInstance:
     - target: {fileID: 5792998085798030972, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: m_FollowOffset.z
       value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792998085798030973, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
+      propertyPath: m_DeadZoneWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792998085798030973, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
+      propertyPath: m_HorizontalDamping
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5792998086959782707, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: field of view

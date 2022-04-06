@@ -66,7 +66,7 @@ internal class AnimationHandler
         material.color = newMaterial.color;
         material.SetTexture(LiteralString.MainTexture, newMaterial.GetTexture(LiteralString.MainTexture));
         material.SetTexture(LiteralString.Noise, newMaterial.GetTexture(LiteralString.Noise));
-        float amount = -1f;
+        float amount = -0.7f;
         while (amount <= 1.3f)
         {
             material.SetFloat(LiteralString.Dissolve, amount);
