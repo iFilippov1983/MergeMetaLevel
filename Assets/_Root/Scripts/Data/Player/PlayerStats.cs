@@ -17,6 +17,8 @@ namespace Data
         [Space]
         public int CurrentCellID;
         [Range(1, 100, order = 1)]
+        public int CurrentMergeLevel;
+        [Range(1, 100, order = 1)]
         public int CurrentPowerUpgradeLevel;
         [Space]
         [SerializeField]

@@ -31,12 +31,17 @@ internal sealed class Root : MonoBehaviour
         _uiHandler.DesactivateUiInteraction();
         await _uiHandler.PlayGoToMergeAnimation();
         //await Merge round play. Return win (true) or loose (false)
-        bool mergeWin = true;
+        bool levelComplete = true;
 
-        await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.PowerGain(mergeWin));
-        _progressHandler.AddPowerForMergeRound();
-        await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power);
-        await _uiHandler.ChangeDiceRollsUi(++_playerProfile.Stats.DiceRolls);//temp
+        _progressHandler.HandleMergeLevelComplete(levelComplete);
+        if (levelComplete)
+        {
+            await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.GetPowerGain(levelComplete));
+            await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power.ToString());
+            await _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());//temp
+            await _uiHandler.ChangeMergeLevelButtonUi(_playerProfile.Stats.CurrentMergeLevel.ToString());
+        }
+        
         _uiHandler.ActivateUiInteraction();
     }
 
@@ -47,10 +52,11 @@ internal sealed class Root : MonoBehaviour
         {
             _uiHandler.DesactivateUiInteraction();
 
-            await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.PowerGain());
+            await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.GetPowerGain());
             _progressHandler.MakePowerUpgrade();
-            await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power);
-            await _uiHandler.ChangeCoinsUi(_playerProfile.Stats.Gold);
+            await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power.ToString());
+            await _uiHandler.ChangeGoldUi(_playerProfile.Stats.Gold.ToString());
+            await _uiHandler.ChangePowerUpgradeCostUi(_progressHandler.UpgradePrice.ToString());
 
             _uiHandler.ActivateUiInteraction();
         }
@@ -83,14 +89,14 @@ internal sealed class Root : MonoBehaviour
         {
             _playerProfile.Stats.Gold += resourceProperties.Amount;
             int amount = _playerProfile.Stats.Gold;
-            await _uiHandler.ChangeCoinsUi(amount);
+            await _uiHandler.ChangeGoldUi(amount.ToString());
         }
 
         if (resouceType.Equals(ResouceType.Power))
         {
             _playerProfile.Stats.Power += resourceProperties.Amount;
             int amount = _playerProfile.Stats.Power;
-            await _uiHandler.ChangePowerUi(amount);
+            await _uiHandler.ChangePowerUi(amount.ToString());
         }
     }
 
@@ -98,6 +104,11 @@ internal sealed class Root : MonoBehaviour
     {
         await _uiHandler.DisplayText(UiString.Fight);
         //TODO: ui onFight functions
+    }
+
+    private async void OnPowerUpgradeAvailable()
+    {
+        await _uiHandler.ChangePowerUpgradeCostUi(_progressHandler.UpgradePrice.ToString());
     }
 
     private async void OnFightComplete(bool playerWins)
@@ -137,6 +148,7 @@ internal sealed class Root : MonoBehaviour
 
         _metaLevel.OnResourcePickupEvent += OnResourcePickup;
         _metaLevel.OnFightEvent += OnFight;
+        _metaLevel.OnPowerUpgradeAvailableEvent += OnPowerUpgradeAvailable;
     }
 
     private void OnDestroy()
@@ -147,6 +159,7 @@ internal sealed class Root : MonoBehaviour
 
         _metaLevel.OnResourcePickupEvent -= OnResourcePickup;
         _metaLevel.OnFightEvent -= OnFight;
+        _metaLevel.OnPowerUpgradeAvailableEvent -= OnPowerUpgradeAvailable;
     }
 }
 

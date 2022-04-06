@@ -33,8 +33,8 @@ namespace GameUI
             await Task.Delay(1000);
             _gameUIView.MainText.text = string.Empty;
             _gameUIView.MainText.gameObject.SetActive(false);
-
-            await ChangeDiceRollsUi(--_playerProfile.Stats.DiceRolls);
+            --_playerProfile.Stats.DiceRolls;
+            await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
         }
 
         public async Task PlayDiceUseAnimation() //when next fight attempt
@@ -44,8 +44,8 @@ namespace GameUI
             await Task.Delay(1000);
             _gameUIView.MainText.text = string.Empty;
             _gameUIView.MainText.gameObject.SetActive(false);
-
-            await ChangeDiceRollsUi(--_playerProfile.Stats.DiceRolls);
+            --_playerProfile.Stats.DiceRolls;
+            await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
         }
 
         public async Task PlayUpgradePowerAnimation(int powerAmountToShow)
@@ -80,9 +80,10 @@ namespace GameUI
         public void ActivateUiInteraction()
         {
             _gameUIView.RollButton.interactable = true;
+            _gameUIView.PlayMergeButton.interactable = true;
             _gameUIView.UpgradePowerButton.gameObject.SetActive(_playerProfile.Stats.PowerUpgradeAvailable);
             _gameUIView.UpgradePowerButton.interactable = true;
-            _gameUIView.PlayMergeButton.interactable = true;
+            
         }
 
         public void DesactivateUiInteraction()
@@ -92,28 +93,40 @@ namespace GameUI
             _gameUIView.PlayMergeButton.interactable= false;
         }
 
-        public async Task ChangeCoinsUi(int amount)
+        public async Task ChangeGoldUi(string amount)
         { 
             await Task.Delay(100);//coins fly animation
-            _gameUIView.CoinsText.text = amount.ToString();
+            _gameUIView.GoldTMP.text = amount;
         }
 
         public async Task ChangeGemsUI(int amount)
         {
             await Task.Delay(100);//gems fly animation
-            _gameUIView.GemsText.text = amount.ToString();
+            _gameUIView.GemsTMP.text = amount.ToString();
         }
 
-        internal async Task ChangePowerUi(int amount)
+        internal async Task ChangePowerUi(string amount)
         {
             await Task.Delay(100);//power change animation
-            _gameUIView.PowerText.text = amount.ToString();
+            _gameUIView.PowerTMP.text = amount;
         }
 
-        internal async Task ChangeDiceRollsUi(int amount)
+        internal async Task ChangeDiceRollsUi(string amount)
         {
             await Task.Delay(100);//dice change animation
-            _gameUIView.DiceRollsText.text = amount.ToString();
+            _gameUIView.DiceRollsTMP.text = amount;
+        }
+
+        internal async Task ChangePowerUpgradeCostUi(string cost)
+        {
+            await Task.Delay(100);//cost change animation
+            _gameUIView.UpgradeCostTMP.text = cost;
+        }
+
+        internal async Task ChangeMergeLevelButtonUi(string level)
+        {
+            await Task.Delay(100);
+            _gameUIView.MergeLevelTMP.text = level;
         }
 
         private void InitializeUI()
@@ -121,11 +134,16 @@ namespace GameUI
             PlayerStats stats = _playerProfile.Stats;
             var uiObject = Object.Instantiate(_uiData.GameUIPrefab, _uiContainer);
             _gameUIView = uiObject.GetComponent<GameUIView>();
-            _gameUIView.Init(DiceRoll, UpgradePower, PlayMerge);
-            _gameUIView.CoinsText.text = stats.Gold.ToString();
-            _gameUIView.GemsText.text = stats.Gems.ToString();
-            _gameUIView.DiceRollsText.text = stats.DiceRolls.ToString();
-            _gameUIView.PowerText.text = stats.Power.ToString();
+            _gameUIView.RollButton.onClick.AddListener(DiceRoll);
+            _gameUIView.UpgradePowerButton.onClick.AddListener(UpgradePower);
+            _gameUIView.PlayMergeButton.onClick.AddListener(PlayMerge);
+
+            _gameUIView.GoldTMP.text = stats.Gold.ToString();
+            _gameUIView.GemsTMP.text = stats.Gems.ToString();
+            _gameUIView.DiceRollsTMP.text = stats.DiceRolls.ToString();
+            _gameUIView.PowerTMP.text = stats.Power.ToString();
+            _gameUIView.MergeLevelTMP.text = stats.CurrentMergeLevel.ToString();
+
             _gameUIView.UpgradePowerButton.gameObject.SetActive(stats.PowerUpgradeAvailable);
         }
 

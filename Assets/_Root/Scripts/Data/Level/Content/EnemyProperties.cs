@@ -21,14 +21,15 @@ namespace Data
 
         public override ContentType GetContentType() => ContentType.Enemy;
 
-        public GameObject InfoPrefab
-        {
-            get
-            {
-                if (_infoPrefab == null) _infoPrefab =
-                             Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _infoPrefabName));
-                return _infoPrefab;
-            }
-        }
+        public GameObject InfoPrefab =>
+            Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _infoPrefabName));
+        //{
+        //    get
+        //    {
+        //        if (_infoPrefab == null) _infoPrefab =
+        //                     Resources.Load<GameObject>(string.Concat(ResourcePath.PrefabsFolder, _infoPrefabName));
+        //        return _infoPrefab;
+        //    }
+        //}
     }
 }

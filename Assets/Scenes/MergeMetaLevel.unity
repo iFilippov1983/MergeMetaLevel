@@ -155,14 +155,15 @@ MonoBehaviour:
   _gameData: {fileID: 11400000, guid: 0f56c9e0639d2bd4ca5e39b80339d3e4, type: 2}
   _uiContainer: {fileID: 1246272299}
   _initialPlayerStats:
-    Power: 250
+    Power: 150
     Gold: 300
     Gems: 0
     DiceRolls: 1
     LastFightWinner: 1
     PowerUpgradeAvailable: 0
     UpgradeTutorialCompleted: 1
-    CurrentCellID: 15
+    CurrentCellID: 14
+    CurrentMergeLevel: 1
     CurrentPowerUpgradeLevel: 1
     _powerToHealthMultiplier: 5
 --- !u!4 &251882560
