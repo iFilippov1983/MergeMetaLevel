@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: player_attack_turn_around_slash
-  m_Speed: 2.5
+  m_Speed: 2.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1268464682796160594}
@@ -90,7 +90,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: player_attack_turnaround_stab
-  m_Speed: 2.5
+  m_Speed: 2.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7879125405009964539}
@@ -144,7 +144,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: player_attack_hard_slash
-  m_Speed: 2.5
+  m_Speed: 2.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4670651081900501936}

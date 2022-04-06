@@ -2291,7 +2291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1769231028345467957, guid: d3f706261e791f04f9711d63385ec2d9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3653609448911189037, guid: d3f706261e791f04f9711d63385ec2d9, type: 3}
       propertyPath: lengthInSec
@@ -2323,7 +2323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274623728393813315, guid: d3f706261e791f04f9711d63385ec2d9, type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 32.516716
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 4274623728393813315, guid: d3f706261e791f04f9711d63385ec2d9, type: 3}
       propertyPath: ShapeModule.radiusThickness
@@ -2335,7 +2335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274623728393813315, guid: d3f706261e791f04f9711d63385ec2d9, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4274623728393813315, guid: d3f706261e791f04f9711d63385ec2d9, type: 3}
       propertyPath: InitialModule.startSize.minScalar
