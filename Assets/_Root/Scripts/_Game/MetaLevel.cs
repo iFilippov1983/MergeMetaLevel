@@ -28,6 +28,7 @@ namespace Game
         private CellView _cellView;
 
         public Action OnFightEvent;
+        public Action OnPowerUpgradeAvailableEvent;
         public Action<ResourceProperties> OnResourcePickupEvent;
 
         public MetaLevel(GameData gameData, PlayerProfile playerProfile)
@@ -161,6 +162,7 @@ namespace Game
                 _enemyHandler.OnFightFinishEvent(playerWins);
                 _playerProfile.Stats.LastFightWinner = false;
                 _playerProfile.Stats.PowerUpgradeAvailable = true;
+                OnPowerUpgradeAvailableEvent?.Invoke();
                 await Task.Delay(100);//ui events
             }
 

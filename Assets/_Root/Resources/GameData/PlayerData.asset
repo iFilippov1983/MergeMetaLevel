@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   _playerPrefabName: Player
-  _infoPrefabName: PlayerInfo
+  _infoPrefabName: InfoBar
