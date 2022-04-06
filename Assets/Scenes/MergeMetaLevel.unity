@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.25
     agentHeight: 1
     agentSlope: 45
-    agentClimb: 0.5
+    agentClimb: 0.65
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 10
@@ -155,14 +155,14 @@ MonoBehaviour:
   _gameData: {fileID: 11400000, guid: 0f56c9e0639d2bd4ca5e39b80339d3e4, type: 2}
   _uiContainer: {fileID: 1246272299}
   _initialPlayerStats:
-    Power: 900
+    Power: 0
     Gold: 300
     Gems: 0
-    DiceRolls: 1
+    DiceRolls: 0
     LastFightWinner: 1
     PowerUpgradeAvailable: 0
     UpgradeTutorialCompleted: 1
-    CurrentCellID: 50
+    CurrentCellID: 0
     CurrentPowerUpgradeLevel: 1
     _powerToHealthMultiplier: 5
 --- !u!4 &251882560

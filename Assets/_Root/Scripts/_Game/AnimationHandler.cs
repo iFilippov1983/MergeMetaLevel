@@ -30,6 +30,7 @@ internal class AnimationHandler
     { 
         _enemyView = enemyObject.GetComponent<EnemyView>();
         _enemyAnimController = enemyObject.GetComponent<CharacterAnimationControler>();
+        _enemyAnimController.SetAppearEffect(_enemyView.AppearEffect);
     }
 
     public async Task HandleEnemyAppearAnimation()
