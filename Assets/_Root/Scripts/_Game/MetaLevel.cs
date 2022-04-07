@@ -133,12 +133,6 @@ namespace Game
         {
             var cellView = _levelViewHandler.GetCellViewWithId(sellId);
 
-            var cellMesh = cellView.CellBodyMeshRenderer;
-            cellMesh.material = cellView.ActualMaterial;
-
-            var tmp = cellView.TextMeshPro;
-            tmp.gameObject.SetActive(false);
-
             var pSystem = cellView.ParticleSystem;
             pSystem.gameObject.SetActive(true);
             pSystem.Play();

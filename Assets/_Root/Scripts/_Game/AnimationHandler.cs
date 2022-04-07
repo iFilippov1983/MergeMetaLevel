@@ -30,7 +30,7 @@ internal class AnimationHandler
     { 
         _enemyView = enemyObject.GetComponent<EnemyView>();
         _enemyAnimController = enemyObject.GetComponent<CharacterAnimationControler>();
-        _enemyAnimController.SetAppearEffect(_enemyView.AppearEffect);
+        //_enemyAnimController.SetAppearEffect(_enemyView.AppearEffect);
     }
 
     public async Task HandleEnemyAppearAnimation()
@@ -93,7 +93,7 @@ internal class AnimationHandler
         while (amount >= -0.8f)
         {
             material.SetFloat(LiteralString.Dissolve, amount);
-            amount -= 0.025f;
+            amount -= 0.035f;
             await Task.Delay(1);
         }
 
@@ -127,16 +127,11 @@ internal class AnimationHandler
         if (defendingCharKilled)
         {
             _attackerAnimatorHolder.GetAnimator().SetBool(AnimParameter.IsFinishingOff, true);
-            //_attackerAnimatorHolder.GetFinishAttackEffect().gameObject.SetActive(true);
         }
         else
         {
             _attackerAnimatorHolder.GetAnimator().SetBool(AnimParameter.IsAttacking, true);
             _attackerAnimatorHolder.GetAnimator().SetInteger(AnimParameter.AttackType, attackType);
-            //if(attackType.Equals(AnimParameter.AttackType_one))
-            //    _attackerAnimatorHolder.GetMainAttackEffect().gameObject.SetActive(true);
-            //else if(attackType.Equals(AnimParameter.AttackType_two))
-            //    _attackerAnimatorHolder.GetSecondaryAttackEffect().gameObject.SetActive(true);
         }
     }
 
@@ -162,7 +157,6 @@ internal class AnimationHandler
             _defenderAnimatorHolder.GetAnimator().SetInteger(AnimParameter.DeathType, deathType);
             _defenderAnimatorHolder.GetAnimator().SetBool(AnimParameter.IsKilled, true);
         }
-            
 
         SetAnimationFinishFlags(_attackerController, _defenderController, defendingCharKilled);
 

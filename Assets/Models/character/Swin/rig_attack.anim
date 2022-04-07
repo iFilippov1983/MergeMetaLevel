@@ -97141,15 +97141,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.2666667
-    functionName: AttackAnimationFinish
+  - time: 2
+    functionName: FinishOffAnimationFinish
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.3
-    functionName: FinishOffAnimationFinish
+  - time: 2.0333333
+    functionName: AttackAnimationFinish
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

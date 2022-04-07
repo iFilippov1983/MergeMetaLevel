@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Data;
 using Object = UnityEngine.Object;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine.UI;
 
 namespace GameUI
 {
@@ -79,18 +82,39 @@ namespace GameUI
 
         public void ActivateUiInteraction()
         {
-            _gameUIView.RollButton.interactable = true;
-            _gameUIView.PlayMergeButton.interactable = true;
-            _gameUIView.UpgradePowerButton.gameObject.SetActive(_playerProfile.Stats.PowerUpgradeAvailable);
-            _gameUIView.UpgradePowerButton.interactable = true;
-            
+            ButtonView rollButton = _gameUIView.RollButtonView;
+            rollButton.Button.interactable = true;
+            SetButtonImageColor(rollButton.ImageList, rollButton.DefaultColor);
+            SetButtonTextAlfa(rollButton.TextList);
+
+            ButtonView mergeButton = _gameUIView.PlayMergeButtonView;
+            mergeButton.Button.interactable = true;
+            SetButtonImageColor(mergeButton.ImageList, mergeButton.DefaultColor);
+            SetButtonTextAlfa(mergeButton.TextList);
+
+            ButtonView upgradeButton = _gameUIView.UpgradePowerButtonView;
+            upgradeButton.Button.gameObject.SetActive(_playerProfile.Stats.PowerUpgradeAvailable);
+            upgradeButton.Button.interactable = true;
+            SetButtonImageColor(upgradeButton.ImageList, upgradeButton.DefaultColor);
+            SetButtonTextAlfa(upgradeButton.TextList);
         }
 
         public void DesactivateUiInteraction()
         {
-            _gameUIView.RollButton.interactable = false;
-            _gameUIView.UpgradePowerButton.interactable = false;
-            _gameUIView.PlayMergeButton.interactable= false;
+            ButtonView rollButton = _gameUIView.RollButtonView;
+            rollButton.Button.interactable = false;
+            SetButtonImageColor(rollButton.ImageList, rollButton.FadeColor);
+            SetButtonTextAlfa(rollButton.TextList, true);
+
+            ButtonView mergeButton = _gameUIView.PlayMergeButtonView;
+            mergeButton.Button.interactable = false;
+            SetButtonImageColor(mergeButton.ImageList, mergeButton.FadeColor);
+            SetButtonTextAlfa(mergeButton.TextList, true);
+
+            ButtonView upgradeButton = _gameUIView.UpgradePowerButtonView;
+            upgradeButton.Button.interactable = false;
+            SetButtonImageColor(upgradeButton.ImageList, upgradeButton.FadeColor);
+            SetButtonTextAlfa(upgradeButton.TextList, true);
         }
 
         public async Task ChangeGoldUi(string amount)
@@ -134,9 +158,9 @@ namespace GameUI
             PlayerStats stats = _playerProfile.Stats;
             var uiObject = Object.Instantiate(_uiData.GameUIPrefab, _uiContainer);
             _gameUIView = uiObject.GetComponent<GameUIView>();
-            _gameUIView.RollButton.onClick.AddListener(DiceRoll);
-            _gameUIView.UpgradePowerButton.onClick.AddListener(UpgradePower);
-            _gameUIView.PlayMergeButton.onClick.AddListener(PlayMerge);
+            _gameUIView.RollButtonView.Button.onClick.AddListener(DiceRoll);
+            _gameUIView.UpgradePowerButtonView.Button.onClick.AddListener(UpgradePower);
+            _gameUIView.PlayMergeButtonView.Button.onClick.AddListener(PlayMerge);
 
             _gameUIView.GoldTMP.text = stats.Gold.ToString();
             _gameUIView.GemsTMP.text = stats.Gems.ToString();
@@ -144,7 +168,24 @@ namespace GameUI
             _gameUIView.PowerTMP.text = stats.Power.ToString();
             _gameUIView.MergeLevelTMP.text = stats.CurrentMergeLevel.ToString();
 
-            _gameUIView.UpgradePowerButton.gameObject.SetActive(stats.PowerUpgradeAvailable);
+            _gameUIView.UpgradePowerButtonView.gameObject.SetActive(stats.PowerUpgradeAvailable);
+        }
+
+        private void SetButtonTextAlfa(List<TextMeshProUGUI> textList, bool fade = false)
+        {
+            if (textList == null) return;
+            float halfFade = 0.5f;
+            float fullAlfa = 1f;
+
+            foreach (var tmp in textList)
+                tmp.alpha = fade ? halfFade : fullAlfa;
+        }
+
+        private void SetButtonImageColor(List<Image> imageList, Color color)
+        {
+            if (imageList == null) return;
+            foreach (var img in imageList)
+                img.color = color;
         }
 
         private void DiceRoll()
