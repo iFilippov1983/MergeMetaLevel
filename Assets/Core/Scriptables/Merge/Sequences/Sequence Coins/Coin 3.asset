@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a8381e467c4f768620a845339c015a, type: 3}
+  m_Name: Coin 3
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Generate
+      Entry: 6
+      Data: 
+  Sprite: {fileID: 21300000, guid: 847f1c0600f35404aa96998c95d5d7cf, type: 3}
+  Sequence: {fileID: 11400000, guid: 369849d75e92b874d8956fd63832aea3, type: 2}
+  count: 16
+  isGenerator: 0
+  GeneratedLife: {fileID: 0}
+  isLife: 0
+  isResource: 1
+  resourceName: coin

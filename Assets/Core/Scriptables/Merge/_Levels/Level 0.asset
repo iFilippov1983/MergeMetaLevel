@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd19af87e084f7abc7b2c622460d1f8, type: 3}
+  m_Name: Level 0
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Width: 8
+  Height: 8
+  FakeWidth: 0
+  FakeHeight: 0
+  Holes: []
+  Items:
+  - config: {fileID: 11400000, guid: 888657855aeb0fe418c2904b6ae041e3, type: 2}
+    x: 0
+    y: 4
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 888657855aeb0fe418c2904b6ae041e3, type: 2}
+    x: 1
+    y: 2
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 4949eb40e5555384da4b9f58c3ca0c1b, type: 2}
+    x: 2
+    y: 0
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 4949eb40e5555384da4b9f58c3ca0c1b, type: 2}
+    x: 3
+    y: 0
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 52b6b8046e589ea4e838793c076b6387, type: 2}
+    x: 0
+    y: 0
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 91fba5da4c743eb49b4161b0e6c55b09, type: 2}
+    x: 3
+    y: 7
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 91fba5da4c743eb49b4161b0e6c55b09, type: 2}
+    x: 5
+    y: 7
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 7c6bf6a5fbdefb841a004b8c0b7628e4, type: 2}
+    x: 7
+    y: 7
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 03f9771d199f7454597228f125eaa227, type: 2}
+    x: 7
+    y: 4
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 4b147b231bb276949a310b02bb2ecb55, type: 2}
+    x: 2
+    y: 6
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 91fba5da4c743eb49b4161b0e6c55b09, type: 2}
+    x: 6
+    y: 5
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 7c6bf6a5fbdefb841a004b8c0b7628e4, type: 2}
+    x: 5
+    y: 2
+    lockCount: 0
+  - config: {fileID: 11400000, guid: 03f9771d199f7454597228f125eaa227, type: 2}
+    x: 0
+    y: 2
+    lockCount: 0
+  Goal:
+    Config: {fileID: 11400000, guid: 5b7355268a2914c2594bf6e8b5294270, type: 2}
+    Count: 1
+  Moves: 10

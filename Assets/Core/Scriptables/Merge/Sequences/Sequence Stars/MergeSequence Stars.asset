@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a199624b69bd4081b5a8fc928f687843, type: 3}
+  m_Name: MergeSequence Stars
+  m_EditorClassIdentifier: 
+  Header: 
+  Items:
+  - {fileID: 11400000, guid: e6615296dda26f449a97900a69beb724, type: 2}
+  - {fileID: 11400000, guid: 5b7355268a2914c2594bf6e8b5294270, type: 2}

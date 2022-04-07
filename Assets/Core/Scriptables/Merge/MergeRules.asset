@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb1a30ae7b4646924dc4f1a00e88c9, type: 3}
+  m_Name: MergeRules
+  m_EditorClassIdentifier: 
+  GenerateRules:
+  - MergeCount: 4
+    GenerateCount:
+      GeneratedTypes: 0000000001000000
+  - MergeCount: 5
+    GenerateCount:
+      GeneratedTypes: 0000000000000000
+  - MergeCount: 6
+    GenerateCount:
+      GeneratedTypes: 0000000000000000
+  - MergeCount: 7
+    GenerateCount:
+      GeneratedTypes: 000000000000000001000000
+  - MergeCount: 8
+    GenerateCount:
+      GeneratedTypes: 000000000000000000000000
+  - MergeCount: 9
+    GenerateCount:
+      GeneratedTypes: 000000000000000000000000
+  - MergeCount: 10
+    GenerateCount:
+      GeneratedTypes: 00000000000000000000000001000000
+  - MergeCount: 11
+    GenerateCount:
+      GeneratedTypes: 00000000000000000000000000000000
+  - MergeCount: 12
+    GenerateCount:
+      GeneratedTypes: 00000000000000000000000000000000
+  - MergeCount: 13
+    GenerateCount:
+      GeneratedTypes: 0000000000000000000000000000000001000000
+  - MergeCount: 14
+    GenerateCount:
+      GeneratedTypes: 0000000000000000000000000000000000000000
+  - MergeCount: 15
+    GenerateCount:
+      GeneratedTypes: 0000000000000000000000000000000000000000
+  - MergeCount: 16
+    GenerateCount:
+      GeneratedTypes: 000000000000000000000000000000000000000001000000
+  - MergeCount: 17
+    GenerateCount:
+      GeneratedTypes: 000000000000000000000000000000000000000000000000
+  - MergeCount: 18
+    GenerateCount:
+      GeneratedTypes: 000000000000000000000000000000000000000000000000
+  - MergeCount: 19
+    GenerateCount:
+      GeneratedTypes: 00000000000000000000000000000000000000000000000001000000
+  - MergeCount: 20
+    GenerateCount:
+      GeneratedTypes: 00000000000000000000000000000000000000000000000000000000
+  - MergeCount: 21
+    GenerateCount:
+      GeneratedTypes: 00000000000000000000000000000000000000000000000000000000
+  - MergeCount: 22
+    GenerateCount:
+      GeneratedTypes: 0000000000000000000000000000000000000000000000000000000001000000
+  - MergeCount: 23
+    GenerateCount:
+      GeneratedTypes: 0000000000000000000000000000000000000000000000000000000000000000
+  - MergeCount: 24
+    GenerateCount:
+      GeneratedTypes: 0000000000000000000000000000000000000000000000000000000000000000

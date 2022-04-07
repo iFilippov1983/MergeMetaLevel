@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ce533f34484e888309fd9db3d912f1, type: 3}
+  m_Name: TutorialStep 2 1
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Trigger
+      Entry: 7
+      Data: 0|Configs.Tutorial.TutorialTrigger, Assembly-CSharp
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: Level
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Action
+      Entry: 7
+      Data: 1|Configs.Tutorial.TutorialAction, Assembly-CSharp
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: UiGuid
+      Entry: 6
+      Data: 
+    - Name: clickOnly
+      Entry: 5
+      Data: false
+    - Name: fromCell
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: toCell
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: AutoCompleteByTime
+      Entry: 3
+      Data: 2000
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: UiData
+      Entry: 7
+      Data: 2|Configs.Tutorial.TutorialUiData, Assembly-CSharp
+    - Name: ShowHand
+      Entry: 5
+      Data: false
+    - Name: HandOffset
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: HandAngle
+      Entry: 3
+      Data: 0
+    - Name: ShowArrow
+      Entry: 5
+      Data: false
+    - Name: ArrowOffset
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: -43
+    - Name: 
+      Entry: 3
+      Data: 35
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ArrowAngle
+      Entry: 3
+      Data: -140
+    - Name: ShowText
+      Entry: 5
+      Data: true
+    - Name: TextOffset
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 337
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: TextOffsetType
+      Entry: 3
+      Data: 0
+    - Name: Text
+      Entry: 1
+      Data: tutor_2_step_1
+    - Name: 
+      Entry: 8
+      Data: 
+  SaveAfterComplete: 0

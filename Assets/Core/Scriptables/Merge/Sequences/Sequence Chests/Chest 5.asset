@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a8381e467c4f768620a845339c015a, type: 3}
+  m_Name: Chest 5
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 246febe68546c5b4892bd45121dec482, type: 2}
+    - {fileID: 11400000, guid: 55c436c6501c7d64ba0f8584c71c1d0d, type: 2}
+    - {fileID: 11400000, guid: 1629f5d0d4b0c0d4da2b901e2a2c47f5, type: 2}
+    - {fileID: 11400000, guid: 91fba5da4c743eb49b4161b0e6c55b09, type: 2}
+    - {fileID: 11400000, guid: 7c6bf6a5fbdefb841a004b8c0b7628e4, type: 2}
+    - {fileID: 11400000, guid: 03f9771d199f7454597228f125eaa227, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Generate
+      Entry: 7
+      Data: 0|Data.FromListGenerateComp, Assembly-CSharp
+    - Name: Generated
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Data.MergeItemConfig, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 8
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  Sprite: {fileID: 21300000, guid: 1098a0b0405dd49a8803e7479ad808df, type: 3}
+  Sequence: {fileID: 11400000, guid: 0f80eac3118a30146aa87564b9e010e9, type: 2}
+  count: 0
+  isGenerator: 1
+  GeneratedLife: {fileID: 0}
+  isLife: 0
+  isResource: 0
+  resourceName: diamond

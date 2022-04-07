@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417f16bd6122faf429915d3dae4e9316, type: 3}
+  m_Name: BgController
+  m_EditorClassIdentifier: 
+  dotPrefab: {fileID: 4177177569904226120, guid: f6c899099b58b8d468c690f0711cc5b0, type: 3}
+  bgPrefab: {fileID: 7016278930590967908, guid: b12460720deb4f14fac1e0d86aa3d202, type: 3}
+  bgMaskPrefab: {fileID: 0}
+  Rules:
+  - {fileID: 2991659194702323386, guid: 71bd8d48ba8c7d6479204e71f3658f56, type: 3}
+  - {fileID: 2991659194702323386, guid: d9d227f13faf8424b9aa529a34f5d850, type: 3}
+  - {fileID: 2991659194702323386, guid: eafae96b0ef617e48ac7a8d7ad69aa44, type: 3}
+  - {fileID: 2991659194702323386, guid: 4ee815dd3ef104b4b8d16ff50f8b1bb2, type: 3}
+  - {fileID: 2991659194702323386, guid: a15d9e97d4ac2504cb8f166fba3f8a8d, type: 3}
+  - {fileID: 2991659194702323386, guid: 30b05dfe8b53d724a9fae2c25d42bf1d, type: 3}
+  - {fileID: 2991659194702323386, guid: 16d13112f8005c544a08264998bff421, type: 3}
+  - {fileID: 2991659194702323386, guid: 563134cb7509a724196ec2c16761be7f, type: 3}
+  - {fileID: 2991659194702323386, guid: da842bcde4765f346a6ced052d30cae2, type: 3}
+  - {fileID: 2991659194702323386, guid: c33d52ca5a80ff641be809391ed934f4, type: 3}
+  - {fileID: 2991659194702323386, guid: 6a125cbb120d159448a8ace11222968f, type: 3}
+  - {fileID: 2991659194702323386, guid: 83510b1f04f4f6b41a170348d3ff872f, type: 3}
+  - {fileID: 2991659194702323386, guid: eab60a15254957b4dab9f336cdbd954e, type: 3}
+  - {fileID: 2991659194702323386, guid: 301e061825737f646880c1b161fee7c8, type: 3}
+  - {fileID: 2991659194702323386, guid: dace43d3dae10514b85862ed008f22be, type: 3}
+  - {fileID: 2991659194702323386, guid: d98572a986d8d814782ade2a156af74f, type: 3}
+  MaskSpriteMap:
+  - Sprite: {fileID: -8351818391337044190, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: 6846926090394714151, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: 1472876855982335971, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: -551818758939428175, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: 2195393759155267357, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: 5119537013488945187, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: -2398558549584543933, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: 287051223584379403, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: -1007009297715848595, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: -8611146962289018525, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: -4448010972197378674, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: -6657633623854746929, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: 7669417965785196374, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: 6672296342099806827, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: 1264729188396867761, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: 7972674478125006540, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: 3178560358121378398, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: 8777960329059350226, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: -5153047107031029275, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: 3964152460564807366, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: -2748204820717414064, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: 3525290176946878107, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: -5941775432255784328, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: -5700917030457542938, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}
+  - Sprite: {fileID: -8088027221638274061, guid: eba17de895ec41c4e9ffb4ac3d39195f, type: 3}
+    Mask: {fileID: -5605414607197366987, guid: a3fce9da648c7eb4885f3a63fd0ec1da, type: 3}

@@ -57,7 +57,7 @@ namespace ToonyColorsPro
 			var fullPath = Application.dataPath + path.Substring("Assets".Length);
 			if (File.Exists(fullPath))
 			{
-				var files = Utils.ExtractArchive(fullPath, filter);
+				var files = Utilities.Utils.ExtractArchive(fullPath, filter);
 
 				var @continue = 0;
 				if (files.Length > 8)
@@ -75,7 +75,7 @@ namespace ToonyColorsPro
 
 				if (@continue == 0 && files.Length > 0)
 				{
-					var tcpRoot = Utils.FindReadmePath();
+					var tcpRoot = Utilities.Utils.FindReadmePath();
 					foreach (var f in files)
 					{
 						var filePath = tcpRoot + f.path;

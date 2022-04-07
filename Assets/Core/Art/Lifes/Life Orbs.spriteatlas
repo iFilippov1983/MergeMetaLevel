@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Life Orbs
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: c7e8283e6abda2b409ff971bba7a3a31, type: 3}
+    - {fileID: 2800000, guid: 4bb48b2c25bbb164bbe6d550d0b95394, type: 3}
+    - {fileID: 2800000, guid: 223992bfdd4cb0f40b10caf9067a66a7, type: 3}
+    - {fileID: 2800000, guid: d681c5a72cc60d4439143236f8258dff, type: 3}
+    - {fileID: 2800000, guid: 86e5653c342d1b84d99db4738dfd638a, type: 3}
+    - {fileID: 2800000, guid: a9a70a63b8b50634b912e2da019a0678, type: 3}
+    - {fileID: 2800000, guid: b18fdf145d740154ba7d25ecb348b9ff, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
+  m_RenderDataMap: {}
+  m_Tag: Life Orbs
+  m_IsVariant: 0

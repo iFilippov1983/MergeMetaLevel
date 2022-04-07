@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a199624b69bd4081b5a8fc928f687843, type: 3}
+  m_Name: MergeSequence Chests
+  m_EditorClassIdentifier: 
+  Header: 
+  Items:
+  - {fileID: 11400000, guid: 888657855aeb0fe418c2904b6ae041e3, type: 2}
+  - {fileID: 11400000, guid: 4949eb40e5555384da4b9f58c3ca0c1b, type: 2}
+  - {fileID: 11400000, guid: 52b6b8046e589ea4e838793c076b6387, type: 2}
+  - {fileID: 11400000, guid: 63f2026a9a93c31438c8d6fca4bb6226, type: 2}

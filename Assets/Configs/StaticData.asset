@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91b61edbd9746d0b01728de637af4fc, type: 3}
+  m_Name: StaticData
+  m_EditorClassIdentifier: 
+  Quests: {fileID: 11400000, guid: dc832a9b91a443f418c079315b58b670, type: 2}
+  Merge: {fileID: 11400000, guid: af0fb903e88443347952f2fb2e741c22, type: 2}
+  Shop: {fileID: 11400000, guid: 8dc361de16c37214c889ff5599687fc5, type: 2}
+  Map: {fileID: 11400000, guid: 7ed9c4241e8b5ea45bd2a2e432b01321, type: 2}
+  Debug: {fileID: 11400000, guid: 7b18ed6b4a0b41840819616a2a545841, type: 2}
+  Tutorial: {fileID: 11400000, guid: 1f3c07afb209e504699829de78dc413c, type: 2}
+  Images: {fileID: 11400000, guid: bd9bdb4ce73628c40a9083987a8359ab, type: 2}
+  ResourcesConfig: {fileID: 11400000, guid: 96372de0a9fbc3e49ad4b015455f100e, type: 2}

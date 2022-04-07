@@ -1,0 +1,3045 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0b0c553be8edd4682e9180fdd13e37, type: 3}
+  m_Name: I2Languages
+  m_EditorClassIdentifier: 
+  mSource:
+    UserAgreesToHaveItOnTheScene: 0
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: quests/quest_0_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Phew, we're finally here, how great is that!
+      - "\u0424\u0443\u0445, \u043C\u044B \u043D\u0430\u043A\u043E\u043D\u0435\u0446-\u0442\u043E
+        \u043D\u0430 \u043C\u0435\u0441\u0442\u0435, \u043A\u0430\u043A \u0436\u0435
+        \u044D\u0442\u043E \u0437\u0434\u043E\u0440\u043E\u0432\u043E!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_0_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'It''s been a long time since I''ve been here... '
+      - "\u041A\u0430\u043A \u0434\u0430\u0432\u043D\u043E \u044F \u043D\u0435 \u0431\u044B\u043B
+        \u0437\u0434\u0435\u0441\u044C... "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_0_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - I always remember warmly when I used to come here on weekends to visit my
+        grandparents. I loved it here.
+      - "\u0412\u0441\u0435\u0433\u0434\u0430 \u0441 \u0442\u0435\u043F\u043B\u043E\u0442\u043E\u0439
+        \u0432\u0441\u043F\u043E\u043C\u0438\u043D\u0430\u044E, \u043A\u0430\u043A
+        \u043F\u0440\u0438\u0435\u0437\u0436\u0430\u043B \u0441\u044E\u0434\u0430
+        \u043D\u0430 \u0432\u044B\u0445\u043E\u0434\u043D\u044B\u0435 \u043A \u0431\u0430\u0431\u0443\u0448\u043A\u0435
+        \u0438 \u0434\u0435\u0434\u0443\u0448\u043A\u0435. \u041C\u043D\u0435 \u0437\u0434\u0435\u0441\u044C
+        \u043E\u0447\u0435\u043D\u044C \u043D\u0440\u0430\u0432\u0438\u043B\u043E\u0441\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_0_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - I'm sure our baby will also really like it here. It is so quiet and spacious.
+      - "\u042F \u0443\u0432\u0435\u0440\u0435\u043D\u0430, \u043D\u0430\u0448\u0435\u043C\u0443
+        \u043C\u0430\u043B\u044B\u0448\u0443 \u0442\u043E\u0436\u0435 \u043E\u0447\u0435\u043D\u044C
+        \u043F\u043E\u043D\u0440\u0430\u0432\u0438\u0442\u0441\u044F \u0437\u0434\u0435\u0441\u044C
+        \u0436\u0438\u0442\u044C. \u0417\u0434\u0435\u0441\u044C \u0442\u0430\u043A
+        \u0442\u0438\u0445\u043E \u0438 \u043F\u0440\u043E\u0441\u0442\u043E\u0440\u043D\u043E."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_0_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - My grandfather told me that he designed this house himself. He was a well-known
+        architect..
+      - "\u0414\u0435\u0434\u0443\u0448\u043A\u0430 \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u044B\u0432\u0430\u043B,
+        \u0447\u0442\u043E \u044D\u0442\u043E\u0442 \u0434\u043E\u043C \u043E\u043D
+        \u0441\u043F\u0440\u043E\u0435\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043B
+        \u0441\u0430\u043C. \u041E\u043D \u0431\u044B\u043B \u0438\u0437\u0432\u0435\u0441\u0442\u043D\u044B\u043C
+        \u0430\u0440\u0445\u0438\u0442\u0435\u043A\u0442\u043E\u0440\u043E\u043C. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_0_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Wow! I can't wait to get inside!
+      - "\u041D\u0438\u0447\u0435\u0433\u043E \u0441\u0435\u0431\u0435! \u041F\u043E\u0441\u043A\u043E\u0440\u0435\u0435
+        \u0431\u044B \u043F\u043E\u043F\u0430\u0441\u0442\u044C \u0432\u043D\u0443\u0442\u0440\u044C!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_0_dlg_6
+      TermType: 0
+      Description: 
+      Languages:
+      - Yeah, I agree. Got a house key somewhere.
+      - "\u0421\u043E\u0433\u043B\u0430\u0441\u0435\u043D. \u0413\u0434\u0435-\u0442\u043E
+        \u0443 \u043C\u0435\u043D\u044F \u043A\u043B\u044E\u0447 \u043E\u0442 \u0434\u043E\u043C\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_0_dlg_7
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Hmm, weird, can''t find it. I guess I forgot it. '
+      - "\u0425\u043C, \u0441\u0442\u0440\u0430\u043D\u043D\u043E, \u043D\u0435 \u043C\u043E\u0433\u0443
+        \u043D\u0430\u0439\u0442\u0438. \u0412\u0438\u0434\u0438\u043C\u043E \u044F
+        \u0437\u0430\u0431\u044B\u043B \u0435\u0433\u043E \u0432\u0437\u044F\u0442\u044C
+        \u0441 \u0441\u043E\u0431\u043E\u0439."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_0_dlg_8
+      TermType: 0
+      Description: 
+      Languages:
+      - Well, I'm not surprised at all. So, how are we going to get in now?
+      - "\u0418 \u044F \u0441\u043E\u0432\u0441\u0435\u043C \u043D\u0435 \u0443\u0434\u0438\u0432\u043B\u0435\u043D\u0430.
+        \u041A\u0430\u043A \u0436\u0435 \u043C\u044B \u0442\u0435\u043F\u0435\u0440\u044C
+        \u043F\u043E\u043F\u0430\u0434\u0435\u043C \u0432\u043D\u0443\u0442\u0440\u044C!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_1_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Calm down, dear. When I was a child my grandfather used to say that the key
+        was under a rock.
+      - "\u0423\u0441\u043F\u043E\u043A\u043E\u0439\u0441\u044F, \u0434\u043E\u0440\u043E\u0433\u0430\u044F.
+        \u041F\u043E\u043C\u043D\u044E, \u0432 \u0434\u0435\u0442\u0441\u0442\u0432\u0435
+        \u0434\u0435\u0434\u0443\u0448\u043A\u0430 \u0433\u043E\u0432\u043E\u0440\u0438\u043B,
+        \u0447\u0442\u043E \u043A\u043B\u044E\u0447 \u043D\u0430\u0445\u043E\u0434\u0438\u0442\u0441\u044F
+        \u043F\u043E\u0434 \u043A\u0430\u043C\u043D\u0435\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_1_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Yeaaah! It's still there!
+      - "\u0414\u0430\u0430! \u041E\u043D \u0432\u0441\u0435 \u0435\u0449\u0435 \u0442\u0443\u0442!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_1_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - Opens the door
+      - "\u041E\u0442\u043A\u0440\u044B\u0432\u0430\u0435\u0442 \u0434\u0432\u0435\u0440\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_1_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Welcome to the kingdom of coziness! '
+      - "\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C
+        \u0432 \u0446\u0430\u0440\u0441\u0442\u0432\u043E \u0443\u044E\u0442\u0430! "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_1_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Really? Kingdom of coziness?!
+      - "\u0426\u0410\u0420\u0421\u0422\u0412\u041E \u0423\u042E\u0422\u0410?! "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_1_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - It seems your grandfather felt like throwing a really big party for the last
+        time.
+      - "\u0412\u0438\u0434\u0438\u043C\u043E \u0442\u0432\u043E\u0439 \u0434\u0435\u0434
+        \u0440\u0435\u0448\u0438\u043B \u043D\u0430\u043F\u043E\u0441\u043B\u0435\u0434\u043E\u043A
+        \u0443\u0441\u0442\u0440\u043E\u0438\u0442\u044C \u0433\u0440\u0430\u0437\u0434\u0438\u043E\u043D\u0443\u044E
+        \u0432\u0435\u0447\u0435\u0440\u0438\u043D\u043A\u0443. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_1_dlg_6
+      TermType: 0
+      Description: 
+      Languages:
+      - Honey, you got to stay calm. We have nowhere to go back to. You know, we're
+        all sold out.
+      - "\u041C\u0438\u043B\u0430\u044F, \u0442\u0435\u0431\u0435 \u043D\u0435\u043B\u044C\u0437\u044F
+        \u043D\u0435\u0440\u0432\u043D\u0438\u0447\u0430\u0442\u044C.\u041D\u0430\u043C
+        \u043D\u0435\u043A\u0443\u0434\u0430 \u0432\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0442\u044C\u0441\u044F.
+        \u041C\u044B \u0436\u0435 \u0432\u0441\u0435 \u043F\u0440\u043E\u0434\u0430\u043B\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_1_dlg_7
+      TermType: 0
+      Description: 
+      Languages:
+      - Let me see if I can clean this place up real quick. You get some fresh air.
+      - "\u042F \u043F\u043E\u043F\u0440\u043E\u0431\u0443\u044E \u043F\u0440\u0438\u0431\u0440\u0430\u0442\u044C\u0441\u044F
+        \u0442\u0443\u0442 \u0431\u044B\u0441\u0442\u0440\u0435\u043D\u044C\u043A\u043E.
+        \u0410 \u0442\u044B \u043F\u043E\u0434\u044B\u0448\u0438 \u0441\u0432\u0435\u0436\u0438\u043C
+        \u0432\u043E\u0437\u0434\u0443\u0445\u043E\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_2_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - We need to clean up right away, and then we'll deal with it.
+      - "\u041D\u0443\u0436\u043D\u043E \u0441\u0440\u043E\u0447\u043D\u043E \u043F\u0440\u0438\u0431\u0440\u0430\u0442\u044C\u0441\u044F,
+        \u043F\u043E\u0442\u043E\u043C \u0431\u0443\u0434\u0435\u043C \u0440\u0430\u0437\u0431\u0438\u0440\u0430\u0442\u044C\u0441\u044F."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_2_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - I think we should start with the floor, it doesn't look safe.
+      - "\u0414\u0443\u043C\u0430\u044E, \u0441\u0442\u043E\u0438\u0442 \u043D\u0430\u0447\u0430\u0442\u044C
+        \u0441 \u043F\u043E\u043B\u0430, \u043E\u043D \u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442
+        \u043D\u0435\u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_3_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Damn, you can't get away with cosmetic repairs.
+      - "\u0427\u0435\u0440\u0442, \u043A\u043E\u0441\u043C\u0435\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u043C
+        \u0440\u0435\u043C\u043E\u043D\u0442\u043E\u043C \u043D\u0435 \u043E\u0442\u0434\u0435\u043B\u0430\u0435\u0448\u044C\u0441\u044F."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_3_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Well, what can you do, our apartment in the city is sold
+      - "\u041D\u043E \u0447\u0442\u043E \u043F\u043E\u0434\u0435\u043B\u0430\u0430\u0435\u0448\u044C,
+        \u043A\u0432\u0430\u0440\u0442\u0438\u0440\u0430 \u0432 \u0433\u043E\u0440\u043E\u0434\u0435
+        \u043F\u0440\u043E\u0434\u0430\u043D\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_3_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - A couple of nails and planks, and there's a new floor ready!
+      - "\u041F\u0430\u0440\u043E\u0447\u043A\u0430 \u0433\u0432\u043E\u0437\u0434\u0435\u0439
+        \u0438 \u0434\u043E\u0441\u043E\u043A, \u0438 \u0432\u043E\u0442 \u0433\u043E\u0442\u043E\u0432
+        \u043D\u043E\u0432\u044B\u0439 \u043F\u043E\u043B!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_3_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - I don't think Ann liked the walls either
+      - "\u0414\u0443\u043C\u0430\u044E \u0441\u0442\u0435\u043D\u044B \u0410\u043D\u043D
+        \u0442\u043E\u0436\u0435 \u043D\u0435 \u043F\u043E\u043D\u0440\u0430\u0432\u0438\u043B\u0438\u0441\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_4_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - So, I have to do everything to persuade Ann to stay.
+      - "\u0422\u0430\u043A,  \u041D\u0443\u0436\u043D\u043E \u0441\u0434\u0435\u043B\u0430\u0442\u044C
+        \u0432\u0441\u0435, \u0447\u0442\u043E\u0431\u044B \u043F\u0435\u0440\u0435\u0443\u0431\u0435\u0434\u0438\u0442\u044C
+        \u0410\u043D\u043D \u043E\u0441\u0442\u0430\u0442\u044C\u0441\u044F."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_4_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - I better get the colour of the walls right, otherwise I'm a dead man.
+      - "\u041D\u0430\u0434\u0435\u044E\u0441\u044C, \u044F \u0443\u0433\u0430\u0434\u0430\u044E
+        \u0441 \u0446\u0432\u0435\u0442\u043E\u043C \u0441\u0442\u0435\u043D,  \u0438\u043D\u0430\u0447\u0435
+        \u044F \u043D\u0435 \u0436\u0438\u043B\u0435\u0446."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_4_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - Great. The walls are ready for us to move in.
+      - "\u0421\u0443\u043F\u0435\u0440. \u0421\u0442\u0435\u043D\u044B \u0433\u043E\u0442\u043E\u0432\u044B
+        \u043A \u043D\u0430\u0448\u0435\u043C\u0443 \u0437\u0430\u0441\u0435\u043B\u0435\u043D\u0438\u044E."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_4_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - The rest, obviously, isn't...
+      - "\u0410 \u0432\u043E\u0442 \u0432\u0441\u0435 \u043E\u0441\u0442\u0430\u043B\u044C\u043D\u043E\u0435
+        \u043D\u0435\u0442..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_4_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes, there is still a lot of work to be done...
+      - "\u0414\u0430, \u0440\u0430\u0431\u043E\u0442\u044B \u043F\u0440\u0435\u0434\u0441\u0442\u043E\u0438\u0442
+        \u0435\u0449\u0435 \u043C\u043D\u043E\u0433\u043E..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_5_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Ann, let's go and have a look at our new home.
+      - "\u0410\u043D\u043D, \u043C\u043E\u0436\u043D\u043E \u0438\u0434\u0442\u0438
+        \u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043D\u0430 \u043D\u0430\u0448\u0435
+        \u043D\u043E\u0432\u043E\u0435 \u0436\u0438\u043B\u0438\u0449\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_5_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - While you were fixing up the house inside, I decided to decorate it a little
+        outside and replant the flowers on the entrance
+      - "\u041F\u043E\u043A\u0430 \u0442\u044B \u0447\u0438\u043D\u0438\u043B \u0434\u043E\u043C
+        \u0432\u043D\u0443\u0442\u0440\u0438, \u044F \u0440\u0435\u0448\u0438\u043B\u0430
+        \u0435\u0433\u043E \u043D\u0435\u043C\u043D\u043E\u0433\u043E \u0443\u043A\u0440\u0430\u0441\u0438\u0442\u044C
+        \u0441\u043D\u0430\u0440\u0443\u0436\u0438 \u0438 \u043F\u0435\u0440\u0435\u0441\u0430\u0434\u0438\u0442\u044C
+        \u0446\u0432\u0435\u0442\u044B \u043D\u0430 \u0432\u0445\u043E\u0434\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_5_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - I just can't decide what's better to plant... Maybe you can tell me, Alex?
+      - "\u0412\u043E\u0442 \u0442\u043E\u043B\u044C\u043A\u043E \u043D\u0435\u043C\u043E\u0433\u0443
+        \u043E\u043F\u0440\u0435\u0434\u0435\u043B\u0438\u0442\u044C\u0441\u044F,
+        \u0447\u0442\u043E \u043B\u0443\u0447\u0448\u0435 \u043F\u043E\u0441\u0430\u0434\u0438\u0442\u044C...
+        \u041C\u043E\u0436\u0435\u0442 \u0442\u044B \u043C\u043D\u0435 \u043F\u043E\u043C\u043E\u0436\u0435\u0448\u044C,
+        \u0410\u043B\u0435\u043A\u0441?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_5_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Well, I'm not a florist, of course, but I'll be anything for the woman I
+        love.
+      - "\u042F \u043A\u043E\u043D\u0435\u0447\u043D\u043E \u043D\u0435 \u0444\u043B\u043E\u0440\u0438\u0441\u0442,
+        \u043D\u043E \u0434\u043B\u044F \u043B\u044E\u0431\u0438\u043C\u043E\u0439
+        \u0436\u0435\u043D\u0449\u0438\u043D\u044B \u0441\u0442\u0430\u043D\u0443
+        \u043A\u0435\u043C \u0443\u0433\u043E\u0434\u043D\u043E."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_5_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - So why don't we go inside before something falls off again?
+      - "\u0422\u0430\u043A \u0447\u0442\u043E, \u043C\u043E\u0436\u0435\u0442 \u0443\u0436\u0435
+        \u0437\u0430\u0439\u0434\u0435\u043C \u0432 \u0434\u043E\u043C, \u043F\u043E\u043A\u0430
+        \u0442\u0430\u043C \u0441\u043D\u043E\u0432\u0430 \u0447\u0442\u043E-\u043D\u0438\u0431\u0443\u0434\u044C
+        \u043D\u0435 \u043E\u0442\u0432\u0430\u043B\u0438\u043B\u043E\u0441\u044C?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_5_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Sure, I can' t wait to see this kingdom of coziness!
+      - "\u041A\u043E\u043D\u0435\u0447\u043D\u043E, \u0443\u0436\u0435 \u043D\u0435
+        \u0442\u0435\u0440\u043F\u0438\u0442\u0441\u044F \u0443\u0432\u0438\u0434\u0435\u0442\u044C
+        \u044D\u0442\u043E \u0446\u0430\u0440\u0441\u0442\u0432\u043E \u0443\u044E\u0442\u0430!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_5_dlg_6
+      TermType: 0
+      Description: 
+      Languages:
+      - In the house
+      - "\u0412 \u0434\u043E\u043C\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_5_dlg_7
+      TermType: 0
+      Description: 
+      Languages:
+      - So, honey, how do you like it?
+      - "\u041D\u0443 \u0447\u0442\u043E, \u0434\u043E\u0440\u043E\u0433\u0430\u044F,
+        \u043A\u0430\u043A \u0442\u0435\u0431\u0435?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_5_dlg_8
+      TermType: 0
+      Description: 
+      Languages:
+      - I mean, everything has its faults. This house has too many of them. But the
+        walls and the floor look great.
+      - "\u041D\u0443, \u0443 \u0432\u0441\u0435\u0433\u043E \u0435\u0441\u0442\u044C
+        \u0441\u0432\u043E\u0438 \u043D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043A\u0438.
+        \u0423 \u044D\u0442\u043E\u0433\u043E \u0434\u043E\u043C\u0430 \u0438\u0445
+        \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u043C\u043D\u043E\u0433\u043E.
+        \u041D\u043E \u0441\u0442\u0435\u043D\u044B \u0438 \u043F\u043E\u043B \u0432\u044B\u0433\u043B\u044F\u0434\u044F\u0442
+        \u043E\u0442\u043B\u0438\u0447\u043D\u043E."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_5_dlg_9
+      TermType: 0
+      Description: 
+      Languages:
+      - This house hasn't been lived in for more than 20 years! I think we can fix
+        all its faults!
+      - "\u0412 \u044D\u0442\u043E\u043C \u0434\u043E\u043C\u0435 \u043D\u0435 \u0436\u0438\u043B\u0438
+        \u0431\u043E\u043B\u044C\u0448\u0435 20 \u043B\u0435\u0442! \u042F \u0434\u0443\u043C\u0430\u044E
+        \u043C\u044B \u0441\u043C\u043E\u0436\u0435\u043C \u0443\u0441\u0442\u0440\u0430\u043D\u0438\u0442\u044C
+        \u0432\u0441\u0435 \u0435\u0433\u043E \u043D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043A\u0438!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_6_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - I think we need to fix up a clothes rack! In case we have unexpected guests
+        coming over.
+      - "\u0414\u0443\u043C\u0430\u044E \u043D\u0443\u0436\u043D\u043E \u0441\u043E\u0431\u0440\u0430\u0442\u044C
+        \u0432\u0435\u0448\u0430\u043B\u043A\u0443 \u0434\u043B\u044F \u043E\u0434\u0435\u0436\u0434\u044B!
+        \u0410 \u0442\u043E \u0432\u0434\u0440\u0443\u0433 \u043A \u043D\u0430\u043C
+        \u0433\u043E\u0441\u0442\u0438 \u043D\u0435\u043E\u0436\u0438\u0434\u0430\u043D\u043D\u043E
+        \u043D\u0430\u0433\u0440\u044F\u043D\u0443\u0442."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_6_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Are you kidding me? You think the only thing missing in this house is a
+        clothes rack? '
+      - "\u0422\u044B \u0441\u0435\u0440\u044C\u0435\u0437\u043D\u043E? \u041F\u043E
+        \u0442\u0432\u043E\u0435\u043C\u0443 \u0432 \u044D\u0442\u043E\u043C \u0434\u043E\u043C\u0435
+        \u043D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442 \u0442\u043E\u043B\u044C\u043A\u043E
+        \u0432\u0435\u0448\u0430\u043B\u043A\u0438? "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_6_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - A lovely clothes rack forms the first impression of the house.
+      - "\u041A\u0440\u0430\u0441\u0438\u0432\u0430\u044F \u0432\u0435\u0448\u0430\u043B\u043A\u0430
+        \u043E\u0434\u0435\u0436\u0434\u044B \u0444\u043E\u0440\u043C\u0438\u0440\u0443\u0435\u0442
+        \u043F\u0435\u0440\u0432\u043E\u0435 \u0432\u043F\u0435\u0447\u0430\u0442\u043B\u0435\u043D\u0438\u0435
+        \u043E \u0434\u043E\u043C\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_6_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Alex, I'll never get what's in your head.
+      - "\u0410\u043B\u0435\u043A\u0441, \u044F \u043D\u0438\u043A\u043E\u0433\u0434\u0430
+        \u043D\u0435 \u043F\u043E\u0439\u043C\u0443, \u0447\u0442\u043E \u0443 \u0442\u0435\u0431\u044F
+        \u0432 \u0433\u043E\u043B\u043E\u0432\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_6_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - 'I''d also like to see how my hair looks. '
+      - "\u0410 \u0435\u0449\u0435 \u0445\u043E\u0442\u0435\u043B\u043E\u0441\u044C
+        \u0431\u044B \u0443\u0432\u0438\u0434\u0435\u0442\u044C, \u0447\u0442\u043E
+        \u0443 \u043C\u0435\u043D\u044F \u043D\u0430 \u0433\u043E\u043B\u043E\u0432\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_7_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Alex, I do not see any mirror here.
+      - "\u0410\u043B\u0435\u043A\u0441, \u0447\u0442\u043E-\u0442\u043E \u044F \u043D\u0435
+        \u043D\u0430\u0445\u043E\u0436\u0443 \u0437\u0434\u0435\u0441\u044C \u0437\u0435\u0440\u043A\u0430\u043B\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_7_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - I must look like a witch after that long drive...
+      - "\u041F\u043E\u0441\u043B\u0435 \u0441\u0442\u043E\u043B\u044C \u0434\u043E\u043B\u0433\u043E\u0439
+        \u043F\u043E\u0435\u0437\u0434\u043A\u0438 \u044F \u043D\u0430\u0432\u0435\u0440\u043D\u043E\u0435
+        \u0432\u044B\u0433\u043B\u044F\u0436\u0443 \u043A\u0430\u043A \u0432\u0435\u0434\u044C\u043C\u0430..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_7_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Not at all! You look absolutely gorgeous!  '
+      - "\u0412\u043E\u0432\u0441\u0435 \u043D\u0435\u0442! \u0422\u044B \u0432\u044B\u0433\u043B\u0434\u0438\u0448\u044C
+        \u043F\u0440\u043E\u0441\u0442\u043E \u0447\u0443\u0434\u0435\u0441\u043D\u043E!  "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_7_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - But the mirror is clearly missing here...
+      - "\u041D\u043E \u0437\u0435\u0440\u043A\u0430\u043B\u0430 \u0437\u0434\u0435\u0441\u044C
+        \u044F\u0432\u043D\u043E \u043D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_7_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - There you go, darling! Only don't throw a curse on me.
+      - "\u041D\u0443 \u0432\u043E\u0442, \u0434\u043E\u0440\u043E\u0433\u0430\u044F!
+        \u0422\u043E\u043B\u044C\u043A\u043E \u043D\u0435 \u043D\u0430\u0441\u044B\u043B\u0430\u0439
+        \u043D\u0430 \u043C\u0435\u043D\u044F \u043F\u0440\u043E\u043A\u043B\u044F\u0442\u044C\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_7_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Oh, no! I look just awful! Yet better than this house.
+      - "\u041E \u043D\u0435\u0442! \u042F \u0432\u044B\u0433\u043B\u044F\u0436\u0443
+        \u043F\u0440\u043E\u0441\u0442\u043E \u0443\u0436\u0430\u0441\u043D\u043E!
+        \u041D\u043E \u0432\u0441\u0435 \u0435\u0449\u0435 \u043B\u0443\u0447\u0448\u0435
+        \u0447\u0435\u043C \u044D\u0442\u043E\u0442 \u0434\u043E\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_7_dlg_6
+      TermType: 0
+      Description: 
+      Languages:
+      - Just give me some time to make myself up.
+      - "\u0414\u0430\u0439 \u043C\u043D\u0435 \u043D\u0435\u043C\u043D\u043E\u0433\u043E
+        \u0432\u0440\u0435\u043C\u0435\u043D\u0438 \u043F\u0440\u0438\u0432\u0435\u0441\u0442\u0438
+        \u0441\u0435\u0431\u044F \u0432 \u043F\u043E\u0440\u044F\u0434\u043E\u043A."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_8_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Done, the phone is in place. Just remembered how you hung up on me the first
+        time we talked.
+      - "\u0413\u043E\u0442\u043E\u0432\u043E, \u0442\u0435\u043B\u0435\u0444\u043E\u043D
+        \u0437\u0430\u043D\u044F\u043B \u0441\u0432\u043E\u0451 \u043C\u0435\u0441\u0442\u043E.
+        \u0421\u0440\u0430\u0437\u0443 \u0432\u0441\u043F\u043E\u043C\u043D\u0438\u043B,
+        \u043A\u0430\u043A \u0442\u044B \u0431\u0440\u043E\u0441\u0438\u043B\u0430
+        \u0442\u0440\u0443\u0431\u043A\u0443 \u0432 \u043D\u0430\u0448 \u043F\u0435\u0440\u0432\u044B\u0439
+        \u0440\u0430\u0437\u0433\u043E\u0432\u043E\u0440."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_8_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Of course I hung up on you! How could you suggest a girl to go to the forest
+        in the evening!
+      - "\u041A\u043E\u043D\u0435\u0447\u043D\u043E \u0431\u0440\u043E\u0441\u0438\u043B\u0430!
+        \u041A\u0430\u043A \u043C\u043E\u0436\u043D\u043E \u0431\u044B\u043B\u043E
+        \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0438\u0442\u044C \u0434\u0435\u0432\u0443\u0448\u043A\u0435
+        \u0432\u0435\u0447\u0435\u0440\u043E\u043C \u0432 \u043B\u0435\u0441!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_8_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - I had no idea it even sounded that weird.
+      - "\u042F \u0434\u0430\u0436\u0435 \u043D\u0435 \u0434\u0443\u043C\u0430\u043B,
+        \u0447\u0442\u043E \u044D\u0442\u043E \u0442\u0430\u043A \u0441\u0442\u0440\u0430\u043D\u043D\u043E
+        \u0437\u0432\u0443\u0447\u0438\u0442."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_8_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Let's talk about it later. I wanted to call my mom so she wouldn't worry.
+      - "\u0414\u0430\u0432\u0430\u0439 \u043E\u0431\u0441\u0443\u0434\u0438\u043C
+        \u044D\u0442\u043E  \u043F\u043E\u0437\u0436\u0435. \u042F \u0445\u043E\u0442\u0435\u043B\u0430
+        \u043F\u043E\u0437\u0432\u043E\u043D\u0438\u0442\u044C \u0441\u0432\u043E\u0435\u0439
+        \u043C\u0430\u043C\u0435, \u0447\u0442\u043E\u0431\u044B \u043E\u043D\u0430
+        \u043D\u0435 \u0432\u043E\u043B\u043D\u043E\u0432\u0430\u043B\u0430\u0441\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_8_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - And it seems we completely forgot about the carpet ...
+      - "\u0418 \u043A\u0430\u0436\u0435\u0442\u0441\u044F \u043C\u044B \u0441\u043E\u0432\u0441\u0435\u043C
+        \u0437\u0430\u0431\u044B\u043B\u0438 \u043E \u043A\u043E\u0432\u0440\u0435... "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_9_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - I believe a small rug at the entrance would come in handy.
+      - "\u041C\u043D\u0435 \u043A\u0430\u0436\u0435\u0442\u0441\u044F \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0439
+        \u043A\u043E\u0432\u0435\u0440 \u043D\u0430 \u0432\u0445\u043E\u0434\u0435
+        \u0431\u0443\u0434\u0435\u0442 \u043E\u0447\u0435\u043D\u044C \u043A\u0441\u0442\u0430\u0442\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_9_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - As long as I don't trip over the rug like I did that time.
+      - "\u0413\u043B\u0430\u0432\u043D\u043E\u0435 \u043D\u0435 \u0437\u0430\u0446\u0435\u043F\u0438\u0442\u044C\u0441\u044F
+        \u0437\u0430 \u043D\u0435\u0433\u043E \u043A\u0430\u043A \u0432 \u0442\u043E\u0442
+        \u0440\u0430\u0437."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_9_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - You mean that time at the cinema when you tripped over the carpet and spilled
+        Coke on me?
+      - "\u0422\u044B \u043E \u0442\u043E\u043C \u0441\u043B\u0443\u0447\u0430\u0435
+        \u0432 \u043A\u0438\u043D\u043E, \u043A\u043E\u0433\u0434\u0430 \u0442\u044B
+        \u0437\u0430\u0446\u0435\u043F\u0438\u043B\u0441\u044F \u0437\u0430 \u043A\u043E\u0432\u0440\u0430\u043B\u0438\u043D
+        \u0438 \u0432\u044B\u043B\u0438\u043B \u043D\u0430 \u043C\u0435\u043D\u044F
+        \u043A\u043E\u043B\u0443?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_9_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Oh, my gosh. I'm still ashamed of that incident.
+      - "\u041E, \u0431\u043E\u0436\u0435. \u041C\u043D\u0435 \u0434\u043E \u0441\u0438\u0445
+        \u043F\u043E\u0440 \u0441\u0442\u044B\u0434\u043D\u043E \u0437\u0430 \u044D\u0442\u043E\u0442
+        \u0441\u043B\u0443\u0447\u0430\u0439."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_9_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Really? Well, that was just the piece of cake. There's much more.
+      - "\u0421\u0442\u0440\u0430\u043D\u043D\u043E, \u0432\u0435\u0434\u044C \u044D\u0442\u043E
+        \u0442\u043E\u043B\u044C\u043A\u043E \u0431\u044B\u043B\u0438 \u0446\u0432\u0435\u0442\u043E\u0447\u043A\u0438
+        \u0438\u0437 \u0442\u0432\u043E\u0438\u0445 \u043F\u0440\u043E\u0432\u0430\u043B\u043E\u0432."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_9_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Come on, don't even start. Let's keep cleaning.
+      - "\u041B\u0430\u0434\u043D\u043E \u0443\u0436, \u043D\u0435 \u043D\u0430\u0447\u0438\u043D\u0430\u0439.
+        \u0414\u0430\u0432\u0430\u0439 \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u043C
+        \u0443\u0431\u043E\u043A\u0443."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_10_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - I feel a little dizzy.
+      - "\u0427\u0442\u043E-\u0442\u043E \u0443 \u043C\u0435\u043D\u044F \u0437\u0430\u043A\u0440\u0443\u0436\u0438\u043B\u0430\u0441\u044C
+        \u0433\u043E\u043B\u043E\u0432\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_10_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - That would be nice to rest on the couch...
+      - "\u0425\u043E\u0440\u043E\u0448\u043E \u0431\u044B\u043B\u043E \u0431\u044B
+        \u043E\u0442\u0434\u043E\u0445\u043D\u0443\u0442\u044C \u043D\u0430 \u0434\u0438\u0432\u0430\u043D\u0435..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_10_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - Indeed, with all the cleaning, I had totally forgotten about rest.
+      - "\u0418 \u0432 \u043F\u0440\u0430\u0432\u0434\u0443, \u0441\u043E \u0432\u0441\u0435\u0439
+        \u044D\u0442\u043E\u0439 \u0443\u0431\u043E\u0440\u043A\u043E\u0439, \u044F
+        \u0441\u043E\u0432\u0441\u0435\u043C \u0437\u0430\u0431\u044B\u043B \u043F\u0440\u043E
+        \u043E\u0442\u0434\u044B\u0445."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_10_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Doesn't sound like you... Also missed the match.
+      - "\u0427\u0442\u043E-\u0442\u043E \u043D\u0430 \u0442\u0435\u0431\u044F \u043D\u0435
+        \u043F\u043E\u0445\u043E\u0436\u0435... \u0415\u0449\u0435 \u0438 \u043C\u0430\u0442\u0447
+        \u043F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u043B."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_10_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Alright, let''s get some rest. And tomorrow we''ll continue... '
+      - "\u041B\u0430\u0434\u043D\u043E, \u0434\u0430\u0432\u0430\u0439 \u043E\u0442\u0434\u043E\u0445\u043D\u0435\u043C.
+        \u0410 \u0437\u0430\u0432\u0442\u0440\u0430 \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u043C... "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_11_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - It's been a tough day...
+      - "\u0422\u044F\u0436\u0435\u043B\u044B\u0439 \u0432\u044B\u0434\u0430\u043B\u0441\u044F
+        \u0434\u0435\u043D\u0435\u043A..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_11_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Yep, the house, gave us a hard time today!
+      - "\u0414\u0430, \u0434\u043E\u043C, \u0434\u043E\u0441\u0442\u0430\u0432\u0438\u043B
+        \u0445\u043B\u043E\u043F\u043E\u0442 \u043D\u0430\u043C \u0441\u0435\u0433\u043E\u0434\u043D\u044F!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_11_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - That's okay, I think we can renovate the house and it will be even better
+        than it was!
+      - "\u041D\u0438\u0447\u0435\u0433\u043E, \u0434\u0443\u043C\u0430\u044E, \u043C\u044B
+        \u0441\u043C\u043E\u0436\u0435\u043C \u0435\u0433\u043E \u043E\u0442\u0440\u0435\u0441\u0442\u0430\u0432\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C
+        \u0438 \u043E\u043D \u0441\u0442\u0430\u043D\u0435\u0442 \u0435\u0449\u0435
+        \u043B\u0443\u0447\u0448\u0435 \u0447\u0435\u043C \u0431\u044B\u043B!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_11_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - 'I can already picture us living here as a family. I hope our baby will like
+        the house. '
+      - "\u0423\u0436\u0435 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u044E,
+        \u043A\u0430\u043A \u043C\u044B \u0431\u0443\u0434\u0435\u043C \u0437\u0434\u0435\u0441\u044C
+        \u0436\u0438\u0442\u044C \u043D\u0430\u0448\u0435\u0439 \u0434\u0440\u0443\u0436\u043D\u043E\u0439
+        \u0441\u0435\u043C\u044C\u0435\u0439. \u041D\u0430\u0434\u0435\u044E\u0441\u044C,
+        \u0434\u043E\u043C \u043F\u043E\u043D\u0440\u0430\u0432\u0438\u0442\u0441\u044F
+        \u043D\u0430\u0448\u0435\u043C\u0443 \u043C\u0430\u043B\u044B\u0448\u0443. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_11_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Alex, are you asleep already?!
+      - "\u0410\u043B\u0435\u043A\u0441, \u0442\u044B \u0447\u0442\u043E, \u0443\u0436\u0435
+        \u0443\u0441\u043D\u0443\u043B?!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_11_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Okay, you're really feeling exhausted today...
+      - "\u041B\u0430\u0434\u043D\u043E, \u0442\u044B \u0441\u0435\u0433\u043E\u0434\u043D\u044F
+        \u0434\u0435\u0439\u0442\u0432\u0438\u0442\u0435\u043B\u044C\u043D\u043E
+        \u0441\u0438\u043B\u044C\u043D\u043E \u0443\u0441\u0442\u0430\u043B..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_11_dlg_6
+      TermType: 0
+      Description: 
+      Languages:
+      - Good morning, dear! Have you slept well?
+      - "\u0414\u043E\u0431\u0440\u043E\u0435 \u0443\u0442\u0440\u043E, \u0434\u043E\u0440\u043E\u0433\u0430\u044F!
+        \u041A\u0430\u043A \u0442\u0435\u0431\u0435 \u0441\u043F\u0430\u043B\u043E\u0441\u044C?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_11_dlg_7
+      TermType: 0
+      Description: 
+      Languages:
+      - Will you get over your snoring?! With that kind of talent, you're on the
+        road to becoming a singer.
+      - "\u041A\u043E\u0433\u0434\u0430 \u0442\u044B \u0443\u0436\u0435 \u0440\u0430\u0437\u0431\u0435\u0440\u0435\u0448\u044C\u0441\u044F
+        \u0441\u043E \u0441\u0432\u043E\u0438\u043C \u0445\u0440\u0430\u043F\u043E\u043C?!
+        \u0421 \u0442\u0430\u043A\u0438\u043C\u0438 \u0434\u0430\u043D\u043D\u044B\u043C\u0438
+        \u043F\u0440\u044F\u043C\u0430\u044F \u0434\u043E\u0440\u043E\u0433\u0430
+        \u0432 \u043F\u0435\u0432\u0446\u044B."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_11_dlg_8
+      TermType: 0
+      Description: 
+      Languages:
+      - Next time you will sleep on an armchair!
+      - "\u0412 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439 \u0440\u0430\u0437
+        \u043E\u0442\u043F\u0440\u0430\u0432\u043B\u044E \u0442\u0435\u0431\u044F
+        \u0441\u043F\u0430\u0442\u044C \u043D\u0430 \u043A\u0440\u0435\u0441\u043B\u043E!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_11_dlg_9
+      TermType: 0
+      Description: 
+      Languages:
+      - Then I figure I should put it in.
+      - "\u0422\u043E\u0433\u0434\u0430, \u0434\u0443\u043C\u0430\u044E \u043C\u043D\u0435
+        \u0441\u043B\u0435\u0434\u0443\u0435\u0442 \u0435\u0433\u043E \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_12_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Excellent, the room is finally starting to look the way it used to be!
+      - "\u041E\u0442\u043B\u0438\u0447\u043D\u043E, \u043A\u043E\u043C\u043D\u0430\u0442\u0430
+        \u043D\u0430\u0447\u0438\u043D\u0430\u0435\u0442 \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0442\u044C
+        \u0441\u0432\u043E\u0439 \u043F\u0440\u0435\u0436\u043D\u0438\u0439 \u0432\u0438\u0434!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_12_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Now, the old carpet doesn't seem to match the new couch and armchairs at
+        all...
+      - "\u0422\u0435\u043F\u0435\u0440\u044C, \u0441 \u043D\u043E\u0432\u044B\u043C\u0438
+        \u0434\u0438\u0432\u0430\u043D\u043E\u043C \u0438 \u043A\u0440\u0435\u0441\u043B\u0430\u043C\u0438,
+        \u0441\u0442\u0430\u0440\u044B\u0439 \u043A\u043E\u0432\u0435\u0440 \u0441\u043E\u0432\u0435\u0440\u0448\u0435\u043D\u043D\u043E
+        \u043D\u0435 \u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0441\u044F..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_13_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Well, it's time for the old carpet to go to the dump.
+      - "\u0427\u0442\u043E\u0436, \u043F\u0440\u0438\u0448\u043B\u043E \u0432\u0440\u0435\u043C\u044F
+        \u0441\u0442\u0430\u0440\u043E\u043C\u0443 \u043A\u043E\u0432\u0440\u0443
+        \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u0441\u044F \u043D\u0430
+        \u0441\u0432\u0430\u043B\u043A\u0443."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_13_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - How many years do you think it's been here, Ann?
+      - "\u041A\u0430\u043A \u0434\u0443\u043C\u0430\u0435\u0448\u044C, \u0410\u043D\u043D,
+        \u0441\u043A\u043E\u043B\u044C\u043A\u043E \u043B\u0435\u0442 \u043E\u043D
+        \u0437\u0434\u0435\u0441\u044C \u043F\u0440\u043E\u043B\u0435\u0436\u0430\u043B?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_13_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - 'No idea... But it feels like 100 years! '
+      - "\u041D\u0435 \u0437\u043D\u0430\u044E... \u041D\u043E \u043F\u043E \u043E\u0449\u0443\u0449\u0435\u043D\u0438\u044F\u043C,
+        \u043B\u0435\u0442 100! "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_13_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Ha-ha, then we should sell it as an antique.
+      - "\u0425\u0430-\u0445\u0430, \u0442\u043E\u0433\u0434\u0430 \u043D\u0430\u043C
+        \u0441\u0442\u043E\u0438\u0442 \u0435\u0433\u043E \u043F\u0440\u043E\u0434\u0430\u0442\u044C
+        \u043A\u0430\u043A \u0430\u043D\u0442\u0438\u043A\u0432\u0430\u0440\u0438\u0430\u0442."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_13_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Now finally. It's time for the most important thing of all...
+      - "\u041D\u0430\u043A\u043E\u043D\u0435\u0446. \u041F\u0440\u0438\u0448\u043B\u043E
+        \u0432\u0440\u0435\u043C\u044F \u0434\u043B\u044F \u0441\u0430\u043C\u043E\u0433\u043E
+        \u0433\u043B\u0430\u0432\u043D\u043E\u0433\u043E..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_14_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - The first thing to do is to choose a place for the future TV.
+      - "\u0412 \u043F\u0435\u0440\u0432\u0443\u044E \u043E\u0447\u0435\u0440\u0435\u0434\u044C
+        \u043D\u0443\u0436\u043D\u043E \u0432\u044B\u0431\u0440\u0430\u0442\u044C
+        \u043C\u0435\u0441\u0442\u043E \u0434\u043B\u044F \u0431\u0443\u0434\u0435\u0449\u0435\u0433\u043E
+        \u0442\u0435\u043B\u0435\u0432\u0438\u0437\u043E\u0440\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_14_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - I think it would look good across from the couch.
+      - "\u0414\u0443\u043C\u0430\u044E, \u043D\u0430\u043F\u0440\u043E\u0442\u0438\u0432
+        \u0434\u0438\u0432\u0430\u043D\u0430 \u043E\u043D \u0431\u0443\u0434\u0435\u0442
+        \u043D\u0435\u043F\u043B\u043E\u0445\u043E \u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C\u0441\u044F."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_14_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - 'But first let''s install a TV shelf there. '
+      - "\u041D\u043E \u0441\u043D\u0430\u0447\u0430\u043B\u0430 \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u043C
+        \u0442\u0443\u0434\u0430 \u043F\u043E\u043B\u043A\u0443 \u043F\u043E\u0434
+        \u0442\u0435\u043B\u0435\u0432\u0438\u0437\u043E\u0440. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_14_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - 'It must meet two criteria: practicality and beauty.'
+      - "\u041E\u043D\u0430 \u0434\u043E\u043B\u0436\u043D\u0430 \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0432\u043E\u0432\u0430\u0442\u044C
+        \u0434\u0432\u0443\u043C \u043A\u0440\u0438\u0442\u0435\u0440\u0438\u044F\u043C:
+        \u043F\u0440\u0430\u043A\u0442\u0438\u0447\u043D\u043E\u0441\u0442\u044C
+        \u0438 \u043A\u0440\u0430\u0441\u043E\u0442\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_14_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Now it''s just a question of ordering it! '
+      - "\u0414\u0435\u043B\u043E \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C
+        \u0437\u0430 \u043C\u0430\u043B\u044B\u043C, \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C
+        \u0435\u0433\u043E! "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_14_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - You didn't think it would come with a shelf, did you?!
+      - "\u0422\u044B \u0436\u0435 \u043D\u0435 \u0434\u0443\u043C\u0430\u043B, \u0447\u0442\u043E
+        \u043E\u043D \u0438\u0434\u0435\u0442 \u0432 \u043A\u043E\u043C\u043F\u043B\u0435\u043A\u0442\u0435
+        \u0441 \u043F\u043E\u043B\u043A\u043E\u0439?!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_15_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Such a wide range of options. Some are quite good, actually.
+      - "\u0422\u0430\u043A\u043E\u0439 \u0431\u043E\u043B\u044C\u0448\u043E\u0439
+        \u0432\u044B\u0431\u043E\u0440. \u0415\u0441\u0442\u044C \u0434\u0430\u0436\u0435
+        \u043E\u0447\u0435\u043D\u044C \u043D\u0435\u043F\u043B\u043E\u0445\u0438\u0435
+        \u0432\u0430\u0440\u0438\u0430\u043D\u0442\u044B."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_15_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - I know nothing about it. So it's up to you.
+      - "\u042F \u0432 \u044D\u0442\u043E\u043C \u043D\u0438\u0447\u0435\u0433\u043E
+        \u043D\u0435 \u043F\u043E\u043D\u0438\u043C\u0430\u044E. \u041F\u043E\u044D\u0442\u043E\u043C\u0443
+        \u0440\u0435\u0448\u0430\u0439 \u0441\u0430\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_15_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - Last time, you wanted to return the TV to the delivery guy because you couldn't
+        turn it on
+      - "\u0412 \u043F\u0440\u043E\u0448\u043B\u044B\u0439 \u0440\u0430\u0437, \u0442\u044B
+        \u0445\u043E\u0442\u0435\u043B\u0430 \u0432\u0435\u0440\u043D\u0443\u0442\u044C
+        \u0442\u0435\u043B\u0435\u0432\u0438\u0437\u043E\u0440 \u043A\u0443\u0440\u044C\u0435\u0440\u0443,
+        \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u043D\u0435 \u0441\u043C\u043E\u0433\u043B\u0430
+        \u0435\u0433\u043E \u0432\u043A\u043B\u044E\u0447\u0438\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_15_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - I assumed it was a smart device and could be turned on by a clap.
+      - "\u042F \u0434\u0443\u043C\u0430\u043B\u0430, \u0447\u0442\u043E \u043E\u043D
+        \u0443\u043C\u043D\u044B\u0439 \u0438 \u0432\u043A\u043B\u044E\u0447\u0430\u0435\u0442\u0441\u044F
+        \u043F\u043E \u0445\u043B\u043E\u043F\u043A\u0443."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_15_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - I can imagine the delivery guy's face watching you standing in front of the
+        off TV and clapping your hands.
+      - "\u041F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u044E \u043B\u0438\u0446\u043E
+        \u043A\u0443\u0440\u044C\u0435\u0440\u0430, \u043A\u043E\u0433\u0434\u0430
+        \u0442\u044B \u0441\u0442\u043E\u044F\u043B\u0430 \u043F\u0435\u0440\u0435\u0434
+        \u0432\u044B\u043A\u043B\u044E\u0447\u0435\u043D\u043D\u044B\u043C \u0442\u0435\u043B\u0435\u0432\u0438\u0437\u043E\u0440\u043E\u043C
+        \u0438 \u0445\u043B\u043E\u043F\u0430\u043B\u0430 \u0432 \u043B\u0430\u0434\u043E\u0448\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_15_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Ah, the doorbell, it must be the delivery. Just in time!
+      - "\u0417\u0432\u043E\u043D\u043E\u043A, \u0432\u0438\u0434\u0438\u043C\u043E
+        \u044D\u0442\u043E \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430. \u0414\u043E\u0441\u0442\u0430\u0432\u0438\u043B\u0438
+        \u043A\u0430\u043A \u0440\u0430\u0437 \u0432\u043E\u0432\u0440\u0435\u043C\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_16_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Wow, the box is quite something! '
+      - "\u0414\u0430, \u043A\u043E\u0440\u043E\u0431\u043A\u0430 \u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442
+        \u0432\u043D\u0443\u0448\u0430\u044E\u0449\u0435! "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_16_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Come on, let's finally unpack it!
+      - "\u0414\u0430\u0432\u0430\u0439 \u043D\u0430\u043A\u043E\u043D\u0435\u0446-\u0442\u043E
+        \u0435\u0451 \u0440\u0430\u0441\u043F\u0430\u043A\u0443\u0435\u043C!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_16_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - It might even be activated by a clap.
+      - "\u0412\u043E\u0437\u043C\u043E\u0436\u043D\u043E \u043E\u043D \u0434\u0430\u0436\u0435
+        \u0432\u043A\u043B\u044E\u0447\u0430\u0435\u0442\u0441\u044F \u043F\u043E
+        \u0445\u043B\u043E\u043F\u043A\u0443."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_16_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Whoa, that's basically a home theater!
+      - "\u041E\u0433\u043E, \u0434\u0430 \u044D\u0442\u043E \u0436\u0435 \u043F\u043E\u0447\u0442\u0438
+        \u0434\u043E\u043C\u0430\u0448\u043D\u0438\u0439 \u043A\u0438\u043D\u043E\u0442\u0435\u0430\u0442\u0440!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_16_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - I can't wait to check it out
+      - "\u0423\u0436\u0435 \u043D\u0435 \u0442\u0435\u0440\u043F\u0438\u0442\u044C\u0441\u044F
+        \u043E\u043F\u0440\u043E\u0431\u043E\u0432\u0430\u0442\u044C \u0435\u0433\u043E
+        \u0432 \u0434\u0435\u043B\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_16_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - I don't know about you, but I'm going to read a new novel. And the lighting
+        here is awful.
+      - "\u041D\u0435 \u0437\u043D\u0430\u044E \u043A\u0430\u043A \u0442\u044B, \u0430
+        \u044F \u0441\u043E\u0431\u0438\u0440\u0430\u044E\u0441\u044C \u043F\u043E\u0447\u0438\u0442\u0430\u0442\u044C
+        \u043D\u043E\u0432\u044B\u0439 \u0440\u043E\u043C\u0430\u043D. \u0418 \u043C\u043D\u0435
+        \u043A\u0430\u0442\u0430\u0441\u0442\u0440\u043E\u0444\u0438\u0447\u0435\u0441\u043A\u0438
+        \u043D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442 \u0437\u0434\u0435\u0441\u044C
+        \u0441\u0432\u0435\u0442\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_17_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Ann, say no more. I'll fix a floor lamp, and you'll have enough light to
+        read comfortably.
+      - "\u0410\u043D\u043D, \u043D\u0430\u043C\u0435\u043A \u043F\u043E\u043D\u044F\u043B.
+        \u0421\u0435\u0439\u0447\u0430\u0441 \u0441\u043E\u0431\u0435\u0440\u0443
+        \u0442\u043E\u0440\u0448\u0435\u0440 \u0438 \u0442\u0435\u0431\u0435 \u0445\u0432\u0430\u0442\u0438\u0442
+        \u0441\u0432\u0435\u0442\u0430, \u0447\u0442\u043E\u0431\u044B \u043A\u043E\u043C\u0444\u043E\u0440\u0442\u043D\u043E
+        \u043F\u043E\u0447\u0438\u0442\u0430\u0442\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_17_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Amazing. When you started to take hints?
+      - "\u0423\u0434\u0438\u0432\u0438\u0442\u0435\u043B\u044C\u043D\u043E. \u041A\u043E\u0433\u0434\u0430
+        \u0442\u044B \u043D\u0430\u0447\u0430\u043B \u043F\u043E\u043D\u0438\u043C\u0430\u0442\u044C
+        \u043D\u0430\u043C\u0435\u043A\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_17_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - I can't wait to read my mom's new novel. All my girlfriends are just talking
+        about it.
+      - "\u0423\u0436\u0435 \u043D\u0435 \u0442\u0435\u0440\u043F\u0438\u0442\u0441\u044F
+        \u043F\u0440\u043E\u0447\u0438\u0442\u0430\u0442\u044C \u043D\u043E\u0432\u044B\u0439
+        \u043C\u0430\u043C\u0438\u043D \u0440\u043E\u043C\u0430\u043D. \u0412\u0441\u0435
+        \u043F\u043E\u0434\u0440\u0443\u0436\u043A\u0438 \u0442\u043E\u043B\u044C\u043A\u043E
+        \u0435\u0433\u043E \u0438 \u043E\u0431\u0441\u0443\u0436\u0434\u0430\u044E\u0442."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_17_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - 'It''s done! Here, you have a read. In the meantime, I''ll watch the match. '
+      - "\u0412\u0441\u0435 \u0433\u043E\u0442\u043E\u0432\u043E! \u041C\u043E\u0436\u0435\u0448\u044C
+        \u0447\u0438\u0442\u0430\u0442\u044C. \u0410 \u044F \u043F\u043E\u043A\u0430
+        \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u044E \u043C\u0430\u0442\u0447. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_17_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Alex, can you make me some tea. And figure out where to put it, please.
+      - "\u0410\u043B\u0435\u043A\u0441, \u043C\u043E\u0436\u0435\u0448\u044C \u0441\u0434\u0435\u043B\u0430\u0442\u044C
+        \u043C\u043D\u0435 \u0447\u0430\u0439. \u0418 \u043F\u0440\u0438\u0434\u0443\u043C\u0430\u0439,
+        \u043A\u0443\u0434\u0430 \u0435\u0433\u043E \u043F\u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C,
+        \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_17_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Okay. Just let me finish watching the match.
+      - "\u0425\u043E\u0440\u043E\u0448\u043E. \u0422\u043E\u043B\u044C\u043A\u043E
+        \u0434\u043E\u0441\u043C\u043E\u0442\u0440\u044E \u043C\u0430\u0442\u0447."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_18_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Here you are, I found some old book. You can put a cup of tea on it.
+      - "\u0412\u043E\u0442, \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430,
+        \u043D\u0430\u0448\u0435\u043B \u043A\u0430\u043A\u0443\u044E-\u0442\u043E
+        \u0441\u0442\u0430\u0440\u0443\u044E \u043A\u043D\u0438\u0433\u0443. \u041D\u0430
+        \u043D\u0435\u0435 \u043C\u043E\u0436\u043D\u043E \u043F\u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C
+        \u043A\u0440\u0443\u043A\u0436\u043A\u0443 \u0441 \u0447\u0430\u0435\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_18_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - You're such an idiot. And I thought you were really starting to take hints.
+      - "\u0412\u043E\u0442 \u0442\u044B \u0438\u0434\u0438\u043E\u0442. \u0410 \u044F
+        \u0443\u0436\u0435 \u043F\u043E\u0434\u0443\u043C\u0430\u043B\u0430, \u0447\u0442\u043E
+        \u0442\u044B \u0440\u0435\u0430\u043B\u044C\u043D\u043E \u043D\u0430\u043C\u0435\u043A\u0438
+        \u043D\u0430\u0447\u0430\u043B \u043F\u043E\u043D\u0438\u043C\u0430\u0442\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_18_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - What's wrong with the book?
+      - "\u0410 \u043A\u043D\u0438\u0433\u0430 \u0447\u0435\u043C \u0442\u0435\u0431\u0435
+        \u043D\u0435 \u043F\u043E\u0434\u0445\u043E\u0434\u0438\u0442?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_18_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - You'd rather read it than put a cup of tea on it.
+      - "\u0422\u044B \u0431\u044B \u043B\u0443\u0447\u0448\u0435 \u0435\u0451 \u043F\u043E\u0447\u0438\u0442\u0430\u043B,
+        \u0430 \u043D\u0435 \u0447\u0430\u0439 \u043D\u0430 \u043D\u0435\u0435 \u0441\u0442\u0430\u0432\u0438\u043B."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_18_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - I want to take some pictures of the book and write a review of the new novel.
+      - "\u0425\u043E\u0447\u0443 \u0441\u0434\u0435\u043B\u0430\u0442\u044C \u043F\u0430\u0440\u0443
+        \u0444\u043E\u0442\u043E\u0433\u0440\u0430\u0444\u0438\u0439 \u043A\u043D\u0438\u0433\u0438
+        \u0438 \u043D\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u0440\u0435\u0446\u0435\u043D\u0437\u0438\u044E
+        \u043D\u0430 \u043D\u043E\u0432\u044B\u0439 \u0440\u043E\u043C\u0430\u043D."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_18_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - 'I''ll probably never get the point of pictures like these... '
+      - "\u042F \u043D\u0430\u0432\u0435\u0440\u043D\u043E\u0435 \u043D\u0438\u043A\u043E\u0433\u0434\u0430
+        \u043D\u0435 \u043F\u043E\u0439\u043C\u0443 \u0441\u043C\u044B\u0441\u043B
+        \u0442\u0430\u043A\u0438\u0445 \u0444\u043E\u0442\u043E\u0433\u0440\u0430\u0444\u0438\u0439... "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_18_dlg_6
+      TermType: 0
+      Description: 
+      Languages:
+      - The only thing is that it's kind of empty in the background. Perhaps we should
+        put some flowers there.
+      - "\u0422\u043E\u043B\u044C\u043A\u043E \u043A\u0430\u043A-\u0442\u043E \u043F\u0443\u0441\u0442\u043E\u0432\u0430\u0442\u043E
+        \u043D\u0430 \u0437\u0430\u0434\u043D\u0435\u043C \u043F\u043B\u0430\u043D\u0435.
+        \u041C\u043E\u0436\u0435\u0442 \u0446\u0432\u0435\u0442\u043E\u0447\u043A\u043E\u0432
+        \u043A\u0430\u043A\u0438\u0445-\u043D\u0438\u0431\u0443\u0434\u044C \u043F\u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_19_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Have you picked out the flowers yet?
+      - "\u0422\u044B \u0443\u0436\u0435 \u0432\u044B\u0431\u0440\u0430\u043B\u0430
+        \u0446\u0432\u0435\u0442\u044B?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_19_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Nah, you know how hard it is for me to choose.
+      - "\u041D\u0435\u0442, \u0442\u044B \u0436\u0435 \u0437\u043D\u0430\u0435\u0448\u044C,
+        \u043A\u0430\u043A \u0442\u044F\u0436\u0435\u043B\u043E \u043C\u043D\u0435
+        \u0434\u0430\u0435\u0442\u0441\u044F \u0432\u044B\u0431\u043E\u0440."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_19_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - No woman should choose flowers. But only to receive them as a gift.
+      - "\u041D\u0438 \u043E\u0434\u043D\u0430 \u0436\u0435\u043D\u0449\u0438\u043D\u0430
+        \u043D\u0435 \u0434\u043E\u043B\u0436\u043D\u0430 \u0432\u044B\u0431\u0438\u0440\u0430\u0442\u044C
+        \u0446\u0432\u0435\u0442\u044B. \u0410 \u0442\u043E\u043B\u044C\u043A\u043E
+        \u043F\u043E\u043B\u0443\u0447\u0430\u0442\u044C \u0438\u0445 \u043A\u0430\u043A
+        \u043F\u043E\u0434\u0430\u0440\u043E\u043A."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_19_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - 'I wish you were that romantic more often '
+      - "\u0416\u0430\u043B\u044C, \u0447\u0442\u043E \u0432 \u0442\u0435\u0431\u0435
+        \u0442\u0430\u043A \u0440\u0435\u0434\u043A\u043E \u043F\u0440\u043E\u0441\u044B\u043F\u0430\u0435\u0442\u0441\u044F
+        \u0440\u043E\u043C\u0430\u043D\u0442\u0438\u043A..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_19_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Awesome! I've already got 27 likes.
+      - "\u041F\u0440\u043E\u0441\u0442\u043E \u0441\u0443\u043F\u0435\u0440. \u042F
+        \u0443\u0436\u0435 \u043D\u0430\u0431\u0440\u0430\u043B\u0430 27 \u043B\u0430\u0439\u043A\u043E\u0432."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_19_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - 'I wish we could use your likes to pay for our dinner. I''m starving. '
+      - "\u0412\u043E\u0442 \u0431\u044B \u0442\u0432\u043E\u0438\u043C\u0438 \u043B\u0430\u0439\u043A\u043C\u0438
+        \u043C\u043E\u0436\u043D\u043E \u0431\u044B\u043B\u043E \u043E\u043F\u043B\u0430\u0442\u0438\u0442\u044C
+        \u043D\u0430\u0448 \u0443\u0436\u0438\u043D. \u0410 \u0442\u043E \u044F \u043F\u0440\u043E\u0433\u043E\u043B\u043E\u0434\u0430\u043B\u0441\u044F. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_19_dlg_6
+      TermType: 0
+      Description: 
+      Languages:
+      - Who knows, maybe in the future my popularity will be able to feed us.
+      - "\u041A\u0442\u043E \u0437\u043D\u0430\u0435\u0442, \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E
+        \u0432 \u0431\u0443\u0434\u0443\u044E\u0449\u0435\u043C \u043C\u043E\u044F
+        \u043F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u043E\u0441\u0442\u044C
+        \u0441\u043C\u043E\u0436\u0435\u0442 \u043D\u0430\u0441 \u043F\u043E\u043A\u043E\u0440\u043C\u0438\u0442\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_20_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Wait, where are we having dinner?
+      - "\u041F\u043E\u0433\u043E\u0434\u0438, \u0430 \u0433\u0434\u0435 \u043C\u044B
+        \u0431\u0443\u0434\u0435\u043C \u0443\u0436\u0438\u043D\u0430\u0442\u044C?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_20_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - There used to be a huge table in the middle of the living room. Let's see
+        what we can do with it.
+      - "\u0420\u0430\u043D\u044C\u0448\u0435 \u0432 \u0446\u0435\u043D\u0442\u0440\u0435
+        \u0433\u043E\u0441\u0442\u0438\u043D\u043D\u043E\u0439 \u0441\u0442\u043E\u044F\u043B
+        \u043E\u0433\u0440\u043E\u043C\u043D\u044B\u0439 \u0441\u0442\u043E\u043B.
+        \u0414\u0430\u0432\u0430\u0439 \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u043C,
+        \u0447\u0442\u043E \u043C\u044B \u0441\u043C\u043E\u0436\u0435\u043C \u0441
+        \u043D\u0438\u043C \u0441\u0434\u0435\u043B\u0430\u0442\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_20_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - It's awesome! I can already imagine how we're going to get together as a
+        family.
+      - "\u0428\u0438\u043A\u0430\u0440\u043D\u043E! \u0423\u0436\u0435 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u044E
+        \u043A\u0430\u043A \u043C\u044B \u0431\u0443\u0434\u0435\u043C \u0441\u043E\u0431\u0438\u0440\u0430\u0442\u044C\u0441\u044F
+        \u0432\u0441\u0435\u0439 \u0441\u0435\u043C\u044C\u0435\u0439."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_20_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Just need to lay a carpet and add some lighting. The table doesn't look nice.
+      - "\u0422\u043E\u043B\u044C\u043A\u043E \u043D\u0430\u0434\u043E \u043F\u043E\u0441\u0442\u0435\u043B\u0438\u0442\u044C
+        \u043A\u043E\u0432\u0435\u0440 \u0438 \u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C
+        \u043E\u0441\u0432\u0435\u0449\u0435\u043D\u0438\u0435. \u0421\u0435\u0439\u0447\u0430\u0441
+        \u0441\u0442\u043E\u043B \u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442
+        \u043D\u0435 \u043E\u0447\u0435\u043D\u044C \u0443\u044E\u0442\u043D\u043E."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_20_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - 'I''m already famished. I''m sure this table will look so much better with
+        a hot meal. '
+      - "\u042F \u0443\u0436\u0435 \u0442\u0430\u043A\u043E\u0439 \u0433\u043E\u043B\u043E\u0434\u043D\u044B\u0439.
+        \u0423\u0432\u0435\u0440\u0435\u043D, \u0433\u043E\u0440\u044F\u0447\u0430\u044F
+        \u0435\u0434\u0430 \u0441\u0434\u0435\u043B\u0430\u0435\u0442 \u044D\u0442\u043E\u0442
+        \u0441\u0442\u043E\u043B \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E
+        \u0443\u044E\u0442\u043D\u044B\u043C. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_21_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - I've already ordered the carpet, and it will be delivered any minute now.
+      - "\u041A\u043E\u0432\u0435\u0440 \u044F \u0443\u0436\u0435 \u0437\u0430\u043A\u0430\u0437\u0430\u043B\u0430,
+        \u0441 \u043C\u0438\u043D\u0443\u0442\u044B \u043D\u0430 \u043C\u0438\u043D\u0443\u0442\u0443
+        \u0435\u0433\u043E \u043F\u0440\u0438\u0432\u0435\u0437\u0443\u0442."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_21_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Oh, that must be it! Alex, please get it over here.
+      - "\u041E, \u044D\u0442\u043E \u0432\u0438\u0434\u0438\u043C\u043E \u043E\u043D!
+        \u0410\u043B\u0435\u043A\u0441, \u0437\u0430\u0431\u0435\u0440\u0438 \u0435\u0433\u043E
+        \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_21_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - Hopefully, I won't hurt my back.
+      - "\u041D\u0430\u0434\u0435\u044E\u0441\u044C, \u044F \u043D\u0435 \u043D\u0430\u0434\u043E\u0440\u0432\u0443
+        \u0441\u043F\u0438\u043D\u0443. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_21_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Wow, it looks perfect! A carpet makes any room look a little cozier.
+      - "\u0412\u0430\u0443, \u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0441\u044F
+        \u043E\u0442\u043B\u0438\u0447\u043D\u043E! \u041A\u043E\u0432\u0435\u0440
+        \u0434\u0435\u043B\u0430\u0435\u0442 \u043B\u044E\u0431\u043E\u0435 \u043F\u043E\u043C\u0435\u0449\u0435\u043D\u0438\u0435
+        \u043D\u0435\u043C\u043D\u043E\u0433\u043E \u0443\u044E\u0442\u043D\u0435\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_21_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Just need to add a romantic touch.
+      - "\u0422\u043E\u043B\u044C\u043A\u043E \u043D\u0430\u0434\u043E \u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C
+        \u043D\u0435\u043C\u043D\u043E\u0433\u043E \u0440\u043E\u043C\u0430\u043D\u0442\u0438\u043A\u0438. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_21_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Ugh, when am I going to eat...
+      - "\u042D\u0445. \u041A\u043E\u0433\u0434\u0430 \u044F \u0443\u0436\u0435 \u043F\u043E\u0435\u043C..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_22_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - When it comes to romantic vibes, I'm the guy you can count on.
+      - "\u0421 \u0440\u043E\u043C\u0430\u043D\u0442\u0438\u043A\u043E\u0439 \u043C\u043E\u0436\u0435\u0448\u044C
+        \u043F\u043E\u043B\u043E\u0436\u0438\u0442\u044C\u0441\u044F \u043D\u0430
+        \u043C\u0435\u043D\u044F."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_22_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Well, you usually don't get anything right
+      - "\u041D\u0443 \u043D\u0435 \u0437\u043D\u0430\u044E, \u043E\u0431\u044B\u0447\u043D\u043E
+        \u0443 \u0442\u0435\u0431\u044F \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435
+        \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0441\u044F."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_22_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - This time everything will be at its best.
+      - "\u0412 \u044D\u0442\u043E\u0442 \u0440\u0430\u0437 \u0432\u0441\u0435 \u0431\u0443\u0434\u0435\u0442
+        \u0432 \u043B\u0443\u0447\u0448\u0435\u043C \u0432\u0438\u0434\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_22_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Fine, I even wonder what you came up with.
+      - "\u041B\u0430\u0434\u043D\u043E, \u0434\u0430\u0436\u0435 \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u043D\u043E,
+        \u0447\u0442\u043E \u0442\u044B \u043F\u0440\u0438\u0434\u0443\u043C\u0430\u043B."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_22_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Oh, it's so romantic! Just like in the new novel.
+      - "\u041E\u0439, \u0442\u0430\u043A \u0440\u043E\u043C\u0430\u043D\u0442\u0438\u0447\u043D\u043E!
+        \u0412\u0441\u0435 \u043A\u0430\u043A \u0432 \u043D\u043E\u0432\u043E\u043C
+        \u0440\u043E\u043C\u0430\u043D\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_22_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Only it won't be the prince sitting across the table...
+      - "\u0422\u043E\u043B\u044C\u043A\u043E \u043D\u0430\u043F\u0440\u043E\u0442\u0438\u0432
+        \u043C\u0435\u043D\u044F \u0431\u0443\u0434\u0435\u0442 \u0441\u0438\u0434\u0435\u0442\u044C
+        \u043D\u0435 \u043F\u0440\u0438\u043D\u0446..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_23_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - The table is ready, let's have dinner, shall we?
+      - "\u0421\u0442\u043E\u043B \u0433\u043E\u0442\u043E\u0432, \u043C\u043E\u0436\u0435\u0442
+        \u0443\u0436\u0435 \u043F\u043E\u0443\u0436\u0438\u043D\u0430\u0435\u043C?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_23_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Of course, dear. Dinner is just about ready.  '
+      - "\u041A\u043E\u043D\u0435\u0447\u043D\u043E, \u0434\u043E\u0440\u043E\u0433\u043E\u0439.
+        \u0423\u0436\u0438\u043D \u043A\u0430\u043A \u0440\u0430\u0437 \u043F\u043E\u0447\u0442\u0438
+        \u0433\u043E\u0442\u043E\u0432.  "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_23_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - The delivery guy should be here any minute. The receipt says that the delivery
+        service is on Wednesday at 8 p.m.
+      - "\u041A\u0443\u0440\u044C\u0435\u0440 \u0434\u043E\u043B\u0436\u0435\u043D
+        \u0431\u044B\u0442\u044C \u0441 \u043C\u0438\u043D\u0443\u0442\u044B \u043D\u0430
+        \u043C\u0438\u043D\u0443\u0442\u0443. \u0412 \u0447\u0435\u043A\u0435 \u043D\u0430\u043F\u0438\u0441\u0430\u043D\u043E
+        \u0447\u0442\u043E \u043A\u0443\u0440\u044C\u0435\u0440 \u0431\u0443\u0434\u0435\u0442
+        \u0432 \u0441\u0440\u0435\u0434\u0443 \u0432 20 \u0447\u0430\u0441\u043E\u0432."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_23_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - But today is Tuesday!
+      - "\u0422\u0430\u043A \u0441\u0435\u0433\u043E\u0434\u043D\u044F \u0436\u0435
+        \u0432\u0442\u043E\u0440\u043D\u0438\u043A!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_23_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Uh-oh. I must have mixed it up. But it's your fault too, you could have told
+        me.
+      - "\u041E\u0439-\u043E\u0439. \u0412\u0438\u0434\u0438\u043C\u043E \u043F\u0435\u0440\u0435\u043F\u0443\u0442\u0430\u043B\u0430.
+        \u041D\u043E \u0442\u044B \u0442\u043E\u0436\u0435 \u0432\u0438\u043D\u043E\u0432\u0430\u0442,
+        \u043C\u043E\u0433 \u0431\u044B \u0438 \u043F\u043E\u0434\u0441\u043A\u0430\u0437\u0430\u0442\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_23_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - How did I know? I'm not a psychic. I actually thought you were cooking.
+      - "\u0410 \u044F \u043E\u0442\u043A\u0443\u0434\u0430 \u0437\u043D\u0430\u043B?
+        \u042F \u0436\u0435 \u043D\u0435 \u044D\u043A\u0441\u0442\u0440\u0430\u0441\u0435\u043D\u0441.
+        \u042F \u0432\u043E\u043E\u0431\u0449\u0435 \u0434\u0443\u043C\u0430\u043B,
+        \u0447\u0442\u043E \u0442\u044B \u0433\u043E\u0442\u043E\u0432\u0438\u0448\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_23_dlg_6
+      TermType: 0
+      Description: 
+      Languages:
+      - Alex, good morning. What are you up to?
+      - "\u0410\u043B\u0435\u043A\u0441, \u0434\u043E\u0431\u0440\u043E\u0435 \u0443\u0442\u0440\u043E.
+        \u0427\u0435\u043C \u0442\u044B \u0442\u0430\u043C \u0437\u0430\u043D\u0438\u043C\u0430\u0435\u0448\u044C\u0441\u044F?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_23_dlg_7
+      TermType: 0
+      Description: 
+      Languages:
+      - Good morning! You stole my blanket last night and I got cold. So I decided
+        to fix the fireplace so I wouldn't freeze like that again.
+      - "\u0414\u043E\u0431\u0440\u043E\u0435 \u0443\u0442\u0440\u043E! \u041D\u043E\u0447\u044C\u044E
+        \u0442\u044B \u043E\u0442\u043E\u0431\u0440\u0430\u043B\u0430 \u0443 \u043C\u0435\u043D\u044F
+        \u043E\u0434\u0435\u044F\u043B\u043E \u0438 \u044F \u0437\u0430\u043C\u0435\u0440\u0437.
+        \u0412\u043E\u0442 \u0440\u0435\u0448\u0438\u043B \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+        \u043A\u0430\u043C\u0438\u043D, \u0447\u0442\u043E\u0431\u044B \u0431\u043E\u043B\u044C\u0448\u0435
+        \u0442\u0430\u043A \u043D\u0435 \u0437\u0430\u043C\u0435\u0440\u0437\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_23_dlg_8
+      TermType: 0
+      Description: 
+      Languages:
+      - Good. That's a great idea. It has been bothering me for days.
+      - "\u0425\u043E\u0440\u043E\u0448\u043E. \u041E\u0442\u043B\u0438\u0447\u043D\u0430\u044F
+        \u0438\u0434\u0435\u044F. \u041E\u043D \u043C\u0435\u043D\u044F \u0443\u0436\u0435
+        \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0434\u043D\u0435\u0439
+        \u043D\u0430\u043F\u0440\u044F\u0433\u0430\u0435\u0442."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_24_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - I have no clue how long it's been out of use.
+      - "\u0414\u0430\u0436\u0435 \u043D\u0435 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u044E
+        \u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0438\u043C \u043D\u0435 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043B\u0438\u0441\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_24_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - As a child, I often sat in front of the fireplace with my grandfather, listening
+        to his stories.
+      - "\u0412 \u0434\u0435\u0441\u0442\u0432\u0435  \u0447\u0430\u0441\u0442\u043E
+        \u0441\u0438\u0434\u0435\u043B \u043D\u0430\u043F\u0440\u043E\u0442\u0438\u0432
+        \u043A\u0430\u043C\u0438\u043D\u0430 \u0441 \u0434\u0435\u0434\u0443\u0448\u043A\u043E\u0439,
+        \u0441\u043B\u0443\u0448\u0430\u044F \u0435\u0433\u043E \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u044B."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_24_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - I hope you'll be that good of a father.
+      - "\u041D\u0430\u0434\u0435\u044E\u0441\u044C \u0442\u044B \u0431\u0443\u0434\u0435\u0448\u044C
+        \u0442\u0430\u043A\u0438\u043C \u0436\u0435 \u0445\u043E\u0440\u043E\u0448\u0438\u043C
+        \u043E\u0442\u0446\u043E\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_24_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Whew! It wasn't that easy. Thanks a lot to the knowledge my father gave me.
+      - " \u0424\u0443\u0445! \u042D\u0442\u043E \u0431\u044B\u043B\u043E \u043D\u0435
+        \u0442\u0430\u043A \u0443\u0436 \u0438 \u043F\u0440\u043E\u0441\u0442\u043E.
+        \u041E\u0447\u0435\u043D\u044C \u043F\u043E\u043C\u043E\u0433\u043B\u0438
+        \u0437\u043D\u0430\u043D\u0438\u044F, \u043A\u043E\u0442\u043E\u0440\u044B\u0435
+        \u043C\u043D\u0435 \u0434\u0430\u043B \u043E\u0442\u0435\u0446."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_24_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Now we have to put new armchairs. And the atmosphere will be like in my childhood.
+      - "\u0422\u0435\u043F\u0435\u0440\u044C \u043D\u0430\u0434\u043E \u043F\u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C
+        \u043D\u043E\u0432\u044B\u0435 \u043A\u0440\u0435\u0441\u043B\u0430. \u0418
+        \u0430\u0442\u043C\u043E\u0441\u0444\u0435\u0440\u0430 \u0441\u0442\u0430\u043D\u0435\u0442
+        \u043A\u0430\u043A \u0432 \u0434\u0435\u0442\u0441\u0442\u0432\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_25_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - 'They say you can watch three things endlessly: how fire burns, how water
+        flows, and how children play.'
+      - "\u0413\u043E\u0432\u043E\u0440\u044F\u0442, \u0447\u0442\u043E \u0431\u0435\u0441\u043A\u043E\u043D\u0435\u0447\u043D\u043E
+        \u043C\u043E\u0436\u043D\u043E \u0441\u043C\u043E\u0442\u0435\u0440\u0442\u044C
+        \u043D\u0430 3 \u0432\u0435\u0449\u0438: \u043A\u0430\u043A \u0433\u043E\u0440\u0438\u0442
+        \u043E\u0433\u043E\u043D\u044C, \u043A\u0430\u043A \u0442\u0435\u0447\u0435\u0442
+        \u0432\u043E\u0434\u0430 \u0438 \u043A\u0430\u043A \u0438\u0433\u0440\u0430\u044E\u0442
+        \u0434\u0435\u0442\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_25_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Actually, that's not what it says, but I totally agree with you.
+      - "\u0412\u043E\u043E\u0431\u0449\u0435-\u0442\u043E \u0442\u0430\u043C \u043D\u0435
+        \u0442\u0430\u043A \u0433\u043E\u0432\u043E\u0440\u0438\u0442\u0441\u044F.
+        \u043D\u043E \u044F \u0441 \u0442\u043E\u0431\u043E\u0439 \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E
+        \u0441\u043E\u0433\u043B\u0430\u0441\u043D\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_25_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - As long as kids don't play near the fire
+      - "\u0413\u043B\u0430\u0432\u043D\u043E\u0435, \u0447\u0442\u043E \u0434\u0435\u0442\u0438
+        \u043D\u0435 \u0438\u0433\u0440\u0430\u043B\u0438 \u0432\u043E\u0437\u043B\u0435
+        \u043E\u0433\u043D\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_25_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - One thing missing is grandma's cocoa. I think we'll find the recipe, and
+        you can make it as well.
+      - "\u041D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442 \u0442\u043E\u043B\u044C\u043A\u043E
+        \u043A\u0430\u043A\u0430\u043E \u0431\u0430\u0431\u0443\u0448\u043A\u0438.
+        \u0414\u0443\u043C\u0430\u044E \u043C\u044B \u043D\u0430\u0439\u0434\u0435\u043C
+        \u0440\u0435\u0446\u0435\u043F\u0442, \u0438 \u0442\u044B \u0441\u043C\u043E\u0436\u0435\u0448\u044C
+        \u043F\u0440\u0438\u0433\u043E\u0442\u043E\u0432\u0438\u0442\u044C \u0435\u0433\u043E
+        \u0442\u0430\u043A\u0436\u0435. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_25_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Just need a table to put that cocoa on.
+      - "\u0422\u043E\u043B\u044C\u043A\u043E \u043D\u0430\u0434\u043E \u043F\u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C
+        \u0441\u0442\u043E\u043B\u0438\u043A, \u0447\u0442\u043E\u0431\u044B \u0442\u0443\u0434\u0430
+        \u0441\u0442\u0430\u0432\u0438\u0442\u044C \u044D\u0442\u043E \u043A\u0430\u043A\u0430\u043E."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_26_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - As a kid I accidentally spilled cocoa right on my favorite book
+      - "\u041A\u0430\u043A-\u0442\u043E \u0432 \u0434\u0435\u0441\u0442\u0432\u0435
+        \u043F\u043E \u043D\u0435\u043E\u0441\u0442\u043E\u0440\u043E\u0436\u043D\u043E\u0441\u0442\u0438
+        \u044F \u0440\u0430\u0437\u043B\u0438\u043B \u043A\u0430\u043A\u0430\u043E
+        \u043F\u0440\u044F\u043C\u043E \u043D\u0430 \u043B\u044E\u0431\u0438\u043C\u0443\u044E
+        \u043A\u043D\u0438\u0433\u0443."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_26_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'And I''m not surprised at all. '
+      - "\u0418 \u044F \u0441\u043E\u0432\u0441\u0435\u043C \u043D\u0435 \u0443\u0434\u0438\u0432\u043B\u0435\u043D\u0430. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_26_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - Well, I was little and clumsy.
+      - "\u0414\u0430 \u044F \u0431\u044B\u043B \u043C\u0430\u043B\u0435\u043D\u044C\u043A\u0438\u043C
+        \u0438 \u043D\u0435\u0430\u043A\u0443\u0440\u0430\u0442\u043D\u044B\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_26_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - I hope no one spills anything here.
+      - "\u041D\u0430\u0434\u0435\u044E\u0441\u044C \u0442\u0443\u0442 \u043D\u0438\u043A\u0442\u043E
+        \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u0440\u0430\u0437\u043E\u043B\u044C\u0435\u0442."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_26_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - I already feel like finding your grandmother's recipe and making this lovely
+        cocoa.
+      - "\u041C\u043D\u0435 \u0443\u0436\u0435 \u0445\u043E\u0447\u0435\u0442\u0441\u044F
+        \u043D\u0430\u0439\u0442\u0438 \u0440\u0435\u0446\u0435\u043F\u0442 \u0442\u0432\u043E\u0435\u0439
+        \u0431\u0430\u0431\u0443\u0448\u043A\u0438 \u0438 \u043F\u0440\u0438\u0433\u043E\u0442\u043E\u0432\u0438\u0442\u044C
+        \u044D\u0442\u043E\u0442 \u0447\u0443\u0434\u0435\u0441\u043D\u044B\u0439
+        \u043A\u0430\u043A\u0430\u043E."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_26_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Let's just roll out the carpet.
+      - "\u0414\u0430\u0432\u0430\u0439 \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u043E\u0441\u0442\u0435\u043B\u0438\u043C
+        \u043A\u043E\u0432\u0435\u0440. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_27_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - I remember when I was a kid there was a very soft carpet. I loved sitting
+        on it even more than on the armchair.
+      - "\u041F\u043E\u043C\u043D\u044E \u0432 \u0434\u0435\u0441\u0442\u0432\u0435
+        \u0437\u0434\u0435\u0441\u044C \u043B\u0435\u0436\u0430\u043B \u043E\u0447\u0435\u043D\u044C
+        \u043C\u044F\u0433\u043A\u0438 \u043A\u043E\u0432\u0435\u0440. \u042F \u043B\u044E\u0431\u0438\u043B
+        \u043D\u0430 \u043D\u0435\u043C \u0441\u0438\u0434\u0435\u0442\u044C \u0434\u0430\u0436\u0435
+        \u0431\u043E\u043B\u044C\u0448\u0435 \u0447\u0435\u043C \u043D\u0430 \u043A\u0440\u0435\u0441\u043B\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_27_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Still, my granny often told me not to sit on the floor.
+      - "\u041D\u043E \u0431\u0430\u0431\u0443\u0431\u0448\u043A\u0430 \u0447\u0430\u0441\u0442\u043E
+        \u0437\u0430\u043F\u0440\u0435\u0449\u0430\u043B\u0430 \u0441\u0438\u0434\u0435\u0442\u044C
+        \u043D\u0430 \u043F\u043E\u043B\u0443."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_27_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - You can finally rest and continue reading the new novel.
+      - "\u041C\u043E\u0436\u043D\u043E \u043D\u0430\u043A\u043E\u043D\u0435\u0446-\u0442\u043E
+        \u043E\u0442\u0434\u043E\u0445\u043D\u0443\u0442\u044C \u0438 \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C
+        \u0447\u0442\u0435\u043D\u0438\u0435 \u043D\u043E\u0432\u043E\u0433\u043E
+        \u0440\u043E\u043C\u0430\u043D\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_27_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - We also have so many pictures, you can hang shelves next to the fireplace
+        for them.
+      - "\u0415\u0449\u0435 \u0443 \u043D\u0430\u0441 \u0441\u0442\u043E\u043B\u044C\u043A\u043E
+        \u0444\u043E\u0442\u043E\u0433\u0440\u0430\u0444\u0438\u0439, \u043C\u043E\u0436\u043D\u043E
+        \u043F\u043E\u0432\u0435\u0441\u0438\u0442\u044C \u043F\u043E\u043B\u043A\u0438
+        \u0440\u044F\u0434\u043E\u043C \u0441 \u043A\u0430\u043C\u0438\u043D\u043E\u043C
+        \u0434\u043B\u044F \u043D\u0438\u0445."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_27_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - That's a great idea. So we can sit in front of the fireplace and reminisce
+        about good memories
+      - "\u041E\u0442\u043B\u0438\u0447\u043D\u0430\u044F \u0438\u0434\u0435\u044F.
+        \u0422\u0430\u043A \u043C\u044B \u0441\u043C\u043E\u0436\u0435\u043C \u0432\u0441\u043F\u043E\u043C\u0438\u043D\u0430\u0442\u044C
+        \u043F\u0435\u0440\u0435\u0436\u0438\u0442\u044B\u0435 \u043C\u043E\u043C\u0435\u043D\u0442\u044B
+        \u0441\u0438\u0434\u044F \u043F\u0435\u0440\u0435\u0434 \u043A\u0430\u043C\u0438\u043D\u043E\u043C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_28_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - It looks great, now we can share memories with our guests too
+      - "\u0421\u043C\u043E\u0442\u0440\u0438\u0442\u0441\u044F \u0441\u0443\u043F\u0435\u0440,
+        \u0442\u0435\u043F\u0435\u0440\u044C \u0433\u043E\u0441\u0442\u0438 \u0441\u043C\u043E\u0433\u0443\u0442
+        \u0443\u0432\u0438\u0434\u0435\u0442\u044C \u043C\u043E\u043C\u0435\u043D\u0442\u044B
+        \u043F\u0440\u043E\u0436\u0438\u0442\u044B\u0435 \u0432\u043C\u0435\u0441\u0442\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_28_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - I'll have to look for pictures of my grandparents.
+      - "\u041D\u0430\u0434\u043E \u0431\u0443\u0434\u0435\u0442 \u043F\u043E\u0438\u0441\u043A\u0430\u0442\u044C
+        \u0444\u043E\u0442\u043E\u0433\u0440\u0430\u0444\u0438\u0438 \u0431\u0430\u0431\u0443\u0448\u043A\u0438
+        \u0438 \u0434\u0435\u0434\u0443\u0448\u043A\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_28_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - Their pictures used to stand on the mantelpiece.
+      - "\u0420\u0430\u043D\u044C\u0448\u0435 \u0438\u0445 \u0444\u043E\u0442\u043E\u0433\u0440\u0430\u0444\u0438\u0438
+        \u0441\u0442\u043E\u044F\u043B\u0438 \u043D\u0430 \u043A\u0430\u043C\u0438\u043D\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_28_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Sure! They are part of our family history too.
+      - "\u041A\u043E\u043D\u0435\u0447\u043D\u043E! \u041E\u043D\u0438 \u0442\u043E\u0436\u0435
+        \u0447\u0430\u0441\u0442\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u0438
+        \u043D\u0430\u0448\u0435\u0439 \u0441\u0435\u043C\u044C\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_28_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Except that the light from the fireplace doesn't reach the pictures and you
+        can hardly see anything.
+      - "\u0422\u043E\u043B\u044C\u043A\u043E \u0432\u043E\u0442 \u0441\u0432\u0435\u0442
+        \u043E\u0442 \u043A\u0430\u043C\u0438\u043D\u0430 \u043D\u0435 \u043F\u043E\u043F\u0430\u0434\u0430\u0435\u0442
+        \u043D\u0430 \u0444\u043E\u0442\u043E\u0433\u0440\u0430\u0444\u0438\u0438
+        \u0438 \u043D\u0430 \u043D\u0438\u0445 \u043F\u0440\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438
+        \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u0432\u0438\u0434\u043D\u043E."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_29_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - I think you should get a couple of lamps, they will solve the lighting problem.
+      - "\u0414\u0443\u043C\u0430\u044E, \u0441\u0442\u043E\u0438\u0442 \u043F\u043E\u0432\u0435\u0441\u0438\u0442\u044C
+        \u043F\u0430\u0440\u0443 \u043B\u0430\u043C\u043F, \u043E\u043D\u0438 \u0440\u0435\u0448\u0430\u0442
+        \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u0443 \u0441 \u043E\u0441\u0432\u0435\u0449\u0435\u043D\u0438\u0435\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_29_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Please, be careful, not like when you were working at your dad''s place
+        and fell off the stepladder. '
+      - "\u0422\u043E\u043B\u044C\u043A\u043E \u0434\u0430\u0432\u0430\u0439 \u043D\u0435
+        \u043A\u0430\u043A \u0442\u043E\u0433\u0434\u0430, \u043A\u043E\u0433\u0434\u0430
+        \u0442\u044B \u0440\u0430\u0431\u043E\u0442\u0430\u043B \u0443 \u043E\u0442\u0446\u0430
+        \u0438 \u0443\u043F\u0430\u043B \u0441\u043E \u0441\u0442\u0440\u0435\u043C\u044F\u043D\u043A\u0438. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_29_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - And then I had to take care of your broken leg for a month.
+      - "\u0410 \u044F \u043F\u043E\u0442\u043E\u043C \u0446\u0435\u043B\u044B\u0439
+        \u043C\u0435\u0441\u044F\u0446 \u043F\u0435\u0440\u0435\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u043B\u0430
+        \u0442\u0432\u043E\u044E \u0441\u043B\u043E\u043C\u0430\u043D\u043D\u0443\u044E
+        \u043D\u043E\u0433\u0443."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_29_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Wow! It also makes a great location for selfies!
+      - "\u0412\u0430\u0443! \u0415\u0449\u0435 \u0438 \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0430\u0441\u044C
+        \u0448\u0438\u043A\u0430\u0440\u043D\u0430\u044F \u043B\u043E\u043A\u0430\u0446\u0438\u044F
+        \u0434\u043B\u044F \u0441\u0435\u043B\u0444\u0438!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_29_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Let me guess, only a flower is missing.
+      - "\u0414\u0430\u0439 \u0443\u0433\u0430\u0434\u0430\u044E, \u0442\u043E\u043B\u044C\u043A\u043E
+        \u0446\u0432\u0435\u0442\u043E\u0447\u043A\u0430 \u043D\u0435 \u0445\u0432\u0430\u0442\u0430\u0435\u0442."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_29_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - How did you guess?
+      - "\u041A\u0430\u043A \u0442\u044B \u0434\u043E\u0433\u043E\u0434\u0430\u043B\u0441\u044F?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_30_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - My grandma was a great gardener.
+      - "\u041C\u043E\u044F \u0431\u0430\u0431\u0443\u0448\u043A\u0430 \u0431\u044B\u043B\u0430
+        \u043E\u0442\u043B\u0438\u0447\u043D\u044B\u043C \u0441\u0430\u0434\u043E\u0432\u043D\u0438\u043A\u043E\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_30_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Oh, I recall the plants that stood here when I was a child.
+      - "\u0410 \u044F \u043F\u043E\u043C\u043D\u044E \u043A\u0430\u043A\u0438\u0435
+        \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u044F \u0441\u0442\u043E\u044F\u043B\u0438
+        \u0437\u0434\u0435\u0441\u044C \u0432 \u0434\u0435\u0442\u0441\u0442\u0432\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_30_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - I can't remember the names, though. I'll try to visualise them in my mind.
+      - "\u041D\u0435 \u043F\u043E\u043C\u043D\u044E \u0442\u043E\u043B\u044C\u043A\u043E
+        \u043A\u0430\u043A \u043D\u0430\u0437\u044B\u0432\u0430\u043B\u0438\u0441\u044C.
+        \u041F\u043E\u0441\u0442\u0430\u0440\u0430\u044E\u0441\u044C \u0432\u0441\u043F\u043E\u043C\u043D\u0438\u0442\u044C
+        \u0432\u0438\u0437\u0443\u0430\u043B\u044C\u043D\u043E."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_30_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes, these are exactly the ones from my childhood.
+      - "\u0414\u0430 \u044D\u0442\u043E \u0438\u043C\u0435\u043D\u043D\u043E \u0442\u0435,
+        \u0447\u0442\u043E \u0431\u044B\u043B\u0438 \u0432 \u0434\u0435\u0442\u0441\u0442\u0432\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_30_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Fantastic! Your grandmother was a true master of her craft.
+      - "\u041F\u043E\u0442\u0440\u044F\u0441\u0430\u044E\u0449\u0435! \u0422\u0432\u043E\u044F
+        \u0431\u0430\u0431\u0443\u0448\u043A\u0430 \u0431\u044B\u043B\u0430 \u043D\u0430\u0441\u0442\u043E\u044F\u0449\u0438\u043C
+        \u043C\u0430\u0442\u0435\u0440\u043E\u043C \u0441\u0432\u043E\u0435\u0433\u043E
+        \u0434\u0435\u043B\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_30_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - And so was grandpa. He could fix or make almost anything.
+      - "\u0418 \u0434\u0435\u0434\u0443\u0448\u043A\u0430 \u0442\u043E\u0436\u0435.
+        \u041E\u043D \u043C\u043E\u0433 \u043F\u043E\u0447\u0438\u043D\u0438\u0442\u044C
+        \u0438\u043B\u0438 \u0441\u0434\u0435\u043B\u0430\u0442\u044C \u043F\u0440\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438
+        \u0432\u0441\u0435, \u0447\u0442\u043E \u0443\u0433\u043E\u0434\u043D\u043E."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_30_dlg_6
+      TermType: 0
+      Description: 
+      Languages:
+      - By the way, we should do something about the fish tank, I can't stand the
+        sight of it.
+      - "\u041A\u0441\u0442\u0430\u0442\u0438 \u043F\u043E\u0440\u0430 \u043D\u0430\u043C
+        \u0432\u0437\u044F\u0442\u044C\u0441\u044F \u0437\u0430 \u0430\u043A\u0432\u0430\u0440\u0438\u0443\u043C,
+        \u043D\u0435 \u043C\u043E\u0433\u0443 \u0443\u0436\u0435 \u043D\u0430 \u043D\u0435\u0433\u043E
+        \u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_31_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Alex, are you sure you can handle it? I mean, it's glass, you could hurt
+        yourself.
+      - "\u0410\u043B\u0435\u043A\u0441, \u0442\u044B \u0443\u0432\u0435\u0440\u0435\u043D,
+        \u0447\u0442\u043E \u0441\u043F\u0440\u0430\u0432\u0438\u0448\u044C\u0441\u044F?
+        \u042D\u0442\u043E \u0436\u0435 \u0441\u0442\u0435\u043A\u043B\u043E, \u0442\u044B
+        \u043C\u043E\u0436\u0435\u0448\u044C \u043F\u043E\u0440\u0430\u043D\u0438\u0442\u044C\u0441\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_31_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - My grandfather, while making this fish tank, was telling me how to maintain
+        it.
+      - "\u0414\u0435\u0434\u0443\u0448\u043A\u0430 \u043C\u043D\u0435 \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u044B\u0432\u0430\u043B,
+        \u043A\u0430\u043A \u0435\u0433\u043E \u043E\u0431\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0442\u044C,
+        \u043A\u043E\u0433\u0434\u0430 \u0434\u0435\u043B\u0430\u043B \u044D\u0442\u043E\u0442
+        \u0430\u043A\u0432\u0430\u0440\u0438\u0443\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_31_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - Alex, well done! I didn't think you could do it.
+      - "\u0410\u043B\u0435\u043A\u0441, \u0442\u044B \u0442\u0430\u043A\u043E\u0439
+        \u043C\u043E\u043B\u043E\u0434\u0435\u0446! \u0414\u0443\u043C\u0430\u043B\u0430,
+        \u0447\u0442\u043E \u0442\u044B \u043D\u0435 \u0441\u043F\u0440\u0430\u0432\u0438\u0448\u044C\u0441\u044F."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_31_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - If you're as careful as you've handled the glass now, you're going to be
+        a great father.
+      - "\u0415\u0441\u043B\u0438 \u0442\u044B \u0431\u0443\u0434\u0435\u0448\u044C
+        \u0442\u0430\u043A\u0436\u0435 \u0431\u0435\u0440\u0435\u0436\u0435\u043D,
+        \u043A\u0430\u043A \u0442\u044B \u0441\u0435\u0439\u0447\u0430\u0441 \u0441\u043F\u0440\u0430\u0432\u043B\u044F\u043B\u0441\u044F
+        \u0441\u043E \u0441\u0442\u0435\u043A\u043B\u043E\u043C, \u0442\u043E \u0442\u044B
+        \u0441\u0442\u0430\u043D\u0435\u0448\u044C \u043F\u0440\u0435\u043A\u0440\u0430\u0441\u043D\u044B\u043C
+        \u043E\u0442\u0446\u043E\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_31_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - A baby is much more fragile than glass!
+      - "\u0420\u0435\u0431\u0435\u043D\u043E\u043A \u043D\u0430\u043C\u043D\u043E\u0433\u043E
+        \u0445\u0440\u0443\u043F\u0447\u0435, \u0447\u0435\u043C \u0441\u0442\u0435\u043A\u043B\u043E!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_31_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Oh, I got a little overexcited. So, I'm going to finish my mother's novel.
+      - "\u0427\u0442\u043E-\u0442\u043E \u044F \u043F\u0435\u0440\u0435\u043D\u0435\u0440\u0432\u043D\u0438\u0447\u0430\u043B\u0430.
+        \u041F\u043E\u0439\u0434\u0443 \u0434\u043E\u0447\u0438\u0442\u0430\u044E
+        \u043C\u0430\u043C\u0438\u043D \u0440\u043E\u043C\u0430\u043D."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_33_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Such a wonderful novel, I wish it had never ended.
+      - "\u0422\u0430\u043A\u043E\u0439 \u043A\u043B\u0430\u0441\u0441\u043D\u044B\u0439
+        \u0440\u043E\u043C\u0430\u043D, \u0434\u0430\u0436\u0435 \u043D\u0435 \u0445\u043E\u0447\u0435\u0442\u0441\u044F
+        \u0435\u0433\u043E \u0437\u0430\u043A\u0430\u043D\u0447\u0438\u0432\u0430\u0442\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_33_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - I wonder if I could be as carried away by any book.
+      - "\u0414\u0430\u0436\u0435 \u043D\u0435 \u0437\u043D\u0430\u044E, \u0441\u043C\u043E\u0436\u0435\u0442
+        \u043B\u0438 \u043A\u0430\u043A\u0430\u044F-\u0442\u043E \u043A\u043D\u0438\u0433\u0430
+        \u043C\u0435\u043D\u044F \u0442\u0430\u043A\u0436\u0435 \u0441\u0438\u043B\u044C\u043D\u043E
+        \u0443\u0434\u0438\u0432\u0438\u0442\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_33_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - I reckon you'll write an even better book yourself.
+      - "\u0414\u0443\u043C\u0430\u044E \u0442\u044B \u0441\u0430\u043C\u0430 \u043D\u0430\u043F\u0438\u0448\u0435\u0448\u044C
+        \u043A\u043D\u0438\u0433\u0443, \u043A\u043E\u0442\u043E\u0440\u0430\u044F
+        \u0431\u0443\u0434\u0435\u0442 \u0435\u0449\u0435 \u043B\u0443\u0447\u0448\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_33_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Alex, cheers for me, I finished the novel.
+      - "\u0410\u043B\u0435\u043A\u0441, \u043C\u043E\u0436\u0435\u0448\u044C \u043F\u043E\u0437\u0434\u0440\u0430\u0432\u0438\u0442\u044C
+        \u043C\u0435\u043D\u044F, \u044F \u0434\u043E\u0447\u0438\u0442\u0430\u043B\u0430
+        \u0440\u043E\u043C\u0430\u043D."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_33_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Now it can take its place in this lovely closet.
+      - "\u0422\u0435\u043F\u0440\u044C \u043E\u043D \u043C\u043E\u0436\u0435\u0442
+        \u0437\u0430\u043D\u044F\u0442\u044C \u043C\u0435\u0441\u0442\u043E \u0432
+        \u044D\u0442\u043E\u043C \u043F\u0440\u0435\u043A\u0440\u0430\u0441\u043D\u043E\u043C
+        \u0448\u043A\u0430\u0444\u0443."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_33_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - The books reminded me of riding on a swinging toy pony as a kid.
+      - "\u041A\u043D\u0438\u0433\u0438 \u043D\u0430\u043F\u043E\u043C\u043D\u0438\u043B\u0438
+        \u043C\u043D\u0435, \u043A\u0430\u043A \u044F \u0432 \u0434\u0435\u0442\u0441\u0442\u0432\u0435
+        \u043A\u0430\u0447\u0430\u043B\u0441\u044F \u043D\u0430 \u0438\u0433\u0440\u0443\u0448\u0435\u0447\u043D\u043E\u043C
+        \u043F\u043E\u043D\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_34_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - I remember when I was a kid, I really loved riding on the toy pony.
+      - "\u041F\u043E\u043C\u043D\u044E \u0432 \u0434\u0435\u0442\u0441\u0442\u0432\u0435
+        \u044F \u043E\u0447\u0435\u043D\u044C \u043B\u044E\u0431\u0438\u043B \u043A\u0430\u0447\u0430\u0442\u044C\u0441\u044F
+        \u043D\u0430 \u0438\u0433\u0440\u0443\u0448\u0435\u0447\u043D\u043E\u043C
+        \u043F\u043E\u043D\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_34_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - I pictured myself as a warrior galloping straight into the heat of battle.
+      - "\u042F \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u043B
+        \u0441\u0435\u0431\u044F \u0432\u043E\u0438\u043D\u043E\u043C, \u0441\u043A\u0430\u0447\u0443\u0449\u0438\u043C
+        \u043F\u0440\u044F\u043C\u043E \u0432 \u043F\u044B\u043B \u0431\u043E\u044F."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_34_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - Well, boys will be boys. But I loved to ride a pony like that, too.
+      - "\u0412\u0441\u0435 \u0432\u044B \u043C\u0430\u043B\u044C\u0447\u0438\u043A\u0438
+        \u043E\u0434\u0438\u043D\u0430\u043A\u043E\u0432\u044B\u0435. \u041D\u043E
+        \u044F \u0442\u043E\u0436\u0435 \u043E\u0447\u0435\u043D\u044C \u043B\u044E\u0431\u0438\u043B\u0430
+        \u043A\u0430\u0442\u0430\u0442\u044C\u0441\u044F \u043D\u0430 \u0442\u0430\u043A\u043E\u043C
+        \u043F\u043E\u043D\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_34_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - I believe our little one will like it, too. After all, he turns out to be
+        a hereditary rider.
+      - "\u0414\u0443\u043C\u0430\u044E \u043D\u0430\u0448\u0435\u043C\u0443 \u043C\u0430\u043B\u044B\u0448\u0443,
+        \u044D\u0442\u043E \u0442\u043E\u0436\u0435 \u043F\u043E\u043D\u0440\u0430\u0432\u0438\u0442\u0441\u044F.
+        \u0412\u0435\u0434\u044C \u043E\u043D \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0441\u044F
+        \u043F\u043E\u0442\u043E\u043C\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0439
+        \u0432\u0441\u0430\u0434\u043D\u0438\u043A."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_34_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - It makes me want to go for a ride. I bet the baby will be thrilled.
+      - "\u0422\u0430\u043A \u0438 \u0445\u043E\u0447\u0435\u0442\u0441\u044F \u043F\u0440\u043E\u043A\u0430\u0442\u0438\u0442\u0441\u044F.
+        \u0414\u0443\u043C\u0430\u044E \u043C\u0430\u043B\u044B\u0448 \u0431\u0443\u0434\u0435\u0442
+        \u0432 \u0432\u043E\u0441\u0442\u043E\u0440\u0433\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_34_dlg_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Just don't you dare sit down. I imagined a prince on a slightly different
+        horse.
+      - "\u0422\u043E\u043B\u044C\u043A\u043E \u043D\u0435 \u0432\u0437\u0434\u0443\u043C\u0430\u0439
+        \u0441\u0430\u0434\u0438\u0442\u0441\u044F. \u042F \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u043B\u0430
+        \u0441\u0435\u0431\u0435 \u043F\u0440\u0438\u043D\u0446\u0430 \u043D\u0435\u043C\u043D\u043E\u0433\u043E
+        \u043D\u0430 \u0434\u0440\u0443\u0433\u043E\u043C \u043A\u043E\u043D\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_35_dlg_0
+      TermType: 0
+      Description: 
+      Languages:
+      - I don't have the energy anymore. It's been an extremely long day.
+      - "\u0427\u0442\u043E-\u0442\u043E \u0443\u0436\u0435 \u0441\u043E\u0432\u0441\u0435\u043C
+        \u043D\u0435\u0442 \u0441\u0438\u043B. \u0414\u0435\u043D\u044C \u0432\u044B\u0434\u0430\u043B\u0441\u044F
+        \u043D\u0435\u0432\u0435\u0440\u043E\u044F\u0442\u043D\u043E \u0434\u043E\u043B\u0433\u0438\u043C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_35_dlg_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'And most importantly, productive. '
+      - "\u0410 \u0433\u043B\u0430\u0432\u043D\u043E\u0435 \u043F\u043E\u043B\u0435\u0437\u043D\u044B\u043C. "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_35_dlg_2
+      TermType: 0
+      Description: 
+      Languages:
+      - Let's go to bed now. Who knows what awaits us tomorrow.
+      - "\u0414\u0430\u0432\u0430\u0439 \u0443\u0436\u0435 \u043B\u043E\u0436\u0438\u0442\u044C\u0441\u044F
+        \u0441\u043F\u0430\u0442\u044C. \u041A\u0442\u043E \u0437\u043D\u0430\u0435\u0442,
+        \u0447\u0442\u043E \u043D\u0430\u0441 \u0436\u0434\u0435\u0442 \u0437\u0430\u0432\u0442\u0440\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_35_dlg_3
+      TermType: 0
+      Description: 
+      Languages:
+      - What is that smell? It's like something burning. It comes from the kitchen.
+      - "\u0427\u0442\u043E \u0437\u0430 \u0437\u0430\u043F\u0430\u0445? \u041A\u0430\u043A
+        \u0431\u0443\u0434\u0442\u043E \u0447\u0442\u043E-\u0442\u043E \u0433\u043E\u0440\u0438\u0442.
+        \u041F\u043E\u0445\u043E\u0436\u0435 \u044D\u0442\u043E \u0441 \u043A\u0443\u0445\u043D\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/quest_35_dlg_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Ann, where are you? What's going on?
+      - "\u0410\u043D\u043D, \u0442\u044B \u0433\u0434\u0435? \u0427\u0442\u043E
+        \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0434\u0438\u0442?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/next_day
+      TermType: 0
+      Description: 
+      Languages:
+      - 'The next
+
+        day...'
+      - "\u041D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439\n\u0434\u0435\u043D\u044C..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/few_hours
+      TermType: 0
+      Description: 
+      Languages:
+      - 'A few hours
+
+        later...'
+      - "\u0427\u0435\u0440\u0435\u0437 \u043F\u0430\u0440\u0443 \u0447\u0430\u0441\u043E\u0432..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/one_hour
+      TermType: 0
+      Description: 
+      Languages:
+      - 'One hour
+
+        later...'
+      - "\u0427\u0435\u0440\u0435\u0437 \u0447\u0430\u0441..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quests/doorbell
+      TermType: 0
+      Description: 
+      Languages:
+      - Doorbell
+      - "\u0417\u0432\u043E\u043D\u043E\u043A \u0432 \u0434\u0432\u0435\u0440\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Intro
+      - "\u0418\u043D\u0442\u0440\u043E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_1
+      TermType: 0
+      Description: 
+      Languages:
+      - Find the key
+      - "\u041D\u0430\u0439\u0442\u0438 \u043A\u043B\u044E\u0447 \u043E\u0442 \u0434\u043E\u043C\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_2
+      TermType: 0
+      Description: 
+      Languages:
+      - Clear out the old boxes
+      - "\u0420\u0430\u0441\u0447\u0438\u0441\u0442\u0438\u0442\u044C \u0441\u0442\u0430\u0440\u044B\u0435
+        \u043A\u043E\u0440\u043E\u0431\u043A\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Replace the old floor
+      - "\u0417\u0430\u043C\u0435\u043D\u0438\u0442\u044C \u0441\u0442\u0430\u0440\u044B\u0439
+        \u043F\u043E\u043B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_4
+      TermType: 0
+      Description: 
+      Languages:
+      - Restore the walls
+      - "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+        \u0441\u0442\u0435\u043D\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_5
+      TermType: 0
+      Description: 
+      Languages:
+      - Invite Ann
+      - "\u041F\u0440\u0438\u0433\u043B\u0430\u0441\u0438\u0442\u044C \u0410\u043D\u043D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_6
+      TermType: 0
+      Description: 
+      Languages:
+      - Assemble a clothes rack
+      - "\u0421\u043E\u0431\u0440\u0430\u0442\u044C \u0432\u0435\u0448\u0430\u043B\u043A\u0443
+        \u0434\u043B\u044F \u043E\u0434\u0435\u0436\u0434\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_7
+      TermType: 0
+      Description: 
+      Languages:
+      - Install a mirror
+      - "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u0437\u0435\u0440\u043A\u0430\u043B\u043E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_8
+      TermType: 0
+      Description: 
+      Languages:
+      - Set up the phone
+      - "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+        \u0442\u0435\u043B\u0435\u0444\u043E\u043D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_9
+      TermType: 0
+      Description: 
+      Languages:
+      - Put a rug at the entrance
+      - "\u041F\u043E\u043B\u043E\u0436\u0438\u0442\u044C \u043A\u043E\u0432\u0440\u0438\u043A
+        \u043D\u0430 \u0432\u0445\u043E\u0434\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_10
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Replace the couch '
+      - "\u0417\u0430\u043C\u0435\u043D\u0438\u0442\u044C \u0414\u0438\u0432\u0430\u043D "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_11
+      TermType: 0
+      Description: 
+      Languages:
+      - Finish the day
+      - "\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0434\u0435\u043D\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_12
+      TermType: 0
+      Description: 
+      Languages:
+      - Put the armchairs in
+      - "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043A\u0440\u0435\u0441\u043B\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_13
+      TermType: 0
+      Description: 
+      Languages:
+      - Place a carpet under the couch
+      - "\u0420\u0430\u0441\u0442\u0438\u043B\u0438\u0442\u044C \u043A\u043E\u0432\u0435\u0440
+        \u043F\u043E\u0434 \u0434\u0438\u0432\u0430\u043D\u043E\u043C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_14
+      TermType: 0
+      Description: 
+      Languages:
+      - Replace the TV cabinet
+      - "\u0417\u0430\u043C\u0435\u043D\u0438\u0442\u044C \u0442\u0443\u043C\u0431\u0443
+        \u0434\u043B\u044F \u0442\u0435\u043B\u0435\u0432\u0438\u0437\u043E\u0440\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_15
+      TermType: 0
+      Description: 
+      Languages:
+      - Order TV
+      - "\u0417\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0442\u0435\u043B\u0435\u0432\u0438\u0437\u043E\u0440"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_16
+      TermType: 0
+      Description: 
+      Languages:
+      - Install the TV
+      - "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u0442\u0435\u043B\u0435\u0432\u0438\u0437\u043E\u0440"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_17
+      TermType: 0
+      Description: 
+      Languages:
+      - Set up a floor lamp
+      - "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u0422\u043E\u0440\u0448\u0435\u0440"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_18
+      TermType: 0
+      Description: 
+      Languages:
+      - Small table
+      - "\u0416\u0443\u0440\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0441\u0442\u043E\u043B\u0438\u043A"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_19
+      TermType: 0
+      Description: 
+      Languages:
+      - Place plants
+      - "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_20
+      TermType: 0
+      Description: 
+      Languages:
+      - Replace the dining table
+      - "\u0417\u0430\u043C\u0435\u043D\u0438\u0442\u044C \u043E\u0431\u0435\u0434\u0435\u043D\u043D\u044B\u0439
+        \u0441\u0442\u043E\u043B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_21
+      TermType: 0
+      Description: 
+      Languages:
+      - Roll out a carpet under the table
+      - "\u0420\u0430\u0441\u0441\u0442\u0435\u043B\u0438\u0442\u044C \u043A\u043E\u0432\u0435\u0440
+        \u043F\u043E\u0434 \u0441\u0442\u043E\u043B\u043E\u043C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_22
+      TermType: 0
+      Description: 
+      Languages:
+      - Decorate the table
+      - "\u0423\u043A\u0440\u0430\u0441\u0438\u0442\u044C \u0441\u0442\u043E\u043B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_23
+      TermType: 0
+      Description: 
+      Languages:
+      - Finish the day
+      - "\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0434\u0435\u043D\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_24
+      TermType: 0
+      Description: 
+      Languages:
+      - Fix the fireplace
+      - "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+        \u043A\u0430\u043C\u0438\u043D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_25
+      TermType: 0
+      Description: 
+      Languages:
+      - Replace the armchairs by the fireplace
+      - "\u0417\u0430\u043C\u0435\u043D\u0438\u0442\u044C \u043A\u0440\u0435\u0441\u043B\u0430
+        \u0443 \u043A\u0430\u043C\u0438\u043D\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_26
+      TermType: 0
+      Description: 
+      Languages:
+      - Coffee table
+      - "\u041A\u043E\u0444\u0435\u0439\u043D\u044B\u0439 \u0441\u0442\u043E\u043B\u0438\u043A"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_27
+      TermType: 0
+      Description: 
+      Languages:
+      - Spread the carpet by the fireplace
+      - "\u0420\u0430\u0441\u0441\u0442\u0435\u043B\u0438\u0442\u044C \u043A\u043E\u0432\u0435\u0440
+        \u0443 \u043A\u0430\u043C\u0438\u043D\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_28
+      TermType: 0
+      Description: 
+      Languages:
+      - Install the shelves for photos
+      - "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043F\u043E\u043B\u043E\u0447\u043A\u0438
+        \u0434\u043B\u044F \u0444\u043E\u0442\u043E\u0433\u0440\u0430\u0444\u0438\u0439 "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_29
+      TermType: 0
+      Description: 
+      Languages:
+      - Add lighting
+      - "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043E\u0441\u0432\u0435\u0449\u0435\u043D\u0438\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_30
+      TermType: 0
+      Description: 
+      Languages:
+      - Buy more plants
+      - "\u0414\u043E\u043A\u0443\u043F\u0438\u0442\u044C \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_31
+      TermType: 0
+      Description: 
+      Languages:
+      - Restore the fish tank
+      - "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+        \u0430\u043A\u0432\u0430\u0440\u0438\u0443\u043C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_32
+      TermType: 0
+      Description: 
+      Languages:
+      - Restore the bookcases
+      - "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+        \u043A\u043D\u0438\u0436\u043D\u044B\u0435 \u0448\u043A\u0430\u0444\u0447\u0438\u043A\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_33
+      TermType: 0
+      Description: 
+      Languages:
+      - Buy a toy pony for your child
+      - "\u041A\u0443\u043F\u0438\u0442\u044C \u0438\u0433\u0440\u0443\u0448\u0435\u0447\u043D\u043E\u0433\u043E
+        \u041F\u043E\u043D\u0438 \u0434\u043B\u044F \u0440\u0435\u0431\u0435\u043D\u043A\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: quest_names/quest_name_34
+      TermType: 0
+      Description: 
+      Languages:
+      - Finish the day
+      - "\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0434\u0435\u043D\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_0_step_0
+      TermType: 0
+      Description: 
+      Languages:
+      - Let's see what happens next!
+      - "\u0414\u0430\u0432\u0430\u0439 \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0438,
+        \u0447\u0442\u043E \u0431\u0443\u0434\u0435\u0442 \u0434\u0430\u043B\u044C\u0448\u0435!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_0_step_2
+      TermType: 0
+      Description: 
+      Languages:
+      - '<color=#449944>Movement!</color>
+
+        Try to move the subject!'
+      - "<color=#449944>\u041F\u0435\u0440\u0435\u043C\u0435\u0449\u0435\u043D\u0438\u0435!</color>\n\u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439
+        \u043F\u0435\u0440\u0435\u043C\u0435\u0441\u0442\u0438\u0442\u044C \u043F\u0440\u0435\u0434\u043C\u0435\u0442!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_0_step_3
+      TermType: 0
+      Description: 
+      Languages:
+      - '<color=#449944>Excellent!</color>
+
+        Now try to merge!'
+      - "<color=#449944>\u041E\u0442\u043B\u0438\u0447\u043D\u043E!</color>\n\u0422\u0435\u043F\u0435\u0440\u044C
+        \u043F\u043E\u043F\u0440\u043E\u0431\u0443\u0439 \u0441\u043E\u0435\u0434\u0438\u043D\u0438\u0442\u044C!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_1_step_0
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Let''s see,
+
+        how the story with the key ends!'
+      - "\u0414\u0430\u0432\u0430\u0439 \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u043C,\n\u0447\u0435\u043C
+        \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u043B\u0430\u0441\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u044F
+        \u0441 \u043A\u043B\u044E\u0447\u043E\u043C!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_1_step_2
+      TermType: 0
+      Description: 
+      Languages:
+      - '<color=#449944>That''s the goal!</color>
+
+        Collect it to pass the
+        level!'
+      - "<color=#449944>\u042D\u0442\u043E \u0446\u0435\u043B\u044C!</color>\n\u0421\u043E\u0431\u0435\u0440\u0438
+        \u0435\u0435, \u0447\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0439\u0442\u0438
+        \u0443\u0440\u043E\u0432\u0435\u043D\u044C!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_1_step_3
+      TermType: 0
+      Description: 
+      Languages:
+      - "The other items \ncan also be merged<color=#449944>Try that! </color>"
+      - "\u041E\u0441\u0442\u0430\u043B\u044C\u043D\u044B\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B
+        \n\u0442\u043E\u0436\u0435 \u043C\u043E\u0436\u043D\u043E \u0441\u043E\u0435\u0434\u0438\u043D\u044F\u0442\u044C,
+        <color=#449944>\u043F\u043E\u043F\u0440\u043E\u0431\u0443\u0439!</color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_1_step_4
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Remember, for every item on the board
+
+        there is a reward at the
+        end<color=#449944>reward!</color>'
+      - "\u041F\u043E\u043C\u043D\u0438, \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439
+        \u043F\u0440\u0435\u0434\u043C\u0435\u0442 \u043D\u0430 \u043F\u043E\u043B\u0435\n\u0432
+        \u043A\u043E\u043D\u0446\u0435 \u043D\u0430\u0447\u0438\u0441\u043B\u044F\u0435\u0442\u0441\u044F
+        <color=#449944>\u043D\u0430\u0433\u0440\u0430\u0434\u0430!</color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_1_step_5
+      TermType: 0
+      Description: 
+      Languages:
+      - 'The higher the level of the item,
+
+        <color=#449944>The higher the
+        award!</color>'
+      - "\u0427\u0435\u043C \u0432\u044B\u0448\u0435 \u0443\u0440\u043E\u0432\u0435\u043D\u044C
+        \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u0430,\n<color=#449944>\u0442\u0435\u043C
+        \u0432\u044B\u0448\u0435 \u043D\u0430\u0433\u0440\u0430\u0434\u0430!</color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_1_step_6
+      TermType: 0
+      Description: 
+      Languages:
+      - '<color=#449944>Now merge the stars,
+
+        To pass the level!</color>'
+      - "<color=#449944>\u0422\u0435\u043F\u0435\u0440\u044C \u0441\u043E\u0435\u0434\u0438\u043D\u0438
+        \u0437\u0432\u0435\u0437\u0434\u044B,\n\u0447\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0439\u0442\u0438
+        \u0443\u0440\u043E\u0432\u0435\u043D\u044C!</color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_2_step_0
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Try to merge <color=#449944>5 items!</color>
+
+        Let''s see what happens'
+      - "\u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439 \u0441\u043E\u0435\u0434\u0438\u043D\u0438\u0442\u044C<color=#449944>
+        5 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432!</color>\n\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u043C,
+        \u0447\u0442\u043E \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u0441\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_2_step_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Wow!
+
+        Now merge <color=#449944>the stars</color>,
+
+        To pass
+        the level!'
+      - "\u041E\u0433\u043E!\n\u0422\u0435\u043F\u0435\u0440\u044C \u0441\u043E\u0435\u0434\u0438\u043D\u0438
+        <color=#449944>\u0437\u0432\u0435\u0437\u0434\u044B</color>,\n\u0447\u0442\u043E\u0431\u044B
+        \u043F\u0440\u043E\u0439\u0442\u0438 \u0443\u0440\u043E\u0432\u0435\u043D\u044C!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_3_step_0
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Oops, it''s a dusty square.
+
+        You can''t move it around.
+
+        It
+        needs to be immediately <color=#449944>cleaned</color>'
+      - "\u041E\u0439, \u044D\u0442\u043E \u043F\u044B\u043B\u044C\u043D\u0430\u044F
+        \u043A\u043B\u0435\u0442\u043A\u0430.\n\u041F\u044B\u043B\u044C \u043D\u0435\u043B\u044C\u0437\u044F
+        \u043F\u0435\u0440\u0435\u043C\u0435\u0449\u0430\u0442\u044C.\n\u041D\u0443\u0436\u043D\u043E
+        \u0441\u0440\u043E\u0447\u043D\u043E \u0435\u0435 <color=#449944>\u043E\u0447\u0438\u0441\u0442\u0438\u0442\u044C</color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_3_step_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Tap on soap
+
+        To make <color=#449944>a bubble</color>'
+      - "\u041D\u0430\u0436\u043C\u0438 \u043D\u0430 \u043C\u044B\u043B\u043E,\n\u0447\u0442\u043E\u0431\u044B
+        \u0441\u043E\u0437\u0434\u0430\u0442\u044C <color=#449944>\u043F\u0443\u0437\u044B\u0440\u044C</color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_3_step_2
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Bubbles clean up dusty squares
+
+        <color=#449944>Tap on the bubble,
+
+        To
+        use it </color>,'
+      - "\u041F\u0443\u0437\u044B\u0440\u0438 \u043E\u0447\u0438\u0449\u0430\u044E\u0442
+        \u043F\u044B\u043B\u044C\u043D\u044B\u0435 \u043A\u043B\u0435\u0442\u043A\u0438
+        \n<color=#449944>\u041D\u0430\u0436\u043C\u0438 \u043D\u0430 \u043F\u0443\u0437\u044B\u0440\u044C,
+        \n\u0447\u0442\u043E\u0431\u044B \u0435\u0433\u043E \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C</color>
+        ,"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_3_step_3
+      TermType: 0
+      Description: 
+      Languages:
+      - Let's merge some soaps!
+      - "\u0414\u0430\u0432\u0430\u0439 \u0441\u043E\u0435\u0434\u0438\u043D\u0438\u043C
+        \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u043C\u044B\u043B!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_3_step_4
+      TermType: 0
+      Description: 
+      Languages:
+      - "With liquid soap you can also make \n<color=#449944>bubbles</color>. Try
+        that!"
+      - "\u0418\u0437 \u0436\u0438\u0434\u043A\u043E\u0433\u043E \u043C\u044B\u043B\u0430
+        \u0442\u043E\u0436\u0435 \u043C\u043E\u0436\u043D\u043E\n\u0434\u0435\u043B\u0430\u0442\u044C
+        <color=#449944>\u043F\u0443\u0437\u044B\u0440\u0438</color>. \u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_3_step_5
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Awesome! It is more powerful than the the last one!
+
+        <color=#449944>Use
+        it!</color>'
+      - "\u041A\u043B\u0430\u0441\u0441! \u041E\u043D \u043C\u043E\u0449\u043D\u0435\u0435
+        \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0435\u0433\u043E!\n<color=#449944>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439
+        \u0435\u0433\u043E!</color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_4_step_0
+      TermType: 0
+      Description: 
+      Languages:
+      - 'You can merge the bubbles!
+
+        <color=#449944>Try that!</color>'
+      - "\u0422\u044B \u043C\u043E\u0436\u0435\u0448\u044C \u0441\u043E\u0435\u0434\u0438\u043D\u044F\u0442\u044C
+        \u043F\u0443\u0437\u044B\u0440\u0438!\n<color=#449944>\u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439!</color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_4_step_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Great!
+
+        <color=#449944>Now use it!</color>'
+      - "\u041E\u0442\u043B\u0438\u0447\u043D\u043E!\n<color=#449944>\u0422\u0435\u043F\u0435\u0440\u044C
+        \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439 \u0435\u0433\u043E!</color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_4_step_2
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Cool! <color=#449944>Let''s finish
+
+        This level!</color>'
+      - "\u041A\u0440\u0443\u0442\u043E! <color=#449944>\u0414\u0430\u0432\u0430\u0439
+        \u0437\u0430\u043A\u043D\u0447\u0438\u0432\u0430\u0442\u044C \u0441\n\u044D\u0442\u0438\u043C
+        \u0443\u0440\u043E\u0432\u043D\u0435\u043C!</color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_5_step_0
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Items can be swapped!
+
+        <color=#449944>Sometimes it is very helpful!</color>'
+      - "\u041F\u0440\u0435\u0434\u043C\u0435\u0442\u044B \u043C\u043E\u0433\u0443\u0442
+        \u043C\u0435\u043D\u044F\u0442\u044C\u0441\u044F \u043C\u0435\u0441\u0442\u0430\u043C\u0438!\n<color=#449944>
+        \u0418\u043D\u043E\u0433\u0434\u0430 \u044D\u0442\u043E \u043E\u0447\u0435\u043D\u044C
+        \u043F\u043E\u043B\u0435\u0437\u043D\u043E! </color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_5_step_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'You can also merge 3 items on
+
+        2 squares.'
+      - "\u0415\u0449\u0435 \u043C\u043E\u0436\u043D\u043E \u0441\u043E\u0435\u0434\u0438\u043D\u044F\u0442\u044C
+        3 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u0430 \u043D\u0430\n2 \u043A\u043B\u0435\u0442\u043A\u0430\u0445."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_6_step_0
+      TermType: 0
+      Description: 
+      Languages:
+      - '<color=#449944>Dusty squares can be cleaned
+
+        by merging!</color>
+        Try that!'
+      - "<color=#449944>\u0413\u0440\u044F\u0437\u043D\u044B\u0435 \u043A\u043B\u0435\u0442\u043A\u0438 
+        \u043C\u043E\u0436\u043D\u043E \u043E\u0447\u0438\u0449\u0430\u0442\u044C\n\u0441\u043E\u0435\u0434\u0438\u043D\u0435\u043D\u0438\u0435\u043C!
+        </color> \u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_6_step_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Wow! This must be some kind of magic!
+
+        <color=#449944>Don''t forget
+        about this move later on.
+
+        It will help a lot!</color>'
+      - "\u0412\u0430\u0443! \u042D\u0442\u043E \u043A\u0430\u043A\u0430\u044F-\u0442\u043E
+        \u043C\u0430\u0433\u0438\u044F!\n<color=#449944>\u041D\u0435 \u0437\u0430\u0431\u044B\u0432\u0430\u0439
+        \u043F\u0440\u043E \u044D\u0442\u043E\u0442 \u043F\u0440\u0438\u0435\u043C
+        \u0432\n\u0431\u0443\u0434\u0443\u0449\u0435\u043C. \u042D\u0442\u043E \u0441\u0438\u043B\u044C\u043D\u043E
+        \u043F\u043E\u043C\u043E\u0436\u0435\u0442! </color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: tutors/tutor_23_step_0
+      TermType: 0
+      Description: 
+      Languages:
+      - '<color=#449944>Do you see these empty squares?
+
+        You can''t put items
+        in them!</color>'
+      - "<color=#449944>\u0412\u0438\u0434\u0438\u0448\u044C \u044D\u0442\u0438 \u0434\u044B\u0440\u043A\u0438?\n\u0412
+        \u043D\u0438\u0445 \u043D\u0435\u043B\u044C\u0437\u044F \u0440\u0430\u0437\u043C\u0435\u0449\u0430\u0442\u044C
+        \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B! </color>"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ui/play
+      TermType: 0
+      Description: 
+      Languages:
+      - Play
+      - "\u0418\u0433\u0440\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ui/no_stars.header
+      TermType: 0
+      Description: 
+      Languages:
+      - Not enough stars!
+      - "\u041D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E
+        \u0437\u0432\u0451\u0437\u0434!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ui/new_quest.caption
+      TermType: 0
+      Description: 
+      Languages:
+      - New Task
+      - "\u041D\u043E\u0432\u043E\u0435 \u0417\u0430\u0434\u0430\u043D\u0438\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ui/level
+      TermType: 0
+      Description: 
+      Languages:
+      - Level
+      - "\u0423\u0440\u043E\u0432\u0435\u043D\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ui/day
+      TermType: 0
+      Description: 
+      Languages:
+      - Day
+      - "\u0414\u0435\u043D\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ui/settings
+      TermType: 0
+      Description: 
+      Languages:
+      - Settings
+      - "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ui/well_done
+      TermType: 0
+      Description: 
+      Languages:
+      - Well Done!
+      - "\u0417\u0430\u043C\u0435\u0447\u0430\u0442\u0435\u043B\u044C\u043D\u043E!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/coins
+      TermType: 0
+      Description: 
+      Languages:
+      - Coins
+      - "\u041C\u043E\u043D\u0435\u0442\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/coins_descr
+      TermType: 0
+      Description: 
+      Languages:
+      - Coins
+      - "\u041C\u043E\u043D\u0435\u0442\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/diamonds
+      TermType: 0
+      Description: 
+      Languages:
+      - Diamonds
+      - "\u0410\u043B\u043C\u0430\u0437\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/diamonds_descr
+      TermType: 0
+      Description: 
+      Languages:
+      - Diamonds
+      - "\u0410\u043B\u043C\u0430\u0437\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/hearts
+      TermType: 0
+      Description: 
+      Languages:
+      - Hearts
+      - "\u0421\u0435\u0440\u0434\u0446\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/hearts_descr
+      TermType: 0
+      Description: 
+      Languages:
+      - Hearts
+      - "\u0421\u0435\u0440\u0434\u0446\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/cleaner
+      TermType: 0
+      Description: 
+      Languages:
+      - Cleaner
+      - "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u0435\u043B\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/cleaner_descr
+      TermType: 0
+      Description: 
+      Languages:
+      - Use it to clean one item
+      - "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u0435\u0433\u043E
+        \u0434\u043B\u044F \u043E\u0447\u0438\u0441\u0442\u043A\u0438 \u043E\u0434\u043D\u043E\u0433\u043E
+        \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/magic_wand
+      TermType: 0
+      Description: 
+      Languages:
+      - Magic Wand
+      - "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0430\u044F \u041F\u0430\u043B\u043E\u0447\u043A\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/magic_wand_descr
+      TermType: 0
+      Description: 
+      Languages:
+      - "Use it to upgrade item \nup to next level"
+      - "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u0435\u0433\u043E
+        \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F
+        \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u0430\n\u0434\u043E \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0433\u043E
+        \u0443\u0440\u043E\u0432\u043D\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/disco
+      TermType: 0
+      Description: 
+      Languages:
+      - Disco
+      - "\u0414\u0438\u0441\u043A\u043E\u0442\u0435\u043A\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: resources/disco_descr
+      TermType: 0
+      Description: 
+      Languages:
+      - "Disco will clear \n7 random items"
+      - "\u0414\u0438\u0441\u043A\u043E\u0442\u0435\u043A\u0430 \u043E\u0447\u0438\u0441\u0442\u0438\u0442\u0441\u044F\n7
+        \u0441\u043B\u0443\u0447\u0430\u0439\u043D\u044B\u0445 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432"
+      Flags: 0000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName: 
+    mLanguages:
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Russian
+      Code: ru
+      Flags: 0
+    IgnoreDeviceLanguage: 1
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/macros/s/AKfycbwZUWfmKrf5MrCE01vRFchOpLBhalqO_4LSo47fDAzwpHWC_1zxhLhyV-iqrJIhLUUQ/exec
+    Google_SpreadsheetKey: 1PMch2XsohYa37A4nbaJoysiI4i7GrPKxpkCLWQApikI
+    Google_SpreadsheetName: I2Loc Merge Localization
+    Google_LastUpdatedVersion: 1646386362051
+    Google_Password: change_this
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 1
+    GoogleUpdateSynchronization: 0
+    GoogleUpdateDelay: 0
+    Assets: []
+    Spreadsheet_LocalFileName: 
+    Spreadsheet_LocalCSVSeparator: ','
+    Spreadsheet_LocalCSVEncoding: utf-8
+    Spreadsheet_SpecializationAsRows: 1

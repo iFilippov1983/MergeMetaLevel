@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2307c3fbe4ba4119b5d488ff590b20f4, type: 3}
+  m_Name: CameraApiSettings
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  RotateAroundSpeed: 0.1
+  RotateLeftRightSpeed: 0.05
+  UpSpeedByMouse: 1
+  UpSpeedByKeyboard: 1
+  MoveSpeedByKeyboard: 1
+  ZoomSpeedByMouse: 300
+  ZoomSpeedByKeyboard: 10
+  ZoomForwardStep: 1
+  DefaultFOV: 24
+  DefaultRotation: {x: 30, y: 45, z: 0}
+  DefaultPosition: {x: -12.6, y: 11.5, z: -12.56}
+  DefaultClosePosition: {x: -3.13, y: 2.6, z: -2.92}
+  DefaultMidPosition: {x: -7.5, y: 6.07, z: -7}
+  DefaultFarPosition: {x: -15.78, y: 12.61, z: -14.72}
+  ZoomDirection: {x: 0.6123657, y: -0.5, z: 0.6123734}

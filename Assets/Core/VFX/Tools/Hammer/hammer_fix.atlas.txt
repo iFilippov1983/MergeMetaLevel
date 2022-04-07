@@ -1,0 +1,76 @@
+
+hammer_fix.png
+size: 1719,522
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Cocoon_Red
+  rotate: false
+  xy: 506, 168
+  size: 477, 352
+  orig: 512, 512
+  offset: 17, 143
+  index: -1
+GodRays
+  rotate: false
+  xy: 985, 241
+  size: 279, 279
+  orig: 294, 293
+  offset: 7, 7
+  index: -1
+center
+  rotate: false
+  xy: 985, 6
+  size: 275, 233
+  orig: 275, 233
+  offset: 0, 0
+  index: -1
+hammer_shadow
+  rotate: true
+  xy: 2, 19
+  size: 501, 502
+  orig: 502, 502
+  offset: 0, 0
+  index: -1
+handle_r
+  rotate: false
+  xy: 764, 8
+  size: 175, 158
+  orig: 175, 158
+  offset: 0, 0
+  index: -1
+handle_y
+  rotate: false
+  xy: 506, 11
+  size: 256, 155
+  orig: 256, 155
+  offset: 0, 0
+  index: -1
+lower_part
+  rotate: true
+  xy: 1489, 200
+  size: 320, 228
+  orig: 320, 228
+  offset: 0, 0
+  index: -1
+simple_star
+  rotate: false
+  xy: 1262, 137
+  size: 57, 56
+  orig: 75, 75
+  offset: 9, 9
+  index: -1
+upper_part
+  rotate: true
+  xy: 1266, 195
+  size: 325, 221
+  orig: 325, 221
+  offset: 0, 0
+  index: -1
+water_ripple
+  rotate: false
+  xy: 1489, 2
+  size: 196, 196
+  orig: 210, 210
+  offset: 7, 7
+  index: -1
