@@ -1,35 +1,70 @@
+using System.Globalization;
 using Data;
 using Game;
 using GameUI;
 using UnityEngine;
 using UnityEngine.Analytics;
 using System.Threading.Tasks;
+using Components;
+using Configs;
 
 internal sealed class Root : MonoBehaviour
 {
     [SerializeField] private GameData _gameData;
     [SerializeField] private Transform _uiContainer;
     [SerializeField] private PlayerStats _initialPlayerStats;
-
+    [SerializeField] private StaticData Configs;
+    [SerializeField] private RootView RootView;
+    
     private ProgressHandler _progressHandler;
     private PlayerProfile _playerProfile;
     private MetaLevel _metaLevel;
     private UIHandler _uiHandler;
+    [SerializeField, ReadOnly] private CoreRoot _coreRoot;
 
     private void Awake()
     {
+        TaskScheduler.UnobservedTaskException += HandleTaskException;
+        Application.targetFrameRate = 60;
+        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;  
+            
         _playerProfile = new PlayerProfile(_initialPlayerStats);
         _progressHandler = new ProgressHandler(_gameData.ProgressData, _playerProfile);
         _metaLevel = new MetaLevel(_gameData, _playerProfile);
         _uiHandler = new UIHandler(_gameData.UIData, _uiContainer, _playerProfile);
 
         SubscribeOnEvents();
+        
+        _coreRoot = new CoreRoot(RootView, Configs);
+        _coreRoot.Run();
+    }
+    
+    private void Update()
+    {
+        _coreRoot.OnUpdate();
+    }
+
+    private void OnApplicationQuit()
+    {
+        _coreRoot.OnQuit();
+    }
+
+    private void OnApplicationPause(bool pauseStatus)
+    {
+        _coreRoot.OnPause(pauseStatus);
+    }
+    
+    private void HandleTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+    {
+        Debug.LogError(e.Exception);
     }
 
     private async void OnPlayMergeClicked()
     {
         _uiHandler.DesactivateUiInteraction();
-        await _uiHandler.PlayGoToMergeAnimation();
+        await _coreRoot.OpenLevelStartFromMainMenu();
+        // await _uiHandler.PlayGoToMergeAnimation();
+        
         //await Merge round play. Return win (true) or loose (false)
         bool levelComplete = true;
 

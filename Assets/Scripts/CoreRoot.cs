@@ -138,19 +138,19 @@ public class CoreRoot
         await GoToMap(gameWin);
     }
 
-    private void OpenLevelStartFromMainMenu()
+    public async Task OpenLevelStartFromMainMenu()
     {
         Data.Ui.PlayFromQuests = false;
-        OpenLevelStart();
+        await OpenLevelStart();
     }
     
-    private void OpenLevelStartFromQuests()
+    private async void OpenLevelStartFromQuests()
     {
         Data.Ui.PlayFromQuests = true;
-        OpenLevelStart();
+        await OpenLevelStart();
     }
     
-    private async void OpenLevelStart()
+    private async Task OpenLevelStart()
     {
         if (Data.Profile.Hearts == 0)
         {
@@ -245,21 +245,21 @@ public class CoreRoot
     private void PrepareMainScreen()
     {
         Ui.OnBeforeMergeExit();
-        Ui.OnBeforeMapEnter();
+        // Ui.OnBeforeMapEnter();
         
         Merge.SetInactive();
     }
 
     private void PrepareMergeScreen()
     {
-        Ui.OnBeforeMapExit();
+        // Ui.OnBeforeMapExit();
         Ui.OnBeforeMergeEnter();
         Merge.SetActive();
     }
     
     private void Subscribe()
     {
-        Ui.MainScreen.OnPlayBtnClick += OpenLevelStartFromMainMenu;
+        // Ui.MainScreen.OnPlayBtnClick += OpenLevelStartFromMainMenu;
         Ui.MainScreen.OnSettingsBtnClick += OpenSettings;
         
         Ui.Merge.OnPauseBtnClick += () => GoToMapFromPauseMenu();
