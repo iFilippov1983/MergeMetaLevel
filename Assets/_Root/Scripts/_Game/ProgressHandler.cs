@@ -40,6 +40,10 @@ namespace Game
             ? _progressData.PowerConstantForMergeWin
             : _progressData.GetCurrentPowerGain();
 
+        /// <summary>
+        /// Returnes True if player have enough gold to make power upgrade
+        /// </summary>
+        /// <returns></returns>
         public bool CheckPlayerFunds() =>
             _playerProfile.Stats.Gold >= UpgradePrice ? true : false;
 

@@ -80,12 +80,16 @@ namespace GameUI
             _gameUIView.MainText.gameObject.SetActive(false);
         }
 
-        public void ActivateUiInteraction()
-        {
+        public void ActivateUiInteraction(bool upgradeButtonActive)
+        {          
             ButtonView rollButton = _gameUIView.RollButtonView;
             rollButton.Button.interactable = true;
             SetButtonImageColor(rollButton.ImageList, rollButton.DefaultColor);
             SetButtonTextAlfa(rollButton.TextList);
+            rollButton.Button.image.sprite = 
+                _playerProfile.Stats.DiceRolls > 0 
+                ? rollButton.DefaultSprite 
+                : rollButton.UnactiveStatePrite;
 
             ButtonView mergeButton = _gameUIView.PlayMergeButtonView;
             mergeButton.Button.interactable = true;
@@ -97,6 +101,10 @@ namespace GameUI
             upgradeButton.Button.interactable = true;
             SetButtonImageColor(upgradeButton.ImageList, upgradeButton.DefaultColor);
             SetButtonTextAlfa(upgradeButton.TextList);
+            upgradeButton.Button.image.sprite =
+                upgradeButtonActive
+                ? upgradeButton.DefaultSprite
+                : upgradeButton.UnactiveStatePrite;
         }
 
         public void DesactivateUiInteraction()
@@ -129,25 +137,25 @@ namespace GameUI
             _gameUIView.GemsTMP.text = amount.ToString();
         }
 
-        internal async Task ChangePowerUi(string amount)
+        public async Task ChangePowerUi(string amount)
         {
             await Task.Delay(100);//power change animation
             _gameUIView.PowerTMP.text = amount;
         }
 
-        internal async Task ChangeDiceRollsUi(string amount)
+        public async Task ChangeDiceRollsUi(string amount)
         {
             await Task.Delay(100);//dice change animation
             _gameUIView.DiceRollsTMP.text = amount;
         }
 
-        internal async Task ChangePowerUpgradeCostUi(string cost)
+        public async Task ChangePowerUpgradeCostUi(string cost)
         {
             await Task.Delay(100);//cost change animation
             _gameUIView.UpgradeCostTMP.text = cost;
         }
 
-        internal async Task ChangeMergeLevelButtonUi(string level)
+        public async Task ChangeMergeLevelButtonUi(string level)
         {
             await Task.Delay(100);
             _gameUIView.MergeLevelTMP.text = level;
@@ -168,7 +176,7 @@ namespace GameUI
             _gameUIView.PowerTMP.text = stats.Power.ToString();
             _gameUIView.MergeLevelTMP.text = stats.CurrentMergeLevel.ToString();
 
-            _gameUIView.UpgradePowerButtonView.gameObject.SetActive(stats.PowerUpgradeAvailable);
+            ActivateUiInteraction(_playerProfile.Stats.PowerUpgradeAvailable);
         }
 
         private void SetButtonTextAlfa(List<TextMeshProUGUI> textList, bool fade = false)

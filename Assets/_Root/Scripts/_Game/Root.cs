@@ -41,14 +41,14 @@ internal sealed class Root : MonoBehaviour
             await _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());//temp
             await _uiHandler.ChangeMergeLevelButtonUi(_playerProfile.Stats.CurrentMergeLevel.ToString());
         }
-        
-        _uiHandler.ActivateUiInteraction();
+
+        _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
     }
 
     private async void OnUpgradePowerClicked()
     {
-        bool canBuy = _progressHandler.CheckPlayerFunds();
-        if (canBuy)
+        bool canUpgrade = _progressHandler.CheckPlayerFunds();
+        if (canUpgrade)
         {
             _uiHandler.DesactivateUiInteraction();
 
@@ -58,7 +58,8 @@ internal sealed class Root : MonoBehaviour
             await _uiHandler.ChangeGoldUi(_playerProfile.Stats.Gold.ToString());
             await _uiHandler.ChangePowerUpgradeCostUi(_progressHandler.UpgradePrice.ToString());
 
-            _uiHandler.ActivateUiInteraction();
+            canUpgrade = _progressHandler.CheckPlayerFunds();
+            _uiHandler.ActivateUiInteraction(canUpgrade);
         }
         else return;
     }
@@ -123,9 +124,11 @@ internal sealed class Root : MonoBehaviour
     private async Task RetryFight()
     {
         _uiHandler.DesactivateUiInteraction();
+
         await _uiHandler.PlayDiceUseAnimation();
         await _metaLevel.ApplyCellEvent(OnFightComplete);
-        _uiHandler.ActivateUiInteraction();
+
+        _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
     }
 
     private async Task MakeMove()
@@ -137,7 +140,7 @@ internal sealed class Root : MonoBehaviour
         await _metaLevel.MovePlayer();
         await _metaLevel.ApplyCellEvent(OnFightComplete);
 
-        _uiHandler.ActivateUiInteraction();
+        _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
     }
 
     private void SubscribeOnEvents()

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: rig_vampire_attack_hard_slash
+  m_Name: bandit_girl_attack_hard_slash
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -37607,7 +37607,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.6
+        time: 0.6333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -37616,7 +37616,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.5333333
+        time: 1.7
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -37628,7 +37628,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: VFX/FX_hardSlash_a_B
+    path: VFX/FX_hardSlash_a_BGirl
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -37644,7 +37644,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.2333333
+        time: 1.2666667
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -37653,7 +37653,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.6333333
+        time: 1.7
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -37665,7 +37665,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: VFX/FX_hardSlash_b_B
+    path: VFX/FX_hardSlash_b_BGirl
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -37677,14 +37677,14 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2336478358
+      path: 2316901578
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2298833615
+      path: 3153135191
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -76261,7 +76261,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.6
+        time: 0.6333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -76270,7 +76270,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.5333333
+        time: 1.7
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -76282,7 +76282,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: VFX/FX_hardSlash_a_B
+    path: VFX/FX_hardSlash_a_BGirl
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -76298,7 +76298,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.2333333
+        time: 1.2666667
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -76307,7 +76307,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.6333333
+        time: 1.7
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -76319,7 +76319,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: VFX/FX_hardSlash_b_B
+    path: VFX/FX_hardSlash_b_BGirl
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []

@@ -161,7 +161,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: rig_vampire_attack_hard_slash
+  m_Name: attack_hard_slash
   m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
@@ -175,7 +175,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ef97769d352417f4a904d3df84eed6d0, type: 2}
+  m_Motion: {fileID: 7400000, guid: b60c4e3336f2155458d36559c6d13dcb, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -375,7 +375,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: rig_vampire_attack_turn_around_slash
+  m_Name: attack_turn_around_slash
   m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
@@ -389,7 +389,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5ab42fbb54f9eb94b800f72c93e43141, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2c389648649213248a6e0346e4303423, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

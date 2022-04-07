@@ -1473,6 +1473,8 @@ MonoBehaviour:
   _button: {fileID: 1323959190229969083}
   _defaultColor: {r: 1, g: 1, b: 1, a: 1}
   _fadeColor: {r: 1, g: 1, b: 1, a: 0.50980395}
+  _defaultSprite: {fileID: 21300000, guid: 7d80aaa90a7ee1a45b79bce7f819383f, type: 3}
+  _unactiveStatePrite: {fileID: 21300000, guid: 7cac8d76bbfb72b44a5c143eb4b11a7e, type: 3}
   _textList:
   - {fileID: 9182547486451999767}
   _imageList:
@@ -1977,8 +1979,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 3880483108920694883}
-  _defaultColor: {r: 0, g: 0, b: 0, a: 0}
-  _fadeColor: {r: 0, g: 0, b: 0, a: 0}
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _fadeColor: {r: 1, g: 1, b: 1, a: 0.50980395}
+  _defaultSprite: {fileID: 21300000, guid: 8dd150b5f73448d4c8d53372fd8bf560, type: 3}
+  _unactiveStatePrite: {fileID: 21300000, guid: 7cac8d76bbfb72b44a5c143eb4b11a7e, type: 3}
   _textList:
   - {fileID: 3541928316444513052}
   - {fileID: 6220262421091172141}
@@ -2609,8 +2613,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 8818078001393828096}
-  _defaultColor: {r: 0, g: 0, b: 0, a: 0}
-  _fadeColor: {r: 0, g: 0, b: 0, a: 0}
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _fadeColor: {r: 1, g: 1, b: 1, a: 0.50980395}
+  _defaultSprite: {fileID: 21300000, guid: f4c2a8b10ab53634da5910cc7ff1f737, type: 3}
+  _unactiveStatePrite: {fileID: 21300000, guid: 7cac8d76bbfb72b44a5c143eb4b11a7e, type: 3}
   _textList:
   - {fileID: 4052164102753705696}
   - {fileID: 38532315679581660}
