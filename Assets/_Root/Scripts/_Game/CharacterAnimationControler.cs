@@ -11,7 +11,6 @@ namespace Game
         private bool _deathAnimationFinished;
         private bool _finishOffAnimationFinished;
         private bool _hit;
-        private ParticleSystem _appeatEffect;
 
         private void Awake()
         {
@@ -24,7 +23,6 @@ namespace Game
         public bool GetDeathAnimationFinished() => _deathAnimationFinished;
         public bool GetFinishOffAnimationFinished() => _finishOffAnimationFinished;
         public bool IsHit() => _hit;
-        public void SetAppearEffect(ParticleSystem apperEffect = null) => _appeatEffect = apperEffect;
 
         public void ResetFlags()
         {
@@ -41,14 +39,5 @@ namespace Game
         private void AttackAnimationFinish() => _attackAnimationFinished = true;
         private void FinishOffAnimationFinish() => _finishOffAnimationFinished = true;
         private void Hit() => _hit = true;
-        private void PlayAppearEffect()
-        {
-            if (_appeatEffect != null)
-            {
-                _appeatEffect.gameObject.SetActive(true);
-                _appeatEffect.Play();
-                _appeatEffect = null;
-            }
-        }
     }
 }

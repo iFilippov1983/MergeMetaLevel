@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 
 namespace Level
@@ -7,7 +6,6 @@ namespace Level
     {
         [SerializeField] private Material _actualMaterial;
         [SerializeField] private MeshRenderer _cellBodyMeshRenderer;
-        [SerializeField] private TextMeshPro _textMeshPro;
         [SerializeField] private ParticleSystem _particleSystem;
         [SerializeField] private Transform _enemySpawnPoint;
         [SerializeField] private Transform _fightCameraPositionRight;
@@ -16,7 +14,6 @@ namespace Level
 
         public Material ActualMaterial => _actualMaterial;
         public MeshRenderer CellBodyMeshRenderer => _cellBodyMeshRenderer;
-        public TextMeshPro TextMeshPro => _textMeshPro;
         public ParticleSystem ParticleSystem => _particleSystem;
         public Transform EnemySpawnPoint => _enemySpawnPoint;
         public Transform FightCameraPosition

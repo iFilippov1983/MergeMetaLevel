@@ -24,14 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877293370}
-  m_LocalRotation: {x: -0.11764132, y: -0.73153985, z: 0.13020961, w: -0.65882885}
-  m_LocalPosition: {x: -2.1383934, y: 10.855022, z: 15.170729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2063421821}
   m_Father: {fileID: 5792998086989151609}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 48.3, y: 62.354, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &877293372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,19 +48,19 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 5
+  m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 20
+    FieldOfView: 75
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 80
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
-    m_BlendHint: 0
+    m_BlendHint: 2
     m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 4
-  m_FollowOffset: {x: -5, y: 20, z: -16}
+  m_BindingMode: 3
+  m_FollowOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 1
-  m_HorizontalDamping: 0
+  m_HorizontalDamping: 2
   m_VerticalDamping: 0
   m_ScreenX: 0.5
   m_ScreenY: 0.5
@@ -246,13 +246,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 3
-  m_FollowOffset: {x: -5, y: 20, z: -16}
+  m_FollowOffset: {x: 0, y: 6, z: -3}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 10
-  m_YawDamping: 20
+  m_YawDamping: 10
   m_RollDamping: 10
   m_AngularDamping: 0
 --- !u!1 &5792998086959782705
@@ -281,14 +281,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5792998086959782705}
-  m_LocalRotation: {x: -0.11764132, y: -0.73153985, z: 0.13020961, w: -0.65882885}
-  m_LocalPosition: {x: -2.1383934, y: 10.855022, z: 15.170729}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5792998087898739033}
   m_Father: {fileID: 5792998086989151609}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 48.3, y: 62.354, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &5792998086959782707
 Camera:
   m_ObjectHideFlags: 0
@@ -314,7 +314,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 80
-  field of view: 20
+  field of view: 75
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -422,7 +422,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 5792998086959782707}
   _virtualCamFollow: {fileID: 5792998087915525054}
-  _virtualCamMid: {fileID: 0}
   _virtualCamFight: {fileID: 877293372}
 --- !u!1 &5792998087898739032
 GameObject:
@@ -491,14 +490,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5792998087915525053}
-  m_LocalRotation: {x: -0.11764132, y: -0.73153985, z: 0.13020961, w: -0.65882885}
-  m_LocalPosition: {x: -2.1383934, y: 10.855022, z: 15.170729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5792998085798030971}
   m_Father: {fileID: 5792998086989151609}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 48.3, y: 62.354, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5792998087915525054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,14 +519,14 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 20
+    FieldOfView: 75
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 80
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
-    m_BlendHint: 0
+    m_BlendHint: 2
     m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:

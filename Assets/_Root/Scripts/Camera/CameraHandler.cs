@@ -6,7 +6,6 @@ namespace GameCamera
 {
     internal class CameraHandler
     {
-        private Camera _mainCamera;
         private CinemachineVirtualCamera _virtualCamFollow;
         private CinemachineVirtualCamera _virtualCamFight;
         private Transform _transformToFollow;
@@ -17,7 +16,6 @@ namespace GameCamera
 
         public CameraHandler(CameraContainerView cameraContainerView, Transform targetTransform)
         {
-            _mainCamera = cameraContainerView.MainCamera;
             _virtualCamFollow = cameraContainerView.VirtualCamFollow;
             _transformToFollow = targetTransform;
             _virtualCamFollow.Follow = _transformToFollow;
@@ -33,7 +31,7 @@ namespace GameCamera
                 _fightMode = false;
                 SetPriorities(_virtualCamFollow, _virtualCamFight, _transformToFollow);
 
-                await Task.Delay(2000);//??
+                await Task.Delay(1000);//??
             }
             else
             { 
@@ -42,7 +40,7 @@ namespace GameCamera
                 _virtualCamFight.transform.position = transformToPlace.position;
                 _virtualCamFight.transform.rotation = transformToPlace.rotation;
 
-                await Task.Delay(2000);//??
+                await Task.Delay(1000);//??
             }
         }
 
