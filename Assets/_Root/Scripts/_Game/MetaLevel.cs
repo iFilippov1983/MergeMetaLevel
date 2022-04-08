@@ -8,7 +8,6 @@ using UnityEngine.Analytics;
 using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using static UnityEngine.ParticleSystem;
 
 namespace Game
 {
@@ -42,7 +41,7 @@ namespace Game
             _routeHandler = new LevelRouteLogicHandler(_gameData.LevelData.CellsToVisit);
             _cameraHandler = new CameraHandler(_gameData.LevelData.CameraContainerView, _playerHandler.PlayerView.transform);
             _animationHandler = new AnimationHandler(_playerHandler.PlayerView, _playerHandler.PlayerAnimController);
-            _fightHandler = new FightEventHandler(_gameData.EnemiesData, _animationHandler, _playerProfile);
+            _fightHandler = new FightEventHandler(_animationHandler, _playerProfile);
             _enemyHandler = new EnemyHandler(_gameData.EnemiesData, _animationHandler);
         }
 
@@ -85,18 +84,14 @@ namespace Game
 
         private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
         {
-            GameObject effectObject = null;
-            if (resourceProperties.PickupEffect != null)
-            {
-                _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID);
-                effectObject = GameObject.Instantiate(resourceProperties.PickupEffect.gameObject, _cellView.ResourcePickupEffectSpawnPoint.position, Quaternion.identity);
-                var particleEffect = effectObject.GetComponent<ParticleSystem>();
-                particleEffect.Play();
+            _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID);
+            var effectObject = GameObject.Instantiate(resourceProperties.PickupEffectPrefab, _cellView.ResourcePickupEffectSpawnPoint.position, Quaternion.identity);
+            var particleEffect = effectObject.GetComponent<ParticleSystem>();
+            particleEffect.Play();
 
-                while (particleEffect.isPlaying)
-                    await Task.Yield();
-            }
-            //await Task.Delay(1000);//resource pickup animation
+            while (particleEffect.isPlaying)
+                await Task.Yield();
+
             OnResourcePickupEvent?.Invoke(resourceProperties);
             GameObject.Destroy(effectObject);
         }

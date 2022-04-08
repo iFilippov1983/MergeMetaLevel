@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Tool;
 using UnityEngine;
 
@@ -12,9 +11,9 @@ namespace Data
         [SerializeField] private EnemyStats _enemyStats;
         [SerializeField] private List<ResourceProperties> _rewardList;
         [SerializeField] private string _infoPrefabName;
-
-        private GameObject _infoPrefab;
-
+        
+        //private GameObject _infoPrefab;
+        
         public EnemyType EnemyType => _enemyType;
         public EnemyStats Stats => _enemyStats;
         public List<ResourceProperties> Reward => _rewardList;

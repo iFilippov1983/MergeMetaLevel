@@ -52,6 +52,7 @@ MonoBehaviour:
   _model: {fileID: 3075058886931465835}
   _animator: {fileID: 4892431815777538486}
   _appearEffect: {fileID: 0}
+  _popupPrefabName: Popup
 --- !u!114 &-6854303967316658860
 MonoBehaviour:
   m_ObjectHideFlags: 0

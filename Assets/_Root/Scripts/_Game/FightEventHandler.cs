@@ -13,13 +13,15 @@ namespace Game
         private AnimationHandler _animationHandler;
         private PlayerProfile _playerProfile;
 
+        private int _playerPower;
         private int _playerHealth;
+        private int _enemyPower;
         private int _enemyHealth;
 
-        private Action<int> _playerGetHitEvent;
+        private Action<int, int> _playerGetHitEvent;
         private Action<int> _enemyGetHitEvent;
 
-        public FightEventHandler(EnemiesData enemiesData, AnimationHandler animationHandler, PlayerProfile playerProfile)
+        public FightEventHandler(AnimationHandler animationHandler, PlayerProfile playerProfile)
         {
             _animationHandler = animationHandler;
             _playerProfile = playerProfile;
@@ -27,28 +29,28 @@ namespace Game
 
         public async Task ApplyFight
             (
-            Action<int> PlayerGetHit, 
+            Action<int, int> PlayerGetHit, 
             Action<int> EnemyGetHit, 
             EnemyProperties enemyProperties
             )
         {
             _playerHealth = _playerProfile.Stats.Health;
-            int playerPower = _playerProfile.Stats.Power;
+            _playerPower = _playerProfile.Stats.Power;
             _enemyHealth = enemyProperties.Stats.Health;
-            int enemyPower = enemyProperties.Stats.Power;
+            _enemyPower = enemyProperties.Stats.Power;
             _playerGetHitEvent = PlayerGetHit;
             _enemyGetHitEvent = EnemyGetHit;
 
             while (_playerHealth > 0 && _enemyHealth > 0)
             {
-                _enemyHealth -= playerPower;
+                _enemyHealth -= _playerPower;
                 await _animationHandler.AnimateHit(true, _enemyHealth <= 0, GotHitEvent);
                 
                 if (_enemyHealth <= 0) break;
 
-                _playerHealth -= enemyPower;
+                _playerHealth -= _enemyPower;
                 await _animationHandler.AnimateHit(false, _playerHealth <= 0, GotHitEvent);
-                PlayerGetHit?.Invoke(_playerHealth);
+
             }
 
             bool result = _playerHealth > 0;
@@ -60,7 +62,7 @@ namespace Game
             if(playerAttacking)
                 _enemyGetHitEvent?.Invoke(_enemyHealth);
             else
-                _playerGetHitEvent?.Invoke(_playerHealth);
+                _playerGetHitEvent?.Invoke(_enemyPower, _playerHealth);
 
         }
     }

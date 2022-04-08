@@ -1749,6 +1749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 2720280477367181964}
+  _popupPrefabName: Popup
 --- !u!114 &662150548594473093
 MonoBehaviour:
   m_ObjectHideFlags: 0
