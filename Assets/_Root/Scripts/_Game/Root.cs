@@ -174,6 +174,12 @@ internal sealed class Root : MonoBehaviour
         //TODO: ui onFightComplete functions
     }
 
+    private void OnLevelCompletionProgress(int currentCellId)
+    {
+        float progressValue = (float)currentCellId / (float)_gameData.LevelData.CellsViews.Length;
+        _uiHandler.UpdateProgressBar(progressValue);
+    }
+
     private async Task RetryFight()
     {
         _uiHandler.DesactivateUiInteraction();
@@ -205,6 +211,7 @@ internal sealed class Root : MonoBehaviour
         _metaLevel.OnResourcePickupEvent += OnResourcePickup;
         _metaLevel.OnFightEvent += OnFight;
         _metaLevel.OnPowerUpgradeAvailableEvent += OnPowerUpgradeAvailable;
+        _metaLevel.OnLevelCompletionProgressEvent += OnLevelCompletionProgress;
     }
 
     private void OnDestroy()
@@ -216,6 +223,7 @@ internal sealed class Root : MonoBehaviour
         _metaLevel.OnResourcePickupEvent -= OnResourcePickup;
         _metaLevel.OnFightEvent -= OnFight;
         _metaLevel.OnPowerUpgradeAvailableEvent -= OnPowerUpgradeAvailable;
+        _metaLevel.OnLevelCompletionProgressEvent -= OnLevelCompletionProgress;
     }
 }
 

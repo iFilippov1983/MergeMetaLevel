@@ -1,8 +1,6 @@
 ﻿using Level;
 using GameCamera;
 using UnityEngine;
-using UnityEditor;
-using System;
 
 namespace Data
 {

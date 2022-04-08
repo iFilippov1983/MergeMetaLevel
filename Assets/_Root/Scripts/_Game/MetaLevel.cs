@@ -8,6 +8,7 @@ using UnityEngine.Analytics;
 using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using static UnityEngine.ParticleSystem;
 
 namespace Game
 {
@@ -30,6 +31,7 @@ namespace Game
         public Action OnFightEvent;
         public Action OnPowerUpgradeAvailableEvent;
         public Action<ResourceProperties> OnResourcePickupEvent;
+        public Action<int> OnLevelCompletionProgressEvent;
 
         public MetaLevel(GameData gameData, PlayerProfile playerProfile)
         {
@@ -68,13 +70,11 @@ namespace Game
                 if (_playerProfile.Stats.LastFightWinner)
                 {
                     _lastEnemyProperties = (EnemyProperties)content;
-                    await ApplyFight(_lastEnemyProperties);//OnFightEvent callback
-                    OnFightCompleteEvent?.Invoke(_playerProfile.Stats.LastFightWinner);
+                    await ApplyFight(_lastEnemyProperties, OnFightCompleteEvent);
                 }
                 else
                 {
-                    await ApplyFight(_lastEnemyProperties, false);
-                    OnFightCompleteEvent?.Invoke(_playerProfile.Stats.LastFightWinner);
+                    await ApplyFight(_lastEnemyProperties, OnFightCompleteEvent, false);
                 }
             }
             if (type.Equals(ContentType.Resource))
@@ -85,11 +85,23 @@ namespace Game
 
         private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
         {
-            await Task.Delay(1000);//resource pickup animation
+            GameObject effectObject = null;
+            if (resourceProperties.PickupEffect != null)
+            {
+                _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID);
+                effectObject = GameObject.Instantiate(resourceProperties.PickupEffect.gameObject, _cellView.ResourcePickupEffectSpawnPoint.position, Quaternion.identity);
+                var particleEffect = effectObject.GetComponent<ParticleSystem>();
+                particleEffect.Play();
+
+                while (particleEffect.isPlaying)
+                    await Task.Yield();
+            }
+            //await Task.Delay(1000);//resource pickup animation
             OnResourcePickupEvent?.Invoke(resourceProperties);
+            GameObject.Destroy(effectObject);
         }
 
-        private async Task ApplyFight(EnemyProperties enemyProperties, bool fisrtFightOnThisCell = true)
+        private async Task ApplyFight(EnemyProperties enemyProperties, Action<bool> OnFightCompleteEvent, bool fisrtFightOnThisCell = true)
         {
             Transform enemySpawnPoint = null;
 
@@ -105,8 +117,10 @@ namespace Game
             _enemyHandler.InitHealthBar();
             OnFightEvent?.Invoke();
             await _fightHandler.ApplyFight(_playerHandler.OnGetHitEvent, _enemyHandler.OnGetHitEvent, enemyProperties);
+
             bool playerWins = _playerProfile.Stats.LastFightWinner;
             await HandleFightResult(playerWins, enemyProperties);
+            OnFightCompleteEvent?.Invoke(playerWins);
 
             await _cameraHandler.SwitchCamera();
         }
@@ -124,6 +138,7 @@ namespace Game
 
                 ApplyCellPass(id);
                 _playerProfile.Stats.CurrentCellID = id;
+                OnLevelCompletionProgressEvent?.Invoke(id);
             }
 
             _animationHandler.StopPlayer();
@@ -133,9 +148,9 @@ namespace Game
         {
             var cellView = _levelViewHandler.GetCellViewWithId(sellId);
 
-            var pSystem = cellView.ParticleSystem;
-            pSystem.gameObject.SetActive(true);
-            pSystem.Play();
+            var passEffect = cellView.CellPassEffect;
+            passEffect.gameObject.SetActive(true);
+            passEffect.Play();
         }
 
         private async Task HandleFightResult(bool playerWins, EnemyProperties enemyProperties)

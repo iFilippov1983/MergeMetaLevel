@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1477053152382884370}
   - component: {fileID: 8054200738808013413}
   - component: {fileID: 5341433566670741851}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8489894530116270327}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -179,7 +179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5230811020651809470}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FightCameraPositionRight
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -198,8 +198,62 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8489894530116270327}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 20, y: -90, z: 0}
+--- !u!1 &4645452017832260439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2200387310473004925}
+  - component: {fileID: 3936862611454349287}
+  - component: {fileID: 1826503521206569407}
+  m_Layer: 3
+  m_Name: cell_plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2200387310473004925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645452017832260439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 1, z: 0.4}
+  m_Children: []
+  m_Father: {fileID: 8489894530116270327}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3936862611454349287
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645452017832260439}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &1826503521206569407
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645452017832260439}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 0
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5332344173553535018
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +265,7 @@ GameObject:
   - component: {fileID: 763142937200059695}
   - component: {fileID: 915991069624226210}
   - component: {fileID: 6995793405193264409}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cell_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,6 +335,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5513501959440602379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6132046999161313576}
+  m_Layer: 3
+  m_Name: ResourcePickupEffectSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6132046999161313576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513501959440602379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8489894530116270327}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6369959355279036175
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3181643863990258771}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemySpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +393,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8489894530116270327}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &8519580795375699211
 GameObject:
@@ -320,7 +404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1826824441427615577}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FightCameraPositionLeft
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -339,7 +423,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8489894530116270327}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 20, y: 90, z: 0}
 --- !u!1 &9060634574473798418
 GameObject:
@@ -351,7 +435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8489894530116270327}
   - component: {fileID: -380837677024658420}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,8 +454,10 @@ Transform:
   m_LocalScale: {x: 1, y: 0.6, z: 1}
   m_Children:
   - {fileID: 763142937200059695}
+  - {fileID: 2200387310473004925}
   - {fileID: 1477053152382884370}
   - {fileID: 8464602081894781711}
+  - {fileID: 6132046999161313576}
   - {fileID: 3181643863990258771}
   - {fileID: 1826824441427615577}
   - {fileID: 5230811020651809470}
@@ -392,8 +478,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actualMaterial: {fileID: 2100000, guid: 21c66caedd6988c4faf4590f0bc31ac9, type: 2}
   _cellBodyMeshRenderer: {fileID: 6995793405193264409}
-  _textMeshPro: {fileID: 5341433566670741851}
-  _particleSystem: {fileID: 8622456801558237347}
+  _cellPassEffect: {fileID: 8622456801558237347}
+  _resourcePickupEffectSpawnPoint: {fileID: 6132046999161313576}
   _enemySpawnPoint: {fileID: 3181643863990258771}
   _fightCameraPositionRight: {fileID: 5230811020651809470}
   _fightCameraPositionLeft: {fileID: 1826824441427615577}
@@ -405,17 +491,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8489894530116270327}
     m_Modifications:
+    - target: {fileID: 8647151939502054916, guid: 709f3b0a9abb40e4bbddef8b714ec160, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647288909541089192, guid: 709f3b0a9abb40e4bbddef8b714ec160, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8647463359464566078, guid: 709f3b0a9abb40e4bbddef8b714ec160, type: 3}
       propertyPath: m_Name
       value: coin_zone
       objectReference: {fileID: 0}
     - target: {fileID: 8647463359464566078, guid: 709f3b0a9abb40e4bbddef8b714ec160, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647463359464566078, guid: 709f3b0a9abb40e4bbddef8b714ec160, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8647476854571668728, guid: 709f3b0a9abb40e4bbddef8b714ec160, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647555325053017844, guid: 709f3b0a9abb40e4bbddef8b714ec160, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8652581994036953228, guid: 709f3b0a9abb40e4bbddef8b714ec160, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8652581994036953228, guid: 709f3b0a9abb40e4bbddef8b714ec160, type: 3}
       propertyPath: m_LocalPosition.x
