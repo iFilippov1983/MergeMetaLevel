@@ -30,7 +30,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.5000007}
   m_LocalScale: {x: 200.00006, y: 200.00006, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5248729842905621143}
   m_RootOrder: 0
@@ -47,19 +46,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472528684440235512}
-  serializedVersion: 8
+  serializedVersion: 7
   lengthInSec: 1.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
+  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -537,7 +536,6 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -4670,7 +4668,6 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -4701,7 +4698,6 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
-  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -4725,10 +4721,6 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MeshWeighting: 1
-  m_MeshWeighting1: 1
-  m_MeshWeighting2: 1
-  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!222 &3168963575657944020
 CanvasRenderer:
@@ -4788,7 +4780,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8714867624722775170}
   m_Father: {fileID: 8803731060885515895}
@@ -4875,7 +4866,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.5000002}
   m_LocalScale: {x: 200.00002, y: 200.00002, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5248729842905621143}
   m_RootOrder: 4
@@ -4892,19 +4882,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904334320328594539}
-  serializedVersion: 8
+  serializedVersion: 7
   lengthInSec: 1.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
+  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -5382,7 +5372,6 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -9515,7 +9504,6 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -9546,7 +9534,6 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
-  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -9570,10 +9557,6 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MeshWeighting: 1
-  m_MeshWeighting1: 1
-  m_MeshWeighting2: 1
-  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!222 &8497764225931866926
 CanvasRenderer:
@@ -9635,7 +9618,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.5000002}
   m_LocalScale: {x: 200.00002, y: 200.00002, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5248729842905621143}
   m_RootOrder: 7
@@ -9652,19 +9634,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774493246599909191}
-  serializedVersion: 8
+  serializedVersion: 7
   lengthInSec: 1.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
+  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -10142,7 +10124,6 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -14275,7 +14256,6 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -14306,7 +14286,6 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
-  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -14330,10 +14309,6 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MeshWeighting: 1
-  m_MeshWeighting1: 1
-  m_MeshWeighting2: 1
-  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!222 &567030753539202403
 CanvasRenderer:
@@ -14397,7 +14372,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5248729842905621143}
   - {fileID: 5937589660492784091}
@@ -14533,7 +14507,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5748793418856773458}
   - {fileID: 2455809935440073943}
@@ -14581,7 +14554,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.5000002}
   m_LocalScale: {x: 200.00002, y: 200.00002, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5248729842905621143}
   m_RootOrder: 1
@@ -14598,19 +14570,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3039597269980907518}
-  serializedVersion: 8
+  serializedVersion: 7
   lengthInSec: 1.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
+  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -15088,7 +15060,6 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -19221,7 +19192,6 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -19252,7 +19222,6 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
-  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -19276,10 +19245,6 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MeshWeighting: 1
-  m_MeshWeighting1: 1
-  m_MeshWeighting2: 1
-  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!222 &8714667062428056806
 CanvasRenderer:
@@ -19337,7 +19302,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8803731060885515895}
   m_Father: {fileID: 2085532898714844881}
@@ -19376,7 +19340,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3210792559534822478}
   m_RootOrder: 0
@@ -19454,7 +19417,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.5000002}
   m_LocalScale: {x: 200.00002, y: 200.00002, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5248729842905621143}
   m_RootOrder: 2
@@ -19471,19 +19433,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4174682727373888773}
-  serializedVersion: 8
+  serializedVersion: 7
   lengthInSec: 1.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
+  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -19961,7 +19923,6 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -24094,7 +24055,6 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -24125,7 +24085,6 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
-  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -24149,10 +24108,6 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MeshWeighting: 1
-  m_MeshWeighting1: 1
-  m_MeshWeighting2: 1
-  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!222 &481074633216789967
 CanvasRenderer:
@@ -24214,7 +24169,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8714867624722775170}
   m_RootOrder: 1
@@ -24410,7 +24364,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.5000007}
   m_LocalScale: {x: 200.00006, y: 200.00006, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5248729842905621143}
   m_RootOrder: 3
@@ -24427,19 +24380,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6529376433061414700}
-  serializedVersion: 8
+  serializedVersion: 7
   lengthInSec: 1.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
+  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -24917,7 +24870,6 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -29050,7 +29002,6 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -29081,7 +29032,6 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
-  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -29105,10 +29055,6 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MeshWeighting: 1
-  m_MeshWeighting1: 1
-  m_MeshWeighting2: 1
-  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!222 &7692270644847798845
 CanvasRenderer:
@@ -29170,7 +29116,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3441354183156051285}
   m_Father: {fileID: 5937589660492784091}
@@ -29289,7 +29234,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.5000002}
   m_LocalScale: {x: 200.00002, y: 200.00002, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5248729842905621143}
   m_RootOrder: 6
@@ -29306,19 +29250,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7570079904609089976}
-  serializedVersion: 8
+  serializedVersion: 7
   lengthInSec: 1.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
+  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -29796,7 +29740,6 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -33929,7 +33872,6 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -33960,7 +33902,6 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
-  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -33984,10 +33925,6 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MeshWeighting: 1
-  m_MeshWeighting1: 1
-  m_MeshWeighting2: 1
-  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!222 &2857987443654449019
 CanvasRenderer:
@@ -34049,7 +33986,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.5000002}
   m_LocalScale: {x: 200.00002, y: 200.00002, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5248729842905621143}
   m_RootOrder: 5
@@ -34066,19 +34002,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7672200511046587989}
-  serializedVersion: 8
+  serializedVersion: 7
   lengthInSec: 1.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
+  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -34556,7 +34492,6 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -38689,7 +38624,6 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -38720,7 +38654,6 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
-  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -38744,10 +38677,6 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MeshWeighting: 1
-  m_MeshWeighting1: 1
-  m_MeshWeighting2: 1
-  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!222 &7661408775980982366
 CanvasRenderer:
@@ -38797,7 +38726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3210792559534822478
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38808,7 +38737,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2743803957866640358}
   m_Father: {fileID: 8714867624722775170}
@@ -38906,7 +38834,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3210792559534822478}
   - {fileID: 1918126765500218159}

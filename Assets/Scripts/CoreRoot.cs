@@ -104,14 +104,13 @@ public class CoreRoot
     
     private async Task<bool> GoToMerge()
     {
-        await Ui.Loading.Show();
+        // await Ui.Loading.Show();
 
         var (gameWin, coinsReward, movesReward) = (false, 0, 0);
         gameWin = Configs.Debug.SkipMerge;
         if (!Configs.Debug.SkipMerge)
         {
             PrepareMergeScreen();
-            
             TinySauce.OnGameStarted($"{Data.Profile.LevelIndex + 1}" );
             
             Merge.PreparePlayerLevel();
@@ -135,49 +134,59 @@ public class CoreRoot
 
         return gameWin;
         
-        await GoToMap(gameWin);
+        // await GoToMap(gameWin);
     }
 
-    public async Task OpenLevelStartFromMainMenu()
+    // public async Task OpenLevelStartFromMainMenu()
+    // {
+    //     Data.Ui.PlayFromQuests = false;
+    //     await OpenLevelStart();
+    // }
+    //
+    // private async void OpenLevelStartFromQuests()
+    // {
+    //     Data.Ui.PlayFromQuests = true;
+    //     await OpenLevelStart();
+    // }
+    //
+    // private async Task OpenLevelStart()
+    // {
+    //     var ok = await CheckHearts();
+    //     if (!ok)
+    //         return;
+    //         
+    //     Ui.MainScreen.DoHide().DoAsync();
+    //     
+    //     await PlayCore();
+    //
+    //     // SetLevelByIndex();
+    //     // Ui.MainScreen.DoHide().DoAsync();
+    //     // var doStart = await Ui.LevelStart.Show();
+    //     // if (doStart)
+    //     //     GoToMerge();
+    //     // else
+    //     //     await Ui.MainScreen.DoShow();
+    // }
+
+    public async Task<bool> PlayCore()
     {
-        Data.Ui.PlayFromQuests = false;
-        await OpenLevelStart();
+        SetLevelByIndex();
+        var gameWin = await GoToMerge();
+        if (!gameWin)
+            Data.Profile.Hearts--;
+        return gameWin;
     }
-    
-    private async void OpenLevelStartFromQuests()
-    {
-        Data.Ui.PlayFromQuests = true;
-        await OpenLevelStart();
-    }
-    
-    private async Task OpenLevelStart()
+
+    public async Task<bool> CheckHearts()
     {
         if (Data.Profile.Hearts == 0)
         {
             var ads = await Ui.NoHearts.Show();
-            
-            if(!ads)
-                return;
+            if (!ads)
+                return false;
         }
-            
-        // Data.Profile.Hearts--;
-        //await Task.Delay(500);
-        
-        SetLevelByIndex();
-        Ui.MainScreen.DoHide().DoAsync();
-        var gameWin = await GoToMerge();
-        if(!gameWin)
-            Data.Profile.Hearts--;
-        
-        await GoToMap(gameWin);
-            
-        // SetLevelByIndex();
-        // Ui.MainScreen.DoHide().DoAsync();
-        // var doStart = await Ui.LevelStart.Show();
-        // if (doStart)
-        //     GoToMerge();
-        // else
-        //     await Ui.MainScreen.DoShow();
+
+        return true;
     }
 
     private void SetLevelByIndex()
@@ -201,19 +210,18 @@ public class CoreRoot
     private async void GoToMapFromPauseMenu()
         => await GoToMap(false);
     
-    private async Task GoToMap(bool gameWin)
+    public async Task GoToMap(bool gameWin)
     {
-        await Ui.Loading.Show();
-        await Task.Delay(200);
+        // await Ui.Loading.Show();
         
         PrepareMainScreen();
 
-        await Ui.Loading.Hide();
+        // await Ui.Loading.Hide();
         
-        if(gameWin)
-            await Ui.MainScreen.MoveLevels();
+        // if(gameWin)
+            // await Ui.MainScreen.MoveLevels();
 
-        Events.Tutorial.Check.Invoke(TutorialTriggerType.MainScreen);
+        // Events.Tutorial.Check.Invoke(TutorialTriggerType.MainScreen);
     }
 
     private async Task<(bool, int, int)> PlayLevel()

@@ -15,6 +15,8 @@ internal sealed class Root : MonoBehaviour
     [SerializeField] private PlayerStats _initialPlayerStats;
     [SerializeField] private StaticData Configs;
     [SerializeField] private RootView RootView;
+    [SerializeField] private GameObject Level;
+    [SerializeField] private GameObject MetaUi;
     
     private ProgressHandler _progressHandler;
     private PlayerProfile _playerProfile;
@@ -61,23 +63,39 @@ internal sealed class Root : MonoBehaviour
 
     private async void OnPlayMergeClicked()
     {
+        // if(!await _coreRoot.CheckHearts())
+        //     return;
+        
         _uiHandler.DesactivateUiInteraction();
-        await _coreRoot.OpenLevelStartFromMainMenu();
+        
         // await _uiHandler.PlayGoToMergeAnimation();
+        await _coreRoot.Ui.Loading.Show();
+        Level.gameObject.SetActive(false);
+        MetaUi.gameObject.SetActive(false);
+        
+        var gameWin = await _coreRoot.PlayCore(); // Ui.LoadingHide
+        
+        await _coreRoot.Ui.Loading.Show();
+        await _coreRoot.GoToMap(gameWin);
+        Level.gameObject.SetActive(true);
+        MetaUi.gameObject.SetActive(true);
+        await _coreRoot.Ui.Loading.Hide();
         
         //await Merge round play. Return win (true) or loose (false)
-        bool levelComplete = true;
+        // bool levelComplete = true;
 
-        _progressHandler.HandleMergeLevelComplete(levelComplete);
-        if (levelComplete)
+        _progressHandler.HandleMergeLevelComplete(gameWin);
+        if (gameWin)
         {
-            await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.GetPowerGain(levelComplete));
+            await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.GetPowerGain(gameWin));
             await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power.ToString());
             await _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());//temp
             await _uiHandler.ChangeMergeLevelButtonUi(_playerProfile.Stats.CurrentMergeLevel.ToString());
         }
 
         _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
+        
+        // _coreRoot.Events.Tutorial.Check.Invoke(TutorialTriggerType.MainScreen);
     }
 
     private async void OnUpgradePowerClicked()

@@ -20,7 +20,7 @@ MonoBehaviour:
     Profile:
       TutorialIndex: 0
     Merge:
-      Level: {fileID: 11400000, guid: 985d85e2670d1453ca7b0b0541febd8c, type: 2}
+      Level: {fileID: 11400000, guid: 47f77d5d5c25cdc4898859032f5bb7ad, type: 2}
       PlayerMoves: 0
       GameStart: 0
       GameWin: 1

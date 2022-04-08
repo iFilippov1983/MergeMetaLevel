@@ -27,6 +27,7 @@ namespace Components
             _view.gameObject.SetActive(true);
             await DoShow();
             await Task.Delay(_view.ShowDuration );
+            // await Task.Delay(200);
         }
         
         // [Button]
