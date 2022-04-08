@@ -31,22 +31,22 @@ namespace GameUI
 
         public async Task PlayDiceRollAnimation(int number = 0) //when time to move
         {
-            _gameUIView.MainText.text = number.ToString();
-            _gameUIView.MainText.gameObject.SetActive(true);
+            _gameUIView.MainTMP.text = number.ToString();
+            _gameUIView.MainTMP.gameObject.SetActive(true);
             await Task.Delay(1000);
-            _gameUIView.MainText.text = string.Empty;
-            _gameUIView.MainText.gameObject.SetActive(false);
+            _gameUIView.MainTMP.text = string.Empty;
+            _gameUIView.MainTMP.gameObject.SetActive(false);
             --_playerProfile.Stats.DiceRolls;
             await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
         }
 
         public async Task PlayDiceUseAnimation() //when next fight attempt
         {
-            _gameUIView.MainText.text = UiString.NextAttempt;
-            _gameUIView.MainText.gameObject.SetActive(true);
+            _gameUIView.MainTMP.text = UiString.NextAttempt;
+            _gameUIView.MainTMP.gameObject.SetActive(true);
             await Task.Delay(1000);
-            _gameUIView.MainText.text = string.Empty;
-            _gameUIView.MainText.gameObject.SetActive(false);
+            _gameUIView.MainTMP.text = string.Empty;
+            _gameUIView.MainTMP.gameObject.SetActive(false);
             --_playerProfile.Stats.DiceRolls;
             await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
         }
@@ -54,30 +54,30 @@ namespace GameUI
         public async Task PlayUpgradePowerAnimation(int powerAmountToShow)
         {
             string text = string.Concat("+", powerAmountToShow);
-            _gameUIView.MainText.text = text;
-            _gameUIView.MainText.gameObject.SetActive(true);
+            _gameUIView.MainTMP.text = text;
+            _gameUIView.MainTMP.gameObject.SetActive(true);
             await Task.Delay(1000);
-            _gameUIView.MainText.text = string.Empty;
-            _gameUIView.MainText.gameObject.SetActive(false);
+            _gameUIView.MainTMP.text = string.Empty;
+            _gameUIView.MainTMP.gameObject.SetActive(false);
         }
 
         public async Task PlayGoToMergeAnimation()
         {
-            _gameUIView.MainText.text = UiString.PlayingMerge;
-            _gameUIView.MainText.gameObject.SetActive(true);
+            _gameUIView.MainTMP.text = UiString.PlayingMerge;
+            _gameUIView.MainTMP.gameObject.SetActive(true);
             await Task.Delay(1000);
-            _gameUIView.MainText.text = string.Empty;
-            _gameUIView.MainText.gameObject.SetActive(false);
+            _gameUIView.MainTMP.text = string.Empty;
+            _gameUIView.MainTMP.gameObject.SetActive(false);
 
         }
 
         public async Task DisplayText(string text)
         {
-            _gameUIView.MainText.text = text;
-            _gameUIView.MainText.gameObject.SetActive(true);
+            _gameUIView.MainTMP.text = text;
+            _gameUIView.MainTMP.gameObject.SetActive(true);
             await Task.Delay(1000);
-            _gameUIView.MainText.text = string.Empty;
-            _gameUIView.MainText.gameObject.SetActive(false);
+            _gameUIView.MainTMP.text = string.Empty;
+            _gameUIView.MainTMP.gameObject.SetActive(false);
         }
 
         public void ActivateUiInteraction(bool upgradeButtonActive)
@@ -90,6 +90,7 @@ namespace GameUI
                 _playerProfile.Stats.DiceRolls > 0 
                 ? rollButton.DefaultSprite 
                 : rollButton.UnactiveStatePrite;
+            _gameUIView.RollsAmountBeacon.gameObject.SetActive(_playerProfile.Stats.DiceRolls > 0);
 
             ButtonView mergeButton = _gameUIView.PlayMergeButtonView;
             mergeButton.Button.interactable = true;
@@ -113,6 +114,7 @@ namespace GameUI
             rollButton.Button.interactable = false;
             SetButtonImageColor(rollButton.ImageList, rollButton.FadeColor);
             SetButtonTextAlfa(rollButton.TextList, true);
+            _gameUIView.RollsAmountBeacon.gameObject.SetActive(false);
 
             ButtonView mergeButton = _gameUIView.PlayMergeButtonView;
             mergeButton.Button.interactable = false;
