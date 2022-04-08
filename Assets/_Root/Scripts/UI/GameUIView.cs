@@ -6,6 +6,7 @@ namespace GameUI
 {
     public class GameUIView : MonoBehaviour
     {
+        [SerializeField] private ProgressBarView _progressBarView;
         [SerializeField] private ButtonView _rollButtonView;
         [SerializeField] private ButtonView _upgradePowerButtonView;
         [SerializeField] private ButtonView _playMergeButtonView;
@@ -22,6 +23,7 @@ namespace GameUI
 
         [SerializeField] private TextMeshProUGUI _mainTMP;
 
+        public ProgressBarView ProgressBarView => _progressBarView;
         public ButtonView RollButtonView => _rollButtonView;
         public ButtonView UpgradePowerButtonView => _upgradePowerButtonView;
         public ButtonView PlayMergeButtonView => _playMergeButtonView;

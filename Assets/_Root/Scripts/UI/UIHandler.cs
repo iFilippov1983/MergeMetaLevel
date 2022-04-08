@@ -127,6 +127,16 @@ namespace GameUI
             SetButtonTextAlfa(upgradeButton.TextList, true);
         }
 
+        public void UpdateProgressBar(float progressValue = 0)
+        {
+            int value = Mathf.RoundToInt(progressValue * 100);
+            string text = value > 0
+                ? string.Concat(value, "%")
+                : string.Empty;
+            _gameUIView.ProgressBarView.ProgressSprite.fillAmount = progressValue;
+            _gameUIView.ProgressBarView.ProgressValue.text = text;
+        }
+
         public async Task ChangeGoldUi(string amount)
         { 
             await Task.Delay(100);//coins fly animation
@@ -179,6 +189,7 @@ namespace GameUI
             _gameUIView.MergeLevelTMP.text = stats.CurrentMergeLevel.ToString();
 
             ActivateUiInteraction(_playerProfile.Stats.PowerUpgradeAvailable);
+            UpdateProgressBar();
         }
 
         private void SetButtonTextAlfa(List<TextMeshProUGUI> textList, bool fade = false)

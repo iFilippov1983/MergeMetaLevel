@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resouceType: 0
   _resourceAmount: 25
+  _pickupEffect: {fileID: 19806904, guid: 0f25ec4f1e545c24d919503bf1be2b0b, type: 3}
