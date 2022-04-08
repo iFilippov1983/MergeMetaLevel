@@ -1,4 +1,5 @@
 ﻿using System;
+using Tool;
 using UnityEngine;
 
 namespace Data
@@ -9,12 +10,23 @@ namespace Data
     {
         [SerializeField] private ResouceType _resouceType;
         [SerializeField] private int _resourceAmount;
-        [SerializeField] private ParticleSystem _pickupEffect;
+        [SerializeField] private string _pickupEffectPrefabName;
+
+        private GameObject _pickupEffectPrefab;
 
         public ResouceType ResouceType => _resouceType;
         public int Amount => _resourceAmount;
-        public ParticleSystem PickupEffect => _pickupEffect;
+        public GameObject PickupEffectPrefab
+        {
+            get
+            {
+                if (_pickupEffectPrefab == null) _pickupEffectPrefab =
+                        Resources.Load<GameObject>(string.Concat(ResourcePath.VfxPrefabsFolder, _pickupEffectPrefabName));
+                return _pickupEffectPrefab;
+            }
+        }
 
         public override ContentType GetContentType() => ContentType.Resource;
+
     }
 }

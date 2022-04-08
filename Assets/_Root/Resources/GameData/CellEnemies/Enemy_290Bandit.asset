@@ -17,4 +17,4 @@ MonoBehaviour:
     _power: 290
   _rewardList:
   - {fileID: 11400000, guid: 913c9b8eb22fccb44a836e45712beede, type: 2}
-  _infoPrefabName: InfoBar
+  _infoPrefabName: InfoBar_enemy

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Tool;
-using System;
 using Sirenix.OdinInspector;
 
 namespace Data

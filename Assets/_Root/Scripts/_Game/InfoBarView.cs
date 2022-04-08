@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Game
 {
-    internal class InfoView : MonoBehaviour
+    internal class InfoBarView : MonoBehaviour
     {
         [SerializeField] private TextMeshPro _healthText;
         [SerializeField] private TextMeshPro _powerText;

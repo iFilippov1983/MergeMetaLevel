@@ -158,11 +158,11 @@ MonoBehaviour:
     Power: 0
     Gold: 300
     Gems: 0
-    DiceRolls: 1
+    DiceRolls: 0
     LastFightWinner: 1
     PowerUpgradeAvailable: 0
     UpgradeTutorialCompleted: 1
-    CurrentCellID: 10
+    CurrentCellID: 0
     CurrentMergeLevel: 1
     CurrentPowerUpgradeLevel: 1
     _powerToHealthMultiplier: 5

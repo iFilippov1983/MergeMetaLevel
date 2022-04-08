@@ -9,13 +9,12 @@ namespace Player
     {
         private Vector3 _playerInitialPosition;
         private Quaternion _playerInitialRotation;
-        private GameObject _playerPrefab;
         private PlayerView _playerView;
         private PlayerProfile _playerProfile;
-        private UiInfoHandler _infoHandler;
         private CharacterAnimationControler _playerAnimController;
-        private GameObject _infoPrefab;
-
+        private InfoBarHandler _infoHandler;
+        private GameObject _infoBarPrefab;
+        private PopupHandler _popupHandler;
 
         public PlayerView PlayerView => _playerView;
         public CharacterAnimationControler PlayerAnimController => _playerAnimController;
@@ -23,13 +22,15 @@ namespace Player
         public PlayerHandler(GameData gameData, PlayerProfile playerProfile)
         {
             _playerProfile = playerProfile;
-            _playerPrefab = gameData.PlayerData.PlayerPrefab;
+
             var cellViews = gameData.LevelData.CellsViews;
             _playerInitialPosition = cellViews[_playerProfile.Stats.CurrentCellID].transform.position;
             _playerInitialRotation = cellViews[playerProfile.Stats.CurrentCellID].transform.rotation;
-            InitPlayer(_playerInitialPosition, _playerInitialRotation);//TODO: insert position from cash
-            _infoHandler = new UiInfoHandler(Camera.main);
-            _infoPrefab = gameData.PlayerData.InfoPrefab;
+            InitPlayer(gameData.PlayerData.PlayerPrefab, _playerInitialPosition, _playerInitialRotation);//TODO: insert position from cash
+
+            _infoBarPrefab = gameData.PlayerData.InfoPrefab;
+            _infoHandler = new InfoBarHandler(Camera.main);
+            _popupHandler = new PopupHandler(_playerView.PopupPrefab, Camera.main);
         }
 
         public async Task SetDestinationAndMove(Vector3 position)
@@ -41,8 +42,13 @@ namespace Player
                 await Task.Yield();
         }
 
-        public void OnGetHitEvent(int playerRemainingHealth)
+        public async void OnGetHitEvent(int damageTakenAmount, int playerRemainingHealth)
         {
+            var position = _playerView.transform.position;
+            position.y += Random.Range(1f, 4f);
+
+            _popupHandler.SpawnPopup(position, damageTakenAmount);
+
             if (playerRemainingHealth <= 0)
             {
                 _infoHandler.SetHealth(0, 0f);
@@ -52,12 +58,15 @@ namespace Player
                 float fillAmount = (float)playerRemainingHealth / (float)_playerProfile.Stats.Health;
                 _infoHandler.SetHealth(playerRemainingHealth, fillAmount);
             }
+
+            await Task.Delay(500);
+            _popupHandler.DestroyPopup();
         }
 
         public void PrepareToFight(int power, int health)
         {
             _infoHandler.SetInformationBar
-                (_infoPrefab, _playerView.transform.position, power, health);
+                (_infoBarPrefab, _playerView.transform.position, power, health);
             _infoHandler.InitInformationBar();
         }
 
@@ -66,9 +75,9 @@ namespace Player
             _infoHandler.DestroyInformationBar();
         }
 
-        private void InitPlayer(Vector3 playerInitPosition, Quaternion playerInitialRotation)
+        private void InitPlayer(GameObject playerPrefab, Vector3 playerInitPosition, Quaternion playerInitialRotation)
         {
-            var playerObject = GameObject.Instantiate(_playerPrefab, playerInitPosition, playerInitialRotation);
+            var playerObject = GameObject.Instantiate(playerPrefab, playerInitPosition, playerInitialRotation);
             _playerView = playerObject.GetComponent<PlayerView>();
             _playerAnimController = playerObject.GetComponent<CharacterAnimationControler>();
         }
