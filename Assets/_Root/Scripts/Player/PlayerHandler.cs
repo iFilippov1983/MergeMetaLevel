@@ -38,7 +38,7 @@ namespace Player
             _playerView.NavMeshAgent.SetDestination(position);
             _playerView.GetAnimator().SetBool(AnimParameter.IsRunning, true);
             var transform = _playerView.transform;
-            while(Vector3.SqrMagnitude(transform.position - position) > 0.2f * 0.2f)
+            while(Vector3.SqrMagnitude(transform.position - position) > 0.5f * 0.5f)
                 await Task.Yield();
         }
 

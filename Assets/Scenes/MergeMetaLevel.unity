@@ -210,6 +210,10 @@ PrefabInstance:
       propertyPath: DataPreview.Profile.PlayerStats._powerToHealthMultiplier
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3454180473279709447, guid: a299bb6e70ac1a3438bca07894754a96, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 6574602321851109933, guid: a299bb6e70ac1a3438bca07894754a96, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -72.2063
