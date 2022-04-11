@@ -39,7 +39,6 @@ public class CoreRoot
     
     public void Run()
     {
-        Save.LoadProfile(Data);
         SetCtx();
         Subscribe();
         
@@ -53,7 +52,12 @@ public class CoreRoot
         Events.Tutorial.Check.Invoke(TutorialTriggerType.MainScreen);
     }
 
-    
+    public void LoadProfile()
+    {
+        Save.LoadProfile(Data);
+    }
+
+
     public void OnQuit()
     {
         SaveProfile();

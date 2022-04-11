@@ -6,9 +6,9 @@
         //public readonly SubscriptionProperty<int> CurrentCellID;
         //public readonly SubscriptionProperty<List<CellProperties>> CurrentRoute;
 
-        public PlayerProfile(PlayerStats initialStats)
+        public PlayerProfile(PlayerStats stats)
         {
-            Stats = initialStats;
+            Stats = stats;
             //CurrentRoute = new SubscriptionProperty<List<CellProperties>>();
             //CurrentCellID = new SubscriptionProperty<int>();
         }
