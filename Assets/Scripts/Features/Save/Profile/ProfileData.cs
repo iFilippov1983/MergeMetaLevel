@@ -14,6 +14,7 @@ namespace Data
         public Dictionary<ResourceType, int> Resources = new Dictionary<ResourceType, int>();
         public int TutorialIndex = 0;
         public DateTime HeartsChangedTime;
+        public PlayerStats PlayerStats;
 
         private DataEvents _events;
 

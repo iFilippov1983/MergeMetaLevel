@@ -18,9 +18,9 @@ namespace Components.Services
 
         public void SaveProfile()
         {
-            var values = _data.Profile;
-            _events.App.OnDataSave?.Invoke(values);
-            PlayerPrefs.SetString("data", values?.ToJson());
+            var data = _data.Profile;
+            _events.App.OnDataSave?.Invoke(data);
+            PlayerPrefs.SetString("data", data?.ToJson());
         }
 
         public void LoadProfile(DynamicData data)

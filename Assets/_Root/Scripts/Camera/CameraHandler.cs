@@ -31,7 +31,7 @@ namespace GameCamera
                 _fightMode = false;
                 SetPriorities(_virtualCamFollow, _virtualCamFight, _transformToFollow);
 
-                await Task.Delay(1000);//??
+                await Task.Delay(1500);//??
             }
             else
             { 
@@ -40,7 +40,7 @@ namespace GameCamera
                 _virtualCamFight.transform.position = transformToPlace.position;
                 _virtualCamFight.transform.rotation = transformToPlace.rotation;
 
-                await Task.Delay(1000);//??
+                await Task.Delay(1500);//??
             }
         }
 

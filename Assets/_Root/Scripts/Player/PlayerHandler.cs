@@ -42,12 +42,9 @@ namespace Player
                 await Task.Yield();
         }
 
-        public async void OnGetHitEvent(int damageTakenAmount, int playerRemainingHealth)
+        public void OnGetHitEvent(int damageTakenAmount, int playerRemainingHealth)
         {
-            var position = _playerView.transform.position;
-            position.y += Random.Range(1f, 4f);
-
-            _popupHandler.SpawnPopup(position, damageTakenAmount);
+            _popupHandler.SpawnPopup(_playerView.transform.position, damageTakenAmount);
 
             if (playerRemainingHealth <= 0)
             {
@@ -58,10 +55,10 @@ namespace Player
                 float fillAmount = (float)playerRemainingHealth / (float)_playerProfile.Stats.Health;
                 _infoHandler.SetHealth(playerRemainingHealth, fillAmount);
             }
-
-            await Task.Delay(500);
-            _popupHandler.DestroyPopup();
         }
+
+        public void SpawnPopup(int value, bool resourcePickup = false) => 
+            _popupHandler.SpawnPopup(_playerView.transform.position, value, resourcePickup);
 
         public void PrepareToFight(int power, int health)
         {

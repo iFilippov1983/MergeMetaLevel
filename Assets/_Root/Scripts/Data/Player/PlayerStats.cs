@@ -4,14 +4,14 @@ using UnityEngine;
 namespace Data
 {
     [Serializable]
-    public struct PlayerStats
+    public class PlayerStats
     {
         public int Power;
         public int Gold;
         public int Gems;
         public int DiceRolls;
         [Space]
-        public bool LastFightWinner;
+        public bool LastFightWinner = true;
         public bool PowerUpgradeAvailable;
         public bool UpgradeTutorialCompleted;
         [Space]
@@ -20,9 +20,9 @@ namespace Data
         public int CurrentMergeLevel;
         [Range(1, 100, order = 1)]
         public int CurrentPowerUpgradeLevel;
-        [Space]
-        [SerializeField]
-        private int _powerToHealthMultiplier;
+        //[Space]
+        //[SerializeField]
+        private const int _powerToHealthMultiplier = 5;
         public int Health => Power * _powerToHealthMultiplier;
     }
 }

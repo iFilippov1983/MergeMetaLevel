@@ -19,7 +19,7 @@ namespace Game
         private int _enemyHealth;
 
         private Action<int, int> _playerGetHitEvent;
-        private Action<int> _enemyGetHitEvent;
+        private Action<int, int> _enemyGetHitEvent;
 
         public FightEventHandler(AnimationHandler animationHandler, PlayerProfile playerProfile)
         {
@@ -30,7 +30,7 @@ namespace Game
         public async Task ApplyFight
             (
             Action<int, int> PlayerGetHit, 
-            Action<int> EnemyGetHit, 
+            Action<int, int> EnemyGetHit, 
             EnemyProperties enemyProperties
             )
         {
@@ -60,7 +60,7 @@ namespace Game
         private void GotHitEvent(bool playerAttacking)
         { 
             if(playerAttacking)
-                _enemyGetHitEvent?.Invoke(_enemyHealth);
+                _enemyGetHitEvent?.Invoke(_playerPower, _enemyHealth);
             else
                 _playerGetHitEvent?.Invoke(_enemyPower, _playerHealth);
 

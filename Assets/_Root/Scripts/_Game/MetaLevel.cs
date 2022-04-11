@@ -88,6 +88,7 @@ namespace Game
             var effectObject = GameObject.Instantiate(resourceProperties.PickupEffectPrefab, _cellView.ResourcePickupEffectSpawnPoint.position, Quaternion.identity);
             var particleEffect = effectObject.GetComponent<ParticleSystem>();
             particleEffect.Play();
+            _playerHandler.SpawnPopup(resourceProperties.Amount, true);
 
             while (particleEffect.isPlaying)
                 await Task.Yield();

@@ -14,6 +14,7 @@ namespace Enemy
         private InfoBarHandler _infoHandler;
         private Dictionary<EnemyType, GameObject> _enemyPrefabs;
         private int _enemyFullHealthAmount;
+        private PopupHandler _popupHandler;
 
         public EnemyHandler(EnemiesData enemiesData, AnimationHandler animationHandler)
         {
@@ -35,6 +36,7 @@ namespace Enemy
             await _animationHandler.HandleEnemyAppearAnimation();
             _infoHandler.SetInformationBar
                 (enemyProperties.InfoPrefab, enemyObject.transform.position, enemyProperties.Stats.Power, enemyProperties.Stats.Health);
+            _popupHandler = new PopupHandler(_enemyView.PopupPrefab, Camera.main);
         }
 
         public void InitHealthBar()
@@ -52,8 +54,10 @@ namespace Enemy
             }
         }
 
-        public void OnGetHitEvent(int enemyRemainingHealth)
+        public void OnGetHitEvent(int damegeTakenAmount, int enemyRemainingHealth)
         {
+            _popupHandler.SpawnPopup(_enemyView.transform.position, damegeTakenAmount);
+
             if (enemyRemainingHealth <= 0)
             {
                 _infoHandler.SetHealth(0, 0f);

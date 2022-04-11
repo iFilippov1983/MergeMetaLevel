@@ -7,12 +7,13 @@ using UnityEngine.Analytics;
 using System.Threading.Tasks;
 using Components;
 using Configs;
+using Sirenix.OdinInspector;
 
 internal sealed class Root : MonoBehaviour
 {
     [SerializeField] private GameData _gameData;
     [SerializeField] private Transform _uiContainer;
-    [SerializeField] private PlayerStats _initialPlayerStats;
+    [SerializeField, HideInInspector] private PlayerStats _initialPlayerStats;
     [SerializeField] private StaticData Configs;
     [SerializeField] private RootView RootView;
     [SerializeField] private GameObject Level;
@@ -28,17 +29,18 @@ internal sealed class Root : MonoBehaviour
     {
         TaskScheduler.UnobservedTaskException += HandleTaskException;
         Application.targetFrameRate = 60;
-        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;  
-            
+        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+
+        _coreRoot = new CoreRoot(RootView, Configs);
+        _coreRoot.Run();
+
+        _initialPlayerStats = RootView.DataPreview.Profile.PlayerStats;
         _playerProfile = new PlayerProfile(_initialPlayerStats);
         _progressHandler = new ProgressHandler(_gameData.ProgressData, _playerProfile);
         _metaLevel = new MetaLevel(_gameData, _playerProfile);
         _uiHandler = new UIHandler(_gameData.UIData, _uiContainer, _playerProfile);
 
-        SubscribeOnEvents();
-        
-        _coreRoot = new CoreRoot(RootView, Configs);
-        _coreRoot.Run();
+        Initialize();
     }
     
     private void Update()
@@ -59,6 +61,13 @@ internal sealed class Root : MonoBehaviour
     private void HandleTaskException(object sender, UnobservedTaskExceptionEventArgs e)
     {
         Debug.LogError(e.Exception);
+    }
+
+    private async void Initialize()
+    {
+        SubscribeOnEvents();
+        await _uiHandler.ChangePowerUpgradeCostUi(_progressHandler.UpgradePrice.ToString());
+        OnLevelCompletionProgress(_playerProfile.Stats.CurrentCellID);
     }
 
     private async void OnPlayMergeClicked()
@@ -113,6 +122,7 @@ internal sealed class Root : MonoBehaviour
 
             canUpgrade = _progressHandler.CheckPlayerFunds();
             _uiHandler.ActivateUiInteraction(canUpgrade);
+            _uiHandler.UpdateProgressBar();
         }
         else return;
     }
@@ -224,6 +234,8 @@ internal sealed class Root : MonoBehaviour
         _metaLevel.OnFightEvent -= OnFight;
         _metaLevel.OnPowerUpgradeAvailableEvent -= OnPowerUpgradeAvailable;
         _metaLevel.OnLevelCompletionProgressEvent -= OnLevelCompletionProgress;
+
+        TaskScheduler.UnobservedTaskException -= HandleTaskException;
     }
 }
 

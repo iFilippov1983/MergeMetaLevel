@@ -189,7 +189,6 @@ namespace GameUI
             _gameUIView.MergeLevelTMP.text = stats.CurrentMergeLevel.ToString();
 
             ActivateUiInteraction(_playerProfile.Stats.PowerUpgradeAvailable);
-            UpdateProgressBar();
         }
 
         private void SetButtonTextAlfa(List<TextMeshProUGUI> textList, bool fade = false)

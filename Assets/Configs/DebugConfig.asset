@@ -19,8 +19,19 @@ MonoBehaviour:
   DynamicData:
     Profile:
       TutorialIndex: 0
+      PlayerStats:
+        Power: 300
+        Gold: 440
+        Gems: 0
+        DiceRolls: 0
+        LastFightWinner: 1
+        PowerUpgradeAvailable: 0
+        UpgradeTutorialCompleted: 0
+        CurrentCellID: 18
+        CurrentMergeLevel: 7
+        CurrentPowerUpgradeLevel: 1
     Merge:
-      Level: {fileID: 11400000, guid: 47f77d5d5c25cdc4898859032f5bb7ad, type: 2}
+      Level: {fileID: 11400000, guid: 3b50d2bd2219a7f44bec81522532bced, type: 2}
       PlayerMoves: 0
       GameStart: 0
       GameWin: 1
