@@ -13,7 +13,6 @@ internal sealed class Root : MonoBehaviour
 {
     [SerializeField] private GameData _gameData;
     [SerializeField] private Transform _uiContainer;
-    [SerializeField, HideInInspector] private PlayerStats _initialPlayerStats;
     [SerializeField] private StaticData Configs;
     [SerializeField] private RootView RootView;
     [SerializeField] private GameObject Level;
@@ -32,10 +31,10 @@ internal sealed class Root : MonoBehaviour
         CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
         _coreRoot = new CoreRoot(RootView, Configs);
+        _coreRoot.LoadProfile();
         _coreRoot.Run();
 
-        _initialPlayerStats = RootView.DataPreview.Profile.PlayerStats;
-        _playerProfile = new PlayerProfile(_initialPlayerStats);
+        _playerProfile = new PlayerProfile(_coreRoot.Data.Profile.PlayerStats);
         _progressHandler = new ProgressHandler(_gameData.ProgressData, _playerProfile);
         _metaLevel = new MetaLevel(_gameData, _playerProfile);
         _uiHandler = new UIHandler(_gameData.UIData, _uiContainer, _playerProfile);
