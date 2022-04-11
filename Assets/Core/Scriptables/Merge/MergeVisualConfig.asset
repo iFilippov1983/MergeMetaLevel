@@ -337,7 +337,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   CoinsStarDestroyDelay: 4500
-  CoinsFromMovesDelay: 140
+  CoinsFromMovesDelay: 1200
   CoinsFromMovesHeight: 3
   NormalLayer: Default
   TopLayer: MergeTop

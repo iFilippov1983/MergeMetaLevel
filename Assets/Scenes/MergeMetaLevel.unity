@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.80560696, g: 0.7659935, b: 0.7537829, a: 1}
+  m_IndirectSpecularColor: {r: 0.80560696, g: 0.76599383, b: 0.7537833, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -193,6 +193,14 @@ PrefabInstance:
     - target: {fileID: 3454180473206613727, guid: a299bb6e70ac1a3438bca07894754a96, type: 3}
       propertyPath: DataPreview.Profile.PlayerStats.CurrentPowerUpgradeLevel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454180473466086091, guid: a299bb6e70ac1a3438bca07894754a96, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952739153059081773, guid: a299bb6e70ac1a3438bca07894754a96, type: 3}
+      propertyPath: m_text
+      value: LOOT
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a299bb6e70ac1a3438bca07894754a96, type: 3}

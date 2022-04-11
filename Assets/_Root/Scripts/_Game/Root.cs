@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Components;
 using Configs;
 using Sirenix.OdinInspector;
+using Utils;
 
 internal sealed class Root : MonoBehaviour
 {
@@ -97,13 +98,16 @@ internal sealed class Root : MonoBehaviour
         _progressHandler.HandleMergeLevelComplete(gameWin);
         if (gameWin)
         {
+            _uiHandler.ChangePowerUi(_playerProfile.Stats.Power.ToString()).DoAsync();
+            _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString()).DoAsync();
+            _uiHandler.ChangeMergeLevelButtonUi(_playerProfile.Stats.CurrentMergeLevel.ToString()).DoAsync();
+            _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
             await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.GetPowerGain(gameWin));
-            await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power.ToString());
-            await _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
-            await _uiHandler.ChangeMergeLevelButtonUi(_playerProfile.Stats.CurrentMergeLevel.ToString());
         }
-
-        _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
+        else
+        {
+            _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
+        }
         
         // _coreRoot.Events.Tutorial.Check.Invoke(TutorialTriggerType.MainScreen);
     }

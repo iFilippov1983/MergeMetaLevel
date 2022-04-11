@@ -87,6 +87,8 @@ namespace Components
         {
             var tasks = new List<Task>();
             var max = movesCount;
+            var totalTime = _visualConfig.CoinsFromMovesDelay;
+            var nextCoinDelay = totalTime / (max - 1);
             for (int i = 0; i < max; i++)
             {
                 movesCount--;
@@ -96,7 +98,7 @@ namespace Components
                 keys[1].value *= _visualConfig.CoinsFromMovesHeight * (i % 2 == 0 ? 1 : -1);
                 var task = View.CoinsImage.DoFxFyFrom( View.MovesPos.position, _visualConfig.CoinsFromMovesX, new AnimationCurve(keys), true, cbAddCoin);
                 tasks.Add(task);
-                await Task.Delay(_visualConfig.CoinsFromMovesDelay);
+                await Task.Delay(nextCoinDelay);
             }
 
             await Task.WhenAll(tasks);

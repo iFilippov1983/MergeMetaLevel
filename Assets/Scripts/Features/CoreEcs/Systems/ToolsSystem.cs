@@ -192,7 +192,7 @@ public class ToolsSystem : ReactiveSystem<GameEntity>
         }
         // await Task.Delay((max - 1) * 0);
         if(locked.Count > 0)
-            await Task.Delay(1000);
+            await Task.Delay(600);
     }
 
     public async Task CoinsFly(List<MergeItemView> newCoins, RectTransform to, Action cb)
