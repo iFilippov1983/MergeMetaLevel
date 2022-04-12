@@ -22,7 +22,7 @@ namespace Data
         public int CurrentPowerUpgradeLevel;
         //[Space]
         //[SerializeField]
-        private const int _powerToHealthMultiplier = 5;
+        private const int _powerToHealthMultiplier = 3;
         public int Health => Power * _powerToHealthMultiplier;
     }
 }

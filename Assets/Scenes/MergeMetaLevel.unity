@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.80560696, g: 0.76599383, b: 0.7537833, a: 1}
+  m_IndirectSpecularColor: {r: 0.80560696, g: 0.7659935, b: 0.7537829, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -198,6 +198,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 6574602321851109933, guid: a299bb6e70ac1a3438bca07894754a96, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -72.2063
+      objectReference: {fileID: 0}
     - target: {fileID: 8952739153059081773, guid: a299bb6e70ac1a3438bca07894754a96, type: 3}
       propertyPath: m_text
       value: LOOT
@@ -250,7 +254,7 @@ MonoBehaviour:
     CurrentCellID: 0
     CurrentMergeLevel: 1
     CurrentPowerUpgradeLevel: 1
-  _loadProileFromFile: 0
+  _loadProfileFromFile: 1
   _coreRoot:
     View: {fileID: 0}
     Configs: {fileID: 0}

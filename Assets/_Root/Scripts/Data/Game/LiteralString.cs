@@ -6,5 +6,8 @@
         public const string MainTexture = "_MainTex";
         public const string Noise = "_Noise";
         public const string BaseTexture = "_BaseMap";
+
+        public const string Roll = "Roll";
+        public const string Fight = "Fight";
     }
 }

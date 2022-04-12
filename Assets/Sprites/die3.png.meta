@@ -1,55 +1,67 @@
 fileFormatVersion: 2
-guid: 48b80b4de9a20dd4f9e194412343b6af
+guid: da86cefe4b1a48d46bbd48d5f49c6e15
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6587099919870356922
-    second: CubeAtlas_0
+      213: -3138510821884332752
+    second: die3_0
   - first:
-      213: -1253761369831997177
-    second: CubeAtlas_1
+      213: -4420876315965550546
+    second: die3_1
   - first:
-      213: -3246968934241123877
-    second: CubeAtlas_2
+      213: 1972642253563480061
+    second: die3_2
   - first:
-      213: 2300930761843332265
-    second: CubeAtlas_3
+      213: -1095808028111833933
+    second: die3_3
   - first:
-      213: -2884222372405763226
-    second: CubeAtlas_4
+      213: -7946878237718482321
+    second: die3_4
   - first:
-      213: 229549876058067850
-    second: CubeAtlas_5
+      213: 5853401693124991736
+    second: die3_5
   - first:
-      213: -3533009550297414661
-    second: CubeAtlas_6
+      213: 3657927613082549347
+    second: die3_6
   - first:
-      213: -8070632647251071984
-    second: CubeAtlas_7
+      213: 4223157871385015580
+    second: die3_7
   - first:
-      213: -2208329820306391563
-    second: CubeAtlas_8
+      213: -2185340922222159552
+    second: die3_8
   - first:
-      213: 5054932713930772887
-    second: CubeAtlas_9
+      213: -3143742489354492951
+    second: die3_9
   - first:
-      213: -4634349101877521925
-    second: CubeAtlas_10
+      213: 1142355015592776428
+    second: die3_10
   - first:
-      213: -5049183264874617653
-    second: CubeAtlas_11
+      213: -6415009684606120636
+    second: die3_11
   - first:
-      213: -2903499295825445882
-    second: CubeAtlas_12
+      213: 1965627632213888609
+    second: die3_12
   - first:
-      213: 8193400640018328444
-    second: CubeAtlas_13
+      213: -282042659956401586
+    second: die3_13
   - first:
-      213: 4643639548906416500
-    second: CubeAtlas_14
+      213: 4175253780405200878
+    second: die3_14
   - first:
-      213: -6474776071357806822
-    second: CubeAtlas_15
+      213: -5274307774360642110
+    second: die3_15
+  - first:
+      213: 6450047997475134078
+    second: die3_16
+  - first:
+      213: 2929620345590047516
+    second: die3_17
+  - first:
+      213: 1348005758166711662
+    second: die3_18
+  - first:
+      213: 3065090287808555625
+    second: die3_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -163,13 +175,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CubeAtlas_0
+      name: die3_0
       rect:
         serializedVersion: 2
-        x: 304
-        y: 1746
-        width: 186
-        height: 180
+        x: 0
+        y: 1638.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6429f18d58be594a0800000000000000
-      internalID: -6587099919870356922
+      spriteID: 0357dd93905c174d0800000000000000
+      internalID: -3138510821884332752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_1
+      name: die3_1
       rect:
         serializedVersion: 2
-        x: 802
-        y: 1853
-        width: 180
-        height: 165
+        x: 409
+        y: 1638.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,20 +210,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7018e064daeb99ee0800000000000000
-      internalID: -1253761369831997177
+      spriteID: e209fe6d964e5a2c0800000000000000
+      internalID: -4420876315965550546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_2
+      name: die3_2
       rect:
         serializedVersion: 2
-        x: 1306
-        y: 1912
-        width: 153
-        height: 128
+        x: 818
+        y: 1638.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,20 +231,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd144dd15f270f2d0800000000000000
-      internalID: -3246968934241123877
+      spriteID: df7c3989dab306b10800000000000000
+      internalID: 1972642253563480061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_3
+      name: die3_3
       rect:
         serializedVersion: 2
-        x: 1810
-        y: 1887
-        width: 138
-        height: 141
+        x: 1227
+        y: 1638.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,20 +252,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a4d078465c8eef10800000000000000
-      internalID: 2300930761843332265
+      spriteID: 3b47f5e7768eac0f0800000000000000
+      internalID: -1095808028111833933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_4
+      name: die3_4
       rect:
         serializedVersion: 2
-        x: 261
-        y: 1320
-        width: 148
-        height: 156
+        x: 0
+        y: 1229.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,20 +273,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6632587980f29f7d0800000000000000
-      internalID: -2884222372405763226
+      spriteID: f62f18fd85407b190800000000000000
+      internalID: -7946878237718482321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_5
+      name: die3_5
       rect:
         serializedVersion: 2
-        x: 765
-        y: 1252
-        width: 151
-        height: 162
+        x: 409
+        y: 1229.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,20 +294,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a831da465668f2300800000000000000
-      internalID: 229549876058067850
+      spriteID: 8fa9266c3d57b3150800000000000000
+      internalID: 5853401693124991736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_6
+      name: die3_6
       rect:
         serializedVersion: 2
-        x: 1272
-        y: 1182
-        width: 142
-        height: 158
+        x: 818
+        y: 1229.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,20 +315,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf3c57e588a38fec0800000000000000
-      internalID: -3533009550297414661
+      spriteID: 36cb0e798c193c230800000000000000
+      internalID: 3657927613082549347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_7
+      name: die3_7
       rect:
         serializedVersion: 2
-        x: 1777
-        y: 1205
-        width: 127
-        height: 152
+        x: 1227
+        y: 1229.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,20 +336,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01cedeb0e5a5fff80800000000000000
-      internalID: -8070632647251071984
+      spriteID: c157c4275bbab9a30800000000000000
+      internalID: 4223157871385015580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_8
+      name: die3_8
       rect:
         serializedVersion: 2
-        x: 236
-        y: 715
-        width: 110
-        height: 136
+        x: 0
+        y: 820.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -345,20 +357,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fd3cb98abf6a51e0800000000000000
-      internalID: -2208329820306391563
+      spriteID: 049d2d9720c1ca1e0800000000000000
+      internalID: -2185340922222159552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_9
+      name: die3_9
       rect:
         serializedVersion: 2
-        x: 737
-        y: 720
-        width: 109
-        height: 135
+        x: 409
+        y: 820.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -366,20 +378,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7915859658ab62640800000000000000
-      internalID: 5054932713930772887
+      spriteID: 9e329b8bcde2f54d0800000000000000
+      internalID: -3143742489354492951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_10
+      name: die3_10
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 710
-        width: 111
-        height: 134
+        x: 818
+        y: 820.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -387,20 +399,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf19071bb0c7fafb0800000000000000
-      internalID: -4634349101877521925
+      spriteID: ce21bcf85d57adf00800000000000000
+      internalID: 1142355015592776428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_11
+      name: die3_11
       rect:
         serializedVersion: 2
-        x: 1748
-        y: 689
-        width: 111
-        height: 125
+        x: 1227
+        y: 820.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -408,20 +420,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc42d438292bde9b0800000000000000
-      internalID: -5049183264874617653
+      spriteID: 44d8c561eae49f6a0800000000000000
+      internalID: -6415009684606120636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_12
+      name: die3_12
       rect:
         serializedVersion: 2
-        x: 211
-        y: 152
-        width: 105
-        height: 110
+        x: 0
+        y: 411.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -429,20 +441,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60c3aba16c2b4b7d0800000000000000
-      internalID: -2903499295825445882
+      spriteID: 16e0dcacaef474b10800000000000000
+      internalID: 1965627632213888609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_13
+      name: die3_13
       rect:
         serializedVersion: 2
-        x: 720
-        y: 156
-        width: 102
-        height: 103
+        x: 409
+        y: 411.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -450,20 +462,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7b20cab87ec4b170800000000000000
-      internalID: 8193400640018328444
+      spriteID: e4adac1f1bbf51cf0800000000000000
+      internalID: -282042659956401586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_14
+      name: die3_14
       rect:
         serializedVersion: 2
-        x: 1232
-        y: 156
-        width: 102
-        height: 103
+        x: 818
+        y: 411.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -471,20 +483,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 479a5811195817040800000000000000
-      internalID: 4643639548906416500
+      spriteID: ee7a82c113b71f930800000000000000
+      internalID: 4175253780405200878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CubeAtlas_15
+      name: die3_15
       rect:
         serializedVersion: 2
-        x: 1744
-        y: 156
-        width: 102
-        height: 103
+        x: 1227
+        y: 411.4
+        width: 409.5
+        height: 409.6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -492,8 +504,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a17c48ac779f426a0800000000000000
-      internalID: -6474776071357806822
+      spriteID: 2cd17211605edc6b0800000000000000
+      internalID: -5274307774360642110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: die3_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2.399994
+        width: 409.5
+        height: 409.6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a99b9da7c238950800000000000000
+      internalID: 6450047997475134078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: die3_17
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 2.399994
+        width: 409.5
+        height: 409.6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c13e6a9be2a18a820800000000000000
+      internalID: 2929620345590047516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: die3_18
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 2.399994
+        width: 409.5
+        height: 409.6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d35b2581415b210800000000000000
+      internalID: 1348005758166711662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: die3_19
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 2.399994
+        width: 409.5
+        height: 409.6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a24519063698a20800000000000000
+      internalID: 3065090287808555625
       vertices: []
       indices: 
       edges: []
@@ -501,7 +597,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 650db88bb58f2524999acc7ebed31020
+    spriteID: 6e945f4183c19e24685a58699c0b7de0
     internalID: 0
     vertices: []
     indices: 

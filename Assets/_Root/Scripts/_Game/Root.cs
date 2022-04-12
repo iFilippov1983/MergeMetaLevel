@@ -19,7 +19,7 @@ internal sealed class Root : MonoBehaviour
     [SerializeField] private GameObject Level;
     [SerializeField] private GameObject MetaUi;
     [SerializeField] private PlayerStats _initialPlayerStats;
-    [SerializeField] private bool _loadProileFromFile;
+    [SerializeField] private bool _loadProfileFromFile;
 
     private ProgressHandler _progressHandler;
     private PlayerProfile _playerProfile;
@@ -37,7 +37,7 @@ internal sealed class Root : MonoBehaviour
         _coreRoot.LoadProfile();
         _coreRoot.Run();
 
-        var playerStats = _loadProileFromFile
+        var playerStats = _loadProfileFromFile
             ? _coreRoot.Data.Profile.PlayerStats
             : _initialPlayerStats;
 
@@ -200,7 +200,8 @@ internal sealed class Root : MonoBehaviour
     {
         _uiHandler.DesactivateUiInteraction();
 
-        await _uiHandler.PlayDiceUseAnimation();
+        //await _uiHandler.PlayDiceUseAnimation();
+        await _uiHandler.PlayDiceRollAnimation();
         await _metaLevel.ApplyCellEvent(OnFightComplete);
 
         _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());

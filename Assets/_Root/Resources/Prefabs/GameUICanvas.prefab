@@ -798,6 +798,81 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2226332370752912346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3784149105353267516}
+  - component: {fileID: 6002522054460620633}
+  - component: {fileID: 6324822730031186814}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3784149105353267516
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226332370752912346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1017263049730084080}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 384, y: 1118}
+  m_SizeDelta: {x: 768, y: 768}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6002522054460620633
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226332370752912346}
+  m_CullTransparentMesh: 1
+--- !u!114 &6324822730031186814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226332370752912346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -3138510821884332752, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2927699644196972786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,6 +2337,7 @@ MonoBehaviour:
   _fadeColor: {r: 1, g: 1, b: 1, a: 0.50980395}
   _defaultSprite: {fileID: 21300000, guid: 7d80aaa90a7ee1a45b79bce7f819383f, type: 3}
   _unactiveStatePrite: {fileID: 21300000, guid: 7cac8d76bbfb72b44a5c143eb4b11a7e, type: 3}
+  _buttonText: {fileID: 0}
   _textList:
   - {fileID: 9182547486451999767}
   - {fileID: 7971652382923555358}
@@ -2426,6 +2502,108 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5701963953055556600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017263049730084080}
+  - component: {fileID: 7403658036544882254}
+  - component: {fileID: 8359763480690730916}
+  m_Layer: 5
+  m_Name: Dice
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1017263049730084080
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5701963953055556600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3784149105353267516}
+  m_Father: {fileID: 6974262535181987016}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7403658036544882254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5701963953055556600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7118833f721eb9448b44cda407e6745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animations:
+  - Number: 1
+    Sprites: []
+  - Number: 2
+    Sprites: []
+  - Number: 3
+    Sprites:
+    - {fileID: -3138510821884332752, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: -4420876315965550546, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: 1972642253563480061, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: -1095808028111833933, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: -7946878237718482321, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: 5853401693124991736, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: 3657927613082549347, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: 4223157871385015580, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: -2185340922222159552, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: -3143742489354492951, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: 1142355015592776428, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: -6415009684606120636, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: 1965627632213888609, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: -282042659956401586, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: 4175253780405200878, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: -5274307774360642110, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: 6450047997475134078, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: 2929620345590047516, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: 1348005758166711662, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+    - {fileID: 3065090287808555625, guid: da86cefe4b1a48d46bbd48d5f49c6e15, type: 3}
+  - Number: 4
+    Sprites: []
+  - Number: 5
+    Sprites: []
+  - Number: 6
+    Sprites: []
+  _image: {fileID: 6324822730031186814}
+  _animation: {fileID: 8359763480690730916}
+  _isPlaying: 0
+--- !u!111 &8359763480690730916
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5701963953055556600}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 25b4f10ab8e9a4d43988287312ec120b, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 25b4f10ab8e9a4d43988287312ec120b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5874387535949342742
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,6 +3385,7 @@ MonoBehaviour:
   _fadeColor: {r: 1, g: 1, b: 1, a: 0.50980395}
   _defaultSprite: {fileID: 21300000, guid: 8dd150b5f73448d4c8d53372fd8bf560, type: 3}
   _unactiveStatePrite: {fileID: 21300000, guid: 7cac8d76bbfb72b44a5c143eb4b11a7e, type: 3}
+  _buttonText: {fileID: 0}
   _textList:
   - {fileID: 3541928316444513052}
   - {fileID: 6220262421091172141}
@@ -3484,6 +3663,7 @@ RectTransform:
   - {fileID: 9146430099349518086}
   - {fileID: 5619801455629094304}
   - {fileID: 7257947279457019955}
+  - {fileID: 1017263049730084080}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3504,6 +3684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3ac2b48efdfd84db607df6db253848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dice: {fileID: 7403658036544882254}
   _progressBarView: {fileID: 7108883949756123454}
   _rollButtonView: {fileID: 7918494635384163179}
   _upgradePowerButtonView: {fileID: 2004291853810966352}
@@ -3845,6 +4026,7 @@ MonoBehaviour:
   _fadeColor: {r: 1, g: 1, b: 1, a: 0.50980395}
   _defaultSprite: {fileID: 21300000, guid: f4c2a8b10ab53634da5910cc7ff1f737, type: 3}
   _unactiveStatePrite: {fileID: 21300000, guid: 7cac8d76bbfb72b44a5c143eb4b11a7e, type: 3}
+  _buttonText: {fileID: 0}
   _textList:
   - {fileID: 4052164102753705696}
   - {fileID: 38532315679581660}

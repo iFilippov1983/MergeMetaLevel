@@ -31,7 +31,7 @@ MonoBehaviour:
         CurrentMergeLevel: 1
         CurrentPowerUpgradeLevel: 1
     Merge:
-      Level: {fileID: 11400000, guid: 71a141dedf518fc4ebde36454d84c205, type: 2}
+      Level: {fileID: 11400000, guid: f6214d453ca9857499b788f40c63aa93, type: 2}
       PlayerMoves: 0
       GameStart: 0
-      GameWin: 1
+      GameWin: 0

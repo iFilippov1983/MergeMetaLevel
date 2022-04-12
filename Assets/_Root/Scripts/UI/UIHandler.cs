@@ -31,25 +31,41 @@ namespace GameUI
 
         public async Task PlayDiceRollAnimation(int number = 0) //when time to move
         {
-            _gameUIView.MainTMP.text = number.ToString();
-            _gameUIView.MainTMP.gameObject.SetActive(true);
-            await Task.Delay(1000);
-            _gameUIView.MainTMP.text = string.Empty;
-            _gameUIView.MainTMP.gameObject.SetActive(false);
+            //_gameUIView.MainTMP.text = number.ToString();
+            //_gameUIView.MainTMP.gameObject.SetActive(true);
+            //await Task.Delay(1000);
+            //_gameUIView.MainTMP.text = string.Empty;
+            //_gameUIView.MainTMP.gameObject.SetActive(false);
+            if (number != 0)
+            {
+                _gameUIView.Dice.gameObject.SetActive(true);
+                await _gameUIView.Dice.AnimateDice(number - 1);
+                _gameUIView.Dice.gameObject.SetActive(false);
+            }
+
+            
             --_playerProfile.Stats.DiceRolls;
             await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
+
+            _gameUIView.RollButtonView.ButtonText.text = _playerProfile.Stats.LastFightWinner
+                ? LiteralString.Roll
+                : LiteralString.Fight;
         }
 
-        public async Task PlayDiceUseAnimation() //when next fight attempt
-        {
-            _gameUIView.MainTMP.text = UiString.NextAttempt;
-            _gameUIView.MainTMP.gameObject.SetActive(true);
-            await Task.Delay(1000);
-            _gameUIView.MainTMP.text = string.Empty;
-            _gameUIView.MainTMP.gameObject.SetActive(false);
-            --_playerProfile.Stats.DiceRolls;
-            await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
-        }
+        //public async Task PlayDiceUseAnimation() //when next fight attempt
+        //{
+        //    //_gameUIView.MainTMP.text = UiString.NextAttempt;
+        //    //_gameUIView.MainTMP.gameObject.SetActive(true);
+        //    //await Task.Delay(1000);
+        //    //_gameUIView.MainTMP.text = string.Empty;
+        //    //_gameUIView.MainTMP.gameObject.SetActive(false);
+        //    var number = UnityEngine.Random.Range(1, 7);
+        //    _gameUIView.Dice.gameObject.SetActive(true);
+        //    await _gameUIView.Dice.AnimateDice(number);
+        //    --_playerProfile.Stats.DiceRolls;
+        //    await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
+        //    _gameUIView.Dice.gameObject.SetActive(false);
+        //}
 
         public async Task PlayUpgradePowerAnimation(int powerAmountToShow)
         {

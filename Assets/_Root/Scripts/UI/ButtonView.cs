@@ -12,6 +12,7 @@ namespace GameUI
         [SerializeField] private Color _fadeColor;
         [SerializeField] private Sprite _defaultSprite;
         [SerializeField] private Sprite _unactiveStatePrite;
+        [SerializeField] private TextMeshProUGUI _buttonText;
         [SerializeField] private List<TextMeshProUGUI> _textList;
         [SerializeField] private List<Image> _imageList;
 
@@ -20,6 +21,7 @@ namespace GameUI
         public Color FadeColor => _fadeColor;
         public Sprite DefaultSprite => _defaultSprite;
         public Sprite UnactiveStatePrite => _unactiveStatePrite;
+        public TextMeshProUGUI ButtonText => _buttonText; 
         public List<TextMeshProUGUI> TextList => _textList;
         public List<Image> ImageList => _imageList;
     }
