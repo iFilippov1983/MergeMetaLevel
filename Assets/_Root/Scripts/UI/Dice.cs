@@ -11,19 +11,24 @@ namespace GameUI
     {
         [SerializeField] private AnimationDictionary[] _animations;
         [SerializeField] private Image _image;
-        private Sprite[] _currentAnimationSprites;
         [SerializeField] private Animation _animation;
+        [SerializeField] private float _framerate = 0.05f;
+        private Sprite[] _currentAnimationSprites;
         private int _currentFrame;
         private float _timer;
-        private float _framerate = 0.05f;
-        
-        public bool _isPlaying;
-        
+        private bool _isPlaying;
+
+        public async Task AnimateDice(int animationIndex)
+        {
+            _currentAnimationSprites = _animations[animationIndex].Sprites;
+            _isPlaying = true;
+            while (_isPlaying)
+                await Task.Yield();
+        }
 
         private void Awake()
         {
-            _animation.Play();
-            _isPlaying = true;
+            //_animation.Play();
         }
 
         private void Update()
@@ -45,16 +50,9 @@ namespace GameUI
 
         private void OnDisable()
         {
+            _isPlaying = true;
             _currentFrame = 0;
-            _isPlaying = true;
-        }
-
-        public async Task AnimateDice(int animationIndex)
-        { 
-            _currentAnimationSprites = _animations[animationIndex].Sprites;
-            _isPlaying = true;
-            while(_isPlaying)
-                await Task.Yield();
+            _timer = 0;
         }
     }
 

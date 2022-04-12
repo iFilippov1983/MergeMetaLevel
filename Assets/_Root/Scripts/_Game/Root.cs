@@ -19,7 +19,7 @@ internal sealed class Root : MonoBehaviour
     [SerializeField] private GameObject Level;
     [SerializeField] private GameObject MetaUi;
     [SerializeField] private PlayerStats _initialPlayerStats;
-    [SerializeField] private bool _loadProfileFromFile;
+    [SerializeField] private bool _loadPlayerStatsFromFile;
 
     private ProgressHandler _progressHandler;
     private PlayerProfile _playerProfile;
@@ -37,7 +37,7 @@ internal sealed class Root : MonoBehaviour
         _coreRoot.LoadProfile();
         _coreRoot.Run();
 
-        var playerStats = _loadProfileFromFile
+        var playerStats = _loadPlayerStatsFromFile
             ? _coreRoot.Data.Profile.PlayerStats
             : _initialPlayerStats;
 

@@ -66,7 +66,7 @@ namespace Game
 
             if (type.Equals(ContentType.Enemy))
             {
-                if (_playerProfile.Stats.LastFightWinner)
+                if (_playerProfile.Stats.LastFightWinner || _lastEnemyProperties == null)
                 {
                     _lastEnemyProperties = (EnemyProperties)content;
                     await ApplyFight(_lastEnemyProperties, OnFightCompleteEvent);

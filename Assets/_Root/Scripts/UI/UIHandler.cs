@@ -31,41 +31,19 @@ namespace GameUI
 
         public async Task PlayDiceRollAnimation(int number = 0) //when time to move
         {
-            //_gameUIView.MainTMP.text = number.ToString();
-            //_gameUIView.MainTMP.gameObject.SetActive(true);
-            //await Task.Delay(1000);
-            //_gameUIView.MainTMP.text = string.Empty;
-            //_gameUIView.MainTMP.gameObject.SetActive(false);
             if (number != 0)
             {
                 _gameUIView.Dice.gameObject.SetActive(true);
                 await _gameUIView.Dice.AnimateDice(number - 1);
+                await Task.Delay(500);
                 _gameUIView.Dice.gameObject.SetActive(false);
             }
 
-            
             --_playerProfile.Stats.DiceRolls;
             await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
 
-            _gameUIView.RollButtonView.ButtonText.text = _playerProfile.Stats.LastFightWinner
-                ? LiteralString.Roll
-                : LiteralString.Fight;
+            //SetRollButton(_playerProfile.Stats.LastFightWinner);
         }
-
-        //public async Task PlayDiceUseAnimation() //when next fight attempt
-        //{
-        //    //_gameUIView.MainTMP.text = UiString.NextAttempt;
-        //    //_gameUIView.MainTMP.gameObject.SetActive(true);
-        //    //await Task.Delay(1000);
-        //    //_gameUIView.MainTMP.text = string.Empty;
-        //    //_gameUIView.MainTMP.gameObject.SetActive(false);
-        //    var number = UnityEngine.Random.Range(1, 7);
-        //    _gameUIView.Dice.gameObject.SetActive(true);
-        //    await _gameUIView.Dice.AnimateDice(number);
-        //    --_playerProfile.Stats.DiceRolls;
-        //    await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
-        //    _gameUIView.Dice.gameObject.SetActive(false);
-        //}
 
         public async Task PlayUpgradePowerAnimation(int powerAmountToShow)
         {
@@ -84,7 +62,6 @@ namespace GameUI
             await Task.Delay(1000);
             _gameUIView.MainTMP.text = string.Empty;
             _gameUIView.MainTMP.gameObject.SetActive(false);
-
         }
 
         public async Task DisplayText(string text)
@@ -105,8 +82,9 @@ namespace GameUI
             rollButton.Button.image.sprite = 
                 _playerProfile.Stats.DiceRolls > 0 
                 ? rollButton.DefaultSprite 
-                : rollButton.UnactiveStatePrite;
+                : rollButton.UnactiveStateSprite;
             _gameUIView.RollsAmountBeacon.gameObject.SetActive(_playerProfile.Stats.DiceRolls > 0);
+            SetRollButton(_playerProfile.Stats.LastFightWinner);
 
             ButtonView mergeButton = _gameUIView.PlayMergeButtonView;
             mergeButton.Button.interactable = true;
@@ -121,7 +99,7 @@ namespace GameUI
             upgradeButton.Button.image.sprite =
                 upgradeButtonActive
                 ? upgradeButton.DefaultSprite
-                : upgradeButton.UnactiveStatePrite;
+                : upgradeButton.UnactiveStateSprite;
         }
 
         public void DesactivateUiInteraction()
@@ -131,6 +109,7 @@ namespace GameUI
             SetButtonImageColor(rollButton.ImageList, rollButton.FadeColor);
             SetButtonTextAlfa(rollButton.TextList, true);
             _gameUIView.RollsAmountBeacon.gameObject.SetActive(false);
+            SetRollButton(_playerProfile.Stats.LastFightWinner);
 
             ButtonView mergeButton = _gameUIView.PlayMergeButtonView;
             mergeButton.Button.interactable = false;
@@ -222,6 +201,18 @@ namespace GameUI
             if (imageList == null) return;
             foreach (var img in imageList)
                 img.color = color;
+        }
+
+        private void SetRollButton(bool fightWin)
+        {
+            var rollButton = _gameUIView.RollButtonView;
+            rollButton.ButtonText.text = fightWin
+                ? LiteralString.Roll
+                : LiteralString.Fight;
+
+            rollButton.ButtonImage.sprite = fightWin
+                ? rollButton.ImageSpriteDefault
+                : rollButton.ImageSpriteFight;
         }
 
         private void DiceRoll()

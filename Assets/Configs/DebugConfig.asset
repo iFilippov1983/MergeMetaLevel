@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DebugConfig
   m_EditorClassIdentifier: 
   SkipQuests: 1
-  SkipTutors: 1
+  SkipTutors: 0
   SkipMerge: 0
   FreeBuy: 0
   DynamicData:
