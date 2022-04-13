@@ -58,6 +58,17 @@ namespace Game
             await MovePlayerBy(route);
         }
 
+        public void TeleportPlayerToStart()
+        {
+            _playerHandler.DestroyPlayer();
+            _playerProfile.Stats.CurrentCellID = 0;
+            _playerHandler.InitPlayer();
+            _cameraHandler = new CameraHandler(_gameData.LevelData.CameraContainerView, _playerHandler.PlayerView.transform);
+            _animationHandler = new AnimationHandler(_playerHandler.PlayerView, _playerHandler.PlayerAnimController);
+            _fightHandler = new FightEventHandler(_animationHandler, _playerProfile);
+            _enemyHandler = new EnemyHandler(_gameData.EnemiesData, _animationHandler);
+        }
+
         public async Task ApplyCellEvent(Action<bool> OnFightCompleteEvent)
         {
             CellProperties propertiesToApply = _routeHandler.GetCellToVisitPropertyWhithId(_playerProfile.Stats.CurrentCellID);
@@ -88,7 +99,7 @@ namespace Game
             var effectObject = GameObject.Instantiate(resourceProperties.PickupEffectPrefab, _cellView.ResourcePickupEffectSpawnPoint.position, Quaternion.identity);
             var particleEffect = effectObject.GetComponent<ParticleSystem>();
             particleEffect.Play();
-            _playerHandler.SpawnPopup(resourceProperties.Amount, true);
+            _playerHandler.SpawnPopupAbovePlayer(resourceProperties.Amount, PopupType.Resource);
 
             while (particleEffect.isPlaying)
                 await Task.Yield();
@@ -123,14 +134,17 @@ namespace Game
 
         private async Task MovePlayerBy(List<int> route)
         {
+            int valueForMovesPopup = route.Count;
             foreach (int id in route)
             {
                 var cellProps = _routeHandler.GetCellPropertyWhithId(id);
                 bool brake = cellProps.Status.Equals(CellStatus.ToVisit);
                 _playerHandler.PlayerView.NavMeshAgent.autoBraking = brake;
 
+                _playerHandler.SpawnPopupAbovePlayer(valueForMovesPopup, PopupType.Moves);
                 Vector3 position = _levelViewHandler.GetCellPositionWithId(id);
                 await _playerHandler.SetDestinationAndMove(position);
+                valueForMovesPopup--;
 
                 ApplyCellPass(id);
                 _playerProfile.Stats.CurrentCellID = id;
@@ -172,6 +186,14 @@ namespace Game
             }
 
             _playerHandler.FinishFight();
+        }
+
+        public void HandlePlayerActivity()
+        {
+            var state = _playerHandler.PlayerView.gameObject.activeSelf
+                ? false
+                : true;
+            _playerHandler.PlayerView.gameObject.SetActive(state);
         }
     }
 }

@@ -14,6 +14,8 @@ namespace Game
         private int _health;
         private int _power;
 
+        public Transform PopupSpawnPoint => _info.PopupSpawnPoint;
+
         public InfoBarHandler(Camera cameraToWorkWith)
         {
             _camera = cameraToWorkWith;

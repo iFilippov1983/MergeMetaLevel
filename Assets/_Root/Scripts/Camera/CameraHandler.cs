@@ -40,7 +40,7 @@ namespace GameCamera
                 _virtualCamFight.transform.position = transformToPlace.position;
                 _virtualCamFight.transform.rotation = transformToPlace.rotation;
 
-                await Task.Delay(1500);//??
+                await Task.Delay(1000);//??
             }
         }
 
@@ -60,16 +60,16 @@ namespace GameCamera
             currentCamera.LookAt = transformToFollow;
         }
 
-        internal void StopLookAndFollow()
-        {
-            _virtualCamFollow.Follow = null;
-            _virtualCamFollow.LookAt = null;
-        }
+        //internal void StopLookAndFollow()
+        //{
+        //    _virtualCamFollow.Follow = null;
+        //    _virtualCamFollow.LookAt = null;
+        //}
 
-        internal void LookAndFollow(Transform targetTransform)
-        {
-            _virtualCamFollow.Follow = targetTransform;
-            _virtualCamFollow.LookAt = targetTransform;
-        }
+        //internal void LookAndFollow(Transform targetTransform)
+        //{
+        //    _virtualCamFollow.Follow = targetTransform;
+        //    _virtualCamFollow.LookAt = targetTransform;
+        //}
     }
 }

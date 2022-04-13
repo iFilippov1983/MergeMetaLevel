@@ -14,10 +14,10 @@ internal sealed class Root : MonoBehaviour
 {
     [SerializeField] private GameData _gameData;
     [SerializeField] private Transform _uiContainer;
-    [SerializeField] private StaticData Configs;
-    [SerializeField] private RootView RootView;
-    [SerializeField] private GameObject Level;
-    [SerializeField] private GameObject MetaUi;
+    [SerializeField] private StaticData _configs;
+    [SerializeField] private RootView _rootView;
+    [SerializeField] private GameObject _level;
+    [SerializeField] private GameObject _metaUi;
     [SerializeField] private PlayerStats _initialPlayerStats;
     [SerializeField] private bool _loadPlayerStatsFromFile;
 
@@ -33,7 +33,7 @@ internal sealed class Root : MonoBehaviour
         Application.targetFrameRate = 60;
         CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
-        _coreRoot = new CoreRoot(RootView, Configs);
+        _coreRoot = new CoreRoot(_rootView, _configs);
         _coreRoot.LoadProfile();
         _coreRoot.Run();
 
@@ -83,17 +83,19 @@ internal sealed class Root : MonoBehaviour
         
         // _uiHandler.DesactivateUiInteraction();
         
-        await _coreRoot.Ui.Loading.Show();
-        Level.gameObject.SetActive(false);
-        MetaUi.gameObject.SetActive(false);
+        await _coreRoot.Ui.Loading.Show();//
+        _level.gameObject.SetActive(false);
+        _metaUi.gameObject.SetActive(false);
+        _metaLevel.HandlePlayerActivity();
         
         var gameWin = await _coreRoot.PlayCore(); // Ui.LoadingHide
         
         await _coreRoot.Ui.Loading.Show();
         await _coreRoot.GoToMap(gameWin);
-        Level.gameObject.SetActive(true);
-        MetaUi.gameObject.SetActive(true);
-        await _coreRoot.Ui.Loading.Hide();
+        _level.gameObject.SetActive(true);
+        _metaUi.gameObject.SetActive(true);
+        _metaLevel.HandlePlayerActivity();
+        await _coreRoot.Ui.Loading.Hide();//
 
         _progressHandler.HandleMergeLevelComplete(gameWin);
         if (gameWin)
@@ -102,6 +104,7 @@ internal sealed class Root : MonoBehaviour
             _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString()).DoAsync();
             _uiHandler.ChangeMergeLevelButtonUi(_playerProfile.Stats.CurrentMergeLevel.ToString()).DoAsync();
             _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
+
             await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.GetPowerGain(gameWin));
         }
         else
@@ -183,11 +186,11 @@ internal sealed class Root : MonoBehaviour
 
     private async void OnFightComplete(bool playerWins)
     {
-        string text = _playerProfile.Stats.LastFightWinner 
+        string text = playerWins 
             ? UiString.Victory 
             : UiString.Defeated;
         await _uiHandler.DisplayText(text);
-        //TODO: ui onFightComplete functions
+        await CheckLevelCompletion();
     }
 
     private void OnLevelCompletionProgress(int currentCellId)
@@ -217,6 +220,21 @@ internal sealed class Root : MonoBehaviour
         await _metaLevel.ApplyCellEvent(OnFightComplete);
 
         _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
+    }
+
+    private async Task CheckLevelCompletion()
+    {
+        var cellsViews = _gameData.LevelData.CellsViews;
+        bool goNextLevel =
+            _playerProfile.Stats.LastFightWinner == true
+            &&
+            _playerProfile.Stats.CurrentCellID.Equals(cellsViews.Length - 1);
+        if (goNextLevel)
+        {
+            await _coreRoot.Ui.Loading.Show();
+            _metaLevel.TeleportPlayerToStart();
+            await _coreRoot.Ui.Loading.Hide();
+        }
     }
 
     private void SubscribeOnEvents()

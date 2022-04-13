@@ -9,12 +9,14 @@ namespace Player
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private string _popupPrefabName;
+        [SerializeField] private Transform _popupSpawnPoint;
 
         private NavMeshAgent _navMeshAgent;
         private GameObject _popupPrefab;
 
         public Animator GetAnimator() => _animator;
         public NavMeshAgent NavMeshAgent => _navMeshAgent;
+        public Transform PopupSpawnPoint => _popupSpawnPoint;
         public GameObject PopupPrefab
         {
             get
