@@ -20,18 +20,18 @@ MonoBehaviour:
     Profile:
       TutorialIndex: 0
       PlayerStats:
-        Power: 1874
-        Gold: 5075
+        Power: 1650
+        Gold: 225
         Gems: 0
-        DiceRolls: 9
+        DiceRolls: 20
         LastFightWinner: 1
-        PowerUpgradeAvailable: 1
+        PowerUpgradeAvailable: 0
         UpgradeTutorialCompleted: 0
-        CurrentCellID: 74
-        CurrentMergeLevel: 12
-        CurrentPowerUpgradeLevel: 12
+        CurrentCellID: 3
+        CurrentMergeLevel: 1
+        CurrentPowerUpgradeLevel: 1
     Merge:
-      Level: {fileID: 11400000, guid: 3c58adc91c096fb47a6a90634382c2f2, type: 2}
+      Level: {fileID: 11400000, guid: f6214d453ca9857499b788f40c63aa93, type: 2}
       PlayerMoves: 0
       GameStart: 0
-      GameWin: 1
+      GameWin: 0

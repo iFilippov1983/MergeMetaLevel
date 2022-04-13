@@ -553,7 +553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8562213320950912550
 RectTransform:
   m_ObjectHideFlags: 0
@@ -667,7 +667,13 @@ MonoBehaviour:
   BgDelay: 400
   Bg: {fileID: 0}
   RootCanvasRect: {fileID: 0}
+  Header1: {fileID: 0}
+  Header2: {fileID: 0}
   ShowDuration: 1800
+  Header1Delay: 100
+  Header2Delay: 500
+  Header1HideDelay: 800
+  Header2HideDelay: 1000
 --- !u!1 &8562213320969656169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,7 +1152,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: MERGE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 294ea18589fb04e4aad01fd6725dc353, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 78c18a3feed194049bc3739f33eabd54, type: 2}
   m_sharedMaterial: {fileID: -3527237576418224095, guid: 294ea18589fb04e4aad01fd6725dc353, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1210,7 +1216,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8562213321925154374

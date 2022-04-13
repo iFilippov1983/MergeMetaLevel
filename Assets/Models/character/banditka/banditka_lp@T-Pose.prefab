@@ -371,6 +371,7 @@ Transform:
   - {fileID: 3479282987315696759}
   - {fileID: 7100357305416019177}
   - {fileID: 5969161690126326101}
+  - {fileID: 6905359619005336318}
   m_Father: {fileID: 6189029262883050103}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2425,6 +2426,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8866273517086102489, guid: faaf710f8002c764193527e020b36758, type: 3}
   m_PrefabInstance: {fileID: 2735372161132369904}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3798824856404560048
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8795465277100430017}
+    m_Modifications:
+    - target: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.079
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546290818, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_Name
+      value: SwordHitGray
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740809149546290818, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+--- !u!4 &6905359619005336318 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7740809149546021454, guid: ca41d9746afbaf641980636f849ef087, type: 3}
+  m_PrefabInstance: {fileID: 3798824856404560048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4370153550788480323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2653,6 +2720,10 @@ PrefabInstance:
     - target: {fileID: 5612498265078620202, guid: edc7df45d0b07ac429275d314929a8e7, type: 3}
       propertyPath: m_Name
       value: FX_hardSlash_a_BGirl
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612498265078620202, guid: edc7df45d0b07ac429275d314929a8e7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5633507654894441584, guid: edc7df45d0b07ac429275d314929a8e7, type: 3}
       propertyPath: m_RootOrder

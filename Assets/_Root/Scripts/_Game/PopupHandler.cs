@@ -16,7 +16,7 @@ namespace Game
         private const float _movesFontSize = 2f;
         private readonly Color _damageColor = new Color(255, 0, 0);
         private readonly Color _pickupColor = new Color(249, 162, 0);
-        private readonly Color _movesColor = new Color(0, 20, 249);
+        private readonly Color _movesColor = new Color(0, 10, 249);
 
         public PopupHandler(GameObject popupPrefab, Camera camera)
         {

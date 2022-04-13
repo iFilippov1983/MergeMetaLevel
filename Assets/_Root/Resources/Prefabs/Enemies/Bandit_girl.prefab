@@ -91,6 +91,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3641558172695660133}
     m_Modifications:
+    - target: {fileID: 2243230941248590822, guid: 76495435db99cb0489336193e4b733e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3786237104982620028, guid: 76495435db99cb0489336193e4b733e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821172485878181948, guid: 76495435db99cb0489336193e4b733e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6189029262883050103, guid: 76495435db99cb0489336193e4b733e9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -137,7 +149,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6820712623321123021, guid: 76495435db99cb0489336193e4b733e9, type: 3}
       propertyPath: m_Name
-      value: banditka_lp@T-Pose (1)
+      value: banditka_lp@T-Pose
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905359619005601330, guid: 76495435db99cb0489336193e4b733e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76495435db99cb0489336193e4b733e9, type: 3}
