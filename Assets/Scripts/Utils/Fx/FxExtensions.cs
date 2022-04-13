@@ -11,6 +11,7 @@ namespace Utils
         public static async Task<GameObject> DoFxFyFrom(
             this Image target
             , Vector3 fromPosition
+            ,float duration
             , AnimationCurve curveX
             , AnimationCurve curveY
             , bool doShake
@@ -30,9 +31,9 @@ namespace Utils
             
             
             var done = false;
-            tr.DOScale(1, .85f).SetEase(Ease.OutExpo);
-            tr.DOMoveX(targetTransform.UiCenter().x, .85f).SetEase(curveX);
-            tr.DOMoveY(targetTransform.UiCenter().y, .85f).SetEase(curveY).OnComplete(() =>
+            tr.DOScale(1, duration).SetEase(Ease.OutExpo);
+            tr.DOMoveX(targetTransform.UiCenter().x, duration).SetEase(curveX);
+            tr.DOMoveY(targetTransform.UiCenter().y, duration).SetEase(curveY).OnComplete(() =>
             {
                 // targetTransform.DOKill();
                 if (doShake)
@@ -98,7 +99,7 @@ namespace Utils
             return fx;
         }
         
-        public static async Task<GameObject> DoFxFly(this SpriteRenderer Source, Camera camera, RectTransform target, bool doShake, Action cbComplete, int destroyDelay = 500)
+        public static async Task<GameObject> DoFxFly(this SpriteRenderer Source, float duration,  Camera camera, RectTransform target, bool doShake, Action cbComplete, int destroyDelay = 500)
         {
             var targetTransform = (RectTransform) target.transform;
             
@@ -110,10 +111,10 @@ namespace Utils
             tr.SetParent(targetTransform.parent, true);
             image.FitUiByObject(Source, camera);
 
-            tr.DOScale(1, 1f).SetEase(Ease.InExpo);
-            tr.DOMoveX(targetTransform.UiCenter().x, 1f).SetEase(Ease.InOutSine);
+            tr.DOScale(1, duration).SetEase(Ease.InExpo);
+            tr.DOMoveX(targetTransform.UiCenter().x, duration).SetEase(Ease.InOutSine);
             var done = false;
-            tr.DOMoveY(targetTransform.UiCenter().y, 1f).SetEase(Ease.Linear).OnComplete(() =>
+            tr.DOMoveY(targetTransform.UiCenter().y, duration).SetEase(Ease.Linear).OnComplete(() =>
             {
                 // (target.transform as RectTransform).DOKill();
                 if (doShake)

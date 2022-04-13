@@ -241,6 +241,8 @@ public class CoreRoot
         var gameWin = await Merge.PlayLevel();
         
         Data.Merge.Input.InputLocked = true;
+        Data.Merge.Input.SkipPressed = false;
+        
         Data.Merge.GameStart = false;
         Data.Merge.GameWin = gameWin;
         

@@ -22,9 +22,12 @@ namespace Core
             _data.MouseDown = false;
             _data.MouseUp = false;
             _data.MousePressed = false;
-            
+
             if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+            {
                 _data.MouseDown = true;
+                _data.SkipPressed = true;
+            }
 
             else if (Input.GetMouseButtonUp(0))
                 _data.MouseUp = true;

@@ -14360,7 +14360,7 @@ GameObject:
   - component: {fileID: 198595754603740702}
   - component: {fileID: 199660787610547834}
   m_Layer: 0
-  m_Name: fxClear
+  m_Name: fx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

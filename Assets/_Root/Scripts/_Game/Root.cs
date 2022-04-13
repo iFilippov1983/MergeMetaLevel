@@ -81,7 +81,7 @@ internal sealed class Root : MonoBehaviour
         // if(!await _coreRoot.CheckHearts())
         //     return;
         
-        _uiHandler.DesactivateUiInteraction();
+        // _uiHandler.DesactivateUiInteraction();
         
         await _coreRoot.Ui.Loading.Show();
         Level.gameObject.SetActive(false);
