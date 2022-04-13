@@ -325,15 +325,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7337233240521690422, guid: dc0db18f112347348b0a9d7cb6113ebc, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.9764706
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7337233240521690422, guid: dc0db18f112347348b0a9d7cb6113ebc, type: 3}
       propertyPath: m_fontColor.g
-      value: 0
+      value: 0.08306958
       objectReference: {fileID: 0}
     - target: {fileID: 7337233240521690422, guid: dc0db18f112347348b0a9d7cb6113ebc, type: 3}
       propertyPath: m_fontColor.r
-      value: 0
+      value: 0.21698111
       objectReference: {fileID: 0}
     - target: {fileID: 7337233240521690422, guid: dc0db18f112347348b0a9d7cb6113ebc, type: 3}
       propertyPath: m_fontSizeBase
@@ -341,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7337233240521690422, guid: dc0db18f112347348b0a9d7cb6113ebc, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294508544
+      value: 4278195511
       objectReference: {fileID: 0}
     - target: {fileID: 7337233240521690422, guid: dc0db18f112347348b0a9d7cb6113ebc, type: 3}
       propertyPath: m_HorizontalAlignment

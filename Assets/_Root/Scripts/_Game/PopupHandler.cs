@@ -13,10 +13,10 @@ namespace Game
         private Camera _camera;
         private const float _damageFontSize = 2.5f;
         private const float _goldFontSize = 3f;
-        private const float _movesFontSize = 2f;
+        private const float _movesFontSize = 4f;
         private readonly Color _damageColor = new Color(255, 0, 0);
-        private readonly Color _pickupColor = new Color(249, 162, 0);
-        private readonly Color _movesColor = new Color(0, 10, 249);
+        private readonly Color _pickupColor = new Color(250, 162, 0);
+        private readonly Color _movesColor = new Color(0, 64, 250);
 
         public PopupHandler(GameObject popupPrefab, Camera camera)
         {
@@ -35,6 +35,7 @@ namespace Game
             if (popupType.Equals(PopupType.Damage))
             {
                 text = string.Concat("-", value.ToString());
+                _popup.PopupText.color = Color.clear;
                 _popup.PopupText.color = _damageColor;
                 _popup.PopupText.fontSize = _damageFontSize;
                 _popup.Animation.clip = _popup.ClipFly;
@@ -43,6 +44,7 @@ namespace Game
             else if (popupType.Equals(PopupType.Resource))
             {
                 text = string.Concat("+", value.ToString());
+                _popup.PopupText.color = Color.clear;
                 _popup.PopupText.color = _pickupColor;
                 _popup.PopupText.fontSize = _goldFontSize;
                 _popup.Canvas.gameObject.SetActive(true);
@@ -52,6 +54,7 @@ namespace Game
             else
             {
                 text = value.ToString();
+                _popup.PopupText.color = Color.clear;
                 _popup.PopupText.color = _movesColor;
                 _popup.PopupText.fontSize = _movesFontSize; 
                 _popup.Animation.clip = _popup.ClipHide;

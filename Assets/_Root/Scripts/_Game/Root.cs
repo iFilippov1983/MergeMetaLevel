@@ -233,6 +233,7 @@ internal sealed class Root : MonoBehaviour
         {
             await _coreRoot.Ui.Loading.Show();
             _metaLevel.TeleportPlayerToStart();
+            OnLevelCompletionProgress(_playerProfile.Stats.CurrentCellID);
             await _coreRoot.Ui.Loading.Hide();
         }
     }
