@@ -323,7 +323,7 @@ namespace Core
             var t = SpriteRendererTransform;
             var direction = targetPos - t.position;
             direction.Normalize();
-            t.DOLocalMove(t.localPosition + direction * 0.3f, 0.4f).SetLoops(-1, LoopType.Yoyo);
+            t.DOLocalMove(t.localPosition + direction * 0.3f, 0.3f).SetLoops(-1, LoopType.Yoyo);
 
             SetCanMergeFx(true);
         }
