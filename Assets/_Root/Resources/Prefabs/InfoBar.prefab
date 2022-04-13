@@ -290,6 +290,7 @@ RectTransform:
   m_Children:
   - {fileID: 4313552262921641242}
   - {fileID: 1691528436371063296}
+  - {fileID: 8011871630352140385}
   m_Father: {fileID: 8655804605176775572}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -480,6 +481,7 @@ MonoBehaviour:
   _healthText: {fileID: 5695834475901744312}
   _powerText: {fileID: 310551876535931787}
   _healthBarFront: {fileID: 9063280920819931357}
+  _popupSpawnPoint: {fileID: 8011871630352140385}
 --- !u!1 &3189926491695236490
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +732,36 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 119
+--- !u!1 &5621405759252885090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8011871630352140385}
+  m_Layer: 0
+  m_Name: PopupSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8011871630352140385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5621405759252885090}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6773068699926647468}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6394943436588706540
 GameObject:
   m_ObjectHideFlags: 0

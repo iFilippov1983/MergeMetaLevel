@@ -50,25 +50,18 @@ namespace GameUI
             string text = string.Concat("+", powerAmountToShow);
             _gameUIView.MainTMP.text = text;
             _gameUIView.MainTMP.gameObject.SetActive(true);
-            await Task.Delay(1000);
+            _gameUIView.ExtraPowerImage.SetActive(true);
+            await Task.Delay(2000);
             _gameUIView.MainTMP.text = string.Empty;
             _gameUIView.MainTMP.gameObject.SetActive(false);
-        }
-
-        public async Task PlayGoToMergeAnimation()
-        {
-            _gameUIView.MainTMP.text = UiString.PlayingMerge;
-            _gameUIView.MainTMP.gameObject.SetActive(true);
-            await Task.Delay(1000);
-            _gameUIView.MainTMP.text = string.Empty;
-            _gameUIView.MainTMP.gameObject.SetActive(false);
+            _gameUIView.ExtraPowerImage.SetActive(false);
         }
 
         public async Task DisplayText(string text)
         {
             _gameUIView.MainTMP.text = text;
             _gameUIView.MainTMP.gameObject.SetActive(true);
-            await Task.Delay(1000);
+            await Task.Delay(2000);
             _gameUIView.MainTMP.text = string.Empty;
             _gameUIView.MainTMP.gameObject.SetActive(false);
         }

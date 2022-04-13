@@ -239,10 +239,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameData: {fileID: 11400000, guid: 0f56c9e0639d2bd4ca5e39b80339d3e4, type: 2}
   _uiContainer: {fileID: 1246272299}
-  Configs: {fileID: 11400000, guid: aa38709db422dbd4bbceaab01a43dfed, type: 2}
-  RootView: {fileID: 1604641168}
-  Level: {fileID: 1859820694}
-  MetaUi: {fileID: 1246272298}
+  _configs: {fileID: 11400000, guid: aa38709db422dbd4bbceaab01a43dfed, type: 2}
+  _rootView: {fileID: 1604641168}
+  _level: {fileID: 1859820694}
+  _metaUi: {fileID: 1246272298}
   _initialPlayerStats:
     Power: 0
     Gold: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
     CurrentCellID: 0
     CurrentMergeLevel: 1
     CurrentPowerUpgradeLevel: 1
-  _loadPlayerStatsFromFile: 0
+  _loadPlayerStatsFromFile: 1
   _coreRoot:
     View: {fileID: 0}
     Configs: {fileID: 0}
@@ -681,6 +681,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1859820695}
     m_Modifications:
+    - target: {fileID: 5792998085798030972, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
+      propertyPath: m_BindingMode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5792998086989151608, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: m_Name
       value: Cameras
@@ -703,19 +707,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5792998086989151609, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8535535
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 5792998086989151609, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.35355338
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 5792998086989151609, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.35355338
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5792998086989151609, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.1464466
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5792998086989151609, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -723,7 +727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5792998086989151609, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5792998086989151609, guid: 14a8ded58e5d35c44bbdddb645d7793e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

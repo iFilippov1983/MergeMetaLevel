@@ -56,7 +56,8 @@ namespace Enemy
 
         public void OnGetHitEvent(int damegeTakenAmount, int enemyRemainingHealth)
         {
-            _popupHandler.SpawnPopup(_enemyView.transform.position, damegeTakenAmount);
+            //_popupHandler.SpawnPopup(_enemyView.transform.position, damegeTakenAmount);
+            _popupHandler.SpawnPopup(_infoHandler.PopupSpawnPoint, damegeTakenAmount);
 
             if (enemyRemainingHealth <= 0)
             {

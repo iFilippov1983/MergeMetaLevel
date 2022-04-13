@@ -1,5 +1,6 @@
 ﻿using Data;
 using Game;
+using Level;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -7,8 +8,10 @@ namespace Player
 {
     internal class PlayerHandler
     {
+        private GameObject _playerPrefab;
         private Vector3 _playerInitialPosition;
         private Quaternion _playerInitialRotation;
+        private CellView[] _cellViews;
         private PlayerView _playerView;
         private PlayerProfile _playerProfile;
         private CharacterAnimationControler _playerAnimController;
@@ -16,17 +19,20 @@ namespace Player
         private GameObject _infoBarPrefab;
         private PopupHandler _popupHandler;
 
+
         public PlayerView PlayerView => _playerView;
         public CharacterAnimationControler PlayerAnimController => _playerAnimController;
 
         public PlayerHandler(GameData gameData, PlayerProfile playerProfile)
         {
             _playerProfile = playerProfile;
+            _playerPrefab = gameData.PlayerData.PlayerPrefab;
 
-            var cellViews = gameData.LevelData.CellsViews;
-            _playerInitialPosition = cellViews[_playerProfile.Stats.CurrentCellID].transform.position;
-            _playerInitialRotation = cellViews[playerProfile.Stats.CurrentCellID].transform.rotation;
-            InitPlayer(gameData.PlayerData.PlayerPrefab, _playerInitialPosition, _playerInitialRotation);//TODO: insert position from cash
+            _cellViews = gameData.LevelData.CellsViews;
+            _playerInitialPosition = _cellViews[_playerProfile.Stats.CurrentCellID].transform.position;
+            _playerInitialRotation = _cellViews[_playerProfile.Stats.CurrentCellID].transform.rotation;
+            
+            InitPlayer();
 
             _infoBarPrefab = gameData.PlayerData.InfoPrefab;
             _infoHandler = new InfoBarHandler(Camera.main);
@@ -38,13 +44,13 @@ namespace Player
             _playerView.NavMeshAgent.SetDestination(position);
             _playerView.GetAnimator().SetBool(AnimParameter.IsRunning, true);
             var transform = _playerView.transform;
-            while(Vector3.SqrMagnitude(transform.position - position) > 0.5f * 0.5f)
+            while(Vector3.SqrMagnitude(transform.position - position) > 0.8f * 0.8f)
                 await Task.Yield();
         }
 
         public void OnGetHitEvent(int damageTakenAmount, int playerRemainingHealth)
         {
-            _popupHandler.SpawnPopup(_playerView.transform.position, damageTakenAmount);
+            _popupHandler.SpawnPopup(_infoHandler.PopupSpawnPoint, damageTakenAmount);
 
             if (playerRemainingHealth <= 0)
             {
@@ -57,8 +63,9 @@ namespace Player
             }
         }
 
-        public void SpawnPopup(int value, bool resourcePickup = false) => 
-            _popupHandler.SpawnPopup(_playerView.transform.position, value, resourcePickup);
+        public void SpawnPopupAbovePlayer(int value, PopupType popupType = PopupType.Damage) =>
+            _popupHandler.SpawnPopup(_playerView.PopupSpawnPoint, value, popupType);
+
 
         public void PrepareToFight(int power, int health)
         {
@@ -67,16 +74,24 @@ namespace Player
             _infoHandler.InitInformationBar();
         }
 
-        internal void FinishFight()
+        public void FinishFight()
         {
             _infoHandler.DestroyInformationBar();
         }
 
-        private void InitPlayer(GameObject playerPrefab, Vector3 playerInitPosition, Quaternion playerInitialRotation)
+        //private void InitPlayer(GameObject playerPrefab, Vector3 playerInitPosition, Quaternion playerInitialRotation)
+        public void InitPlayer()
         {
-            var playerObject = GameObject.Instantiate(playerPrefab, playerInitPosition, playerInitialRotation);
+            _playerInitialPosition = _cellViews[_playerProfile.Stats.CurrentCellID].transform.position;
+            _playerInitialRotation = _cellViews[_playerProfile.Stats.CurrentCellID].transform.rotation;
+            var playerObject = GameObject.Instantiate(_playerPrefab, _playerInitialPosition, _playerInitialRotation);
             _playerView = playerObject.GetComponent<PlayerView>();
             _playerAnimController = playerObject.GetComponent<CharacterAnimationControler>();
+        }
+
+        public void DestroyPlayer()
+        { 
+            Object.Destroy(_playerView.gameObject);
         }
     }
 }

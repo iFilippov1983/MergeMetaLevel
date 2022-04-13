@@ -13,25 +13,25 @@ MonoBehaviour:
   m_Name: DebugConfig
   m_EditorClassIdentifier: 
   SkipQuests: 1
-  SkipTutors: 0
+  SkipTutors: 1
   SkipMerge: 0
   FreeBuy: 0
   DynamicData:
     Profile:
       TutorialIndex: 0
       PlayerStats:
-        Power: 0
-        Gold: 200
+        Power: 1874
+        Gold: 5075
         Gems: 0
-        DiceRolls: 0
+        DiceRolls: 9
         LastFightWinner: 1
-        PowerUpgradeAvailable: 0
+        PowerUpgradeAvailable: 1
         UpgradeTutorialCompleted: 0
-        CurrentCellID: 0
-        CurrentMergeLevel: 1
-        CurrentPowerUpgradeLevel: 1
+        CurrentCellID: 74
+        CurrentMergeLevel: 12
+        CurrentPowerUpgradeLevel: 12
     Merge:
-      Level: {fileID: 11400000, guid: f6214d453ca9857499b788f40c63aa93, type: 2}
+      Level: {fileID: 11400000, guid: 3c58adc91c096fb47a6a90634382c2f2, type: 2}
       PlayerMoves: 0
       GameStart: 0
-      GameWin: 0
+      GameWin: 1

@@ -15759,8 +15759,8 @@ MonoBehaviour:
         PowerUpgradeAvailable: 0
         UpgradeTutorialCompleted: 0
         CurrentCellID: 0
-        CurrentMergeLevel: 0
-        CurrentPowerUpgradeLevel: 0
+        CurrentMergeLevel: 1
+        CurrentPowerUpgradeLevel: 1
     Merge:
       Level: {fileID: 0}
       PlayerMoves: 0
