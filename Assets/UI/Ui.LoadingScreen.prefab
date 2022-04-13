@@ -553,7 +553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8562213320950912550
 RectTransform:
   m_ObjectHideFlags: 0
@@ -581,7 +581,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8562213320950912551}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -591,7 +591,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
@@ -1146,8 +1146,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: MERGE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8bbe1bf5a5cfad5458af55ef7fa6c646, type: 2}
-  m_sharedMaterial: {fileID: -1133689216797278241, guid: 8bbe1bf5a5cfad5458af55ef7fa6c646, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 294ea18589fb04e4aad01fd6725dc353, type: 2}
+  m_sharedMaterial: {fileID: -3527237576418224095, guid: 294ea18589fb04e4aad01fd6725dc353, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

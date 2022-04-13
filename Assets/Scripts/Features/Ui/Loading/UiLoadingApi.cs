@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Utils;
 
 namespace Components
 {
@@ -25,6 +26,14 @@ namespace Components
         public async Task Show()
         {
             _view.gameObject.SetActive(true);
+            _view.Header1.HideImmediate();
+            _view.Header2.HideImmediate();
+            Async.DelayedCall(_view.Header1Delay, _view.Header1.ShowText);
+            Async.DelayedCall(_view.Header2Delay, _view.Header2.ShowText);
+            
+            Async.DelayedCall(_view.Header1HideDelay , _view.Header1.HideText);
+            Async.DelayedCall(_view.Header2HideDelay, _view.Header2.HideText);
+            
             await DoShow();
             await Task.Delay(_view.ShowDuration );
             // await Task.Delay(200);

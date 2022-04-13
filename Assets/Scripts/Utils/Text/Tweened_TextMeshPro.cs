@@ -78,7 +78,7 @@ namespace Utils.Text
                 _tweener.DOScale(i, 0, 0.5f).SetEase(Ease.InBack, 5).SetDelay(timeOffset);
             }
             
-            Async.DelayedCall(200, () => _canvasGroup.alpha = 0);
+            //Async.DelayedCall(200, () => _canvasGroup.alpha = 0);
         }
 
         private void Reset()

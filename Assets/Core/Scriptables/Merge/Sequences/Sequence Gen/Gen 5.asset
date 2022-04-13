@@ -31,7 +31,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Sprite: {fileID: 21300000, guid: 1faf747dc3fca0642930a0bbd6770e70, type: 3}
+  Sprite: {fileID: 21300000, guid: 312d365e9e40d834f8fd930ea357dc06, type: 3}
   Sequence: {fileID: 11400000, guid: d877a51ac10f7734c85f9b9d2f3fed09, type: 2}
   count: 0
   isGenerator: 1
