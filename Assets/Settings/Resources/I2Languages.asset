@@ -2748,10 +2748,8 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 'Awesome! It is more powerful than the the last one!
-
-        <color=#449944>Use
-        it!</color>'
+      - "Awesome! It is more powerful \nthan the the last one! <color=#449944>Use
+        it!</color>"
       - "\u041A\u043B\u0430\u0441\u0441! \u041E\u043D \u043C\u043E\u0449\u043D\u0435\u0435
         \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0435\u0433\u043E!\n<color=#449944>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439
         \u0435\u0433\u043E!</color>"
@@ -3032,7 +3030,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbwZUWfmKrf5MrCE01vRFchOpLBhalqO_4LSo47fDAzwpHWC_1zxhLhyV-iqrJIhLUUQ/exec
     Google_SpreadsheetKey: 1PMch2XsohYa37A4nbaJoysiI4i7GrPKxpkCLWQApikI
     Google_SpreadsheetName: I2Loc Merge Localization
-    Google_LastUpdatedVersion: 1646386362051
+    Google_LastUpdatedVersion: 1649881691215
     Google_Password: change_this
     GoogleUpdateFrequency: 1
     GoogleInEditorCheckFrequency: 1

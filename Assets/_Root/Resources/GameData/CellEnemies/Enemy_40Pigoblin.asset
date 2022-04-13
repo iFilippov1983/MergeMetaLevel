@@ -16,5 +16,5 @@ MonoBehaviour:
   _enemyStats:
     _power: 40
   _rewardList:
-  - {fileID: 11400000, guid: 22b030ff099ce9145b060328705fc0bb, type: 2}
+  - {fileID: 11400000, guid: e85be70d6d9033a44b58a88fdf943a78, type: 2}
   _infoPrefabName: InfoBar_enemy

@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d82224ae5464bb4408cf0f47dbcc4e75, type: 3}
-  m_Name: Enemy_1500
+  m_Script: {fileID: 11500000, guid: 907e9b75b35da2b458b8a587604ccd6d, type: 3}
+  m_Name: Resource_20Gold
   m_EditorClassIdentifier: 
-  _enemyType: 1
-  _enemyStats:
-    _power: 1500
-  _rewardList:
-  - {fileID: 11400000, guid: 46b12293a1bb41d4483d28b78d0be415, type: 2}
-  _infoPrefabName: InfoBar_enemy
+  _resouceType: 0
+  _resourceAmount: 20
+  _pickupEffectPrefabName: GoldExplosion
