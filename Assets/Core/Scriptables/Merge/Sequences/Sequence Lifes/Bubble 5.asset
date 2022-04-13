@@ -24,7 +24,7 @@ MonoBehaviour:
     - Name: Generate
       Entry: 6
       Data: 
-  Sprite: {fileID: 21300000, guid: 61d8e5397b786ab44b484521a0c2eaf2, type: 3}
+  Sprite: {fileID: 21300000, guid: f404876c0a3d662499860d4e4658ab71, type: 3}
   Sequence: {fileID: 11400000, guid: 0f80eac3118a30146aa87564b9e010e9, type: 2}
   count: 256
   isGenerator: 0
