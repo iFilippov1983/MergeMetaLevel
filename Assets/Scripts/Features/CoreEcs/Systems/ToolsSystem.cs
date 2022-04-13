@@ -43,7 +43,7 @@ public class ToolsSystem : ReactiveSystem<GameEntity>
             switch (info.attacker)
             {
                 case "one" :
-                    // await FinalClear(new Vector3(info.fromX, info.fromY));
+                    // await FinalClear(_ui.Merge.View.CoinsImage, new Vector3(info.fromX, info.fromY));
                         
                     Debug.Log($"Process booster1 {info.fromX} {info.fromY}");
                     await _viewFactory
@@ -169,6 +169,8 @@ public class ToolsSystem : ReactiveSystem<GameEntity>
     
     public async Task UnlockAll(int fromX, int fromY)
     {
+        var input = _contexts.game.ctx.dynamicData.Input;
+        
         var star = FindStar();
         var locked = _contexts.game.ctx.dynamicData.FindAll(v => v.isLocked);
         locked = locked.OrderBy(v => -v.position.y + v.position.x*100 ).ToList();
@@ -178,7 +180,7 @@ public class ToolsSystem : ReactiveSystem<GameEntity>
         {
             _viewFactory.CreateParticles("generate", star.position.x, star.position.y);
             await star.view.value.AnimateGeneration();
-            await Task.Delay(200);
+            // await Task.Delay(200);
         }
 
         var max = locked.Count;
@@ -191,7 +193,7 @@ public class ToolsSystem : ReactiveSystem<GameEntity>
             UnlockView(view.position.x, view.position.y, i * 0);
         }
         // await Task.Delay((max - 1) * 0);
-        if(locked.Count > 0)
+        if(locked.Count > 0 && !input.SkipPressed)
             await Task.Delay(600);
     }
 
@@ -207,7 +209,7 @@ public class ToolsSystem : ReactiveSystem<GameEntity>
             var task = AnimateCoinFly(to, cb, entity, view, _camera);
             tasks.Add(task);
             
-            await Task.Delay(80);
+            await Task.Delay(40);
         }
 
         await Task.WhenAll(tasks);
@@ -219,7 +221,7 @@ public class ToolsSystem : ReactiveSystem<GameEntity>
         await view.AnimateGeneration();
         view.SpriteRenderer.color = new Color(1, 1, 1, 0);
 
-        await view.SpriteRenderer.DoFxFly(_camera, to, true, cb);
+        await view.SpriteRenderer.DoFxFly(0.7f, _camera, to, true, cb);
     }
 
     private async void DelayedDestroy(ChipsEntity entity)
@@ -230,6 +232,9 @@ public class ToolsSystem : ReactiveSystem<GameEntity>
 
     public async Task ToCoinsAll(int fromX, int fromY, List<MergeItemView> newCoins)
     {
+        var input = _contexts.game.ctx.dynamicData.Input;
+        // input.SkipPressed = false;
+        
         var star = FindStar();
         (fromX, fromY) = (star.position.x, star.position.y);
         
@@ -253,7 +258,9 @@ public class ToolsSystem : ReactiveSystem<GameEntity>
             TrailTo( fromX, fromY, posX, posY, 0, flyTime , "coins_trail");
             var task = ReplaceWithCoin(e, posX, posY, flyTime, newCoins);
             tasks.Add(task);
-            await Task.Delay(200);
+
+            var delay = 40; 
+            await Task.Delay(delay);
         }   
 
         // if(nonResources.Count > 0)

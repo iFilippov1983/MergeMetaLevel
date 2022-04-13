@@ -139,13 +139,13 @@ namespace GameUI
 
         public async Task ChangePowerUi(string amount)
         {
-            await Task.Delay(100);//power change animation
+            // await Task.Delay(100);//power change animation
             _gameUIView.PowerTMP.text = amount;
         }
 
         public async Task ChangeDiceRollsUi(string amount)
         {
-            await Task.Delay(100);//dice change animation
+            // await Task.Delay(100);//dice change animation
             _gameUIView.DiceRollsTMP.text = amount;
         }
 
@@ -157,7 +157,7 @@ namespace GameUI
 
         public async Task ChangeMergeLevelButtonUi(string level)
         {
-            await Task.Delay(100);
+            // await Task.Delay(100);
             _gameUIView.MergeLevelTMP.text = level;
         }
 

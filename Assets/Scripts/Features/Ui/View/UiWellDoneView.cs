@@ -8,6 +8,7 @@ namespace Components
         public RectTransform RootCanvasRect;
         public RectTransform Container;
         public GameObject Confety;
+        public CanvasGroup ContainerGroup;
 
         // Api
         public UiWellDoneApi Api;

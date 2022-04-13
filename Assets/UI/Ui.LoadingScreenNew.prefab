@@ -417,13 +417,13 @@ MonoBehaviour:
   CanvasGroup: {fileID: 8562213320950912544}
   Blur: {fileID: 0}
   fadeInDuration: 400
-  fadeOutDuration: 600
+  fadeOutDuration: 800
   BgDelay: 400
   Bg: {fileID: 0}
   RootCanvasRect: {fileID: 0}
   Header1: {fileID: 4395460623487238451}
   Header2: {fileID: 98164229785978721}
-  ShowDuration: 1500
+  ShowDuration: 1100
   Header1Delay: 0
   Header2Delay: 200
   Header1HideDelay: 900

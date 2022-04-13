@@ -96,7 +96,8 @@ namespace Components
                     
                 var keys = _visualConfig.CoinsFromMovesY.keys;
                 keys[1].value *= _visualConfig.CoinsFromMovesHeight * (i % 2 == 0 ? 1 : -1);
-                var task = View.CoinsImage.DoFxFyFrom( View.MovesPos.position, _visualConfig.CoinsFromMovesX, new AnimationCurve(keys), true, cbAddCoin);
+                var duration = 0.45f;
+                var task = View.CoinsImage.DoFxFyFrom( View.MovesPos.position, duration,  _visualConfig.CoinsFromMovesX, new AnimationCurve(keys), true, cbAddCoin);
                 tasks.Add(task);
                 await Task.Delay(nextCoinDelay);
             }

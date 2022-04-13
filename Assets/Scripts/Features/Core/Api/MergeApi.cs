@@ -208,12 +208,14 @@ namespace Data
              
             var coinsImg= _ui.Merge.View.CoinsImage;
             await _core.Systems.tools.FinalClear( coinsImg.transform as RectTransform, AddCoin);
+            // input.SkipPressed = false;
+
             await Task.Delay(200);
 
             await _ui.Merge.CoinsFromMovesFly(_data.PlayerMoves, AddCoin);
             _data.PlayerMoves = 0;
              
-            await Task.Delay(200);
+            // await Task.Delay(200);
              
             // var uiStar = _ui.LevelComplete.view.XpIcon;
             // var starView = _core.Systems.tools.FindStar().view.value.SpriteRenderer;
@@ -327,15 +329,20 @@ namespace Data
         {
             Debug.Log("Level Done");
             await _ui.WellDone.Show();
-            await Task.Delay(400);
-            await _ui.WellDone.Hide();
-            
+            HideWellDone().DoAsync();
+
             var totalReward = await FinalClear(levelReward);
             var movesReward = totalReward - levelReward;
             
             await _ui.LevelComplete.Show(levelReward, movesReward);
 
             return (levelReward, movesReward);
+        }
+
+        private async Task HideWellDone()
+        {
+            await Task.Delay(300);
+            await _ui.WellDone.Hide();
         }
 
         public async Task OnLevelFail()

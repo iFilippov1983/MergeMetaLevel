@@ -21,7 +21,7 @@ namespace Components.Tools
         [Button]
         void Fit()
         {
-            Source.DoFxFly(CoreCamera, Target.transform as RectTransform, true, () => { }).DoAsync();
+            Source.DoFxFly(1f, CoreCamera, Target.transform as RectTransform, true, () => { }).DoAsync();
             
             var fx = new GameObject("fx");
             var image = fx.AddComponent<Image>();

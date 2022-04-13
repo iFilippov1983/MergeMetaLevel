@@ -14351,7 +14351,6 @@ GameObject:
   - component: {fileID: 2085532898714844881}
   - component: {fileID: 2085532898714844886}
   - component: {fileID: 2085532898714844880}
-  - component: {fileID: 728273850708679816}
   - component: {fileID: 2962119212562395251}
   - component: {fileID: 551138258617652019}
   - component: {fileID: 4463475360143913789}
@@ -14403,24 +14402,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &728273850708679816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085532898714844882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5da91031975d4728bab4732b99dd67f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Canvas: {fileID: 2962119212562395251}
-  CanvasGroup: {fileID: 2085532898714844880}
-  Blur: {fileID: 0}
-  fadeInDuration: 0
-  fadeOutDuration: 0
-  BgDelay: 400
 --- !u!223 &2962119212562395251
 Canvas:
   m_ObjectHideFlags: 0
@@ -14475,11 +14456,12 @@ MonoBehaviour:
   CanvasGroup: {fileID: 2085532898714844880}
   Blur: {fileID: 0}
   fadeInDuration: 0
-  fadeOutDuration: 0
+  fadeOutDuration: 600
   BgDelay: 400
   RootCanvasRect: {fileID: 0}
   Container: {fileID: 5937589660492784091}
   Confety: {fileID: 2585813174237277963}
+  ContainerGroup: {fileID: 5955611669386553138}
   k: 0.5
 --- !u!1 &2585813174237277963
 GameObject:
@@ -19285,6 +19267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5937589660492784091}
+  - component: {fileID: 5955611669386553138}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -19312,6 +19295,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1280}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &5955611669386553138
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3394541838727749738}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3824815407937743977
 GameObject:
   m_ObjectHideFlags: 0
@@ -24206,7 +24201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u0430\u043C\u0435\u0447\u0430\u0442\u0435\u043B\u044C\u043D\u043E!"
+  m_text: Well Done!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c18a3feed194049bc3739f33eabd54, type: 2}
   m_sharedMaterial: {fileID: -1133689216797278241, guid: 8bbe1bf5a5cfad5458af55ef7fa6c646, type: 2}

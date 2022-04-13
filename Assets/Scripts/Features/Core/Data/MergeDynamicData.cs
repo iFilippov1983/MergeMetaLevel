@@ -24,6 +24,7 @@ namespace Data
         public class InputDynamicData
         {
             public bool InputLocked;
+            public bool SkipPressed;
             public bool MouseDown;
             public bool MousePressed;
             public bool MouseUp;
