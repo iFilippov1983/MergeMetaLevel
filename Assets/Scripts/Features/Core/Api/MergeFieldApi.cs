@@ -82,10 +82,10 @@ namespace Core
             if (TryMoveDraggable(posX, posY))
                 OnDragToAnotherCell?.Invoke(Draggable, posX, posY);
 
-            if (Vector2.SqrMagnitude(mouse.WorldPos - mouse.WorldStartPos) > 0.2 * 0.2 && _draggable?.isDead == false)
+            if (Vector2.SqrMagnitude(mouse.WorldPos - mouse.WorldStartPos) > 0.1 * 0.1 && _draggable?.isDead == false)
             {
                 _draggable.view.value.Transform.DOKill();
-                _draggable.view.value.Transform.DOMove(endValue: mouse.WorldPos, 0.15f).SetEase(_visualConfig.DragFlyEasing);
+                _draggable.view.value.Transform.DOMove(endValue: mouse.WorldPos, 0.07f).SetEase(_visualConfig.DragFlyEasing);
             }
         }
         

@@ -200,7 +200,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   ScaleRatio: 0.8
-  CollapseFlyDuration: 400
+  CollapseFlyDuration: 300
   CollapseScaleDelay: 300
   CollapseEasing:
     serializedVersion: 2
@@ -226,7 +226,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  CollapseScaleDuration: 300
+  CollapseScaleDuration: 250
   CollapseScaleEasing:
     serializedVersion: 2
     m_Curve:
