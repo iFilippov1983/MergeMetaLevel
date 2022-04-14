@@ -80,7 +80,7 @@ namespace Game
                 int number = GetRouteCellsCount();
                 _cameraView.Dice.gameObject.SetActive(true);
                 _cameraView.Dice.Animator.SetInteger(AnimParameter.DiceNumber, number);
-                await Task.Delay(1000);
+                await Task.Delay(1500);
                 _cameraView.Dice.gameObject.SetActive(false);
             }
 

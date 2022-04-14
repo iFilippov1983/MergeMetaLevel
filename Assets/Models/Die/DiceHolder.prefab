@@ -112,6 +112,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 74e5069be7bd7f243bbdabaccf04f841, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b3b3515fc65fcf43b1d2d1ce8157c56, type: 2}
     - target: {fileID: 919132149155446097, guid: 74e5069be7bd7f243bbdabaccf04f841, type: 3}
       propertyPath: m_Name
       value: Dice
