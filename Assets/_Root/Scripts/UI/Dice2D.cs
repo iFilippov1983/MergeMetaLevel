@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace GameUI
 {
-    public class Dice : MonoBehaviour
+    public class Dice2D : MonoBehaviour
     {
         [SerializeField] private AnimationDictionary[] _animations;
         [SerializeField] private Image _image;

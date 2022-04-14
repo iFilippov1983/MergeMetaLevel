@@ -29,21 +29,21 @@ namespace GameUI
             InitializeUI();
         }
 
-        public async Task PlayDiceRollAnimation(int number = 0) //when time to move
-        {
-            if (number != 0)
-            {
-                _gameUIView.Dice.gameObject.SetActive(true);
-                await _gameUIView.Dice.AnimateDice(number - 1);
-                await Task.Delay(500);
-                _gameUIView.Dice.gameObject.SetActive(false);
-            }
+        //public async Task PlayDiceRollAnimation(int number = 0) //when time to move
+        //{
+        //    if (number != 0)
+        //    {
+        //        //_gameUIView.Dice.gameObject.SetActive(true);
+        //        //await _gameUIView.Dice.AnimateDice(number - 1);
+        //        await Task.Delay(500);
+        //        //_gameUIView.Dice.gameObject.SetActive(false);
+        //    }
 
-            --_playerProfile.Stats.DiceRolls;
-            await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
+        //    --_playerProfile.Stats.DiceRolls;
+        //    await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
 
-            //SetRollButton(_playerProfile.Stats.LastFightWinner);
-        }
+        //    //SetRollButton(_playerProfile.Stats.LastFightWinner);
+        //}
 
         public async Task PlayUpgradePowerAnimation(int powerAmountToShow)
         {
@@ -127,13 +127,13 @@ namespace GameUI
 
         public async Task ChangeGoldUi(string amount)
         { 
-            await Task.Delay(100);//coins fly animation
+            //await Task.Delay(100);//coins fly animation
             _gameUIView.GoldTMP.text = amount;
         }
 
         public async Task ChangeGemsUI(int amount)
         {
-            await Task.Delay(100);//gems fly animation
+            //await Task.Delay(100);//gems fly animation
             _gameUIView.GemsTMP.text = amount.ToString();
         }
 
@@ -151,7 +151,7 @@ namespace GameUI
 
         public async Task ChangePowerUpgradeCostUi(string cost)
         {
-            await Task.Delay(100);//cost change animation
+            //await Task.Delay(100);//cost change animation
             _gameUIView.UpgradeCostTMP.text = cost;
         }
 

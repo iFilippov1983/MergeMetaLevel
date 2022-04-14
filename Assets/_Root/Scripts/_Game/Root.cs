@@ -77,12 +77,7 @@ internal sealed class Root : MonoBehaviour
     }
 
     private async void OnPlayMergeClicked()
-    {
-        // if(!await _coreRoot.CheckHearts())
-        //     return;
-        
-        // _uiHandler.DesactivateUiInteraction();
-        
+    {      
         await _coreRoot.Ui.Loading.Show();//
         _level.gameObject.SetActive(false);
         _metaUi.gameObject.SetActive(false);
@@ -131,7 +126,7 @@ internal sealed class Root : MonoBehaviour
             canUpgrade = _progressHandler.CheckPlayerFunds();
             _uiHandler.ActivateUiInteraction(canUpgrade);
             OnLevelCompletionProgress(_playerProfile.Stats.CurrentCellID);
-            //_uiHandler.UpdateProgressBar();
+
         }
         else return;
     }
@@ -204,7 +199,7 @@ internal sealed class Root : MonoBehaviour
         _uiHandler.DesactivateUiInteraction();
 
         //await _uiHandler.PlayDiceUseAnimation();
-        await _uiHandler.PlayDiceRollAnimation();
+        await _metaLevel.PrepareAction(false);
         await _metaLevel.ApplyCellEvent(OnFightComplete);
 
         _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
@@ -214,8 +209,10 @@ internal sealed class Root : MonoBehaviour
     {
         _uiHandler.DesactivateUiInteraction();
 
-        int count = _metaLevel.GetRouteCellsCount();
-        await _uiHandler.PlayDiceRollAnimation(count);
+        //int count = _metaLevel.GetRouteCellsCount();
+        //await _uiHandler.PlayDiceRollAnimation(count);
+        await _metaLevel.PrepareAction();
+        await _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
         await _metaLevel.MovePlayer();
         await _metaLevel.ApplyCellEvent(OnFightComplete);
 

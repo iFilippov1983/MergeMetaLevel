@@ -61,17 +61,5 @@ namespace GameCamera
             currentCamera.Follow = transformToFollow;
             currentCamera.LookAt = transformToFollow;
         }
-
-        //internal void StopLookAndFollow()
-        //{
-        //    _virtualCamFollow.Follow = null;
-        //    _virtualCamFollow.LookAt = null;
-        //}
-
-        //internal void LookAndFollow(Transform targetTransform)
-        //{
-        //    _virtualCamFollow.Follow = targetTransform;
-        //    _virtualCamFollow.LookAt = targetTransform;
-        //}
     }
 }

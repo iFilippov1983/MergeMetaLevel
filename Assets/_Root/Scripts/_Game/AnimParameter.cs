@@ -23,5 +23,7 @@
         public const int DefaultDeathType = 0;
         public const int DeathType_one = 1;
         public const int DeathType_two = 2;
+
+        public const string DiceNumber = "Number";
     }
 }

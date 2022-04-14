@@ -26,6 +26,7 @@ namespace Game
 
         private EnemyProperties _lastEnemyProperties;
         private CellView _cellView;
+        private CameraContainerView _cameraView;
 
         public Action OnFightEvent;
         public Action OnPowerUpgradeAvailableEvent;
@@ -36,19 +37,14 @@ namespace Game
         {
             _gameData = gameData;
             _playerProfile = playerProfile;
+            _cameraView = _gameData.LevelData.CameraContainerView;
             _levelViewHandler = new LevelViewHandler(_gameData.LevelData);
             _playerHandler = new PlayerHandler(_gameData, _playerProfile);
             _routeHandler = new LevelRouteLogicHandler(_gameData.LevelData.CellsToVisit);
-            _cameraHandler = new CameraHandler(_gameData.LevelData.CameraContainerView, _playerHandler.PlayerView.transform);
+            _cameraHandler = new CameraHandler(_cameraView, _playerHandler.PlayerView.transform);
             _animationHandler = new AnimationHandler(_playerHandler.PlayerView, _playerHandler.PlayerAnimController);
             _fightHandler = new FightEventHandler(_animationHandler, _playerProfile);
             _enemyHandler = new EnemyHandler(_gameData.EnemiesData, _animationHandler);
-        }
-
-        public int GetRouteCellsCount()
-        {
-            int id = _playerProfile.Stats.CurrentCellID + 1;
-            return _routeHandler.GetRouteCountFrom(id);
         }
 
         public async Task MovePlayer()
@@ -67,6 +63,28 @@ namespace Game
             _animationHandler = new AnimationHandler(_playerHandler.PlayerView, _playerHandler.PlayerAnimController);
             _fightHandler = new FightEventHandler(_animationHandler, _playerProfile);
             _enemyHandler = new EnemyHandler(_gameData.EnemiesData, _animationHandler);
+        }
+
+        public void HandlePlayerActivity()
+        {
+            var state = _playerHandler.PlayerView.gameObject.activeSelf
+                ? false
+                : true;
+            _playerHandler.PlayerView.gameObject.SetActive(state);
+        }
+
+        public async Task PrepareAction(bool needToMove = true)
+        {
+            if (needToMove)
+            {
+                int number = GetRouteCellsCount();
+                _cameraView.Dice.gameObject.SetActive(true);
+                _cameraView.Dice.Animator.SetInteger(AnimParameter.DiceNumber, number);
+                await Task.Delay(1000);
+                _cameraView.Dice.gameObject.SetActive(false);
+            }
+
+            --_playerProfile.Stats.DiceRolls;
         }
 
         public async Task ApplyCellEvent(Action<bool> OnFightCompleteEvent)
@@ -163,6 +181,12 @@ namespace Game
             passEffect.Play();
         }
 
+        private int GetRouteCellsCount()
+        {
+            int id = _playerProfile.Stats.CurrentCellID + 1;
+            return _routeHandler.GetRouteCountFrom(id);
+        }
+
         private async Task HandleFightResult(bool playerWins, EnemyProperties enemyProperties)
         {
             if (playerWins)
@@ -186,14 +210,6 @@ namespace Game
             }
 
             _playerHandler.FinishFight();
-        }
-
-        public void HandlePlayerActivity()
-        {
-            var state = _playerHandler.PlayerView.gameObject.activeSelf
-                ? false
-                : true;
-            _playerHandler.PlayerView.gameObject.SetActive(state);
         }
     }
 }
