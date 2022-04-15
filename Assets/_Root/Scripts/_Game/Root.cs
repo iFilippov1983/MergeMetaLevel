@@ -198,7 +198,6 @@ internal sealed class Root : MonoBehaviour
     {
         _uiHandler.DesactivateUiInteraction();
 
-        //await _uiHandler.PlayDiceUseAnimation();
         await _metaLevel.PrepareAction(false);
         await _metaLevel.ApplyCellEvent(OnFightComplete);
 
@@ -209,8 +208,6 @@ internal sealed class Root : MonoBehaviour
     {
         _uiHandler.DesactivateUiInteraction();
 
-        //int count = _metaLevel.GetRouteCellsCount();
-        //await _uiHandler.PlayDiceRollAnimation(count);
         await _metaLevel.PrepareAction();
         await _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
         await _metaLevel.MovePlayer();
