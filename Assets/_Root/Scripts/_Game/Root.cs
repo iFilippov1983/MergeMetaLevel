@@ -83,8 +83,8 @@ internal sealed class Root : MonoBehaviour
         _metaUi.gameObject.SetActive(false);
         _metaLevel.HandlePlayerActivity();
         
-        var gameWin = await _coreRoot.PlayCore(); // Ui.LoadingHide
-        
+        var (gameWin, reward) = await _coreRoot.PlayCore(); // Ui.LoadingHide
+
         await _coreRoot.Ui.Loading.Show();
         await _coreRoot.GoToMap(gameWin);
         _level.gameObject.SetActive(true);
@@ -92,11 +92,12 @@ internal sealed class Root : MonoBehaviour
         _metaLevel.HandlePlayerActivity();
         await _coreRoot.Ui.Loading.Hide();//
 
-        _progressHandler.HandleMergeLevelComplete(gameWin);
+        _progressHandler.HandleMergeLevelComplete(gameWin, reward);
         if (gameWin)
         {
             _uiHandler.ChangePowerUi(_playerProfile.Stats.Power.ToString()).DoAsync();
             _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString()).DoAsync();
+            _uiHandler.ChangeGoldUi(_playerProfile.Stats.Gold.ToString()).DoAsync();
             _uiHandler.ChangeMergeLevelButtonUi(_playerProfile.Stats.CurrentMergeLevel.ToString()).DoAsync();
             _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
 

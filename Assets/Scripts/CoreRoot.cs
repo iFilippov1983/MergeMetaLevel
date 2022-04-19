@@ -106,7 +106,7 @@ public class CoreRoot
     }
 
     
-    private async Task<bool> GoToMerge()
+    private async Task<(bool, int)> GoToMerge()
     {
         // await Ui.Loading.Show();
 
@@ -136,7 +136,8 @@ public class CoreRoot
         }
         Save.SaveProfile();
 
-        return gameWin;
+        int reward = coinsReward + movesReward;
+        return (gameWin, reward);
         
         // await GoToMap(gameWin);
     }
@@ -172,13 +173,13 @@ public class CoreRoot
     //     //     await Ui.MainScreen.DoShow();
     // }
 
-    public async Task<bool> PlayCore()
+    public async Task<(bool, int)> PlayCore()
     {
         SetLevelByIndex();
-        var gameWin = await GoToMerge();
+        var (gameWin, reward) = await GoToMerge();
         if (!gameWin)
             Data.Profile.Hearts--;
-        return gameWin;
+        return (gameWin, reward);
     }
 
     public async Task<bool> CheckHearts()
