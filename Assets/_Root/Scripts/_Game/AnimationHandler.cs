@@ -68,11 +68,11 @@ namespace Game
             material.color = newMaterial.color;
             material.SetTexture(LiteralString.MainTexture, newMaterial.GetTexture(LiteralString.MainTexture));
             material.SetTexture(LiteralString.Noise, newMaterial.GetTexture(LiteralString.Noise));
-            float amount = -0.7f;
-            while (amount <= 1.3f)
+            float amount = 1.3f;
+            while (amount >= -0.7f)
             {
                 material.SetFloat(LiteralString.Dissolve, amount);
-                amount += 0.01f;
+                amount -= 0.01f;
                 await Task.Delay(5);
             }
         }
@@ -91,11 +91,11 @@ namespace Game
             material.SetTexture(LiteralString.MainTexture, newMaterial.GetTexture(LiteralString.MainTexture));
             material.SetTexture(LiteralString.Noise, newMaterial.GetTexture(LiteralString.Noise));
 
-            float amount = 1.4f;
-            while (amount >= -0.8f)
+            float amount = -0.8f;
+            while (amount <= 1.4f)
             {
                 material.SetFloat(LiteralString.Dissolve, amount);
-                amount -= 0.035f;
+                amount += 0.035f;
                 await Task.Delay(1);
             }
 
