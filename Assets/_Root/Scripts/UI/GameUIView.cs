@@ -6,6 +6,7 @@ namespace GameUI
 {
     public class GameUIView : MonoBehaviour
     {
+        [SerializeField] private Animator _animator;
         [SerializeField] private Dice2D _dice;
         [SerializeField] private ProgressBarView _progressBarView;
         [SerializeField] private ButtonView _rollButtonView;
@@ -25,6 +26,7 @@ namespace GameUI
         [SerializeField] private TextMeshProUGUI _mainTMP;
         [SerializeField] private GameObject _extraPowerImage;
 
+        public Animator Animator => _animator;
         public Dice2D Dice => _dice;
         public ProgressBarView ProgressBarView => _progressBarView;
         public ButtonView RollButtonView => _rollButtonView;

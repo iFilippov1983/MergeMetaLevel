@@ -4242,6 +4242,7 @@ GameObject:
   - component: {fileID: 6974262535181986871}
   - component: {fileID: 6974262535181986870}
   - component: {fileID: 6974262535181987017}
+  - component: {fileID: 2297110214867934899}
   m_Layer: 5
   m_Name: GameUICanvas
   m_TagString: Untagged
@@ -4290,6 +4291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3ac2b48efdfd84db607df6db253848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 2297110214867934899}
   _dice: {fileID: 7403658036544882254}
   _progressBarView: {fileID: 7108883949756123454}
   _rollButtonView: {fileID: 7918494635384163179}
@@ -4365,6 +4367,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 119
+--- !u!95 &2297110214867934899
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6974262535181987019}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 525cce6fec3cea346be8a1124577ac53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7121618724370369196
 GameObject:
   m_ObjectHideFlags: 0

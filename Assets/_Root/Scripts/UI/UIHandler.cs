@@ -15,6 +15,7 @@ namespace GameUI
         private UIData _uiData;
         private GameUIView _gameUIView;
         private PlayerProfile _playerProfile;
+        private Animation _hideUiAnimation;
 
         public Action OnDiceRollClickEvent;
         public Action OnUpgrdePowerClickEvent;
@@ -68,6 +69,16 @@ namespace GameUI
             await Task.Delay(2000);
             _gameUIView.MainTMP.text = string.Empty;
             _gameUIView.MainTMP.gameObject.SetActive(false);
+        }
+
+        public void HideUI()
+        {
+            _gameUIView.Animator.SetTrigger(UiString.Hide);
+        }
+
+        public void ShowUI()
+        {
+            _gameUIView.Animator.SetTrigger(UiString.Show);
         }
 
         public void ActivateUiInteraction(bool upgradeButtonActive)

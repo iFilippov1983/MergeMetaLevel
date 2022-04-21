@@ -27,10 +27,12 @@ internal sealed class Root : MonoBehaviour
     private UIHandler _uiHandler;
     [SerializeField, ReadOnly] private CoreRoot _coreRoot;
 
+    private const int TargetFrameRate = 60;
+
     private void Awake()
     {
         TaskScheduler.UnobservedTaskException += HandleTaskException;
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = TargetFrameRate;
         CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
         _coreRoot = new CoreRoot(_rootView, _configs);
@@ -135,6 +137,8 @@ internal sealed class Root : MonoBehaviour
 
     private async void OnDiceRollClick()
     {
+        _uiHandler.HideUI();
+
         bool haveRolls = _playerProfile.Stats.DiceRolls > 0;
         bool wasNotDefated = _playerProfile.Stats.LastFightWinner;
         if (haveRolls && wasNotDefated)
@@ -149,6 +153,8 @@ internal sealed class Root : MonoBehaviour
         {
             await _uiHandler.DisplayText(UiString.NoMoreDiceRolls);
         }
+
+        _uiHandler.ShowUI();
     }
 
     private async void OnResourcePickup(ResourceProperties resourceProperties)

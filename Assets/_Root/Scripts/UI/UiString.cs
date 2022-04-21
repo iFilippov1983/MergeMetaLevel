@@ -8,5 +8,8 @@
         public const string NextAttempt = "Next Attempt!";
         public const string NoMoreDiceRolls = "No more dice rolls!";
         public const string PlayingMerge = "[Playing Merge]";
+
+        public const string Hide = "Hide";
+        public const string Show = "Show";
     }
 }

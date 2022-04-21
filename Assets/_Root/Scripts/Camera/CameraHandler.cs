@@ -39,8 +39,7 @@ namespace GameCamera
                 _fightMode = false;
                 SetPriorities(_virtualCamFollow, _virtualCamFight, _transformToFollow);
 
-                await Task.Delay(1500);//??
-                //await Task.Delay(2000);
+                await Task.Delay(1500);
             }
             else
             { 
@@ -49,8 +48,7 @@ namespace GameCamera
                 _virtualCamFight.transform.position = transformToPlace.position;
                 _virtualCamFight.transform.rotation = transformToPlace.rotation;
 
-                await Task.Delay(1000);//??
-                //await Task.Delay(2000);
+                await Task.Delay(1000);
             }
         }
 
@@ -71,18 +69,18 @@ namespace GameCamera
 
         private void SetPriorities
             (
-            CinemachineVirtualCamera currentCamera, 
-            CinemachineVirtualCamera previousCamera, 
+            CinemachineVirtualCamera toCamera, 
+            CinemachineVirtualCamera fromCamera, 
             Transform transformToFollow = null
             )
         {
-            previousCamera.Priority = PriorityPassive;
-            previousCamera.Follow = null;
-            previousCamera.LookAt = null;
+            fromCamera.Priority = PriorityPassive;
+            fromCamera.Follow = null;
+            fromCamera.LookAt = null;
 
-            currentCamera.Priority = PriorityDefault;
-            currentCamera.Follow = transformToFollow;
-            currentCamera.LookAt = transformToFollow;
+            toCamera.Priority = PriorityDefault;
+            toCamera.Follow = transformToFollow;
+            toCamera.LookAt = transformToFollow;
         }
     }
 }
