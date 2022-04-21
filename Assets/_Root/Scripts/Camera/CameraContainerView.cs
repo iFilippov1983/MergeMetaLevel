@@ -10,10 +10,21 @@ namespace GameCamera
         [SerializeField] private CinemachineVirtualCamera _virtualCamFollow;
         [SerializeField] private CinemachineVirtualCamera _virtualCamFight;
         [SerializeField] private Dice3D _dice;
+        [Space]
+        [Range(0f, 10f)]
+        [SerializeField] private float _shakeTime = 1f;
+        [Range(0f, 10f)]
+        [SerializeField] private float _shakeAmount = 3f;
+        [Range(0f, 10f)]
+        [SerializeField] private float _shakeSpeed = 2f;
 
         public Camera MainCamera => _mainCamera;
         public CinemachineVirtualCamera VirtualCamFollow => _virtualCamFollow;
         public CinemachineVirtualCamera VirtualCamFight => _virtualCamFight;
-        public Dice3D Dice => _dice;   
+        public Dice3D Dice => _dice;
+        public float ShakeTime => _shakeTime;
+        public float ShakeAmount => _shakeAmount;
+        public float ShakeSpeed => _shakeSpeed;
+
     }
 }

@@ -83,7 +83,7 @@ internal sealed class Root : MonoBehaviour
         _metaUi.gameObject.SetActive(false);
         _metaLevel.HandlePlayerActivity();
         
-        var (gameWin, reward) = await _coreRoot.PlayCore(); // Ui.LoadingHide
+        var (gameWin, reward) = await _coreRoot.PlayCore();
 
         await _coreRoot.Ui.Loading.Show();
         await _coreRoot.GoToMap(gameWin);
@@ -101,6 +101,7 @@ internal sealed class Root : MonoBehaviour
             _uiHandler.ChangeMergeLevelButtonUi(_playerProfile.Stats.CurrentMergeLevel.ToString()).DoAsync();
             _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
 
+            _metaLevel.AnimatePlayerLevelUp();
             await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.GetPowerGain(gameWin));
         }
         else
@@ -118,6 +119,7 @@ internal sealed class Root : MonoBehaviour
         {
             _uiHandler.DesactivateUiInteraction();
 
+            _metaLevel.AnimatePlayerLevelUp();
             await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.GetPowerGain());
             _progressHandler.MakePowerUpgrade();
             await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power.ToString());
@@ -127,7 +129,6 @@ internal sealed class Root : MonoBehaviour
             canUpgrade = _progressHandler.CheckPlayerFunds();
             _uiHandler.ActivateUiInteraction(canUpgrade);
             OnLevelCompletionProgress(_playerProfile.Stats.CurrentCellID);
-
         }
         else return;
     }

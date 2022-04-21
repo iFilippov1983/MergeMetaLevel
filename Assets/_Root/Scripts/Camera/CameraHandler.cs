@@ -9,9 +9,13 @@ namespace GameCamera
         private CinemachineVirtualCamera _virtualCamFollow;
         private CinemachineVirtualCamera _virtualCamFight;
         private Transform _transformToFollow;
+        private Transform _fightCamTransform;
 
-        private const int PriorityDefault = 10;
-        private const int PriorityPassive = 0;
+        private float _shakeTime = 1f;
+        private float _shakeAmount = 3f;
+        private float _shakeSpeed = 2f;
+        private int PriorityDefault = 10;
+        private int PriorityPassive = 0;
         private bool _fightMode;
 
         public CameraHandler(CameraContainerView cameraContainerView, Transform targetTransform)
@@ -21,6 +25,10 @@ namespace GameCamera
             _virtualCamFollow.Follow = _transformToFollow;
             _virtualCamFollow.LookAt = _transformToFollow;
             _virtualCamFight = cameraContainerView.VirtualCamFight;
+            _fightCamTransform = _virtualCamFight.transform;
+            _shakeTime = cameraContainerView.ShakeTime;
+            _shakeAmount = cameraContainerView.ShakeAmount;
+            _shakeSpeed = cameraContainerView.ShakeSpeed;
             _fightMode = false;
         }
 
@@ -44,6 +52,21 @@ namespace GameCamera
                 await Task.Delay(1000);//??
                 //await Task.Delay(2000);
             }
+        }
+
+        internal async void ShakeCamera()
+        { 
+            Vector3 originPosition = _fightCamTransform.localPosition;
+            float timeElapsed = 0f;
+            while (timeElapsed < _shakeTime)
+            {
+                Vector3 randomPoint = originPosition + Random.insideUnitSphere * _shakeAmount;
+                _fightCamTransform.localPosition = Vector3.Lerp(_fightCamTransform.localPosition, randomPoint, Time.deltaTime * _shakeSpeed);
+                await Task.Yield();
+
+                timeElapsed += Time.deltaTime;
+            }
+            _fightCamTransform.localPosition = originPosition;
         }
 
         private void SetPriorities

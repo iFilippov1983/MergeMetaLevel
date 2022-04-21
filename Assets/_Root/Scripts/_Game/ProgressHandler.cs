@@ -22,7 +22,6 @@ namespace Game
             _progressData = progressData;
             _playerProfile = playerProfile;
             _progressData.SetPowerProgressLevel(_playerProfile.Stats.CurrentPowerUpgradeLevel);
-            //SetUpgradeLevel(_playerProfile.Stats.CurrentPowerUpgradeLevel);
         }
 
         public void HandleMergeLevelComplete(bool levelComplete = true, int reward = 0)
@@ -32,8 +31,6 @@ namespace Game
             else
                 SetMergeLevelNotComplete();
         }
-
-        //public void SetUpgradeLevel(int level) => _progressData.SetPowerProgressLevel(level);
 
         public int GetPowerGain(bool mergeWin = false) =>
             mergeWin == true

@@ -20,6 +20,7 @@ namespace Game
 
         private Action<int, int> _playerGetHitEvent;
         private Action<int, int> _enemyGetHitEvent;
+        private Action _camShakeEvent;
 
         public FightEventHandler(AnimationHandler animationHandler, PlayerProfile playerProfile)
         {
@@ -30,7 +31,8 @@ namespace Game
         public async Task ApplyFight
             (
             Action<int, int> PlayerGetHit, 
-            Action<int, int> EnemyGetHit, 
+            Action<int, int> EnemyGetHit,
+            Action ShakeCamera,
             EnemyProperties enemyProperties
             )
         {
@@ -40,6 +42,7 @@ namespace Game
             _enemyPower = enemyProperties.Stats.Power;
             _playerGetHitEvent = PlayerGetHit;
             _enemyGetHitEvent = EnemyGetHit;
+            _camShakeEvent = ShakeCamera;
 
             while (_playerHealth > 0 && _enemyHealth > 0)
             {
@@ -58,7 +61,9 @@ namespace Game
         }
 
         private void GotHitEvent(bool playerAttacking)
-        { 
+        {
+            _camShakeEvent?.Invoke();
+
             if(playerAttacking)
                 _enemyGetHitEvent?.Invoke(_playerPower, _enemyHealth);
             else

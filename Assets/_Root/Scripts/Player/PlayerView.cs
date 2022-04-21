@@ -10,6 +10,7 @@ namespace Player
         [SerializeField] private Animator _animator;
         [SerializeField] private string _popupPrefabName;
         [SerializeField] private Transform _popupSpawnPoint;
+        [SerializeField] private ParticleSystem _levelUpParticle;
 
         private NavMeshAgent _navMeshAgent;
         private GameObject _popupPrefab;
@@ -17,6 +18,7 @@ namespace Player
         public Animator GetAnimator() => _animator;
         public NavMeshAgent NavMeshAgent => _navMeshAgent;
         public Transform PopupSpawnPoint => _popupSpawnPoint;
+        public ParticleSystem LevelUpParticle => _levelUpParticle;
         public GameObject PopupPrefab
         {
             get

@@ -111,6 +111,8 @@ namespace Game
             }
         }
 
+        public void AnimatePlayerLevelUp() => _animationHandler.ActivateLevelUpParticle();
+
         private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
         {
             _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID);
@@ -141,7 +143,7 @@ namespace Game
             _playerHandler.PrepareToFight(_playerProfile.Stats.Power, _playerProfile.Stats.Health);
             _enemyHandler.InitHealthBar();
             OnFightEvent?.Invoke();
-            await _fightHandler.ApplyFight(_playerHandler.OnGetHitEvent, _enemyHandler.OnGetHitEvent, enemyProperties);
+            await _fightHandler.ApplyFight(_playerHandler.OnGetHitEvent, _enemyHandler.OnGetHitEvent, _cameraHandler.ShakeCamera, enemyProperties);
 
             bool playerWins = _playerProfile.Stats.LastFightWinner;
             await HandleFightResult(playerWins, enemyProperties);

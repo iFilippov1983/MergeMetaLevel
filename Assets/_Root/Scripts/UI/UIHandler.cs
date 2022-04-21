@@ -29,6 +29,11 @@ namespace GameUI
             InitializeUI();
         }
 
+        /// <summary>
+        /// Legacy function
+        /// </summary>
+        /// <param name="powerAmountToShow"></param>
+        /// <returns></returns>
         //public async Task PlayDiceRollAnimation(int number = 0) //when time to move
         //{
         //    if (number != 0)
@@ -48,13 +53,12 @@ namespace GameUI
         public async Task PlayUpgradePowerAnimation(int powerAmountToShow)
         {
             string text = string.Concat("+", powerAmountToShow);
-            _gameUIView.MainTMP.text = text;
-            _gameUIView.MainTMP.gameObject.SetActive(true);
-            _gameUIView.ExtraPowerImage.SetActive(true);
+            var popup = _gameUIView.UpgradePowerButtonView.ButtonText;
+            popup.text = text;
+            popup.gameObject.SetActive(true);
             await Task.Delay(2000);
-            _gameUIView.MainTMP.text = string.Empty;
-            _gameUIView.MainTMP.gameObject.SetActive(false);
-            _gameUIView.ExtraPowerImage.SetActive(false);
+            popup.text = string.Empty;
+            popup.gameObject.SetActive(false);
         }
 
         public async Task DisplayText(string text)

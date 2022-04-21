@@ -68,6 +68,16 @@ namespace Game
             material.color = newMaterial.color;
             material.SetTexture(LiteralString.MainTexture, newMaterial.GetTexture(LiteralString.MainTexture));
             material.SetTexture(LiteralString.Noise, newMaterial.GetTexture(LiteralString.Noise));
+
+#if UNITY_EDITOR
+            float amount = -0.7f;
+            while (amount <= 1.3f)
+            {
+                material.SetFloat(LiteralString.Dissolve, amount);
+                amount += 0.01f;
+                await Task.Delay(5);
+            }
+#elif UNITY_IOS
             float amount = 1.3f;
             while (amount >= -0.7f)
             {
@@ -75,6 +85,18 @@ namespace Game
                 amount -= 0.01f;
                 await Task.Delay(5);
             }
+#endif
+        }
+
+        public async void ActivateLevelUpParticle()
+        {
+            var particle = _playerView.LevelUpParticle;
+            particle.gameObject.SetActive(true);
+            particle.Play();
+            while (particle.isPlaying)
+                await Task.Yield();
+
+            particle.gameObject.SetActive(false);
         }
 
         private async void EnemySpawnEffect(EnemyType enemyType)
@@ -91,6 +113,15 @@ namespace Game
             material.SetTexture(LiteralString.MainTexture, newMaterial.GetTexture(LiteralString.MainTexture));
             material.SetTexture(LiteralString.Noise, newMaterial.GetTexture(LiteralString.Noise));
 
+#if UNITY_EDITOR
+            float amount = 1.4f;
+            while (amount >= -0.8f)
+            {
+                material.SetFloat(LiteralString.Dissolve, amount);
+                amount -= 0.035f;
+                await Task.Delay(1);
+            }
+#elif UNITY_IOS
             float amount = -0.8f;
             while (amount <= 1.4f)
             {
@@ -98,7 +129,7 @@ namespace Game
                 amount += 0.035f;
                 await Task.Delay(1);
             }
-
+#endif
             newMaterial = _enemyView.DefaultMaterial;
             material.shader = newMaterial.shader;
             material.color = newMaterial.color;
@@ -125,7 +156,6 @@ namespace Game
 
         private void SetAttackType(bool defendingCharKilled)
         {
-            var attackType = UnityEngine.Random.Range(AnimParameter.AttackType_one, AnimParameter.AttackType_two + 1);
             if (defendingCharKilled)
             {
                 _attackerAnimatorHolder.GetAnimator().SetBool(AnimParameter.IsFinishingOff, true);
@@ -133,6 +163,7 @@ namespace Game
             else
             {
                 _attackerAnimatorHolder.GetAnimator().SetBool(AnimParameter.IsAttacking, true);
+                var attackType = UnityEngine.Random.Range(AnimParameter.AttackType_one, AnimParameter.AttackType_two + 1);
                 _attackerAnimatorHolder.GetAnimator().SetInteger(AnimParameter.AttackType, attackType);
             }
         }
