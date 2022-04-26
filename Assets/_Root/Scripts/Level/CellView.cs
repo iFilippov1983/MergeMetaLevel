@@ -11,6 +11,7 @@ namespace Level
         [SerializeField] private Transform _enemySpawnPoint;
         [SerializeField] private Transform _fightCameraPositionRight;
         [SerializeField] private Transform _fightCameraPositionLeft;
+        [SerializeField] private Transform _idleCameraPosition;
         [SerializeField] private bool _rightFightCamPosition;
 
         public Material ActualMaterial => _actualMaterial;
@@ -26,6 +27,7 @@ namespace Level
                 else return _fightCameraPositionLeft;
             }
         }
+        public Transform IdleCameraPosition => _idleCameraPosition;
     }
 }
 

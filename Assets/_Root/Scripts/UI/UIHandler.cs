@@ -6,6 +6,7 @@ using Object = UnityEngine.Object;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
+using Lofelt.NiceVibrations;
 
 namespace GameUI
 {
@@ -29,27 +30,6 @@ namespace GameUI
 
             InitializeUI();
         }
-
-        /// <summary>
-        /// Legacy function
-        /// </summary>
-        /// <param name="powerAmountToShow"></param>
-        /// <returns></returns>
-        //public async Task PlayDiceRollAnimation(int number = 0) //when time to move
-        //{
-        //    if (number != 0)
-        //    {
-        //        //_gameUIView.Dice.gameObject.SetActive(true);
-        //        //await _gameUIView.Dice.AnimateDice(number - 1);
-        //        await Task.Delay(500);
-        //        //_gameUIView.Dice.gameObject.SetActive(false);
-        //    }
-
-        //    --_playerProfile.Stats.DiceRolls;
-        //    await ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
-
-        //    //SetRollButton(_playerProfile.Stats.LastFightWinner);
-        //}
 
         public async Task PlayUpgradePowerAnimation(int powerAmountToShow)
         {
@@ -215,8 +195,8 @@ namespace GameUI
         {
             var rollButton = _gameUIView.RollButtonView;
             rollButton.ButtonText.text = fightWin
-                ? LiteralString.Roll
-                : LiteralString.Fight;
+                ? Literal.ButtonText_Roll
+                : Literal.ButtonText_Fight;
 
             rollButton.ButtonImage.sprite = fightWin
                 ? rollButton.ImageSpriteDefault
@@ -224,18 +204,33 @@ namespace GameUI
         }
 
         private void DiceRoll()
-        { 
+        {
+            HapticPatterns.PlayPreset(HapticPatterns.PresetType.Selection);
             OnDiceRollClickEvent?.Invoke();
         }
 
         private void UpgradePower()
         {
+            HapticPatterns.PlayPreset(HapticPatterns.PresetType.Selection);
             OnUpgrdePowerClickEvent?.Invoke();
         }
 
         private void PlayMerge()
         {
+            HapticPatterns.PlayPreset(HapticPatterns.PresetType.Selection);
             OnPlayMergeButtonClicked?.Invoke();
         }
+
+// Haptic types
+//
+// Selection : a light vibration on Android, and a light impact on iOS
+// Success : a light then heavy vibration on Android, and a success impact on iOS
+// Warning : a heavy then medium vibration on Android, and a warning impact on iOS
+// Failure : a medium / heavy / heavy / light vibration pattern on Android, and a failure impact on iOS
+// Light : a light impact on iOS and a short and light vibration on Android.
+// Medium : a medium impact on iOS and a medium and regular vibration on Android
+// Heavy : a heavy impact on iOS and a long and heavy vibration on Android
+// Rigid : a short and hard impact
+// Soft : a slightly longer and softer impact
     }
 }

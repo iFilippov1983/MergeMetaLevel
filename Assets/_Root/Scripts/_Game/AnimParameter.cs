@@ -24,6 +24,10 @@
         public const int DeathType_one = 1;
         public const int DeathType_two = 2;
 
+        public const string IsAware = "isAware";
+        public const string GotResource = "gotResource";
+        public const string IsFacedToCamera = "isFacedToCamera";
+
         public const string DiceNumber = "Number";
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Data;
 using Game;
 using Level;
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -18,6 +19,8 @@ namespace Player
         private InfoBarHandler _infoHandler;
         private GameObject _infoBarPrefab;
         private PopupHandler _popupHandler;
+        private HeadAimHandler _headAimHandler;
+        private Camera _camera;
 
 
         public PlayerView PlayerView => _playerView;
@@ -35,16 +38,15 @@ namespace Player
             InitPlayer();
 
             _infoBarPrefab = gameData.PlayerData.InfoPrefab;
-            _infoHandler = new InfoBarHandler(Camera.main);
-            _popupHandler = new PopupHandler(_playerView.PopupPrefab, Camera.main);
+            _camera = Camera.main;
+            _infoHandler = new InfoBarHandler(_camera);
+            _popupHandler = new PopupHandler(_playerView.PopupPrefab, _camera);
         }
 
         public async Task SetDestinationAndMove(Vector3 position)
         {
             _playerView.NavMeshAgent.SetDestination(position);
-            _playerView.GetAnimator().SetBool(AnimParameter.IsRunning, true);
-            var transform = _playerView.transform;
-            while(Vector3.SqrMagnitude(transform.position - position) > 0.8f * 0.8f)
+            while (Vector3.SqrMagnitude(_playerView.transform.position - position) > 0.8f * 0.8f)
                 await Task.Yield();
         }
 
@@ -69,6 +71,7 @@ namespace Player
 
         public void PrepareToFight(int power, int health)
         {
+            _headAimHandler.StopLooking();
             _infoHandler.SetInformationBar
                 (_infoBarPrefab, _playerView.transform.position, power, health);
             _infoHandler.InitInformationBar();
@@ -79,19 +82,23 @@ namespace Player
             _infoHandler.DestroyInformationBar();
         }
 
-        //private void InitPlayer(GameObject playerPrefab, Vector3 playerInitPosition, Quaternion playerInitialRotation)
+        public void LookAtCamera() => _headAimHandler.LookAt(_camera.transform);
+        public void StopLookingAtCamera() => _headAimHandler.StopLooking();
+
         public void InitPlayer()
         {
-            _playerInitialPosition = _cellViews[_playerProfile.Stats.CurrentCellID].transform.position;
-            _playerInitialRotation = _cellViews[_playerProfile.Stats.CurrentCellID].transform.rotation;
+            var initialCellView = _cellViews[_playerProfile.Stats.CurrentCellID];
+            _playerInitialPosition = initialCellView.transform.position;
+            _playerInitialRotation = initialCellView.transform.rotation;
             var playerObject = GameObject.Instantiate(_playerPrefab, _playerInitialPosition, _playerInitialRotation);
             _playerView = playerObject.GetComponent<PlayerView>();
             _playerAnimController = playerObject.GetComponent<CharacterAnimationControler>();
+            _headAimHandler = new HeadAimHandler(_playerView.HeadAimTarget, _playerView.HeadAim);
         }
 
         public void DestroyPlayer()
-        { 
-            Object.Destroy(_playerView.gameObject);
+        {
+            UnityEngine.Object.Destroy(_playerView.gameObject);
         }
     }
 }

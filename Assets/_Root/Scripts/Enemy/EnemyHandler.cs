@@ -23,7 +23,8 @@ namespace Enemy
             _enemyPrefabs = MakeEnemyPrefabsDictionary(enemiesData.EnemiesPrefabs);
         }
 
-        public async Task InitializeEnemy(EnemyProperties enemyProperties, Transform placeToSpawn)
+        //public async Task InitializeEnemy(EnemyProperties enemyProperties, Transform placeToSpawn)
+        public void InitializeEnemy(EnemyProperties enemyProperties, Transform placeToSpawn)
         {
             GameObject enemy = _enemyPrefabs[enemyProperties.EnemyType];
             var enemyObject = Object.Instantiate(enemy, placeToSpawn.position, placeToSpawn.rotation);
@@ -33,7 +34,7 @@ namespace Enemy
             
             _enemyFullHealthAmount = enemyProperties.Stats.Health;
 
-            await _animationHandler.HandleEnemyAppearAnimation();
+            _animationHandler.HandleEnemyAppearAnimation();//await?
             _infoHandler.SetInformationBar
                 (enemyProperties.InfoPrefab, enemyObject.transform.position, enemyProperties.Stats.Power, enemyProperties.Stats.Health);
             _popupHandler = new PopupHandler(_enemyView.PopupPrefab, Camera.main);

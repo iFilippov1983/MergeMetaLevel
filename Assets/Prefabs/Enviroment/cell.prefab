@@ -200,6 +200,36 @@ Transform:
   m_Father: {fileID: 8489894530116270327}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 20, y: -90, z: 0}
+--- !u!1 &4283024274942652852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9043713258438372253}
+  m_Layer: 3
+  m_Name: IdleCameraPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &9043713258438372253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4283024274942652852}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalPosition: {x: -0, y: 5.75, z: -4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8489894530116270327}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
 --- !u!1 &5332344173553535018
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +491,7 @@ Transform:
   - {fileID: 3181643863990258771}
   - {fileID: 1826824441427615577}
   - {fileID: 5230811020651809470}
+  - {fileID: 9043713258438372253}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -483,6 +514,7 @@ MonoBehaviour:
   _enemySpawnPoint: {fileID: 3181643863990258771}
   _fightCameraPositionRight: {fileID: 5230811020651809470}
   _fightCameraPositionLeft: {fileID: 1826824441427615577}
+  _idleCameraPosition: {fileID: 9043713258438372253}
   _rightFightCamPosition: 0
 --- !u!1001 &967266517871580035
 PrefabInstance:

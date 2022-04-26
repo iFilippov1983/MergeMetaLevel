@@ -8,6 +8,7 @@ using UnityEngine.Analytics;
 using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Lofelt.NiceVibrations;
 
 namespace Game
 {
@@ -28,6 +29,9 @@ namespace Game
         private CellView _cellView;
         private CameraContainerView _cameraView;
 
+        private List<GameObject> _playerObjectChilds;
+        private bool _isVisible;
+
         public Action OnFightEvent;
         public Action OnPowerUpgradeAvailableEvent;
         public Action<ResourceProperties> OnResourcePickupEvent;
@@ -37,18 +41,30 @@ namespace Game
         {
             _gameData = gameData;
             _playerProfile = playerProfile;
+            _playerHandler = new PlayerHandler(_gameData, _playerProfile);
             _cameraView = _gameData.LevelData.CameraContainerView;
             _levelViewHandler = new LevelViewHandler(_gameData.LevelData);
-            _playerHandler = new PlayerHandler(_gameData, _playerProfile);
             _routeHandler = new LevelRouteLogicHandler(_gameData.LevelData.CellsToVisit);
             _cameraHandler = new CameraHandler(_cameraView, _playerHandler.PlayerView.transform);
             _animationHandler = new AnimationHandler(_playerHandler.PlayerView, _playerHandler.PlayerAnimController);
             _fightHandler = new FightEventHandler(_animationHandler, _playerProfile);
             _enemyHandler = new EnemyHandler(_gameData.EnemiesData, _animationHandler);
+            _playerObjectChilds = new List<GameObject>();
+            _isVisible = true;
+
+            CashPlayerChildGameObjects();
+            InitialCameraSwitch(true);
+            _playerHandler.PlayerAnimController.TurnAroundActionEvent += _animationHandler.PlayerFacedStateChange;
+        }
+
+        public void Cleanup()
+        {
+            _playerHandler.PlayerAnimController.TurnAroundActionEvent -= _animationHandler.PlayerFacedStateChange;
         }
 
         public async Task MovePlayer()
         {
+            _playerHandler.StopLookingAtCamera();
             int id = _playerProfile.Stats.CurrentCellID + 1;
             var route = _routeHandler.GetRouteIDsFrom(id);
             await MovePlayerBy(route);
@@ -56,6 +72,7 @@ namespace Game
 
         public void TeleportPlayerToStart()
         {
+            _playerHandler.PlayerAnimController.TurnAroundActionEvent -= _animationHandler.PlayerFacedStateChange;
             _playerHandler.DestroyPlayer();
             _playerProfile.Stats.CurrentCellID = 0;
             _playerHandler.InitPlayer();
@@ -63,14 +80,26 @@ namespace Game
             _animationHandler = new AnimationHandler(_playerHandler.PlayerView, _playerHandler.PlayerAnimController);
             _fightHandler = new FightEventHandler(_animationHandler, _playerProfile);
             _enemyHandler = new EnemyHandler(_gameData.EnemiesData, _animationHandler);
+            _playerObjectChilds = new List<GameObject>();
+            _isVisible = true;
+
+            CashPlayerChildGameObjects();
+            InitialCameraSwitch(false);
+            _playerHandler.PlayerAnimController.TurnAroundActionEvent += _animationHandler.PlayerFacedStateChange;
         }
 
-        public void HandlePlayerActivity()
+        public void HandlePlayerVisibility()
         {
-            var state = _playerHandler.PlayerView.gameObject.activeSelf
-                ? false
-                : true;
-            _playerHandler.PlayerView.gameObject.SetActive(state);
+            var layer = _isVisible
+                ? LayerMask.NameToLayer(Literal.LayerName_IgnoreRaicast)
+                : LayerMask.NameToLayer(Literal.LayerName_Default);
+
+            foreach (var ch in _playerObjectChilds)
+                ch.layer = layer;
+            
+            _isVisible = !_isVisible;
+            if (_playerHandler.PlayerView.Weapon.gameObject != null)
+                _playerHandler.PlayerView.Weapon.gameObject.SetActive(_isVisible);
         }
 
         public async Task PrepareAction(bool needToMove = true)
@@ -87,7 +116,7 @@ namespace Game
             --_playerProfile.Stats.DiceRolls;
         }
 
-        public async Task ApplyCellEvent(Action<bool> OnFightCompleteEvent)
+        public async Task ApplyCellEvent(Action<bool> OnFightCompleteEvent, Action OnResourcePickupEvent = null)
         {
             CellProperties propertiesToApply = _routeHandler.GetCellToVisitPropertyWhithId(_playerProfile.Stats.CurrentCellID);
             ContentType type = propertiesToApply.ContentProperties.GetContentType();
@@ -107,19 +136,43 @@ namespace Game
             }
             if (type.Equals(ContentType.Resource))
             {
+                OnResourcePickupEvent?.Invoke();
                 await ApplyResourcePickup((ResourceProperties)content);
             }
         }
 
         public void AnimatePlayerLevelUp() => _animationHandler.ActivateLevelUpParticle();
 
+        private async void InitialCameraSwitch(bool gameStart)
+        {
+            var cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID);
+            if(gameStart)
+                await Task.Delay(1000);
+            //_playerHandler.LookAtCamera();
+            await _cameraHandler.SwitchCamera(false, true, cellView.IdleCameraPosition);
+            _playerHandler.LookAtCamera();
+        }
+
+        private void CashPlayerChildGameObjects()
+        {
+            var playerTransform = _playerHandler.PlayerView.gameObject.transform;
+            var childsCount = playerTransform.childCount;
+            for (int i = 0; i < childsCount; i++)
+            {
+                _playerObjectChilds.Add(playerTransform.GetChild(i).gameObject);
+            }
+        }
+
         private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
         {
             _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID);
             var effectObject = GameObject.Instantiate(resourceProperties.PickupEffectPrefab, _cellView.ResourcePickupEffectSpawnPoint.position, Quaternion.identity);
             var particleEffect = effectObject.GetComponent<ParticleSystem>();
+            var sr = particleEffect.GetComponent<SpriteRenderer>();
             particleEffect.Play();
             _playerHandler.SpawnPopupAbovePlayer(resourceProperties.Amount, PopupType.Resource);
+
+            HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
 
             while (particleEffect.isPlaying)
                 await Task.Yield();
@@ -136,10 +189,11 @@ namespace Game
             {
                 _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID, true);
                 enemySpawnPoint = _cellView.EnemySpawnPoint;
-                await _enemyHandler.InitializeEnemy(enemyProperties, enemySpawnPoint);
+                _enemyHandler.InitializeEnemy(enemyProperties, enemySpawnPoint); //await?
             }
 
-            await _cameraHandler.SwitchCamera(_cellView.FightCameraPosition);
+            _animationHandler.SetPlayerAwareState();
+            await _cameraHandler.SwitchCamera(true, false, _cellView.FightCameraPosition);
             _playerHandler.PrepareToFight(_playerProfile.Stats.Power, _playerProfile.Stats.Health);
             _enemyHandler.InitHealthBar();
             OnFightEvent?.Invoke();
@@ -149,35 +203,63 @@ namespace Game
             await HandleFightResult(playerWins, enemyProperties);
             OnFightCompleteEvent?.Invoke(playerWins);
 
-            await _cameraHandler.SwitchCamera();
+            if (playerWins) _playerHandler.LookAtCamera();
+            await _cameraHandler.SwitchCamera(false, true, _cellView.IdleCameraPosition);
+            //if(playerWins) _playerHandler.LookAtCamera();
         }
 
         private async Task MovePlayerBy(List<int> route)
         {
+            CellProperties cellProps = null;
             int valueForMovesPopup = route.Count;
+            CellView lastCelView = null;
             foreach (int id in route)
             {
-                var cellProps = _routeHandler.GetCellPropertyWhithId(id);
+                cellProps = _routeHandler.GetCellPropertyWhithId(id);
                 bool brake = cellProps.Status.Equals(CellStatus.ToVisit);
                 _playerHandler.PlayerView.NavMeshAgent.autoBraking = brake;
 
                 _playerHandler.SpawnPopupAbovePlayer(valueForMovesPopup, PopupType.Moves);
                 Vector3 position = _levelViewHandler.GetCellPositionWithId(id);
-                await _playerHandler.SetDestinationAndMove(position);
+                
+                _playerHandler.StopLookingAtCamera();
+                await _animationHandler.SetPlayerRunState();
+
+                var t = new List<Task>();
+                var s = _cameraHandler.SwitchCamera(false, false);
+                t.Add(s);
+                var move = _playerHandler.SetDestinationAndMove(position);
+                t.Add(move);
+                
+                await Task.WhenAll(t);
                 valueForMovesPopup--;
 
                 ApplyCellPass(id);
                 _playerProfile.Stats.CurrentCellID = id;
                 OnLevelCompletionProgressEvent?.Invoke(id);
+                
+                lastCelView = _levelViewHandler.GetCellViewWithId(id);
             }
 
-            _animationHandler.StopPlayer();
+            var cellType = cellProps.ContentProperties.GetType();
+            bool prepareToFight = cellType.Equals(typeof(EnemyProperties))
+                ? true
+                : false;
+            bool gotResource = cellType.Equals(typeof(ResourceProperties))
+                ? true
+                : false;
+
+            _animationHandler.StopPlayer(prepareToFight, gotResource);
+            if (!prepareToFight) _playerHandler.LookAtCamera();
+            await _cameraHandler.SwitchCamera(false, true, lastCelView.IdleCameraPosition);
+            //if (!prepareToFight) _playerHandler.LookAtCamera();
         }
 
         private void ApplyCellPass(int sellId)
         {
-            var cellView = _levelViewHandler.GetCellViewWithId(sellId);
+            HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
 
+            var cellView = _levelViewHandler.GetCellViewWithId(sellId);
             var passEffect = cellView.CellPassEffect;
             passEffect.gameObject.SetActive(true);
             passEffect.Play();
@@ -199,6 +281,9 @@ namespace Game
                 foreach (var r in reward)
                     tasks.Add(ApplyResourcePickup(r));
                 await Task.WhenAll(tasks);
+
+                _animationHandler.SetPlayerIdleState(reward != null);
+                _playerHandler.LookAtCamera();
 
                 await Task.Delay(100);//ui events
             }

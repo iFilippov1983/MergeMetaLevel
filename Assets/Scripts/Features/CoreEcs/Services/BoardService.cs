@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Data;
+using Lofelt.NiceVibrations;
 using UnityEngine;
 using Utils;
 
@@ -42,7 +43,9 @@ namespace Core
                 e.isDead = true;
                 e.DoRemovePos(_contexts, false);
             }
-            
+
+            HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
+
             await AnimateCollapse(posX, posY, siblings, _visualConfig);
             await Task.Delay(_visualConfig.DelayBeforeCreate);
             _viewFactory.CreateParticles("appear", posX, posY);

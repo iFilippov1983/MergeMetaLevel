@@ -91,7 +91,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: DeathAnimationFinish
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 14946aa4ffd655c4e81d86b0411398e7, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

@@ -81,17 +81,18 @@ internal sealed class Root : MonoBehaviour
     private async void OnPlayMergeClicked()
     {      
         await _coreRoot.Ui.Loading.Show();//
+        _metaLevel.HandlePlayerVisibility();
         _level.gameObject.SetActive(false);
         _metaUi.gameObject.SetActive(false);
-        _metaLevel.HandlePlayerActivity();
-        
+
         var (gameWin, reward) = await _coreRoot.PlayCore();
 
         await _coreRoot.Ui.Loading.Show();
         await _coreRoot.GoToMap(gameWin);
+        _metaLevel.HandlePlayerVisibility();
         _level.gameObject.SetActive(true);
         _metaUi.gameObject.SetActive(true);
-        _metaLevel.HandlePlayerActivity();
+
         await _coreRoot.Ui.Loading.Hide();//
 
         _progressHandler.HandleMergeLevelComplete(gameWin, reward);
@@ -140,24 +141,22 @@ internal sealed class Root : MonoBehaviour
         _uiHandler.HideUI();
 
         bool haveRolls = _playerProfile.Stats.DiceRolls > 0;
-        bool wasNotDefated = _playerProfile.Stats.LastFightWinner;
-        if (haveRolls && wasNotDefated)
+        bool wasNotDefeated = _playerProfile.Stats.LastFightWinner;
+        if (haveRolls && wasNotDefeated)
         {
             await MakeMove();
         }
-        else if (haveRolls && !wasNotDefated)
+        else if (haveRolls && !wasNotDefeated)
         {
             await RetryFight();
         }
         else if (!haveRolls)
         {
             await _uiHandler.DisplayText(UiString.NoMoreDiceRolls);
-        }
-
-        _uiHandler.ShowUI();
+        };
     }
 
-    private async void OnResourcePickup(ResourceProperties resourceProperties)
+    private async void OnResourcePickupComplete(ResourceProperties resourceProperties)
     {
         ResouceType resouceType = resourceProperties.ResouceType;
 
@@ -189,10 +188,17 @@ internal sealed class Root : MonoBehaviour
 
     private async void OnFightComplete(bool playerWins)
     {
+        _uiHandler.ShowUI();
         string text = playerWins 
             ? UiString.Victory 
             : UiString.Defeated;
         await _uiHandler.DisplayText(text);
+        await CheckLevelCompletion();
+    }
+
+    private async void OnResourcePickup()
+    {
+        _uiHandler.ShowUI();
         await CheckLevelCompletion();
     }
 
@@ -219,7 +225,7 @@ internal sealed class Root : MonoBehaviour
         await _metaLevel.PrepareAction();
         await _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
         await _metaLevel.MovePlayer();
-        await _metaLevel.ApplyCellEvent(OnFightComplete);
+        await _metaLevel.ApplyCellEvent(OnFightComplete, OnResourcePickup);
 
         _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
     }
@@ -246,7 +252,7 @@ internal sealed class Root : MonoBehaviour
         _uiHandler.OnUpgrdePowerClickEvent += OnUpgradePowerClicked;
         _uiHandler.OnPlayMergeButtonClicked += OnPlayMergeClicked;
 
-        _metaLevel.OnResourcePickupEvent += OnResourcePickup;
+        _metaLevel.OnResourcePickupEvent += OnResourcePickupComplete;
         _metaLevel.OnFightEvent += OnFight;
         _metaLevel.OnPowerUpgradeAvailableEvent += OnPowerUpgradeAvailable;
         _metaLevel.OnLevelCompletionProgressEvent += OnLevelCompletionProgress;
@@ -258,10 +264,11 @@ internal sealed class Root : MonoBehaviour
         _uiHandler.OnUpgrdePowerClickEvent -= OnUpgradePowerClicked;
         _uiHandler.OnPlayMergeButtonClicked -= OnPlayMergeClicked;
 
-        _metaLevel.OnResourcePickupEvent -= OnResourcePickup;
+        _metaLevel.OnResourcePickupEvent -= OnResourcePickupComplete;
         _metaLevel.OnFightEvent -= OnFight;
         _metaLevel.OnPowerUpgradeAvailableEvent -= OnPowerUpgradeAvailable;
         _metaLevel.OnLevelCompletionProgressEvent -= OnLevelCompletionProgress;
+        _metaLevel.Cleanup();
 
         TaskScheduler.UnobservedTaskException -= HandleTaskException;
     }

@@ -36,7 +36,7 @@ namespace Components
             
             await DoShow();
             await Task.Delay(_view.ShowDuration );
-            // await Task.Delay(200);
+            await Task.Delay(500);
         }
         
         // [Button]

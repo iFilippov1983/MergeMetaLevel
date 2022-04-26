@@ -12,10 +12,14 @@ namespace Game
         private bool _deathAnimationFinished;
         private bool _finishOffAnimationFinished;
         private bool _hit;
+        private bool _facedToPlayer;
+
+        public Action<bool> TurnAroundActionEvent;
 
         private void Awake()
         {
             ResetFlags();
+            _facedToPlayer = false;
         }
 
         public bool GetAppearAnimationFinished() => _appearAnimationFinished;
@@ -40,5 +44,14 @@ namespace Game
         private void AttackAnimationFinish() => _attackAnimationFinished = true;
         private void FinishOffAnimationFinish() => _finishOffAnimationFinished = true;
         private void Hit() => _hit = true;
+        private void TurnAroundComplete()
+        {
+            if (_facedToPlayer)
+                _facedToPlayer = false;
+            else _facedToPlayer = true;
+            TurnAroundActionEvent?.Invoke(_facedToPlayer);
+
+            //Debug.Log("Turn around complete! _fasedToPlayer = " + _facedToPlayer);
+        }
     }
 }
