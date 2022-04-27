@@ -120,10 +120,20 @@ namespace GameUI
             _gameUIView.ProgressBarView.ProgressValue.text = text;
         }
 
-        public async Task ChangeGoldUi(string amount)
-        { 
-            //await Task.Delay(100);//coins fly animation
-            _gameUIView.GoldTMP.text = amount;
+        public async Task ChangeGoldUi(int amount, GameObject effectPrefab = null, Vector3 positionToSpawnEffect = new Vector3())
+        {
+            if (effectPrefab != null)
+            {
+                var effectObject = GameObject.Instantiate(effectPrefab, positionToSpawnEffect, Quaternion.identity);
+                var particleEffect = effectObject.GetComponent<ParticleSystem>();
+                var sRenderer = particleEffect.GetComponent<SpriteRenderer>();
+            }
+
+            //for (int i = 0; i < amount; i++)
+            //{
+
+            //}
+            _gameUIView.GoldTMP.text = amount.ToString();
         }
 
         public async Task ChangeGemsUI(int amount)

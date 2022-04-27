@@ -50,8 +50,6 @@ namespace Game
                 _facedToPlayer = false;
             else _facedToPlayer = true;
             TurnAroundActionEvent?.Invoke(_facedToPlayer);
-
-            //Debug.Log("Turn around complete! _fasedToPlayer = " + _facedToPlayer);
         }
     }
 }

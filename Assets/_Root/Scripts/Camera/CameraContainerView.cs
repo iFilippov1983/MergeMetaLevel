@@ -11,6 +11,7 @@ namespace GameCamera
         [SerializeField] private CinemachineVirtualCamera _virtualCamFight;
         [SerializeField] private CinemachineVirtualCamera _virtualCamIdle;
         [SerializeField] private Dice3D _dice;
+        [SerializeField] private Transform _firstPopupSpawnPoint;
         [Space]
         [Range(0f, 10f)]
         [SerializeField] private float _shakeTime = 1f;
@@ -24,6 +25,7 @@ namespace GameCamera
         public CinemachineVirtualCamera VirtualCamFight => _virtualCamFight;
         public CinemachineVirtualCamera VirtualCamIdle => _virtualCamIdle;
         public Dice3D Dice => _dice;
+        public Transform FirstPopupSpawnPoint => _firstPopupSpawnPoint;
         public float ShakeTime => _shakeTime;
         public float ShakeAmount => _shakeAmount;
         public float ShakeSpeed => _shakeSpeed;

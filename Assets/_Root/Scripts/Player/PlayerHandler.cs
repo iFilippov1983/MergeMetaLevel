@@ -1,7 +1,6 @@
 ﻿using Data;
 using Game;
 using Level;
-using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -38,9 +37,9 @@ namespace Player
             InitPlayer();
 
             _infoBarPrefab = gameData.PlayerData.InfoPrefab;
-            _camera = Camera.main;
+            _camera = gameData.LevelData.CameraContainerView.MainCamera;
             _infoHandler = new InfoBarHandler(_camera);
-            _popupHandler = new PopupHandler(_playerView.PopupPrefab, _camera);
+            _popupHandler = new PopupHandler(_playerView.PopupPrefab, _camera, gameData.LevelData.CameraContainerView);
         }
 
         public async Task SetDestinationAndMove(Vector3 position)
@@ -65,8 +64,8 @@ namespace Player
             }
         }
 
-        public void SpawnPopupAbovePlayer(int value, PopupType popupType = PopupType.Damage) =>
-            _popupHandler.SpawnPopup(_playerView.PopupSpawnPoint, value, popupType);
+        public void SpawnPopupAbovePlayer(int value, PopupType popupType = PopupType.Damage, bool firstPopup = false) =>
+            _popupHandler.SpawnPopup(_playerView.PopupSpawnPoint, value, popupType, firstPopup);
 
 
         public void PrepareToFight(int power, int health)
@@ -82,7 +81,7 @@ namespace Player
             _infoHandler.DestroyInformationBar();
         }
 
-        public void LookAtCamera() => _headAimHandler.LookAt(_camera.transform);
+        public async Task LookAtCamera() => await _headAimHandler.LookAt(_camera.transform);
         public void StopLookingAtCamera() => _headAimHandler.StopLooking();
 
         public void InitPlayer()

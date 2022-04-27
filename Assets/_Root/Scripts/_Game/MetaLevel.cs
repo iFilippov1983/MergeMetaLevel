@@ -35,14 +35,15 @@ namespace Game
         public Action OnFightEvent;
         public Action OnPowerUpgradeAvailableEvent;
         public Action<ResourceProperties> OnResourcePickupEvent;
+        public Action<ResourceProperties, Vector3> OnResourcePickupExecute;
         public Action<int> OnLevelCompletionProgressEvent;
 
         public MetaLevel(GameData gameData, PlayerProfile playerProfile)
         {
             _gameData = gameData;
             _playerProfile = playerProfile;
-            _playerHandler = new PlayerHandler(_gameData, _playerProfile);
             _cameraView = _gameData.LevelData.CameraContainerView;
+            _playerHandler = new PlayerHandler(_gameData, _playerProfile);
             _levelViewHandler = new LevelViewHandler(_gameData.LevelData);
             _routeHandler = new LevelRouteLogicHandler(_gameData.LevelData.CellsToVisit);
             _cameraHandler = new CameraHandler(_cameraView, _playerHandler.PlayerView.transform);
@@ -62,12 +63,12 @@ namespace Game
             _playerHandler.PlayerAnimController.TurnAroundActionEvent -= _animationHandler.PlayerFacedStateChange;
         }
 
-        public async Task MovePlayer()
+        public async Task MakePlayerMove(Action<bool> OnFightCompleteEvent, Action OnResourcePickupEvent = null)
         {
             _playerHandler.StopLookingAtCamera();
             int id = _playerProfile.Stats.CurrentCellID + 1;
             var route = _routeHandler.GetRouteIDsFrom(id);
-            await MovePlayerBy(route);
+            await MovePlayerBy(route, OnFightCompleteEvent, OnResourcePickupEvent);
         }
 
         public void TeleportPlayerToStart()
@@ -148,9 +149,8 @@ namespace Game
             var cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID);
             if(gameStart)
                 await Task.Delay(1000);
-            //_playerHandler.LookAtCamera();
-            await _cameraHandler.SwitchCamera(false, true, cellView.IdleCameraPosition);
-            _playerHandler.LookAtCamera();
+
+            await HandleCameraSwitch(false, true, cellView.IdleCameraPosition);
         }
 
         private void CashPlayerChildGameObjects()
@@ -163,21 +163,31 @@ namespace Game
             }
         }
 
+        private void ExecuteResourcePickup(ResourceProperties resourceProperties)
+        { 
+            _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID);
+            var positionToSpawnEffect = _cellView.ResourcePickupEffectSpawnPoint.position;
+            OnResourcePickupExecute?.Invoke(resourceProperties, positionToSpawnEffect);
+
+            _playerHandler.SpawnPopupAbovePlayer(resourceProperties.Amount, PopupType.Resource);
+        }
+
         private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
         {
             _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID);
             var effectObject = GameObject.Instantiate(resourceProperties.PickupEffectPrefab, _cellView.ResourcePickupEffectSpawnPoint.position, Quaternion.identity);
             var particleEffect = effectObject.GetComponent<ParticleSystem>();
             var sr = particleEffect.GetComponent<SpriteRenderer>();
+            Debug.Log(sr != null);
             particleEffect.Play();
             _playerHandler.SpawnPopupAbovePlayer(resourceProperties.Amount, PopupType.Resource);
+            OnResourcePickupEvent?.Invoke(resourceProperties);
 
             HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
 
             while (particleEffect.isPlaying)
                 await Task.Yield();
 
-            OnResourcePickupEvent?.Invoke(resourceProperties);
             GameObject.Destroy(effectObject);
         }
 
@@ -200,15 +210,13 @@ namespace Game
             await _fightHandler.ApplyFight(_playerHandler.OnGetHitEvent, _enemyHandler.OnGetHitEvent, _cameraHandler.ShakeCamera, enemyProperties);
 
             bool playerWins = _playerProfile.Stats.LastFightWinner;
-            await HandleFightResult(playerWins, enemyProperties);
             OnFightCompleteEvent?.Invoke(playerWins);
+            await HandleFightResult(playerWins, enemyProperties);
 
-            if (playerWins) _playerHandler.LookAtCamera();
-            await _cameraHandler.SwitchCamera(false, true, _cellView.IdleCameraPosition);
-            //if(playerWins) _playerHandler.LookAtCamera();
+            await HandleCameraSwitch(false, true, _cellView.IdleCameraPosition, playerWins);
         }
 
-        private async Task MovePlayerBy(List<int> route)
+        private async Task MovePlayerBy(List<int> route, Action<bool> OnFightCompleteEvent, Action OnResourcePickupEvent = null)
         {
             CellProperties cellProps = null;
             int valueForMovesPopup = route.Count;
@@ -219,15 +227,17 @@ namespace Game
                 bool brake = cellProps.Status.Equals(CellStatus.ToVisit);
                 _playerHandler.PlayerView.NavMeshAgent.autoBraking = brake;
 
-                _playerHandler.SpawnPopupAbovePlayer(valueForMovesPopup, PopupType.Moves);
-                Vector3 position = _levelViewHandler.GetCellPositionWithId(id);
-                
+                bool first = id.Equals(route[0])
+                    ? true : false;
+
+                _playerHandler.SpawnPopupAbovePlayer(valueForMovesPopup, PopupType.Moves, first);
                 _playerHandler.StopLookingAtCamera();
                 await _animationHandler.SetPlayerRunState();
 
                 var t = new List<Task>();
                 var s = _cameraHandler.SwitchCamera(false, false);
                 t.Add(s);
+                Vector3 position = _levelViewHandler.GetCellPositionWithId(id);
                 var move = _playerHandler.SetDestinationAndMove(position);
                 t.Add(move);
                 
@@ -250,9 +260,17 @@ namespace Game
                 : false;
 
             _animationHandler.StopPlayer(prepareToFight, gotResource);
-            if (!prepareToFight) _playerHandler.LookAtCamera();
-            await _cameraHandler.SwitchCamera(false, true, lastCelView.IdleCameraPosition);
-            //if (!prepareToFight) _playerHandler.LookAtCamera();
+            var camPosition = prepareToFight
+                ? lastCelView.FightCameraPosition
+                : lastCelView.IdleCameraPosition;
+
+            var tasks = new List<Task>();
+            var camSwitch = HandleCameraSwitch(prepareToFight, gotResource, camPosition, !prepareToFight);
+            tasks.Add(camSwitch);
+            var apply = ApplyCellEvent(OnFightCompleteEvent, OnResourcePickupEvent);
+            tasks.Add(apply);
+
+            await Task.WhenAll(tasks);
         }
 
         private void ApplyCellPass(int sellId)
@@ -283,7 +301,6 @@ namespace Game
                 await Task.WhenAll(tasks);
 
                 _animationHandler.SetPlayerIdleState(reward != null);
-                _playerHandler.LookAtCamera();
 
                 await Task.Delay(100);//ui events
             }
@@ -297,6 +314,13 @@ namespace Game
             }
 
             _playerHandler.FinishFight();
+        }
+
+        private async Task HandleCameraSwitch(bool fightMode, bool idleMode, Transform transformToPlaceCamera, bool lookToCamera = true)
+        {
+            await _cameraHandler.SwitchCamera(fightMode, idleMode, transformToPlaceCamera);
+            if (lookToCamera)
+                await _playerHandler.LookAtCamera();
         }
     }
 }

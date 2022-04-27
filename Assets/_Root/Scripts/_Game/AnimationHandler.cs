@@ -146,11 +146,11 @@ namespace Game
             material.SetTexture(Literal.VarName_Noise, newMaterial.GetTexture(Literal.VarName_Noise));
 
 #if UNITY_EDITOR
-            float amount = 1.4f;
+            float amount = 1.2f;
             while (amount >= -0.8f)
             {
                 material.SetFloat(Literal.VarName_Dissolve, amount);
-                amount -= 0.035f;
+                amount -= 0.045f;
                 await Task.Delay(1);
             }
 #elif UNITY_IOS
@@ -158,7 +158,7 @@ namespace Game
             while (amount <= 1.4f)
             {
                 material.SetFloat(LiteralString.Dissolve, amount);
-                amount += 0.035f;
+                amount += 0.045f;
                 await Task.Delay(1);
             }
 #endif

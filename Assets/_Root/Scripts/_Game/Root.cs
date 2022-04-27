@@ -100,7 +100,7 @@ internal sealed class Root : MonoBehaviour
         {
             _uiHandler.ChangePowerUi(_playerProfile.Stats.Power.ToString()).DoAsync();
             _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString()).DoAsync();
-            _uiHandler.ChangeGoldUi(_playerProfile.Stats.Gold.ToString()).DoAsync();
+            _uiHandler.ChangeGoldUi(_playerProfile.Stats.Gold).DoAsync();
             _uiHandler.ChangeMergeLevelButtonUi(_playerProfile.Stats.CurrentMergeLevel.ToString()).DoAsync();
             _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
 
@@ -126,7 +126,7 @@ internal sealed class Root : MonoBehaviour
             await _uiHandler.PlayUpgradePowerAnimation(_progressHandler.GetPowerGain());
             _progressHandler.MakePowerUpgrade();
             await _uiHandler.ChangePowerUi(_playerProfile.Stats.Power.ToString());
-            await _uiHandler.ChangeGoldUi(_playerProfile.Stats.Gold.ToString());
+            await _uiHandler.ChangeGoldUi(_playerProfile.Stats.Gold);
             await _uiHandler.ChangePowerUpgradeCostUi(_progressHandler.UpgradePrice.ToString());
 
             canUpgrade = _progressHandler.CheckPlayerFunds();
@@ -156,20 +156,35 @@ internal sealed class Root : MonoBehaviour
         };
     }
 
-    private async void OnResourcePickupComplete(ResourceProperties resourceProperties)
+    private async void OnResourcePickup(ResourceProperties resourceProperties)
     {
         ResouceType resouceType = resourceProperties.ResouceType;
 
         if (resouceType.Equals(ResouceType.Gold))
         {
             _playerProfile.Stats.Gold += resourceProperties.Amount;
-            int amount = _playerProfile.Stats.Gold;
-            await _uiHandler.ChangeGoldUi(amount.ToString());
+            await _uiHandler.ChangeGoldUi(_playerProfile.Stats.Gold);
         }
 
         if (resouceType.Equals(ResouceType.Power))
         {
             _playerProfile.Stats.Power += resourceProperties.Amount;
+            int amount = _playerProfile.Stats.Power;
+            await _uiHandler.ChangePowerUi(amount.ToString());
+        }
+    }
+
+    private async void OnResourcePickupExecute(ResourceProperties resourceProperties, Vector3 positionToSpawnEffect)
+    {
+        ResouceType resouceType = resourceProperties.ResouceType;
+
+        if (resouceType.Equals(ResouceType.Gold))
+        {
+            await _uiHandler.ChangeGoldUi(_playerProfile.Stats.Gold, resourceProperties.PickupEffectPrefab, positionToSpawnEffect);
+        }
+
+        if (resouceType.Equals(ResouceType.Power))
+        {
             int amount = _playerProfile.Stats.Power;
             await _uiHandler.ChangePowerUi(amount.ToString());
         }
@@ -224,8 +239,7 @@ internal sealed class Root : MonoBehaviour
 
         await _metaLevel.PrepareAction();
         await _uiHandler.ChangeDiceRollsUi(_playerProfile.Stats.DiceRolls.ToString());
-        await _metaLevel.MovePlayer();
-        await _metaLevel.ApplyCellEvent(OnFightComplete, OnResourcePickup);
+        await _metaLevel.MakePlayerMove(OnFightComplete, OnResourcePickup);
 
         _uiHandler.ActivateUiInteraction(_progressHandler.CheckPlayerFunds());
     }
@@ -252,7 +266,7 @@ internal sealed class Root : MonoBehaviour
         _uiHandler.OnUpgrdePowerClickEvent += OnUpgradePowerClicked;
         _uiHandler.OnPlayMergeButtonClicked += OnPlayMergeClicked;
 
-        _metaLevel.OnResourcePickupEvent += OnResourcePickupComplete;
+        _metaLevel.OnResourcePickupEvent += OnResourcePickup;
         _metaLevel.OnFightEvent += OnFight;
         _metaLevel.OnPowerUpgradeAvailableEvent += OnPowerUpgradeAvailable;
         _metaLevel.OnLevelCompletionProgressEvent += OnLevelCompletionProgress;
@@ -264,7 +278,7 @@ internal sealed class Root : MonoBehaviour
         _uiHandler.OnUpgrdePowerClickEvent -= OnUpgradePowerClicked;
         _uiHandler.OnPlayMergeButtonClicked -= OnPlayMergeClicked;
 
-        _metaLevel.OnResourcePickupEvent -= OnResourcePickupComplete;
+        _metaLevel.OnResourcePickupEvent -= OnResourcePickup;
         _metaLevel.OnFightEvent -= OnFight;
         _metaLevel.OnPowerUpgradeAvailableEvent -= OnPowerUpgradeAvailable;
         _metaLevel.OnLevelCompletionProgressEvent -= OnLevelCompletionProgress;

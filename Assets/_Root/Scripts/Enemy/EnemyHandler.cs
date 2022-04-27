@@ -15,12 +15,14 @@ namespace Enemy
         private Dictionary<EnemyType, GameObject> _enemyPrefabs;
         private int _enemyFullHealthAmount;
         private PopupHandler _popupHandler;
+        private Camera _camera;
 
         public EnemyHandler(EnemiesData enemiesData, AnimationHandler animationHandler)
         {
             _animationHandler = animationHandler;
             _infoHandler = new InfoBarHandler(Camera.main);
             _enemyPrefabs = MakeEnemyPrefabsDictionary(enemiesData.EnemiesPrefabs);
+            _camera = Camera.main;
         }
 
         //public async Task InitializeEnemy(EnemyProperties enemyProperties, Transform placeToSpawn)
@@ -37,7 +39,7 @@ namespace Enemy
             _animationHandler.HandleEnemyAppearAnimation();//await?
             _infoHandler.SetInformationBar
                 (enemyProperties.InfoPrefab, enemyObject.transform.position, enemyProperties.Stats.Power, enemyProperties.Stats.Health);
-            _popupHandler = new PopupHandler(_enemyView.PopupPrefab, Camera.main);
+            _popupHandler = new PopupHandler(_enemyView.PopupPrefab, _camera);
         }
 
         public void InitHealthBar()
