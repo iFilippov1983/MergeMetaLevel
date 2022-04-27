@@ -39,7 +39,7 @@ namespace Player
             _infoBarPrefab = gameData.PlayerData.InfoPrefab;
             _camera = gameData.LevelData.CameraContainerView.MainCamera;
             _infoHandler = new InfoBarHandler(_camera);
-            _popupHandler = new PopupHandler(_playerView.PopupPrefab, _camera, gameData.LevelData.CameraContainerView);
+            _popupHandler = new PopupHandler(_playerView.PopupPrefab, _camera, gameData.LevelData.CameraContainerView.FirstPopupSpawnPoint);
         }
 
         public async Task SetDestinationAndMove(Vector3 position)

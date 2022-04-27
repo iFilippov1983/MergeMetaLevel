@@ -11,21 +11,21 @@ namespace Game
         private Transform _popupTransform;
         private PopupView _popup;
         private List<PopupView> _popupList;
-        private CameraContainerView _cameraContainer;
+        private Transform _alternativeTransform;
         private Camera _camera;
         private string _text;
         private const float _damageFontSize = 2.5f;
         private const float _goldFontSize = 3f;
-        private const float _movesFontSize = 4f;
+        private const float _movesFontSize = 3f;
         private readonly Color _damageColor = new Color(255, 0, 0);
         private readonly Color _pickupColor = new Color(250, 162, 0);
         private readonly Color _movesColor = new Color(0, 0, 0);
-        private readonly Vector3 _firstPopupInitialScale = new Vector3(0.3f, 0.3f, 0.3f);
+        private readonly Vector3 _firstPopupInitialScale = new Vector3(0.4f, 0.4f, 0.4f);
         private readonly Vector3 _defaultScale = new Vector3(1f, 1f, 1f);
 
-        public PopupHandler(GameObject popupPrefab, Camera camera, CameraContainerView cameraContainerView = null)
+        public PopupHandler(GameObject popupPrefab, Camera camera, Transform alternativeTransform = null)
         {
-            _cameraContainer = cameraContainerView;
+            _alternativeTransform = alternativeTransform;
             _camera = camera;
             _popupPrefab = popupPrefab;
             _popupList = new List<PopupView>();
@@ -33,8 +33,9 @@ namespace Game
 
         public async void SpawnPopup(Transform transformToSpawn, int value, PopupType popupType = PopupType.Damage, bool firstPopup = false)
         {
+            DestroyPopups();
             Vector3 spawnPosition = firstPopup
-                ? _cameraContainer.FirstPopupSpawnPoint.position
+                ? _alternativeTransform.position
                 : transformToSpawn.position;
 
             _popupTransform = Object.Instantiate(_popupPrefab, spawnPosition, _camera.transform.rotation).transform;
