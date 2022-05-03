@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fa82f778492d6540918133e1c77f407, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  _playerPrefabName: Player_elf
+  _playerPrefabName: Player
   _infoPrefabName: InfoBar

@@ -34,9 +34,8 @@ namespace Game
 
         public Action OnFightEvent;
         public Action OnPowerUpgradeAvailableEvent;
-        public Action<ResourceProperties> OnResourcePickupEvent;
-        public Action<ResourceProperties, Vector3> OnResourcePickupExecute;
         public Action<int> OnLevelCompletionProgressEvent;
+        public Action<int> OnGoldValueChangeEvent;
 
         public MetaLevel(GameData gameData, PlayerProfile playerProfile)
         {
@@ -55,12 +54,15 @@ namespace Game
 
             CashPlayerChildGameObjects();
             InitialCameraSwitch(true);
+
             _playerHandler.PlayerAnimController.TurnAroundActionEvent += _animationHandler.PlayerFacedStateChange;
+            _playerHandler.OnParticleCollision += OnGoldValueChange;
         }
 
         public void Cleanup()
         {
             _playerHandler.PlayerAnimController.TurnAroundActionEvent -= _animationHandler.PlayerFacedStateChange;
+            _playerHandler.OnParticleCollision -= OnGoldValueChange;
         }
 
         public async Task MakePlayerMove(Action<bool> OnFightCompleteEvent, Action OnResourcePickupEvent = null)
@@ -74,6 +76,8 @@ namespace Game
         public void TeleportPlayerToStart()
         {
             _playerHandler.PlayerAnimController.TurnAroundActionEvent -= _animationHandler.PlayerFacedStateChange;
+            _playerHandler.OnParticleCollision -= OnGoldValueChange;
+
             _playerHandler.DestroyPlayer();
             _playerProfile.Stats.CurrentCellID = 0;
             _playerHandler.InitPlayer();
@@ -86,7 +90,9 @@ namespace Game
 
             CashPlayerChildGameObjects();
             InitialCameraSwitch(false);
+
             _playerHandler.PlayerAnimController.TurnAroundActionEvent += _animationHandler.PlayerFacedStateChange;
+            _playerHandler.OnParticleCollision += OnGoldValueChange;
         }
 
         public void HandlePlayerVisibility()
@@ -137,12 +143,16 @@ namespace Game
             }
             if (type.Equals(ContentType.Resource))
             {
-                OnResourcePickupEvent?.Invoke();
-                await ApplyResourcePickup((ResourceProperties)content);
+                OnResourcePickupEvent();
+                await Task.Delay(500);
+                ExecuteResourcePickup((ResourceProperties)content);
             }
         }
 
         public void AnimatePlayerLevelUp() => _animationHandler.ActivateLevelUpParticle();
+
+        public void OnGoldValueChange(int value) => OnGoldValueChangeEvent?.Invoke(value);
+
 
         private async void InitialCameraSwitch(bool gameStart)
         {
@@ -165,30 +175,10 @@ namespace Game
 
         private void ExecuteResourcePickup(ResourceProperties resourceProperties)
         { 
-            _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID);
-            var positionToSpawnEffect = _cellView.ResourcePickupEffectSpawnPoint.position;
-            OnResourcePickupExecute?.Invoke(resourceProperties, positionToSpawnEffect);
-
             _playerHandler.SpawnPopupAbovePlayer(resourceProperties.Amount, PopupType.Resource);
-        }
-
-        private async Task ApplyResourcePickup(ResourceProperties resourceProperties)
-        {
-            _cellView = _levelViewHandler.GetCellViewWithId(_playerProfile.Stats.CurrentCellID);
-            var effectObject = GameObject.Instantiate(resourceProperties.PickupEffectPrefab, _cellView.ResourcePickupEffectSpawnPoint.position, Quaternion.identity);
-            var particleEffect = effectObject.GetComponent<ParticleSystem>();
-            var sr = particleEffect.GetComponent<SpriteRenderer>();
-            Debug.Log(sr != null);
-            particleEffect.Play();
-            _playerHandler.SpawnPopupAbovePlayer(resourceProperties.Amount, PopupType.Resource);
-            OnResourcePickupEvent?.Invoke(resourceProperties);
+            _playerHandler.PlayGoldParticlesEffect(resourceProperties.Amount);
 
             HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
-
-            while (particleEffect.isPlaying)
-                await Task.Yield();
-
-            GameObject.Destroy(effectObject);
         }
 
         private async Task ApplyFight(EnemyProperties enemyProperties, Action<bool> OnFightCompleteEvent, bool fisrtFightOnThisCell = true)
@@ -203,16 +193,19 @@ namespace Game
             }
 
             _animationHandler.SetPlayerAwareState();
+            _playerHandler.PrepareToFight();
             await _cameraHandler.SwitchCamera(true, false, _cellView.FightCameraPosition);
-            _playerHandler.PrepareToFight(_playerProfile.Stats.Power, _playerProfile.Stats.Health);
+
+            _playerHandler.InitHealthBar(_playerProfile.Stats.Power, _playerProfile.Stats.Health);
             _enemyHandler.InitHealthBar();
+
             OnFightEvent?.Invoke();
             await _fightHandler.ApplyFight(_playerHandler.OnGetHitEvent, _enemyHandler.OnGetHitEvent, _cameraHandler.ShakeCamera, enemyProperties);
 
             bool playerWins = _playerProfile.Stats.LastFightWinner;
             OnFightCompleteEvent?.Invoke(playerWins);
-            await HandleFightResult(playerWins, enemyProperties);
 
+            await HandleFightResult(playerWins, enemyProperties);
             await HandleCameraSwitch(false, true, _cellView.IdleCameraPosition, playerWins);
         }
 
@@ -246,6 +239,7 @@ namespace Game
 
                 ApplyCellPass(id);
                 _playerProfile.Stats.CurrentCellID = id;
+                _playerProfile.Stats.CurrentCellPosition = position;
                 OnLevelCompletionProgressEvent?.Invoke(id);
                 
                 lastCelView = _levelViewHandler.GetCellViewWithId(id);
@@ -295,14 +289,10 @@ namespace Game
             {
                 _enemyHandler.OnFightFinishEvent(playerWins);
                 var reward = enemyProperties.Reward;
-                var tasks = new List<Task>();
                 foreach (var r in reward)
-                    tasks.Add(ApplyResourcePickup(r));
-                await Task.WhenAll(tasks);
+                    ExecuteResourcePickup(r);
 
                 _animationHandler.SetPlayerIdleState(reward != null);
-
-                await Task.Delay(100);//ui events
             }
             else
             {
@@ -310,7 +300,6 @@ namespace Game
                 _playerProfile.Stats.LastFightWinner = false;
                 _playerProfile.Stats.PowerUpgradeAvailable = true;
                 OnPowerUpgradeAvailableEvent?.Invoke();
-                await Task.Delay(100);//ui events
             }
 
             _playerHandler.FinishFight();

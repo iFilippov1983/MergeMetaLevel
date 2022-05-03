@@ -16,11 +16,11 @@ namespace Game
         private string _text;
         private const float _damageFontSize = 2.5f;
         private const float _goldFontSize = 3f;
-        private const float _movesFontSize = 3f;
+        private const float _movesFontSize = 2.5f;
         private readonly Color _damageColor = new Color(255, 0, 0);
         private readonly Color _pickupColor = new Color(250, 162, 0);
         private readonly Color _movesColor = new Color(0, 0, 0);
-        private readonly Vector3 _firstPopupInitialScale = new Vector3(0.4f, 0.4f, 0.4f);
+        private readonly Vector3 _firstPopupInitialScale = new Vector3(0.35f, 0.35f, 0.35f);
         private readonly Vector3 _defaultScale = new Vector3(1f, 1f, 1f);
 
         public PopupHandler(GameObject popupPrefab, Camera camera, Transform alternativeTransform = null)
@@ -38,12 +38,14 @@ namespace Game
                 ? _alternativeTransform.position
                 : transformToSpawn.position;
 
+            Vector3 initialGoalPos = spawnPosition;
+
             _popupTransform = Object.Instantiate(_popupPrefab, spawnPosition, _camera.transform.rotation).transform;
 
             if (firstPopup)
                 _popupTransform.localScale = _firstPopupInitialScale;
             else
-                _popupTransform.SetParent(transformToSpawn.transform, true);
+                _popupTransform.SetParent(transformToSpawn, true);
 
             _popup = _popupTransform.GetComponent<PopupView>();
 
@@ -64,22 +66,43 @@ namespace Game
             _popup.PopupText.SetText(_text);
             _popup.Animation.Play();
 
+            float velosity = 0f;
             while (_popup != null && _popup.Animation.isPlaying)
             {
-                _popup.transform.rotation = _camera.transform.rotation;
+                foreach (PopupView popupView in _popupList)
+                    popupView.transform.rotation = _camera.transform.rotation;
 
                 if (firstPopup)
-                { 
-                    Vector3 position = Vector3.Lerp(_popup.transform.position, transformToSpawn.position, 0.03f);
+                {
+                    bool targetPosMoving = transformToSpawn.hasChanged;
+
+                    //bool targetPosMoving =
+                    //    initialGoalPos.z < transformToSpawn.position.z
+                    //    &&
+                    //    initialGoalPos.x < transformToSpawn.position.x;
+
+                    Debug.Log(targetPosMoving);
+
+                    velosity += targetPosMoving ? Time.deltaTime : Time.deltaTime / 100f;
+                    Vector3 position = Vector3.LerpUnclamped(_popup.transform.position, transformToSpawn.position, velosity);
                     _popupTransform.position = position;
-                    Vector3 scale = Vector3.Lerp(_popup.transform.localScale, _defaultScale, 0.03f);
+                    Vector3 scale = Vector3.Lerp(_popup.transform.localScale, _defaultScale, 0.05f);
                     _popupTransform.localScale = scale;
                 }
-                    
+
                 await Task.Yield();
             }
                 
             DestroyPopups();
+        }
+
+        public void DestroyPopups()
+        {
+            _popup = null;
+            foreach (var popup in _popupList)
+                if (popup != null)
+                    Object.Destroy(popup.gameObject);
+            _popupList.Clear();
         }
 
         private void SetupDamagePopup(int value)
@@ -113,13 +136,6 @@ namespace Game
             _popup.PopupText.alignment = TMPro.TextAlignmentOptions.Center;
         }
 
-        private void DestroyPopups()
-        {
-            _popup = null;
-            foreach (var popup in _popupList)
-                if(popup != null)
-                    Object.Destroy(popup.gameObject);
-            _popupList.Clear();
-        }
+        
     }
 }

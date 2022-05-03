@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameUIPrefabName: GameUICanvas
   _camerasPrefabName: Cameras
+  _goldParticlesPrefabName: GoldExplosion

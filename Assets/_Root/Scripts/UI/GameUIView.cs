@@ -26,6 +26,8 @@ namespace GameUI
         [SerializeField] private TextMeshProUGUI _mainTMP;
         [SerializeField] private GameObject _extraPowerImage;
 
+        [SerializeField] private RectTransform _coinsFlyToTransform;
+
         public Animator Animator => _animator;
         public Dice2D Dice => _dice;
         public ProgressBarView ProgressBarView => _progressBarView;
@@ -41,5 +43,6 @@ namespace GameUI
         public TextMeshProUGUI MergeLevelTMP => _mergeLevelTMP;
         public TextMeshProUGUI MainTMP => _mainTMP;
         public GameObject ExtraPowerImage => _extraPowerImage;
+        public RectTransform CoinsFlyToTransform => _coinsFlyToTransform;
     }
 }

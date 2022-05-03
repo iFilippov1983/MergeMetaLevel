@@ -9,12 +9,22 @@ namespace Data
     {
         [SerializeField] private string _gameUIPrefabName;
         [SerializeField] private string _camerasPrefabName;
+        [SerializeField] private string _goldParticlesPrefabName;
         
         private GameObject _gameUI;
         private GameObject _cameras;
+        private GameObject _goldParticles;
 
         public GameObject GameUIPrefab => LoadGameUIPrefab();
         public GameObject CamerasPrefab => LoadCamerasPrefab();
+        public GameObject GoldParticlesPrefab => LoadGoldParticlesPrefab();
+
+        private GameObject LoadGoldParticlesPrefab()
+        {
+            if (_goldParticles == null) _goldParticles =
+                    Resources.Load<GameObject>(string.Concat(ResourcePath.VfxPrefabsFolder, _goldParticlesPrefabName));
+            return _goldParticles;
+        }
 
         private GameObject LoadCamerasPrefab()
         {

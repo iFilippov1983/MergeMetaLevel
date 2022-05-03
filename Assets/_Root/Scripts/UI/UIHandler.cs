@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
 using Lofelt.NiceVibrations;
+using static UnityEngine.ParticleSystem;
+using Unity.Collections;
 
 namespace GameUI
 {
@@ -16,7 +18,6 @@ namespace GameUI
         private UIData _uiData;
         private GameUIView _gameUIView;
         private PlayerProfile _playerProfile;
-        private Animation _hideUiAnimation;
 
         public Action OnDiceRollClickEvent;
         public Action OnUpgrdePowerClickEvent;
@@ -27,7 +28,6 @@ namespace GameUI
             _uiContainer = uiContainer;
             _uiData = uiData;
             _playerProfile = playerProfile;
-
             InitializeUI();
         }
 
@@ -120,21 +120,11 @@ namespace GameUI
             _gameUIView.ProgressBarView.ProgressValue.text = text;
         }
 
-        public async Task ChangeGoldUi(int amount, GameObject effectPrefab = null, Vector3 positionToSpawnEffect = new Vector3())
+        public void ChangeGoldUi(int currentAmount)
         {
-            if (effectPrefab != null)
-            {
-                var effectObject = GameObject.Instantiate(effectPrefab, positionToSpawnEffect, Quaternion.identity);
-                var particleEffect = effectObject.GetComponent<ParticleSystem>();
-                var sRenderer = particleEffect.GetComponent<SpriteRenderer>();
-            }
-
-            //for (int i = 0; i < amount; i++)
-            //{
-
-            //}
-            _gameUIView.GoldTMP.text = amount.ToString();
+            _gameUIView.GoldTMP.text = currentAmount.ToString();
         }
+
 
         public async Task ChangeGemsUI(int amount)
         {

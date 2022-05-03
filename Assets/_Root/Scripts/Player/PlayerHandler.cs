@@ -1,6 +1,7 @@
 ﻿using Data;
 using Game;
 using Level;
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ namespace Player
         private HeadAimHandler _headAimHandler;
         private Camera _camera;
 
+        public Action<int> OnParticleCollision;
 
         public PlayerView PlayerView => _playerView;
         public CharacterAnimationControler PlayerAnimController => _playerAnimController;
@@ -67,21 +69,29 @@ namespace Player
         public void SpawnPopupAbovePlayer(int value, PopupType popupType = PopupType.Damage, bool firstPopup = false) =>
             _popupHandler.SpawnPopup(_playerView.PopupSpawnPoint, value, popupType, firstPopup);
 
+        public void PlayGoldParticlesEffect(int particlesCount) => 
+            _playerView.FlyParticleSystem.Emit(particlesCount);
 
-        public void PrepareToFight(int power, int health)
+        public void PrepareToFight()
         {
+            _popupHandler.DestroyPopups();
             _headAimHandler.StopLooking();
+        }
+
+        public void InitHealthBar(int power, int health)
+        {
             _infoHandler.SetInformationBar
                 (_infoBarPrefab, _playerView.transform.position, power, health);
             _infoHandler.InitInformationBar();
         }
-
+        
         public void FinishFight()
         {
             _infoHandler.DestroyInformationBar();
         }
 
         public async Task LookAtCamera() => await _headAimHandler.LookAt(_camera.transform);
+
         public void StopLookingAtCamera() => _headAimHandler.StopLooking();
 
         public void InitPlayer()
@@ -89,15 +99,25 @@ namespace Player
             var initialCellView = _cellViews[_playerProfile.Stats.CurrentCellID];
             _playerInitialPosition = initialCellView.transform.position;
             _playerInitialRotation = initialCellView.transform.rotation;
+
             var playerObject = GameObject.Instantiate(_playerPrefab, _playerInitialPosition, _playerInitialRotation);
             _playerView = playerObject.GetComponent<PlayerView>();
             _playerAnimController = playerObject.GetComponent<CharacterAnimationControler>();
             _headAimHandler = new HeadAimHandler(_playerView.HeadAimTarget, _playerView.HeadAim);
+
+            _playerView.FlyParticleSystem.OnParticleCollision += OnParticleCollisionEvent;
         }
 
         public void DestroyPlayer()
         {
+            _playerView.FlyParticleSystem.OnParticleCollision -= OnParticleCollisionEvent;
             UnityEngine.Object.Destroy(_playerView.gameObject);
+        }
+
+        private void OnParticleCollisionEvent(int valueToAdd)
+        {
+            _playerProfile.Stats.Gold += valueToAdd;
+            OnParticleCollision?.Invoke(_playerProfile.Stats.Gold);
         }
     }
 }

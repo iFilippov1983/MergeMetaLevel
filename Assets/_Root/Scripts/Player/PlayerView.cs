@@ -16,11 +16,12 @@ namespace Player
         [SerializeField] private Transform _weapon;
         [SerializeField] private MultiAimConstraint _headAim;
         [SerializeField] private Transform _headAimTarget;
+        [SerializeField] private FlyParticleSystem _flyParticleSystem;
 
         private NavMeshAgent _navMeshAgent;
         private GameObject _popupPrefab;
-        //private Particle[] _particles;
 
+        public FlyParticleSystem FlyParticleSystem => _flyParticleSystem;
         public Transform HeadAimTarget => _headAimTarget;
         public MultiAimConstraint HeadAim => _headAim;
         public Transform Weapon => _weapon;
@@ -40,7 +41,6 @@ namespace Player
 
         private void Awake()
         {
-            //var count = _levelUpParticle.GetParticles(_particles);
             _navMeshAgent = GetComponent<NavMeshAgent>();
         }
     }

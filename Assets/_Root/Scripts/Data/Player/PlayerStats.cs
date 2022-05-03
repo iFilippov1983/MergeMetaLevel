@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using UnityEngine;
 
 namespace Data
@@ -20,6 +21,8 @@ namespace Data
         public int CurrentMergeLevel;
         [Range(1, 100, order = 1)]
         public int CurrentPowerUpgradeLevel;
+        [JsonIgnore]
+        public Vector3 CurrentCellPosition;
         //[Space]
         //[SerializeField]
         private const int _powerToHealthMultiplier = 3;

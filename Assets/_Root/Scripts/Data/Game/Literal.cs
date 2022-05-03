@@ -12,5 +12,8 @@
 
         public const string LayerName_IgnoreRaicast = "Ignore Raycast";
         public const string LayerName_Default = "Default";
+        public const string LayerName_Target = "Target";
+
+        public const string GoName_Particles = "[Particles]";
     }
 }

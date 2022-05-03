@@ -2709,8 +2709,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278935231
-  m_fontColor: {r: 0.7490196, g: 0.36862746, b: 0.043137256, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4307,6 +4307,7 @@ MonoBehaviour:
   _powerTMP: {fileID: 6909589028288775682}
   _mainTMP: {fileID: 3174626708365915990}
   _extraPowerImage: {fileID: 4388515730853051543}
+  _coinsFlyToTransform: {fileID: 181207616371635828}
 --- !u!223 &6974262535181986871
 Canvas:
   m_ObjectHideFlags: 0

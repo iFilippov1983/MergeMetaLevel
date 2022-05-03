@@ -24,10 +24,10 @@ namespace Game
             _progressData.SetPowerProgressLevel(_playerProfile.Stats.CurrentPowerUpgradeLevel);
         }
 
-        public void HandleMergeLevelComplete(bool levelComplete = true, int reward = 0)
+        public void HandleMergeLevelComplete(bool levelComplete = true, int goldReward = 0)
         {
             if (levelComplete)
-                SetMergeLevelComplete(reward);
+                SetMergeLevelComplete(goldReward);
             else
                 SetMergeLevelNotComplete();
         }
@@ -52,12 +52,12 @@ namespace Game
             _progressData.SetNextUpgradeLevel();
         }
 
-        private void SetMergeLevelComplete(int reward)
+        private void SetMergeLevelComplete(int goldReward)
         {
             _playerProfile.Stats.CurrentMergeLevel++;
             _playerProfile.Stats.DiceRolls++;
             _playerProfile.Stats.Power += _progressData.PowerConstantForMergeWin;
-            _playerProfile.Stats.Gold += reward;
+            _playerProfile.Stats.Gold += goldReward;
         }
 
         private void SetMergeLevelNotComplete()
